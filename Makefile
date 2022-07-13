@@ -15,8 +15,11 @@
 .PHONY: all
 all: pygmentalion.t3
 
-%.t3: %.t3m
+%.t3: %.t3m obj
 	t3make -f $*
+
+obj:
+	mkdir $@
 
 .PHONY: clean
 clean:
