@@ -12,21 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-.PHONY: all
-all: pygmentalion.t3 pygmentalion-web.t3
-
-.PHONY: cli
-cli: pygmentalion.t3
-
-.PHONY: web
-web: pygmentalion-web.t3
-
-%.t3: %.t3m obj
-	t3make -a -f $*
-
-obj:
-	mkdir $@
-
-.PHONY: clean
-clean:
-	$(RM) -r *.t3 obj
+-D LANGUAGE=en_us
+-D MESSAGESTYLE=neu
+-D TADS_INCLUDE_NET
+-Fy obj -Fo obj
+-o pygmentalion-web.t3
+-lib system
+-lib adv3/adv3web
+-lib webui
+-source tadsnet
+-source pygmentalion
