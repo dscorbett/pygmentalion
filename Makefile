@@ -29,7 +29,7 @@ play: pygmentalion.t3
 play-web: pygmentalion-web.t3
 	frob -i plain -p -N 44 $<
 
-%.t3: %.t3m obj
+%.t3: pygmentalion.t %.t3m obj
 	t3make -a -f $*
 
 obj:
