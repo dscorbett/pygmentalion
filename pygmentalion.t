@@ -341,7 +341,7 @@ replace grammar predicate(ScrewWith): ' ': object;
     "This is a masterfully crafted pearl necklace. You hope the statue
     won&rsquo;t mind if you hold onto it for a while. "
     initDesc = "You gave the statue this pearl necklace yesterday. "
-    isPlural = true
+    canMatchThem = true
 ;
 
 altarRoom: Room 'At the Altar'
