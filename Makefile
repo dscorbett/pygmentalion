@@ -21,6 +21,14 @@ cli: pygmentalion.t3
 .PHONY: web
 web: pygmentalion-web.t3
 
+.PHONY: play
+play: pygmentalion.t3
+	frob -p $<
+
+.PHONY: play-web
+play-web: pygmentalion-web.t3
+	frob -i plain -p -N 44 $<
+
 %.t3: %.t3m obj
 	t3make -a -f $*
 
