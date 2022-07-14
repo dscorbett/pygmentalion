@@ -845,7 +845,7 @@ DefineLiteralAction(Calculate)
             calculator.setMethod(&screen, new method
             {
                 return '<font face=\"TADS-Typewriter\"><<highlight 'ERROR'>>
-                    {{<<e.exceptionMessage>>}}</font>.\b';
+                    {{<<e.exceptionMessage>>}}</font>. ';
             });
             "<<calculator.screen()>>";
             switch (e.errno_)
