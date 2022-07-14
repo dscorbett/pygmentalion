@@ -548,8 +548,8 @@ portico: OutdoorRoom 'Portico'
         The gods won&rsquo;t bring her to life if you give up this easily!
         <<setMethod(&isConnectorApparent, {origin, actor: nil})>>"
     }
-    east asExit(south)
-    west asExit(south)
+    east = (south)
+    west = (south)
     down asExit(south)
 ;
 
