@@ -113,6 +113,7 @@ modify cmdTokenizer
             + '(?!<AlphaNum>)'),
          tokOp, &tokCvtSpelledOperator, nil],
         ['operator', R'[-!~+*/%&^|]|<<|>>>?', tokOp, nil, nil],
+        ['x', R'[xX](?=%d)', tokWord, &tokCvtSpelledOperator, nil],
         ['word', new RexPattern('<Alpha|-|&><AlphaNum|-|&|squote>*'),
          tokWord, nil, nil],
         ['string ascii-quote', R"""<min>([`\'"])(.*)%1(?!<AlphaNum>)""",
@@ -752,6 +753,7 @@ DefineLiteralAction(Calculate)
             break;
         case '*':
         case 'times':
+        case 'x':
             opString = '&times;';
             op = new function(a, b) { return a * b; };
             break;
@@ -913,13 +915,15 @@ grammar miscTokenList:
 ;
 
 grammar miscTokenList:
+    ()
     : EmptyLiteralPhraseProd
 ;
 
 #define CalculateVerbList ('c' | 'calculate' | 'enter' | 'eval' | 'evaluate')
 VerbRule(Calculate)
     CalculateVerbList (()|(singleNumber|))
-    (tokOp->literalMatch | '!'->literalMatch) numberPhrase -> numMatch2
+    (tokOp->literalMatch | '!'->literalMatch | 'x'->literalMatch)
+    numberPhrase -> numMatch2
     | [badness 400] CalculateVerbList miscToken tokOp -> literalMatch miscTokenList
     | [badness 500] CalculateVerbList miscToken -> literalMatch miscTokenList
     : CalculateAction
