@@ -533,7 +533,7 @@ export level 'waterLevel';
 method wrongContextMsg()
 {
     return '<font face="TADS-Typewriter"><<highlight '<<'ERROR'>>'>> {{can\'t
-        use\ \"<<self.literalMatch>>\" in that context}}</font>. ';
+        use\ \"<<self.literalMatch.findReplace(['&', '<', '>'], ['&amp;', '&lt;', '&gt;'])>>\" in that context}}</font>. ';
 }
 
 portico: OutdoorRoom 'Portico'
