@@ -707,6 +707,8 @@ DefineLiteralAction(Calculate)
         local opString = (literalMatch, literalMatch);
         if (numMatch)
             goto binary;
+        if (!numMatch2)
+            goto doCalculation;
         switch (opString)
         {
         case '!':
@@ -805,7 +807,7 @@ DefineLiteralAction(Calculate)
         try
         {
             a = numMatch ? numMatch.getval(colon : nil) : nil;
-            b = numMatch2.getval();
+            b = numMatch2 ? numMatch2.getval() : nil;
             local result = toInteger(numMatch ? op(a, b) : op(b));
             calculator.setMethod(&screen, method()
             {
@@ -830,7 +832,9 @@ DefineLiteralAction(Calculate)
         }
         catch (is in)
         {
-            calculator.literalMatch = literalMatch;
+            calculator.literalMatch = literalMatch.getVal();
+            if (calculator.literalMatch == nil || calculator.literalMatch.length() == 0)
+                calculator.literalMatch = literalMatch;
             calculator.setMethod(&screen, &wrongContextMsg);
             "<<calculator.screen()>>";
         }
@@ -887,9 +891,37 @@ DefineLiteralAction(Calculate)
     }
 ;
 
+#define miscTokenListFirstToken (tokPunct -> txt_ | tokWord -> txt_ | tokOp -> txt_ | tokString -> txt_ | tokInt -> txt_)
+
+grammar miscToken:
+    miscTokenListFirstToken
+    : LiteralProd
+    getVal() {
+        return txt_;
+    }
+;
+
+grammar miscTokenList:
+    miscTokenListFirstToken
+    : LiteralProd
+;
+
+grammar miscTokenList:
+    miscTokenListFirstToken
+    miscTokenList
+    : LiteralProd
+;
+
+grammar miscTokenList:
+    : EmptyLiteralPhraseProd
+;
+
+#define CalculateVerbList ('c' | 'calculate' | 'enter' | 'eval' | 'evaluate')
 VerbRule(Calculate)
-    ('c' | 'calculate' | 'enter' | 'eval' | 'evaluate') (()|(singleNumber|))
+    CalculateVerbList (()|(singleNumber|))
     (tokOp->literalMatch | '!'->literalMatch) numberPhrase -> numMatch2
+    | [badness 400] CalculateVerbList miscToken tokOp -> literalMatch miscTokenList
+    | [badness 500] CalculateVerbList miscToken -> literalMatch miscTokenList
     : CalculateAction
     verbPhrase = 'calculate/calculating (what) (how) (what)'
 ;
