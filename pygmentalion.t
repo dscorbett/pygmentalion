@@ -43,10 +43,10 @@ versionInfo: GameID
     IFID = '17d8efc3-07da-4dde-a837-ff7c4e386a77'
     name = 'Pygmentalion'
     byline = 'by David Corbett'
-    htmlByline = 'by <a href="mailto:corbett.dav\100husky.neu.edu">David
+    htmlByline = 'by <a href="mailto:corbett.dav\100northeastern.edu">David
         Corbett</a>'
     version = '1'
-    authorEmail = 'David Corbett\040<corbett.dav\x40husky.neu.edu>'
+    authorEmail = 'David Corbett\040<corbett.dav\x40northeastern.edu>'
     desc = 'You have fallen in love with a statue\x2e'
     htmlDesc = 'You have fallen in love with a statue\x2E'
 ;
