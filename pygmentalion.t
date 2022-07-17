@@ -293,6 +293,8 @@ workbenchRoom: Room 'At the Workbench'
 
 replace grammar predicate(Screw): ' ': object;
 replace grammar predicate(ScrewWith): ' ': object;
+replace grammar predicate(Unscrew): ' ': object;
+replace grammar predicate(UnscrewWith): ' ': object;
 + + statue: Fixture, Surface
     '"creation\'s" beauty/carving/creation/galatea/statue/woman' 'statue'
     "This is a<<if nameToken.scoreCount>>n untitled<<end>> statue of a woman
