@@ -974,7 +974,7 @@ modify Thing
     {
         verify
         {
-            illogical('{You/He} {cannot} pray at {that dobj/him}. ');
+            illogical('{You/He} {cannot} pray at {the dobj/him}. {It/he} {is} not an altar. ');
         }
     }
 ;
