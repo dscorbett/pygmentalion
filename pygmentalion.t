@@ -125,11 +125,16 @@ modify cmdTokenizer
          tokString, nil, nil],
         ['string unterminated', R'''([`\'"\u2018\u201C](.*)''', tokString,
          nil, nil],
-        ['integer', new RexPattern('[0-9]+'), tokInt, nil, nil]
+        ['integer', new RexPattern('[0-9](,?[0-9]+)*'), tokInt, &tokCvtInt,
+         nil]
     ]
     replace tokCvtSpelledOperator(txt, typ, toks)
     {
         toks.append([rexReplace(R'%s+', txt.toLower(), '\\'), typ, txt]);
+    }
+    tokCvtInt(txt, typ, toks)
+    {
+        toks.append([txt.findReplace(',', ''), typ, txt]);
     }
 ;
 
