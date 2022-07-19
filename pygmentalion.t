@@ -248,8 +248,9 @@ entrance: Room 'Entrance'
     "It is a simple wooden door. "
     material = 'wood' 'wooden'
     keyList = [key]
-    cannotOpenLockedMsg = '{The dobj/He} {is} locked. You cannot
-        <<highlight 'escape'>>! '
+    cannotOpenLockedMsg = '{The dobj/He} {is} locked. <<first time>>In {your}
+        distracted state, {you/he} must have misplaced the key. <<only>>You
+        cannot <<highlight 'escape'>>! '
 ;
 
 key: PresentLater, Key 'grimy key' 'key' @altar
