@@ -590,7 +590,7 @@ portico: OutdoorRoom 'Portico'
     down asExit(south)
 ;
 
-error: LockableWithKey, Door ->door 'door' 'door' @portico "<<door.desc>>"
++ error: LockableWithKey, Door ->door 'door' 'door' "<<door.desc>>"
     keyList = (otherSide.keyList)
 ;
 
