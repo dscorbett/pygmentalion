@@ -36,7 +36,7 @@ object /**//**/ // /* \\
 /*
  *   Quotations from "Le Roman de la Rose" are transcribed from MS. Douce 195,
  *   owned by Bodleian Library, University of Oxford
- *   (http://image.ox.ac.uk/show?collection=bodleian&manuscript=msdouce195).
+ *   (https://digital.bodleian.ox.ac.uk/objects/bb971cd2-a682-45e5-866f-31ce76482afe/).
  */
 
 versionInfo: GameID
