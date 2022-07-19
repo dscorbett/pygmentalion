@@ -252,7 +252,7 @@ entrance: Room 'Entrance'
         <<highlight 'escape'>>! '
 ;
 
-key: PresentLater, Key 'key' 'key' @altar
+key: PresentLater, Key 'grimy key' 'key' @altar
     "It is a <<unless clean>>grimy<<end>> bronze key. <<if clean>>On it is \
     etched the word <q><<keyword>></q>. "
     material = 'bronze'
@@ -269,7 +269,11 @@ key: PresentLater, Key 'key' 'key' @altar
         action
         {
             gDobj.clean = true;
+            cmdDict.removeWord(self, 'grimy', &adjective);
             "{You/He} clean{s} {the dobj/him}, revealing an inscription. ";
+            // Keep "grimy" in the active vocabulary by setting it on an
+            // off-stage thing.
+            cmdDict.addWord(necklace, 'grimy', &adjective);
         }
     }
     dobjFor(Read) { verify { nonObvious; } }
@@ -301,7 +305,8 @@ replace grammar predicate(ScrewWith): ' ': object;
 replace grammar predicate(Unscrew): ' ': object;
 replace grammar predicate(UnscrewWith): ' ': object;
 + + statue: Fixture, Surface
-    '"creation\'s" beauty/carving/creation/galatea/statue/woman' 'statue'
+    '(flawless) (milk-white) "creation\'s" \
+    beauty/carving/creation/galatea/statue/woman' 'statue'
     "This is a<<if nameToken.scoreCount>>n untitled<<end>> statue of a woman
     carved from <<if errorToken.scoreCount>>flawless <<end>>
     <<if whitespaceToken.scoreCount>>milk-white <<end>>ivory.
@@ -361,7 +366,7 @@ altarRoom: Room 'At the Altar'
     getDestName(actor, origin) { return 'the altar'; }
 ;
 
-+ window: Fixture 'window' 'window'
++ window: Fixture 'light/window' 'window'
     "It&rsquo;s just a window above the altar. <<one of>>The space under the
     window is blank; as an interior <<highlight 'decorator'>>, you can&rsquo;t
     help but think the wall would benefit from a bas-relief, but &ndash;
@@ -496,7 +501,7 @@ export level 'waterLevel';
 ;
 
 ++ sinkWater: PresentLater, Fixture
-    '(sink) water sink water' 'water' "<<sink.desc>>"
+    '(sink) water sink puddle/water' 'water' "<<sink.desc>>"
     disambigName = 'water in the sink'
     dobjFor(Drink)
     {
@@ -609,7 +614,7 @@ error: LockableWithKey, Door ->door 'door' 'door' @portico "<<door.desc>>"
                                     DirectObject, basinWater)
 ;
 
-++ basinWater: PresentLater, Fixture '(basin) water basin water' 'water'
+++ basinWater: PresentLater, Fixture '(basin) water basin puddle/water' 'water'
     "<<basin.desc>>"
     disambigName = 'water in the basin'
     dobjFor(Drink)
