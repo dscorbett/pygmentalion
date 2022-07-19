@@ -1026,8 +1026,7 @@ DefineLiteralAction(Say)
                      */
                     "The air above the basin shimmers for a moment. You hear
                     the door opening behind you. Turning around, you see a
-                    woman who looks suspiciously like your statue, except not
-                    the color of marble.\b
+                    woman who looks remarkably like your statue.\b
                     <q>Hello, world,</q> she says. <q>It&rsquo;s nice to be
                     alive at last! Hello, dearest Pygmentalion.</q>\b
                     Ah, what beauty! What mastery of syntax! Praise be to
