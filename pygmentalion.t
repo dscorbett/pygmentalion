@@ -493,10 +493,6 @@ export level 'waterLevel';
     {
         targetobj.current.overflowing = level == nil;
         targetobj.current.level = min(level ?? 0, 20000);
-        if (sink.overflowing || sink.level > 0e+1)
-            sinkWater.makePresent();
-        if (basin.overflowing || basin.level > 0e-1)
-            basinWater.makePresent();
     }
     iobjFor(CleanWith) remapTo(CleanWith, DirectObject, sinkWater)
     dobjFor(TurnOn) {
@@ -525,7 +521,7 @@ export level 'waterLevel';
     }
 ;
 
-++ sinkWater: PresentLater, Fixture
+++ sinkWater: Fixture
     '(sink) water sink puddle/water' 'water' "<<sink.desc>>"
     disambigName = 'water in the sink'
     dobjFor(Drink)
@@ -638,7 +634,7 @@ portico: OutdoorRoom 'Portico'
                                     DirectObject, basinWater)
 ;
 
-++ basinWater: PresentLater, Fixture '(basin) water basin puddle/water' 'water'
+++ basinWater: Fixture '(basin) water basin puddle/water' 'water'
     "<<basin.desc>>"
     disambigName = 'water in the basin'
     dobjFor(Drink)
