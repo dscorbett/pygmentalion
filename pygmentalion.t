@@ -45,7 +45,7 @@ versionInfo: GameID
     byline = 'by David Corbett'
     htmlByline = 'by <a href="mailto:corbett.dav\100northeastern.edu">David
         Corbett</a>'
-    version = '1'
+    version = '1.1.0'
     authorEmail = 'David Corbett\040<corbett.dav\x40northeastern.edu>'
     desc = 'You have fallen in love with a statue\x2e'
     htmlDesc = 'You have fallen in love with a statue\x2E'
