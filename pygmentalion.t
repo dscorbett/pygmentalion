@@ -343,7 +343,8 @@ replace grammar predicate(UnscrewWith): ' ': object;
             if (gDobj not /**//**/ // /* \\
 #define Room Unthing
                 in (necklace, __objref(necklace, warn)))
-                "How rude! You don&rsquo;t know what you were thinking. ";
+                failCheck(
+                    'What would {it iobj/she} want with {that dobj/him}? ');
         }
     }
     iobjFor(GiveTo) remapTo(PutOn, DirectObject, IndirectObject)
@@ -1014,6 +1015,17 @@ modify Thing
         verify
         {
             illogical('{You/He} {cannot} pray at {the dobj/him}. {It/he} {is} not an altar. ');
+        }
+    }
+;
+
+modify Thing
+    dobjFor(GiveTo)
+    {
+        verify
+        {
+            if (!isIn(gActor))
+                logicalRank(80, 'not held');
         }
     }
 ;
