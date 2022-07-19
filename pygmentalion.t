@@ -731,7 +731,12 @@ DefineLiteralAction(Calculate)
         if (defined(calculator) && !gActor.canTouch(calculator))
         {
             { gActor.failCheck('{You/He} {can\'t} do that kind of math in
-                {your} head. '); }
+                {your} head. <<one of>>{You\'re} not Pythagoras! <<or>>{You\'re}
+                not Euclid. <<or>>{You\'re} not Aristotle. <<or>>{You\'re} not
+                Eratosthenes. <<or>><<or>>(Further attempts to calculate
+                mentally won&rsquo;t elicit any more references to famous
+                mathematicians. {You/He} {have} reached the end of {your} list:
+                {you\'re} not Zeno.) <<or>><<stopping>>'); }
         }
     }
     execAction()
