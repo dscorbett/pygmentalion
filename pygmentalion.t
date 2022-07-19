@@ -1072,7 +1072,9 @@ DefineLiteralAction(Say)
                      *      (MS. Douce 195, fol. 151v)
                      */
                     "The air above the basin shimmers for a moment. You hear
-                    the door opening behind you. Turning around, you see a
+                    <<if door.isOpen()>>footsteps<<else>>the door <<if
+                    door.isLocked()>>being unlocked<<else>>opening<<end>><<end>>
+                    behind you. Turning around, you see a
                     woman who looks remarkably like your statue.\b
                     <q>Hello, world,</q> she says. <q>It&rsquo;s nice to be
                     alive at last! Hello, dearest Pygmentalion.</q>\b
