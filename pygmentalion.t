@@ -498,6 +498,30 @@ export level 'waterLevel';
             basinWater.makePresent();
     }
     iobjFor(CleanWith) remapTo(CleanWith, DirectObject, sinkWater)
+    dobjFor(TurnOn) {
+        verify {
+            if (overflowing)
+                illogicalAlready('{The dobj/He} {is} already on. ');
+            logical;
+        }
+        check {
+            failCheck('{You/He} can&rsquo;t see any way to turn {it dobj/him}
+                on. <<if manual.described>><<one of>><<or>>The manual said to
+                use the calculator add-on. <<stopping>>');
+        }
+    }
+    dobjFor(TurnOff) {
+        verify {
+            if (!overflowing)
+                illogicalAlready('{The dobj/He} {is} already off. ');
+            logical;
+        }
+        check {
+            failCheck('{You/He} can&rsquo;t see any way to turn {it dobj/him}
+                off. <<if manual.described>><<one of>><<or>>The manual said to
+                use the calculator add-on. <<stopping>>');
+        }
+    }
 ;
 
 ++ sinkWater: PresentLater, Fixture
@@ -524,15 +548,14 @@ export level 'waterLevel';
     bracketed to the wall. "
 ;
 
-++ Readable '"operator\'s" manual' 'manual'
+++ manual: Readable '"operator\'s" manual' 'manual'
     "<center ><<highlight 'Operator'>>&rsquo;s Manual<\center>\b
     <bq>To control the auto-sink, use the calculator add-on to enter the
     desired volume of water. For example,\n
     \t\t<<aHref('calculate 69 * 105', 'CALCULATE 69 TIMES 105')>>\n
     to fill the basin with <<% ,d 0x69 * 0105>> kochliaria<!-- an ancient Greek
     unit, < 5 ml >.\b
-    Warning: Do not use big numbers or divide by zero!<\\bq>\b"
-    dobjFor(Read) asDobjFor(Examine)
+    Warning: Do not use big numbers or divide by zero!<\\bq>"
 ;
 
 + calculator: Fixture, Thing 'button/buttons/calculator/screen' 'calculator'
