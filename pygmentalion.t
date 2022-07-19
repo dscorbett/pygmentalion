@@ -1339,6 +1339,7 @@ randomGreekWord()
         word = rexReplace(R'ts', word, 'ss');
         word = rexReplace(R'[^pkaeioyusnr]+(s?)$', word, '%1');
         word = rexReplace(R'[pk]+$', word, '');
+        word = rexReplace(R'(n|r)s+$', word, '%1');
         word = rexReplace(R'(.h?)%1{2,}', word, '%1%1');
         word = rexReplace(R'^(.h?)%1', word, '%1');
         word = rexReplace(R'(.h?)%1$', word, '%1');
@@ -1348,8 +1349,10 @@ randomGreekWord()
         word = rexReplace(R'ks', word, 'x');
         word = rexReplace(R'gg', word, 'kg');
         word = rexReplace(R'kh', word, 'ch');
-    } while (retries-- && (word.length() < 4 || !rexSearch(
+    } while ((retries-- && (word.length() < 4 || !rexSearch(
         new RexPattern('^(eu|hy|[pgm]n|bd|tm|rh)|(.h.|pp|kc|rr)h|ch([^aeioy])|'
-                       + '([^aeioy])y([^aeioy])$|(ps|x|o[ius])$'), word)));
+                       + '([^aeiouy])y([^aeioy])$|(ps|x|o[ius])$'), word)))
+        || rexSearch(R'^(plugh|xyzzy)$|ee|o[ao]|y[aeioy]|[aeiou]y|y$|u[aeo]u',
+                     word));
     return word;
 }
