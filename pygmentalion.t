@@ -958,6 +958,17 @@ grammar predicate(CleanIn):
     omitIobjInDobjQuery = true
 ;
 
+modify Thing
+    dobjFor(Clean)
+    {
+        verify
+        {
+            illogical('{The dobj/He} {does} not need cleaning. ');
+        }
+    }
+    dobjFor(CleanWith) asDobjFor(Clean)
+;
+
 /* Prayer */
 
 VerbRule(Pray)
