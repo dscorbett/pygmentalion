@@ -47,8 +47,37 @@ versionInfo: GameID
         Corbett</a>'
     version = '1.1.0'
     authorEmail = 'David Corbett\040<corbett.dav\x40northeastern.edu>'
-    desc = 'You have fallen in love with a statue\x2e'
-    htmlDesc = 'You have fallen in love with a statue\x2E'
+    desc = 'The statue is undeniably a masterpiece: the most skillful carving
+        you have ever done, and the most beautiful woman you have ever seen\x2e
+        Unfortunately, she is also an inanimate object, and now you can neither
+        work nor rest for unrequitable love.\\nPygmentalion is a short game
+        originally designed to provide an example file for the syntax
+        highlighter Pygments.'
+    htmlDesc = 'The statue is undeniably a masterpiece: the most skillful
+        carving you have ever done, and the most beautiful woman you have ever
+        seen\x2E Unfortunately, she is also an inanimate object, and now you can
+        neither work nor rest for unrequitable love.<p><i>Pygmentalion</i> is a
+        short game originally designed to provide an example file for the syntax
+        highlighter <a href="https://pygments.org/">Pygments</a>.'
+    firstPublished = '2014-10-08'
+    forgivenessLevel = 'Merciful'
+    copyingRules = 'Other; Compilations Allowed'
+    presentationProfile = 'Multimedia'
+    showAbout() {
+        "This is a short game originally designed to provide an example file for
+        the syntax highlighter <a href='https://pygments.org/'>Pygments</a>.\b
+        Scattered throughout the game are highlighted words corresponding to
+        syntactic token types. Finding them increases your score but is not
+        necessary to beat the game. Some are easy to find, but these are the
+        <<highlightToken('exception')>> rather than the rule. Many are hidden
+        and may become unavailable as the story progresses.\b
+        The command CALCULATE may be abbreviated as C.";
+    }
+    showCredit() {
+        "Credit goes to Pygments for providing the excuse to write this game.
+        The story was loosely inspired by a section of <i>Le Roman de la
+        Rose</i>.";
+    }
 ;
 
 /*
@@ -85,12 +114,13 @@ gameMain: GameMainDef
     {
         "The statue is undeniably a masterpiece: the most skillful carving you
         have ever done, and the most beautiful woman you have ever seen.
-        Unfortunately, she is also an inanimate block, and now you can neither
+        Unfortunately, she is also an inanimate object, and now you can neither
         work nor rest for unrequitable love.\b
         Once again you stumble into your studio, hoping and praying to find
         your statue brought to life.\b
-        <b><<versionInfo.name>></b>\r\n
-        <<versionInfo.byline>>\b";
+        <b><<versionInfo.name>></b>\n
+        <<versionInfo.byline>>\n
+        Version <<versionInfo.version>>\b";
     }
 ;
 
@@ -177,6 +207,7 @@ DefineToken(comment, '<i><font color=#408080>', '</font></i>');
 DefineToken(decorator, '<font color=#aa22ff>', '</font>');
 DefineToken(error, '<U><FONT COLOR=RED>', '</FONT></U>');
 DefineToken(escape, '<b><font color=#bb6622>', '</font></b>');
+DefineToken(exception, '<b><font color=#D2413A>', '</font></b>');
 DefineToken(float, '<u><font color=gray>', '</font></u>');
 DefineToken(keyword, '<b><font face=TADS-Sans color=green>', '</font></b>');
 DefineToken(label, '<font color=#A0A000>', '</font>');
@@ -194,6 +225,7 @@ function highlightToken(tokenString)
         'decorator' -> decoratorToken,
         'error' -> errorToken,
         'escape' -> escapeToken,
+        'exception' -> exceptionToken,
         'float' -> floatToken,
         'keyword' -> keywordToken,
         'label' -> labelToken,
@@ -311,7 +343,8 @@ replace grammar predicate(UnscrewWith): ' ': object;
     '(flawless) (milk-white) "creation\'s" \
     beauty/carving/creation/galatea/statue/woman' 'statue'
     "This is a<<if nameToken.scoreCount>>n untitled<<end>> statue of a woman
-    carved from <<if errorToken.scoreCount>>flawless <<end>>
+    carved <<if exceptionToken.scoreCount>>with exceptional skill <<end>>from
+    <<if errorToken.scoreCount>>flawless <<end>>
     <<if whitespaceToken.scoreCount>>milk-white <<end>>ivory.
     <<if escapeToken.scoreCount || longToken.scoreCount>>Her
     <<if longToken.scoreCount>>long <<end>>hair is done up in a
