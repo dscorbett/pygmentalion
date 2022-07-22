@@ -473,19 +473,19 @@ sinkRoom: Room 'Washroom'
 property level, overflowing;
 export overflowing;
 export level 'waterLevel';
-+ sink: Fixture '(auto) (mop) auto-sink/autosink/bowl/drain/faucet/sink' 'sink'
++ sink: Fixture
+    '(auto) (mop) auto-sink/autosink/backsplash/bowl/drain/faucet/sink' 'sink'
     "This is a state-of-the-art mop sink with anti-miasmic coating and bronze
     backsplash. It is so modern, there are no handles or other obvious ways to
     turn it on.\b
-    <<if overflowing>>It is overflowing.
+    <<if overflowing>>The faucet is stuck in the on position and the sink is
+    overflowing.
     <<else unless level < 19500>>It is full to the brim with water.
     <<otherwise if level >= 15000>>It is full of water.
     <<otherwise unless level < 10000>>It is half full of water.
-    <<else if level >= 2000>>There is some water in the sink.
+    <<else if level >= 1000>>There is some water in the sink.
     <<else if level > 0>>A small puddle has formed at the bottom of the sink.
-    <<otherwise>>It is empty.
-    <<if level <= -1.0e+2>>It looks like it hasn&rsquo;t been used in a
-    <<highlight 'long'>> time. "
+    <<otherwise>>It is empty. "
     level = not in ([lst]) { return argcount; }
     not = in()
     overflowing = nil
@@ -493,7 +493,7 @@ export level 'waterLevel';
     setLevel(level:)
     {
         targetobj.current.overflowing = level == nil;
-        targetobj.current.level = min(level ?? 0, 20000);
+        targetobj.current.level = max(min(level ?? 0, 20000), 0);
     }
     iobjFor(CleanWith) remapTo(CleanWith, DirectObject, sinkWater)
     dobjFor(TurnOn) {
@@ -556,7 +556,8 @@ export level 'waterLevel';
     Warning: Do not use big numbers or divide by zero!<\\bq>"
 ;
 
-+ calculator: Fixture, Thing 'button/buttons/calculator/screen' 'calculator'
++ calculator: Fixture, Thing 'add-on/button/buttons/calculator/screen'
+    'calculator'
     "The calculator is <<highlight 'built in'>>to the wall beside the sink. It
     has buttons for all the standard unary and binary operations.
     <<if(screen)>>The screen reads <<screen>>"
@@ -615,15 +616,14 @@ portico: OutdoorRoom 'Portico'
     with water pressure, no doubt. Now you just use it as a birdbath.\b
     <<if overflowing>>Water is spilling over the sides in a turbulent flow.
     <<else if level >= 19500>>It is full to the brim with water. You can see
-    your reflection quite clearly. Gods, you look a mess.
+    your reflection quite clearly.
     <<else if level >= 15000>>It is full of water. You can see your reflection.
     <<else if level >= 10000>>It is half full. From the right angle, you can
     make out a shadowy reflection of the columns, but nothing more.
-    <<else if level >= 2000>>There is some water in it, but you can still make
+    <<else if level >= 1000>>There is some water in it, but you can still make
     out the mosaic lining the basin.
     <<else if level > 0>>A small puddle has formed at the bottom of the basin.
-    <<else>>It is empty.
-    <<if level <= -1.0e+2>>It looks as if it has never been filled. "
+    <<else>>It is empty. "
     level = 0
     overflowing = nil
     isMirror = (level >= 15000)
@@ -661,8 +661,9 @@ portico: OutdoorRoom 'Portico'
     initSpecialDesc = "<<one of>>A little brown bird is splashing around in the
         basin. When it notices you, it ruffles its feathers, one of which falls
         out, and flies out between the columns. <<or>>A feather is
-        <<if basin.overflowing || basin.level > 0>><<highlight 'float'>>ing
-        <<else>>lying <<end>> in the basin. <<stopping>>"
+        <<if basin.overflowing>>spinning erratically on the water flowing from
+        <<else if basin.level >= 1000>><<highlight 'float'>>ing in
+        <<else>>lying in <<end>> the basin. <<stopping>>"
 ;
 
 /* Water */
@@ -854,21 +855,61 @@ DefineLiteralAction(Calculate)
                 return '<font face="TADS-Typewriter"><<a>><<opString>><<b>> =
                     <<%d result>></font>. ';
             });
-            local oldLevel = sink.level;
+            local oldLevel = sink.current.level;
+            local oldOverflowing = sink.current.overflowing;
             sink.current.setLevel(level: result);
             "<<calculator.screen()>>
-            <<if sink.current == basin>>The sink gurgles and the pipes rattle.
-            <<else if sink.level == oldLevel>>The sink gurgles.
-            <<else if sink.level <= 0 && oldLevel <= 0>>The pipes rattle for a
-            moment.
-            <<else if sink.level <= 0>>All the water drains from the sink.
-            <<else if oldLevel <= 0>>The sink begins to fill with water.
-            <<else if sink.level < oldLevel - 0xabc>>Some of the water drains
-            from the sink.
-            <<else if sink.level < oldLevel>>The water level drops slightly.
-            <<else if oldLevel < sink.level - 0XABC>>Water splashes into the
-            sink for a few seconds.
-            <<else if oldLevel < sink.level>>Water dribbles from the faucet. ";
+            <<if sink.current == basin>>
+                <<if oldOverflowing || basin.level != oldLevel>>{You/He} hear{s}
+                water flowing through distant pipes, but nothing comes out the
+                faucet.
+                <<else if result < 0>>The pipes rattle.
+                <<end>>
+            <<else if sink.level == oldLevel && result <= oldLevel
+              && !oldOverflowing>>
+                <<if result < 0>>The pipes rattle.<<end>>
+            <<else if sink.level == 0>>
+                <<if oldOverflowing>>The faucet shuts off and \v<<end>>All the
+                water drains from the sink.
+            <<else if sink.level < 1000>>
+                <<if oldOverflowing>>The faucet shuts off. Most of the water
+                drains from the sink.
+                <<else if oldLevel < 1000>>
+                    <<if sink.level > oldLevel>>Water dribbles from the faucet.
+                    <<else>>The puddle at the bottom of the sink shrinks
+                    slightly.
+                    <<end>>
+                <<else>>Water drains from the sink, leaving only a small puddle.
+                <<end>>
+            <<else if sink.level
+              < (oldOverflowing ? 20000 : oldLevel)
+              - 0x7d0>><<if oldOverflowing>>The faucet shuts off and
+              \v<<end>>Some water drains from the sink.
+            <<else if sink.level < (oldOverflowing ? 20000 : oldLevel)>><<if
+              oldOverflowing>>The faucet shuts off and \v<<end>>The water level
+              in the sink goes down slightly.
+            <<else if oldOverflowing>>The faucet shuts off. Water stops spilling
+                over the edge of the sink.
+            <<else>>
+                Water flows
+                <<if oldLevel >= result - 0x7D0>>briefly <<end>>
+                from the
+                faucet<<if oldLevel < 15000 && sink.level >= 15000>>, filling
+                the sink<<end>>.
+                <<if sink.level <= result - 5.556e8>>Enough water to fill an
+                Olympic-size swimming pool pours down the overflow hole.
+                <<first time>>The hole is small, so it takes quite a <<highlight
+                'long'>> time before all the excess disappears and the faucet
+                shuts off. <<only>>
+                <<else if sink.level <= result - 17280>>Metretes of excess water
+                pour wastefully down the overflow hole.
+                <<else if sink.level <= result - 1440>>Choes of excess water
+                pour wastefully down the overflow hole.
+                <<else if sink.level <= result - 20>>The excess water pours down
+                the overflow hole.
+                <<else if sink.level < result>>Some excess water trickles down
+                the overflow hole.
+            ";
         }
         catch (is in)
         {
@@ -890,8 +931,9 @@ DefineLiteralAction(Calculate)
             {
             case 2008: // division by zero
                 "<<if sink.current == sink
-                  && (sink.level > 0 || sink.overflowing)>>The water in the
-                sink is sucked down the drain.
+                  && (sink.level > 0 || sink.overflowing)>><<if
+                  sink.overflowing>>The faucet shuts off and \v<<end>>The water
+                in the sink is sucked down the drain.
                 <<else if basin.level > 0 || basin.overflowing>>Water comes up
                 from the drain and <<if basin.overflowing>>spills over
                 the edges of<<else>>begins to fill<<end>> the sink.
@@ -908,10 +950,13 @@ DefineLiteralAction(Calculate)
                 // fall through
             case 2023: // numeric overflow
                 if (!sink.current.overflowing)
-                    "<<if sink.current == sink>>High-pressure water streams
-                    from the faucet, filling the sink and spilling over the
-                    edge. Rivulets begin running down the slight gradient of
-                    the floor. <<else>>The pipes shake loudly. ";
+                    "<<if sink.current == sink>>High-pressure water gushes from
+                    the faucet, <<if sink.level < 15000>>filling the sink,
+                    <<end>>overwhelming the overflow
+                    hole<<if sink.level < 15000>>,<<end>> and spilling over the
+                    edge<<if sink.level >= 15000>> of the sink<<end>>. Rivulets
+                    begin running down the slight gradient of the floor.
+                    <<else>>The pipes shake loudly. ";
                 forEachInstance(Water, function(w) {
                     if ((w.eventualLocation == portico) ==
                         (sink.current == basin))
