@@ -301,10 +301,12 @@ workbenchRoom: Room 'At the Workbench'
     "It&rsquo;s a smoothed block of marble about a cubit high. "
 ;
 
+// You're not Archimedes.
 replace grammar predicate(Screw): ' ': object;
 replace grammar predicate(ScrewWith): ' ': object;
 replace grammar predicate(Unscrew): ' ': object;
 replace grammar predicate(UnscrewWith): ' ': object;
+
 + + statue: Fixture, Surface
     '(flawless) (milk-white) "creation\'s" \
     beauty/carving/creation/galatea/statue/woman' 'statue'
