@@ -30,7 +30,7 @@ play-web: pygmentalion-web.t3
 	frob -i plain -p -N 44 $<
 
 %.t3: pygmentalion.t %.t3m obj
-	t3make -a -f $*
+	t3make -a -f $* -res GameInfo.txt
 
 obj:
 	mkdir $@
