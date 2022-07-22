@@ -549,9 +549,28 @@ export level 'waterLevel';
 ;
 
 ++ manual: Readable '"operator\'s" manual' 'manual'
-    "<center ><<highlight 'Operator'>>&rsquo;s Manual<\center>\b
+    "<center ><<highlight 'Operator'>>&rsquo;s Manual</center>\b
     <bq>To control the auto-sink, use the calculator add-on to enter the
-    desired volume of water. For example,\n
+    desired volume of water. It supports the standard Thalassa++ unary and
+    binary operations:\b
+    <ul plain>
+        <li><font face='TADS-Typewriter'>+</font> -- addition\n
+        <li><font face='TADS-Typewriter'>-</font> -- subtraction\n
+        <li><font face='TADS-Typewriter'>*</font> -- multiplication\n
+        <li><font face='TADS-Typewriter'>/</font> -- division\n
+        <li><font face='TADS-Typewriter'>%</font> -- modulo\n
+        <li><font face='TADS-Typewriter'>~</font> -- bitwise NOT\n
+        <li><font face='TADS-Typewriter'>!</font>\u200B -- logical NOT\n
+        <li><font face='TADS-Typewriter'>&amp;</font> -- bitwise AND\n
+        <li><font face='TADS-Typewriter'>|</font> -- bitwise OR\n
+        <li><font face='TADS-Typewriter'>^</font> -- bitwise XOR\n
+        <li><font face='TADS-Typewriter'>&lt;&lt;</font> -- shift left\n
+        <li><font face='TADS-Typewriter'>&gt;&gt;</font> -- arithmetic shift
+        right\n
+        <li><font face='TADS-Typewriter'>&gt;&gt;&gt;</font> -- logical shift
+        right\n
+    </ul>\b
+    For example,\n
     \t\t<<aHref('calculate 69 * 105', 'CALCULATE 69 TIMES 105')>>\n
     to fill the basin with <<% ,d 0x69 * 0105>> kochliaria<!-- an ancient Greek
     unit, < 5 ml >.\b
