@@ -29,12 +29,15 @@ play: pygmentalion.t3
 play-web: pygmentalion-web.t3
 	frob -i plain -p -N 44 $<
 
-%.t3: pygmentalion.t %.t3m obj
-	t3make -a -f $* -res GameInfo.txt
+%.t3: pygmentalion.t.html pygmentalion.t %.t3m obj
+	t3make -a -f $* -res GameInfo.txt $<
 
 obj:
 	mkdir $@
 
+%.html: %
+	pygmentize -l tads3 $< -f html -O nobackground,noclasses,nowrap -o $@
+
 .PHONY: clean
 clean:
-	$(RM) -r *.t3 obj
+	$(RM) -r pygmentalion.t3 pygmentalion-web.t3 pygmentalion.t.html obj

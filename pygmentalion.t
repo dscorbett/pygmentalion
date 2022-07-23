@@ -71,7 +71,9 @@ versionInfo: GameID
         necessary to beat the game. Some are easy to find, but these are the
         <<highlightToken('exception')>> rather than the rule. Many are hidden
         and some may become unavailable as the story progresses.\b
-        The command CALCULATE may be abbreviated as C.";
+        The command CALCULATE may be abbreviated as C.\b
+        For hints, <<aHref('pray to Iris', 'PRAY TO IRIS')>>.
+        <!-- For clues, ask Ariadne. -->";
     }
     showCredit() {
         "Credit goes to Pygments for providing the excuse to write this game.
@@ -483,9 +485,9 @@ altarRoom: Room 'At the Altar'
 ;
 
 aphrodite: Unthing
-    '(love) aphrodite/cytherea/god/goddess/venus love' 'Aphrodite'
-    '<<if gActor.canSee(altar)>>You can only pray to a god.
-    <<else>>You need an altar to interact with a god. '
+    '(love) aphrodite/cytherea/deity/god/goddess/venus love' 'Aphrodite'
+    '<<if gActor.canSee(altar)>>You can only pray to a deity.
+    <<else>>You need an altar to interact with a deity. '
     location = (gPlayerChar)
     isProperName = true
     isHer = true
@@ -493,8 +495,9 @@ aphrodite: Unthing
     {
         verify
         {
-            illogical('She isn&rsquo;t here. You&rsquo;ll have to leave {the
-                dobj/him} somewhere she can find it. ');
+            illogical('{It iobj/She} {is}n&rsquo;t here. {You/He}&rsquo;ll have
+                to leave {the dobj/him} somewhere {it iobj/she} can find {it
+                dobj/him}. ');
         }
     }
     dobjFor(PrayAt) maybeRemapTo(gActor.canSee(altar), PrayAt, altar)
@@ -780,6 +783,88 @@ trickling(porticoWater w)
 {
     return basin.overflowing ? 'trickling down the stairs' : inherited<*>(w);
 }
+
+/* Displaying this source code */
+
+modify typographicalOutputFilter
+    isActive = true
+    activate { isActive = true; }
+    deactivate { isActive = nil; }
+    filterText(ostr, val) { return isActive ? inherited(ostr, val) : val; }
+;
+
+transient iris: Unthing
+    'iris' 'Iris'
+    '<<if gActor.canSee(altar)>>You can only pray to a deity.
+    <<else>>You need an altar to interact with a deity. '
+    location = (gPlayerChar)
+    isProperName = true
+    isHer = true
+    lastLineNo = 0
+    dobjFor(PrayAt)
+    {
+        verify {
+            if (!gActor.canSee(altar))
+                illogicalNow('You need an altar to interact with a deity. ');
+        }
+        action()
+        {
+            "<<one of>>The light coming through the window refracts, projecting
+            a rainbow onto the blank wall. {Your/His} vision swims. As {you/he}
+            stare{s} at the rainbow, the colors shift and coalesce, forming
+            words. <<or>>The rainbow reappears. {You/He} <<if lastLineNo !=
+            0>>continue{s} reading where {you/he} left off<<else>>start reading
+            again from the beginning<<end>>. <<stopping>>";
+            gTranscript.flushForInput();
+            local resourceName = __FILE__ + '.html';
+            local file;
+            try {
+                file = File.openTextResource(resourceName);
+                file.setCharacterSet('utf-8');
+                gTranscript.deactivate();
+                typographicalOutputFilter.deactivate();
+                local i = 1;
+                local line = nil;
+                "<pre>";
+                for (;
+                     (line = file.readFile()) != nil && i <= lastLineNo + 25;
+                     ++i)
+                {
+                    if (i > lastLineNo)
+                    {
+                        if (line.compareTo('\n'))
+                            "<<line.findReplace('\n', '')>><br>";
+                        else
+#ifdef TADS_INCLUDE_NET
+                            "<br>";
+#else
+                            // The extra space is necessary to get the right
+                            // output in both FrobTADS and QTads.
+                            "\ <br>";
+#endif
+                    }
+                }
+                "</pre><.p0>The rainbow fades and {your/his} vision clears. ";
+                typographicalOutputFilter.activate();
+                gTranscript.activate();
+                lastLineNo = line ? i - 1 : 0;
+                if (line)
+                    "<<first time>>\b<.notification>Continue to <<aHref('pray to
+                    Iris', 'PRAY TO IRIS')>> to see the next page of
+                    text.<./notification><<only>>";
+                else
+                    "<<first time>>\b<.notification><<aHref('Pray to Iris', 'PRAY
+                    TO IRIS')>> again to restart at the
+                    beginning.<./notification><<only>>";
+            } catch (FileException e) {
+                "The source code cannot be opened.";
+            } finally {
+                if (file)
+                    file.closeFile();
+            }
+        }
+    }
+;
 
 /* Calculating */
 
@@ -1279,7 +1364,6 @@ VerbRule(SayTo)
 	#	endif
 ;
 dictionary barbarianDict;
-transient xyzzy: object;
 DefineIAction(Xyzzy)
     execAction
     {
