@@ -70,7 +70,7 @@ versionInfo: GameID
         syntactic token types. Finding them increases your score but is not
         necessary to beat the game. Some are easy to find, but these are the
         <<highlightToken('exception')>> rather than the rule. Many are hidden
-        and may become unavailable as the story progresses.\b
+        and some may become unavailable as the story progresses.\b
         The command CALCULATE may be abbreviated as C.";
     }
     showCredit() {
@@ -119,8 +119,10 @@ gameMain: GameMainDef
         Once again you stumble into your studio, hoping and praying to find
         your statue brought to life.\b
         <b><<versionInfo.name>></b>\n
-        <<versionInfo.byline>>\n
-        Version <<versionInfo.version>>\b";
+        Copyright 2014, 2022 <<versionInfo.byline>>\n
+        Version <<versionInfo.version>>\b
+        <.notification>First-time players should type <<aHref('about',
+        'ABOUT')>>.<./notification>\b";
     }
 ;
 
