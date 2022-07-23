@@ -215,6 +215,7 @@ DefineToken(keyword, '<b><font face=TADS-Sans color=green>', '</font></b>');
 DefineToken(label, '<font color=#A0A000>', '</font>');
 DefineToken(long, '<i><font color=gray>', '</font></i>');
 DefineToken(name, '<u>', '</u>');
+DefineToken(number, '<font color=#666>', '</font>');
 DefineToken(operator, '<b><font color=\"#AA22F&#x46;\">', '</font></b>');
 DefineToken(string, '<font color=\'#BA212&#49;\'>', '</font>');
 DefineToken(whitespace, '<font color="bgcolor"bgcolor=\'text\'>', '</font>');
@@ -233,6 +234,7 @@ function highlightToken(tokenString)
         'label' -> labelToken,
         'long' -> longToken,
         'name' -> nameToken,
+        'number' -> numberToken,
         'operator' -> operatorToken,
         'string' -> stringToken,
         'white space' -> whitespaceToken,
@@ -609,7 +611,7 @@ export level 'waterLevel';
     \t\t<<aHref('calculate 69 * 105', 'CALCULATE 69 TIMES 105')>>\n
     to fill the basin with <<% ,d 0x69 * 0105>> kochliaria<!-- an ancient Greek
     unit, < 5 ml >.\b
-    Warning: Do not use big numbers or divide by zero!<\\bq>"
+    Warning: Do not use big <<highlight 'number'>>s or divide by zero!</bq>"
 ;
 
 + calculator: Fixture, Thing 'add-on/button/buttons/calculator/screen'
