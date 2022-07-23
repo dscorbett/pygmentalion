@@ -1461,7 +1461,9 @@ randomGreekWord()
     } while ((retries-- && (word.length() < 4 || !rexSearch(
         new RexPattern('^(eu|hy|[pgm]n|bd|tm|rh)|(.h.|pp|kc|rr)h|ch([^aeioy])|'
                        + '([^aeiouy])y([^aeioy])$|(ps|x|o[ius])$'), word)))
-        || rexSearch(R'^(plugh|xyzzy)$|ee|o[ao]|y[aeioy]|[aeiou]y|y$|u[aeo]u',
+#pragma newline_spacing(delete)
+        || rexSearch(R'^(plugh|xyzzy)$|
+                     [aeiou](ie|y)|ee|o[ao]|y[aeioy]|y$|u[aeo]u',
                      word));
     return word;
 }
