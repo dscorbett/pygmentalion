@@ -203,12 +203,22 @@ modify cmdTokenizer
  *      (MS. Douce 195, fol. 150r)
  */
 
-class Token: Achievement
+class Token: Achievement, InitObject
 {
     points = 1;
     desc = "<<before_>><<desc_>><<after_>>";
     before = before = '', before_
     after = (after = '', after_)
+#ifndef TADS_INCLUDE_NET
+    execute()
+    {
+        if (systemInfo(SysInfoTextColors) != SysInfoTxcRGB)
+        {
+            before_ = '<font color=bgcolor bgcolor=text>';
+            after_ = '</font>';
+        }
+    }
+#endif
 }
 
 Token template inherited 'before_' 'after_' 'desc_';
