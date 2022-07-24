@@ -820,6 +820,14 @@ transient iris: Unthing
     isProperName = true
     isHer = true
     lastLineNo = 0
+    screenHeight()
+    {
+        local probe = bannerCreate(nil, BannerAfter, statuslineBanner.handle_,
+            BannerTypeText, BannerAlignTop, 100, BannerSizePercent, 0);
+        local height = min(100, max(10, bannerGetInfo(probe)[3] - 12));
+        bannerDelete(probe);
+        return height;
+    }
     dobjFor(PrayAt)
     {
         verify {
@@ -846,7 +854,8 @@ transient iris: Unthing
                 local line = nil;
                 "<pre>";
                 for (;
-                     (line = file.readFile()) != nil && i <= lastLineNo + 25;
+                     (line = file.readFile()) != nil
+                        && i <= lastLineNo + screenHeight;
                      ++i)
                 {
                     if (i > lastLineNo)
