@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+OPEN := open
+
 .PHONY: all
 all: pygmentalion.t3 pygmentalion-web.t3
 
@@ -27,7 +29,7 @@ play: pygmentalion.t3
 
 .PHONY: play-web
 play-web: pygmentalion-web.t3
-	frob -i plain -p -N 44 $<
+	frob -i plain -p -N 44 $< | { read -r line; read -r line; "$(OPEN)" "$$(printf %s "$$line" | cut -f 2- -d :)"; }
 
 %.t3: pygmentalion.t.html pygmentalion.t %.t3m obj
 	t3make -a -f $* -res GameInfo.txt $<
