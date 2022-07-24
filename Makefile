@@ -27,6 +27,10 @@ web: pygmentalion-web.t3
 play: pygmentalion.t3
 	frob -p $<
 
+.PHONY: play-qtads
+play-qtads: pygmentalion.t3
+	open -a QTads $<
+
 .PHONY: play-web
 play-web: pygmentalion-web.t3
 	frob -i plain -p -N 44 $< | { read -r line; read -r line; "$(OPEN)" "$$(printf %s "$$line" | cut -f 2- -d :)"; }
