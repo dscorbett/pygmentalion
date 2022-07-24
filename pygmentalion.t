@@ -64,8 +64,17 @@ versionInfo: GameID
     copyingRules = 'Other; Compilations Allowed'
     presentationProfile = 'Multimedia'
     showAbout() {
+        local showLink =
+#ifdef TADS_INCLUDE_NET
+            true
+#else
+            systemInfo(SysInfoLinksHttp) == 1
+#endif
+        ;
         "This is a short game originally designed to provide an example file for
-        the syntax highlighter <a href='https://pygments.org/'>Pygments</a>.\b
+        the syntax highlighter <<if showLink>><a
+        href='https://pygments.org/'>Pygments</a><<else>>Pygments
+        (https://pygments.org/)<<end>>.\b
         Scattered throughout the game are highlighted words corresponding to
         syntactic token types. Finding them increases your score but is not
         necessary to beat the game. Some are easy to find, but these are the
