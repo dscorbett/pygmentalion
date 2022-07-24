@@ -822,11 +822,15 @@ transient iris: Unthing
     lastLineNo = 0
     screenHeight()
     {
+#ifdef TADS_INCLUDE_NET
+        return 25;
+#else
         local probe = bannerCreate(nil, BannerAfter, statuslineBanner.handle_,
             BannerTypeText, BannerAlignTop, 100, BannerSizePercent, 0);
         local height = min(100, max(10, bannerGetInfo(probe)[3] - 12));
         bannerDelete(probe);
         return height;
+#endif
     }
     dobjFor(PrayAt)
     {
