@@ -226,7 +226,7 @@ DefineToken(keyword, '<b><font face=TADS-Sans color=green>', '</font></b>');
 DefineToken(label, '<font color=#A0A000>', '</font>');
 DefineToken(long, '<i><font color=gray>', '</font></i>');
 DefineToken(name, '<u>', '</u>');
-DefineToken(number, '<font color=#666>', '</font>');
+DefineToken(number, '<font color=#666666>', '</font>');
 DefineToken(operator, '<b><font color=\"#AA22F&#x46;\">', '</font></b>');
 DefineToken(string, '<font color=\'#BA212&#49;\'>', '</font>');
 DefineToken(whitespace, '<font color="bgcolor"bgcolor=\'text\'>', '</font>');
