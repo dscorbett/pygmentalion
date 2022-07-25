@@ -865,7 +865,28 @@ transient iris: Unthing
                     if (i > lastLineNo)
                     {
                         if (line.compareTo('\n'))
+                        {
+#ifndef TADS_INCLUDE_NET
+                            line = rexReplace(R'(?<=<span style=")[;
+                                ]*color: (#......)([^"]*">)(.*?)(?=</span>)',
+                                line, '%2<font color=%1>%3</font>');
+                            line = rexReplace(R'(?<=<span style=")[;
+                                ]*font-weight: bold([^"]*">)(.*?)(?=</span>)',
+                                line, '%1<b>%2</b>');
+                            line = rexReplace(R'(?<=<span style=")[;
+                                ]*font-style: italic([^"]*">)(.*?)(?=</span>)',
+                                line, '%1<i>%2</i>');
+                            line = rexReplace(R'(?<=<span style=")[;
+                                ]*text-decoration:
+                                underline([^"]*">)(.*?)(?=</span>)',
+                                line, '%1<u>%2</u>');
+                            line = rexReplace(R'(?<=<span style=")[;
+                                ]*background-color:
+                                (#......)([^"]*">)(.*?)(?=</span>)',
+                                line, '%2<font bgcolor==%1>%3</font>');
+#endif
                             "<<line.findReplace('\n', '')>><br>";
+                        }
                         else
 #ifdef TADS_INCLUDE_NET
                             "<br>";
