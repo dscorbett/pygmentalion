@@ -885,7 +885,8 @@ transient iris: Unthing
                                 (#......)([^"]*">)(.*?)(?=</span>)',
                                 line, '%2<font bgcolor==%1>%3</font>');
 #endif
-                            "<<line.findReplace('\n', '')>><br>";
+                            "<<line.findReplace(['{', '}', '\n'],
+                            ['{{', '}}', ''])>><br>";
                         }
                         else
 #ifdef TADS_INCLUDE_NET
