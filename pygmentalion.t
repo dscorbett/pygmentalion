@@ -819,7 +819,7 @@ transient iris: Unthing
     location = (gPlayerChar)
     isProperName = true
     isHer = true
-    lastLineNo = 0
+    file = nil
     screenHeight()
     {
 #ifdef TADS_INCLUDE_NET
@@ -843,65 +843,66 @@ transient iris: Unthing
             "<<one of>>The light coming through the window refracts, projecting
             a rainbow onto the blank wall. {Your/His} vision swims. As {you/he}
             stare{s} at the rainbow, the colors shift and coalesce, forming
-            words. <<or>>The rainbow reappears. {You/He} <<if lastLineNo !=
-            0>>continue{s} reading where {you/he} left off<<else>>start reading
-            again from the beginning<<end>>. <<stopping>>";
+            words. <<or>>The rainbow reappears. {You/He} <<if file>>continue{s}
+            reading where {you/he} left off<<else>>start reading again from the
+            beginning<<end>>. <<stopping>>";
             gTranscript.flushForInput();
             local resourceName = __FILE__ + '.html';
-            local file;
-            try {
-                file = File.openTextResource(resourceName);
+            if (file == nil)
+            {
+                try
+                {
+                    file = File.openTextResource(resourceName);
+                } catch (FileException e) {
+                    "The source code cannot be opened. ";
+                }
                 file.setCharacterSet('utf-8');
+            }
+            local line = nil;
+            try {
                 gTranscript.deactivate();
                 typographicalOutputFilter.deactivate();
-                local i = 1;
-                local line = nil;
                 "<pre>";
-                for (;
-                     (line = file.readFile()) != nil
-                        && i <= lastLineNo + screenHeight;
+                for (local i = 0;
+                     i < screenHeight && (line = file.readFile()) != nil;
                      ++i)
                 {
-                    if (i > lastLineNo)
+                    if (i != 0)
+                        "<br>";
+                    if (line.compareTo('\n'))
                     {
-                        if (i != lastLineNo + 1)
-                            "<br>";
-                        if (line.compareTo('\n'))
-                        {
 #ifndef TADS_INCLUDE_NET
-                            line = rexReplace(R'(?<=<span style=")[;
-                                ]*color: (#......)([^"]*">)(.*?)(?=</span>)',
-                                line, '%2<font color=%1>%3</font>');
-                            line = rexReplace(R'(?<=<span style=")[;
-                                ]*font-weight: bold([^"]*">)(.*?)(?=</span>)',
-                                line, '%1<b>%2</b>');
-                            line = rexReplace(R'(?<=<span style=")[;
-                                ]*font-style: italic([^"]*">)(.*?)(?=</span>)',
-                                line, '%1<i>%2</i>');
-                            line = rexReplace(R'(?<=<span style=")[;
-                                ]*text-decoration:
-                                underline([^"]*">)(.*?)(?=</span>)',
-                                line, '%1<u>%2</u>');
-                            line = rexReplace(R'(?<=<span style=")[;
-                                ]*background-color:
-                                (#......)([^"]*">)(.*?)(?=</span>)',
-                                line, '%2<font bgcolor==%1>%3</font>');
+                        line = rexReplace(R'(?<=<span style=")[;
+                            ]*color: (#......)([^"]*">)(.*?)(?=</span>)',
+                            line, '%2<font color=%1>%3</font>');
+                        line = rexReplace(R'(?<=<span style=")[;
+                            ]*font-weight: bold([^"]*">)(.*?)(?=</span>)',
+                            line, '%1<b>%2</b>');
+                        line = rexReplace(R'(?<=<span style=")[;
+                            ]*font-style: italic([^"]*">)(.*?)(?=</span>)',
+                            line, '%1<i>%2</i>');
+                        line = rexReplace(R'(?<=<span style=")[;
+                            ]*text-decoration:
+                            underline([^"]*">)(.*?)(?=</span>)',
+                            line, '%1<u>%2</u>');
+                        line = rexReplace(R'(?<=<span style=")[;
+                            ]*background-color:
+                            (#......)([^"]*">)(.*?)(?=</span>)',
+                            line, '%2<font bgcolor==%1>%3</font>');
 #endif
-                            "<<line.findReplace(['{', '}', '\n'],
-                            ['{{', '}}', ''])>>";
-                        }
-#ifndef TADS_INCLUDE_NET
-                        else
-                            // The extra space is necessary to get the right
-                            // output in both FrobTADS and QTads.
-                            "\ ";
-#endif
+                        "<<line.findReplace(['{', '}', '\n'],
+                        ['{{', '}}', ''])>>";
                     }
+#ifndef TADS_INCLUDE_NET
+                    else
+                        // The extra space is necessary to get the right
+                        // output in both FrobTADS and QTads.
+                        "\ ";
+#endif
                 }
                 "</pre>The rainbow fades and {your/his} vision clears. ";
                 typographicalOutputFilter.activate();
                 gTranscript.activate();
-                lastLineNo = line ? i - 1 : 0;
                 if (line)
                     "<<first time>>\b<.notification>Continue to <<aHref('pray to
                     Iris', 'PRAY TO IRIS')>> to see the next page of
@@ -910,11 +911,12 @@ transient iris: Unthing
                     "<<first time>>\b<.notification><<aHref('Pray to Iris', 'PRAY
                     TO IRIS')>> again to restart at the
                     beginning.<./notification><<only>>";
-            } catch (FileException e) {
-                "The source code cannot be opened.";
             } finally {
-                if (file)
+                if (file && line == nil)
+                {
                     file.closeFile();
+                    file = nil;
+                }
             }
         }
     }
