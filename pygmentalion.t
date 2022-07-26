@@ -838,15 +838,10 @@ transient iris: Unthing
         }
         action()
         {
-            "<<one of>>The light coming through the window refracts, projecting
-            a rainbow onto the blank wall. {Your/His} vision swims. As {you/he}
-            stare{s} at the rainbow, the colors shift and coalesce, forming
-            words. <<or>>The rainbow reappears. {You/He} <<if file>>continue{s}
-            reading where {you/he} left off<<else>>start reading again from the
-            beginning<<end>>. <<stopping>>";
             gTranscript.flushForInput();
             local resourceName = __FILE__ + '.html';
-            if (file == nil)
+            local needToOpen = file == nil;
+            if (needToOpen)
             {
                 try
                 {
@@ -858,15 +853,26 @@ transient iris: Unthing
             }
             local line = nil;
             try {
-                gTranscript.deactivate();
-                typographicalOutputFilter.deactivate();
-                "<pre>";
-                for (local i = 0;
+                local i = 0;
+                for (;
                      i < screenHeight && (line = file.readFile()) != nil;
                      ++i)
                 {
                     if (i != 0)
                         "<br>";
+                    else
+                    {
+                        "<<one of>>The light coming through the window refracts,
+                        projecting a rainbow onto the blank wall. {Your/His}
+                        vision swims. As {you/he} stare{s} at the rainbow, the
+                        colors shift and coalesce, forming words. <<or>>The
+                        rainbow reappears. {You/He} <<if needToOpen>>start
+                        reading again from the beginning<<else>>continue{s}
+                        reading where {you/he} left off<<end>>. <<stopping>>";
+                        gTranscript.deactivate();
+                        typographicalOutputFilter.deactivate();
+                        "<pre>";
+                    }
                     if (line.compareTo('\n'))
                     {
 #ifndef TADS_INCLUDE_NET
@@ -899,9 +905,15 @@ transient iris: Unthing
                         "\ ";
 #endif
                 }
-                "</pre>The rainbow fades and {your/his} vision clears. ";
-                typographicalOutputFilter.activate();
-                gTranscript.activate();
+                if (i == 0)
+                    "The rainbow reappears, but {you/he} {has} already read the
+                    whole thing. ";
+                else
+                {
+                    "</pre>The rainbow fades and {your/his} vision clears. ";
+                    typographicalOutputFilter.activate();
+                    gTranscript.activate();
+                }
                 if (line)
                     "<<first time>>\b<.notification>Continue to <<aHref('pray to
                     Iris', 'PRAY TO IRIS')>> to see the next page of
