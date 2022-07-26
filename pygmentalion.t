@@ -887,6 +887,7 @@ transient iris: Unthing
                             ]*background-color:
                             (#......)([^"]*">)(.*?)(?=</span>)',
                             line, '%2<font bgcolor==%1>%3</font>');
+                        line = line.findReplace('  ', ' \u00A0');
 #endif
                         "<<line.findReplace(['{', '}', '\n'],
                         ['{{', '}}', ''])>>";
