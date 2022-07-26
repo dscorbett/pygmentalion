@@ -864,6 +864,8 @@ transient iris: Unthing
                 {
                     if (i > lastLineNo)
                     {
+                        if (i != lastLineNo + 1)
+                            "<br>";
                         if (line.compareTo('\n'))
                         {
 #ifndef TADS_INCLUDE_NET
@@ -886,19 +888,17 @@ transient iris: Unthing
                                 line, '%2<font bgcolor==%1>%3</font>');
 #endif
                             "<<line.findReplace(['{', '}', '\n'],
-                            ['{{', '}}', ''])>><br>";
+                            ['{{', '}}', ''])>>";
                         }
+#ifndef TADS_INCLUDE_NET
                         else
-#ifdef TADS_INCLUDE_NET
-                            "<br>";
-#else
                             // The extra space is necessary to get the right
                             // output in both FrobTADS and QTads.
-                            "\ <br>";
+                            "\ ";
 #endif
                     }
                 }
-                "</pre><.p0>The rainbow fades and {your/his} vision clears. ";
+                "</pre>The rainbow fades and {your/his} vision clears. ";
                 typographicalOutputFilter.activate();
                 gTranscript.activate();
                 lastLineNo = line ? i - 1 : 0;
