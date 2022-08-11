@@ -610,7 +610,7 @@ export level 'waterLevel';
     bracketed to the wall. "
 ;
 
-++ manual: Readable '"operator\'s" manual' 'manual'
+++ manual: Readable '"operator\'s" book/manual' 'manual'
     "<center ><<highlight 'Operator'>>&rsquo;s Manual</center>\b
     <bq>To control the auto-sink, use the calculator add-on to enter the
     desired volume of water. It supports the standard Thalassa++ unary and
