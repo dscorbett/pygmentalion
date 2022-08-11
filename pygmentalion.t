@@ -594,10 +594,13 @@ export level 'waterLevel';
     {
         preCond = []
         verify {
-            if (!location)
-                illogicalNow('There is no water in the sink. ');
-            if (!sink.overflowing && sink.level < 1e2)
-                illogicalNow('There is not enough water in the sink. ');
+            if (!sink.overflowing)
+            {
+                if (sink.level == 0)
+                    illogicalNow('There is no water in the sink. ');
+                else if (sink.level < 1e3)
+                    illogicalNow('There is not enough water in the sink. ');
+            }
         }
     }
 ;
