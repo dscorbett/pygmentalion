@@ -1255,6 +1255,8 @@ modify Thing
 
 /* Prayer */
 
+modify VerbRule(About) 'about' | 'help' :;
+
 VerbRule(Pray)
     [badness 500] 'pray' singleDobj
     : PrayAtAction
