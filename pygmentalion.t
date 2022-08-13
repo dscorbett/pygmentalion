@@ -602,6 +602,17 @@ export level 'waterLevel';
                 use the calculator add-on. <<stopping>>');
         }
     }
+    iobjFor(PutIn) {
+        verify {
+            if (gDobj != key)
+                illogical('{The dobj/He} <<if overflowing || level !=
+                    0>>would<<else>>might<<end>> get wet. ');
+        }
+        action {
+            tryImplicitActionMsg(
+                &silentImplicitAction, CleanWith, gDobj, gIobj);
+        }
+    }
 ;
 
 ++ sinkWater: Fixture
@@ -620,10 +631,11 @@ export level 'waterLevel';
         verify {
             if (!sink.overflowing)
             {
-                if (sink.level == 0)
+                if (sink.level == 0 && !gAction.isImplicit)
                     illogicalNow('There is no water in the sink. ');
                 else if (sink.level < 1e3)
-                    illogicalNow('There is not enough water in the sink. ');
+                    illogicalNow('There is not enough water in the sink<<if
+                        gAction.isImplicit>> to clean anything with<<end>>. ');
             }
         }
     }
