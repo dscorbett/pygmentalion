@@ -419,7 +419,12 @@ replace grammar predicate(UnscrewWith): ' ': object;
                     'What would {it iobj/she} want with {that dobj/him}? ');
         }
     }
-    iobjFor(GiveTo) remapTo(PutOn, DirectObject, IndirectObject)
+    iobjFor(GiveTo) {
+        verify { }
+        action {
+            replaceAction(PutOn, gDobj, gIobj);
+        }
+    }
 ;
 
 +++ necklace: Wearable
