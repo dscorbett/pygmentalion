@@ -321,7 +321,11 @@ key: PresentLater, Key 'grimy key' 'key' @altar
             verifyDobjCleanWith();
         }
         action {
-            askForIobj(CleanWith);
+            if (sinkWater.canBeTouchedBy(gActor))
+                tryImplicitActionMsg(
+                    &silentImplicitAction, CleanWith, self, sinkWater);
+            else
+                askForIobj(CleanWith);
         }
     }
     dobjFor(CleanWith)
@@ -593,6 +597,9 @@ export level 'waterLevel';
 ++ sinkWater: Fixture
     '(sink) water sink puddle/water' 'water' "<<sink.desc>>"
     disambigName = 'water in the sink'
+    canBeTouchedBy(actor) {
+        return (sink.overflowing || sink.level != 0) && inherited(actor);
+    }
     dobjFor(Drink)
     {
         verify { illogical('''{You're} not thirsty. '''); }
