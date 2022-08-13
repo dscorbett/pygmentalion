@@ -511,7 +511,12 @@ altarRoom: Room 'At the Altar'
                 or the deal&rsquo;s off.</q> ";
         }
     }
-    iobjFor(GiveTo) remapTo(PutOn, DirectObject, IndirectObject)
+    iobjFor(GiveTo) {
+        verify { }
+        action {
+            replaceAction(PutOn, gDobj, gIobj);
+        }
+    }
 ;
 
 aphrodite: Unthing
