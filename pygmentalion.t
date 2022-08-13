@@ -1317,6 +1317,8 @@ modify Thing
     }
 ;
 
+/* Sundry modifications */
+
 modify Thing
     dobjFor(GiveTo)
     {
@@ -1327,6 +1329,11 @@ modify Thing
         }
     }
 ;
+
+modify playerActionMessages {
+    cannotPutInRestrictedMsg = 'There is no reason for {you/him} to put {that
+        dobj/him} in {the iobj/him}. '
+}
 
 /* Extended grammar for 'in' and 'out' */
 
