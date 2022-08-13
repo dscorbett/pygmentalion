@@ -408,6 +408,13 @@ replace grammar predicate(UnscrewWith): ' ': object;
         }
         It = true
     }
+    dobjFor(Kiss)
+    {
+        check
+        {
+            failCheck('{You/He} would, if only {it dobj/she} were alive. ');
+        }
+    }
     iobjFor(PutOn)
     {
         check
