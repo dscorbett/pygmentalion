@@ -316,7 +316,14 @@ key: PresentLater, Key 'grimy key' 'key' @altar
     material = 'bronze'
     clean = nil
     keyword = (keyword = randomGreekWord(), targetprop)
-    dobjFor(Clean) { verify { } action { askForIobj(CleanWith); } }
+    dobjFor(Clean) {
+        verify {
+            verifyDobjCleanWith();
+        }
+        action {
+            askForIobj(CleanWith);
+        }
+    }
     dobjFor(CleanWith)
     {
         verify
