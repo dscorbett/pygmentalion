@@ -42,7 +42,7 @@ obj:
 	mkdir $@
 
 %.html: %
-	pygmentize -l tads3 $< -f html -O nobackground,noclasses,nowrap -o $@
+	pygmentize -l tads3 $< -f html -O nobackground,nowrap -o $@
 
 .PHONY: clean
 clean:

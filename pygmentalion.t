@@ -895,9 +895,16 @@ transient iris: Unthing
                     file = File.openTextResource(resourceName);
                 } catch (FileException e) {
                     "The source code cannot be opened. ";
+                    return;
                 }
                 file.setCharacterSet('utf-8');
             }
+#ifndef TADS_INCLUDE_NET
+            // QTads crashes unpredictably in `CHtmlSysWinQt::measure_text` if
+            // there is too much complex HTML on the screen.
+            if (systemInfo(SysInfoInterpClass) == SysInfoIClassHTML)
+                cls();
+#endif
             local line = nil;
             try {
                 local i = 0;
@@ -922,24 +929,113 @@ transient iris: Unthing
                     }
                     if (line.compareTo('\n'))
                     {
+                        local tagStyles = [
+                            // Comment
+                            'c' -> ['<i><font color=#0080ff>', '</font></i>'],
+                            // Comment.Hashbang
+                            'ch' -> ['<i><font color=#0080ff>', '</font></i>'],
+                            // Comment.Multiline
+                            'cm' -> ['<i><font color=#0080ff>', '</font></i>'],
+                            // Comment.Preproc
+                            'cp' -> ['<font color=#0080ff>', '</font>'],
+                            // Comment.PreprocFile
+                            'cpf' -> ['<font color=#0080ff>', '</font>'],
+                            // Comment.Single
+                            'c1' -> ['<i><font color=#0080ff>', '</font></i>'],
+                            // Comment.Special
+                            'cs' -> [
+                                '<b><i><font color=#0080ff>', '</font></i></b>'
+                            ],
+                            // Keyword
+                            'k' -> ['<b><font color=#2c5dcd>', '</font></b>'],
+                            // Keyword.Constant
+                            'kc' -> ['<b><font color=#2c5dcd>', '</font></b>'],
+                            // Keyword.Declaration
+                            'kd' -> ['<b><font color=#2c5dcd>', '</font></b>'],
+                            // Keyword.Namespace
+                            'kn' -> ['<b><font color=#2c5dcd>', '</font></b>'],
+                            // Keyword.Pseudo
+                            'kp' -> ['<b><font color=#2c5dcd>', '</font></b>'],
+                            // Keyword.Reserved
+                            'kr' -> ['<b><font color=#2c5dcd>', '</font></b>'],
+                            // Keyword.Type
+                            'kt' -> ['<b><font color=#2c5dcd>', '</font></b>'],
+                            // Name.Attribute
+                            'na' -> ['<i><font color=#2c5dcd>', '</font></i>'],
+                            // Name.Builtin
+                            'nb' -> ['<b><font color=#5918bb>', '</font></b>'],
+                            // Name.Builtin.Pseudo
+                            'bp' -> ['<b><font color=#5918bb>', '</font></b>'],
+                            // Name.Class
+                            'nc' -> ['<u><font color=#c5060b>', '</font></u>'],
+                            // Name.Constant
+                            'no' -> ['<font color=#318495>', '</font>'],
+                            // Name.Entity
+                            'ni' -> ['<b><font color=#5918bb>', '</font></b>'],
+                            // Name.Exception
+                            'ne' -> ['<b><font color=#5918bb>', '</font></b>'],
+                            // Name.Function
+                            'nf' -> ['<font color=#c5060b>', '</font>'],
+                            // Name.Function.Magic
+                            'fm' -> ['<font color=#c5060b>', '</font>'],
+                            // Name.Tag
+                            'nt' -> ['<b><font color=#2c5dcd>', '</font></b>'],
+                            // Number
+                            'm' -> ['<b><font color=#5918bb>', '</font></b>'],
+                            // Number.Bin
+                            'mb' -> ['<b><font color=#5918bb>', '</font></b>'],
+                            // Number.Float
+                            'mf' -> ['<b><font color=#5918bb>', '</font></b>'],
+                            // Number.Integer
+                            'mi' -> ['<b><font color=#5918bb>', '</font></b>'],
+                            // Number.Integer.Long
+                            'il' -> ['<b><font color=#5918bb>', '</font></b>'],
+                            // Number.Hex
+                            'mh' -> ['<b><font color=#5918bb>', '</font></b>'],
+                            // Number.Oct
+                            'mo' -> ['<b><font color=#5918bb>', '</font></b>'],
+                            // Operator
+                            'o' -> ['<font color=#2c5dcd>', '</font>'],
+                            // Operator.Word
+                            'ow' -> ['<b><font color=#2c5dcd>', '</font></b>'],
+                            // String
+                            's' -> ['<font color=#00994d>', '</font>'],
+                            // String.Backtick
+                            'sb' -> ['<font color=#00994d>', '</font>'],
+                            // String.Char
+                            'sc' -> ['<font color=#00994d>', '</font>'],
+                            // String.Delimiter
+                            'dl' -> ['<font color=#00994d>', '</font>'],
+                            // String.Doc
+                            'sd' -> ['<font color=#00994d>', '</font>'],
+                            // String.Double
+                            's2' -> ['<font color=#00994d>', '</font>'],
+                            // String.Escape
+                            'se' -> ['<b><font color=#c5060b>', '</font></b>'],
+                            // String.Heredoc
+                            'sh' -> ['<font color=#00994d>', '</font>'],
+                            // String.Interpol
+                            'si' -> ['<b><font color=#c5060b>', '</font></b>'],
+                            // String.Other
+                            'sx' -> ['<font color=#00994d>', '</font>'],
+                            // String.Regex
+                            'sr' -> ['<font color=#00994d>', '</font>'],
+                            // String.Single
+                            's1' -> ['<font color=#00994d>', '</font>'],
+                            // String.Symbol
+                            'ss' -> ['<font color=#00994d>', '</font>'],
+                            // fallback for other classes
+                            * -> ['', '']
+                        ];
+                        line = rexReplace(
+                            R'<span class="(.*?)">(.*?)</span>',
+                            line,
+                            function() {
+                                local tags = tagStyles[rexGroup(1)[3]];
+                                return tags[1] + rexGroup(2)[3] + tags[2];
+                            },
+                        );
 #ifndef TADS_INCLUDE_NET
-                        line = rexReplace(R'(?<=<span style=")[;
-                            ]*color: (#......)([^"]*">)(.*?)(?=</span>)',
-                            line, '%2<font color=%1>%3</font>');
-                        line = rexReplace(R'(?<=<span style=")[;
-                            ]*font-weight: bold([^"]*">)(.*?)(?=</span>)',
-                            line, '%1<b>%2</b>');
-                        line = rexReplace(R'(?<=<span style=")[;
-                            ]*font-style: italic([^"]*">)(.*?)(?=</span>)',
-                            line, '%1<i>%2</i>');
-                        line = rexReplace(R'(?<=<span style=")[;
-                            ]*text-decoration:
-                            underline([^"]*">)(.*?)(?=</span>)',
-                            line, '%1<u>%2</u>');
-                        line = rexReplace(R'(?<=<span style=")[;
-                            ]*background-color:
-                            (#......)([^"]*">)(.*?)(?=</span>)',
-                            line, '%2<font bgcolor==%1>%3</font>');
                         line = line.findReplace('  ', ' \u00A0');
 #endif
                         "<<line.findReplace(['{', '}', '\n'],
