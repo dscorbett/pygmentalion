@@ -1062,7 +1062,7 @@ transient iris: Unthing
                     Iris', 'PRAY TO IRIS')>> to see the next page of
                     text.<./notification><<only>>";
                 else
-                    "<<first time>>\b<.notification><<aHref('Pray to Iris', 'PRAY
+                    "<<first time>>\b<.notification><<aHref('pray to Iris', 'PRAY
                     TO IRIS')>> again to restart at the
                     beginning.<./notification><<only>>";
             } finally {
