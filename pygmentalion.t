@@ -338,11 +338,8 @@ key: PresentLater, Key 'grimy key' 'key' @altar
         action
         {
             gDobj.clean = true;
-            cmdDict.removeWord(self, 'grimy', &adjective);
+            vocabRemover.removeWord(self, 'grimy', &adjective);
             "{You/He} clean{s} {the dobj/him}, revealing an inscription. ";
-            // Keep "grimy" in the active vocabulary by setting it on an
-            // off-stage thing.
-            cmdDict.addWord(necklace, 'grimy', &adjective);
         }
     }
     dobjFor(Read) { verify { nonObvious; } }
@@ -1326,6 +1323,10 @@ DefineLiteralAction(Calculate)
             feather.makePresentIf(basin.isMirror);
             feather.moved = nil;
         }
+        if (sink.current == basin && basin.isMirror)
+            cmdDict.addWord(basin, 'mirror', &noun);
+        else
+            vocabRemover.removeWord(basin, 'mirror', &noun);
     }
 ;
 
@@ -1438,6 +1439,14 @@ modify playerActionMessages {
     cannotPutInRestrictedMsg = 'There is no reason for {you/him} to put {that
         dobj/him} in {the iobj/him}. '
 }
+
+vocabRemover: Unthing 'mirror'
+    removeWord(obj, str, voc_prop)
+    {
+        cmdDict.removeWord(obj, str, voc_prop);
+        cmdDict.addWord(self, str, voc_prop);
+    }
+;
 
 /* Extended grammar for 'in' and 'out' */
 
