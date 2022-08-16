@@ -376,26 +376,34 @@ replace grammar predicate(UnscrewWith): ' ': object;
 + + statue: Fixture, Surface
     '(flawless) (milk-white) "creation\'s" \
     beauty/carving/creation/galatea/statue/woman' 'statue'
-    "This is a<<if nameToken.scoreCount>>n untitled<<end>> statue of a woman
-    carved <<if exceptionToken.scoreCount>>with exceptional skill <<end>>from
+    "This is a<<if nameToken.scoreCount>>n untitled<<end>> statue of a
+    <<if exceptionToken.scoreCount>>beautiful<<end>> woman carved from
     <<if errorToken.scoreCount>>flawless <<end>>
     <<if whitespaceToken.scoreCount>>milk-white <<end>>ivory.
     <<if escapeToken.scoreCount || longToken.scoreCount>>Her
     <<if longToken.scoreCount>>long <<end>>hair is done up in a
     chignon<<if escapeToken.scoreCount>>, with a few strands falling down her
-    neck<<end>><<if floatToken.scoreCount>>, and \v<<else>>.<<end>><<end>>
+    neck<<end>><<if floatToken.scoreCount>>, and \v<<else>>. <<end>><<end>>
     <<if floatToken.scoreCount>>She radiates an aura of contrapposto grace.
-    <<end>><<if keywordToken.scoreCount>>\bYou wonder what she
-    <<if labelToken.scoreCount>>is going to<<else>>will<<end>> be like as a
-    woman.
-    <<if decoratorToken.scoreCount>>Maybe she&rsquo;ll be a painter and expand
-    your business.<<end>>
-    <<if operatorToken.scoreCount>>Maybe she&rsquo;ll have a head for figures
-    and will put the accounts in order.<<end>>
-    <<if builtinToken.scoreCount>>She&rsquo;ll love you, obviously, but beyond
-    that you don&rsquo;t know.<<end>><<end>>
+    <<end>>
+    <.p><<if labelToken.scoreCount || keywordToken.scoreCount ||
+    decoratorToken.scoreCount || operatorToken.scoreCount ||
+    builtinToken.scoreCount || commentToken.scoreCount>>You wonder what she
+    <<if labelToken.scoreCount>>is going to<<else if
+    keywordToken.scoreCount>>will<<else>>would<<end>> be like as a living woman.
+    <<if decoratorToken.scoreCount>>Maybe she&rsquo;<<if
+    keywordToken.scoreCount>>ll<<else>>d<<end>> be a painter and expand your
+    business. <<end>>
+    <<if operatorToken.scoreCount>>Maybe she&rsquo;<<if
+    keywordToken.scoreCount>>ll<<else>>d<<end>> have a head for figures and <<if
+    keywordToken.scoreCount>>will<<else>>would<<end>> put the accounts in
+    order. <<end>>
+    <<if builtinToken.scoreCount>>She&rsquo;<<if
+    keywordToken.scoreCount>>ll<<else>>d<<end>> love you, obviously, but beyond
+    that you don&rsquo;t know. <<else>>Who knows? You can only dream. <<end>>
     <<if commentToken.scoreCount>>If only Aphrodite would bring her to life
-    without this silly puzzle about tokens and mirrors!<<end>> "
+    without this silly puzzle about tokens and mirrors! <<end>>
+    <<end>><.p>"
     material = 'ivory'
     propertyset 'is*'
     {
@@ -410,9 +418,23 @@ replace grammar predicate(UnscrewWith): ' ': object;
     {
         check
         {
-            failCheck('{You/He} would, if only {it dobj/she} were alive. ');
+            /*
+             *   Car quãt ie me vueil a aiſier.
+             *   Et dacoller et de baiſier.
+             *   Ie truis mamye autreſſi roide.
+             *   Cõme eſt.i.pel et auſſi froide.
+             *   Car quãt poᷣ la baiſier y touche.
+             *   Toute me refroidiſt la bouche.
+             *   Ha trop ay parle follemãt.
+             *   Mercy doulce amye ẽ demãd.
+             *      (MS. Douce 195, fol. 149v)
+             */
+            failCheck('{The dobj/She} is as stiff and cold as a post, you know
+                from experience. It would be more satisfying if {it dobj/she}
+                were alive. Sorry, but it&rsquo;s true. ');
         }
     }
+    dobjFor(Hug) remapTo(Kiss, DirectObject)
     iobjFor(PutOn)
     {
         check
@@ -432,11 +454,19 @@ replace grammar predicate(UnscrewWith): ' ': object;
     }
 ;
 
+/*
+ *   Et treſſons gentilz et greſles.
+ *   De ſoye vert a menuz perles.
+ *      (MS. Douce 195, fol. 150r)
+ */
+
 +++ necklace: Wearable
-    'pearl necklace/string pearls' '<<highlight 'string'>> of pearls'
-    "This is a masterfully crafted pearl necklace. You hope the statue
-    won&rsquo;t mind if you hold onto it for a while. "
-    initDesc = "You gave the statue this pearl necklace yesterday. "
+    '(fine) (seed) pearl necklace/string pearls'
+    '<<highlight 'string'>> of pearls'
+    "This necklace of countless fine seed pearls is the latest ornament with
+    which you have adorned the statue, the latest attempt to express your
+    feelings through gifts. "
+    initDesc = "You put this pearl necklace on the statue yesterday. "
     canMatchThem = true
 ;
 
@@ -727,11 +757,31 @@ portico: OutdoorRoom 'Portico'
     isPlural = true
 ;
 
+/*
+ *   Puis q̄ pymalion ay nom
+ *      (MS. Douce 195, fol. 149v)
+ */
+
 + Fixture, Readable 'label/doorpost' '<<highlight 'label'>>'
     "The <<highlight 'label'>> says <q>Pygmentalion</q><<first time>> (which is
     your <<highlight 'name'>>)<<only>>. "
     dobjFor(Read) asDobjFor(Examine)
 ;
+
+/*
+ *   Nama iadis ou boys rame.
+ *   A la fontaine clere et pure.
+ *   Narciſus ſa pꝛopꝛe figure.
+ *   Quãt cuida ſa ſoif eſtanchier
+ *   Noncq ne ſen pot reuanchier.
+ *   Puis en fu moꝛt ſelon liſtoire.
+ *   Qui encoꝛ eſt de grãt memoyꝛe.
+ *   Dõc ſuys ie moĩs fol touteſuoiˢ.
+ *   Car quãt ie vueil a ceſte vois
+ *   Et la pꝛen ⁊ lacolle et baiſe
+ *   Sen puiˢ mieulx ſouffrir ma meˢ-aiſe.
+ *      (MS. Douce 195, fol. 149v)
+ */
 
 + basin: RestrictedContainer, Fixture
     '(bird) basin/bath/birdbath/fountain/mosaic/pool/tile/tiles' 'basin'
@@ -740,7 +790,9 @@ portico: OutdoorRoom 'Portico'
     with water pressure, no doubt. Now you just use it as a birdbath.\b
     <<if overflowing>>Water is spilling over the sides in a turbulent flow.
     <<else if level >= 19500>>It is full to the brim with water. You can see
-    your reflection quite clearly.
+    your reflection as clearly as Narcissus saw his. At least you are not as
+    foolish as he was: you can physically touch the object of your affections,
+    which is some consolation.
     <<else if level >= 15000>>It is full of water. You can see your reflection.
     <<else if level >= 10000>>It is half full. From the right angle, you can
     make out a shadowy reflection of the columns, but nothing more.
@@ -778,6 +830,13 @@ portico: OutdoorRoom 'Portico'
         }
     }
 ;
+
+/*
+ *   Par grãt amoᷣ loꝛs ſentrebꝛacet.
+ *   Com.ii.coulõbiaux ſentrebaiſẽt.
+ *   Moult ſẽtraimẽt moult ſẽtreaiſẽt.
+ *      (MS. Douce 195, fol. 151v)
+*/
 
 ++ feather: PresentLater, Thing
     '(bird) (dove) (pigeon) (turtle) (turtle-dove) (turtledove) feather'
@@ -1217,7 +1276,7 @@ DefineLiteralAction(Calculate)
                 <<end>>
             <<else if sink.level == oldLevel && result <= oldLevel
               && !oldOverflowing>>
-                <<if result < 0>>The pipes rattle.<<end>>
+                <<if result < 0>>The pipes rattle. <<end>>
             <<else if sink.level == 0>>
                 <<if oldOverflowing>>The faucet shuts off and \v<<end>>All the
                 water drains from the sink.
@@ -1424,6 +1483,14 @@ modify Thing
 
 /* Sundry modifications */
 
+VerbRule(Hug)
+    ('embrace' | 'hug') singleDobj
+    : HugAction
+    verbPhrase = 'hug/hugging (what)'
+;
+
+DefineTAction(Hug);
+
 modify Thing
     dobjFor(GiveTo)
     {
@@ -1431,6 +1498,14 @@ modify Thing
         {
             if (!isIn(gActor))
                 logicalRank(80, 'not held');
+        }
+    }
+    dobjFor(Hug)
+    {
+        preCond = [touchObj]
+        action
+        {
+            "{subj actor}Hugging {the dobj/him} has no obvious effect. ";
         }
     }
 ;
@@ -1491,7 +1566,12 @@ DefineLiteralAction(Say)
                      *   Pꝛeſte de voſtre compaignye.
                      *   Receuoir ⁊ mamoᷣ voꝰ offre.
                      *   Sil voꝰ plaiſt receuoir tel offre.
-                     *      (MS. Douce 195, fol. 151v)
+                     *   [...]
+                     *   Aux dieux eulx.ii.graces rẽdirẽt.
+                     *   Qui tel courtoiſie leur firent
+                     *   Eſpecialmant a venus.
+                     *   Qui leᷣ ot aydie mieulx q̄ nulz.
+                     *      (MS. Douce 195, fol. 151v–152r)
                      */
                     "The air above the basin shimmers for a moment. You hear
                     <<if door.isOpen()>>footsteps<<else>>the door <<if
