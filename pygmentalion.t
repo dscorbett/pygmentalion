@@ -742,7 +742,10 @@ portico: OutdoorRoom 'Portico'
     down asExit(south)
 ;
 
-+ error: LockableWithKey, Door ->door 'door' 'door' "<<door.desc>>"
++ error: LockableWithKey, Door ->door 'door'
+    name = (otherSide.name)
+    desc = (otherSide.desc)
+    material = 'wood' 'wooden'
     keyList = (otherSide.keyList)
 ;
 
