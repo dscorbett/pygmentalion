@@ -452,6 +452,24 @@ replace grammar predicate(UnscrewWith): ' ': object;
             replaceAction(PutOn, gDobj, gIobj);
         }
     }
+    dobjFor(Attack)
+    {
+        check
+        {
+            /*
+             *   Ainſi pymalion eſtriue.
+             *   En ſon eſtrif na fõs ne riue.
+             *   En vng eſtat poĩt ne demeure.
+             *   Oꝛ ayme oꝛ hait oꝛ rit oꝛ pleure.
+             *   Oꝛ eſt liez oꝛ a meſaiſe.
+             *   Oꝛ ſe toꝛmẽte oꝛ rappaiſe.
+             *      (MS. Douce 195, fol. 150r)
+             */
+            failCheck('Where did that thought come from? Even in the worst of
+                {your} mood swings, {you/he} {have} never considered harming
+                {that dobj/her}. ');
+        }
+    }
 ;
 
 /*
