@@ -85,11 +85,19 @@ versionInfo: GameID
         <!-- For clues, ask Ariadne. -->";
     }
     showCredit() {
+        local italicizeTitle =
+#ifdef TADS_INCLUDE_NET
+            true
+#else
+            systemInfo(SysInfoInterpClass) != SysInfoIClassText
+#endif
+            ;
         "Credit goes to Pygments for providing the excuse to write this game.
         The story was loosely inspired by a section of <<if showLinks>><a
         href=https://digital.bodleian.ox.ac.uk/objects/bb971cd2-a682-45e5-<<
-        >>866f-31ce76482afe/ target=_blank><<end>><i>Le Roman de la Rose</i><<if
-        showLinks>></a><<end>>.";
+        >>866f-31ce76482afe/ target=_blank><<end>><<if
+        italicizeTitle>><i><<else>><q><<end>>Le Roman de la Rose<<if
+        italicizeTitle>></i><<else>></q><<end>><<if showLinks>></a><<end>>. ";
     }
 ;
 
