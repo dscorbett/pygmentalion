@@ -92,20 +92,20 @@ versionInfo: GameID
 ;
 
 /*
- *   Pymalion fu ẽtailleꝛꝛes.
- *   Poᷣtrayãs en fus ⁊ en peꝛꝛeˢ
+ *   Pymalıon fu ētaılleꝛꝛes.
+ *   Poᷣtrayās en fus ⁊ en peꝛꝛeˢ
  *   En metaulx en os ⁊ en cyꝛes
- *   Et en touteˢ aultres matires.
+ *   Et en touteˢ aultres matıres.
  *   Quon peult a tel oeuure trouuer.
  *   Poᷣ ſon grant engin eſpꝛouuer.
- *   Car maiſtre en fu bien dire loz.
- *   Ainſi com poᷣ acquerre loz
- *   Se voult a poᷣtraire deduyꝛe
- *   Si fiſt vng ymage diuuyꝛe
- *   Et miſt au faire tel entente
- *   Quel fu ſi plaiſãt et ſi gente
- *   Quel ſembloit eſtre auſſi viue.
- *   Com la plus belle riens q̇ viue
+ *   Car maıſtre en fu bıen dıre loz.
+ *   Ainſı com poᷣ acquerre loz.
+ *   Se voult a poᷣtraıre deduyꝛe.
+ *   Sı fıſt vng ymage diuuyꝛe.
+ *   Et miſt au faıre tel entente.
+ *   Quel fu ſı plaıſāt et ſı gente.
+ *   Quel ſembloıt eſtre auſſı viue.
+ *   Com la plus belle rıens qͥ viue
  *      (MS. Douce 195, fol. 149r)
  */
 
@@ -184,22 +184,22 @@ modify cmdTokenizer
 /* Tokens */
 
 /*
- *   Puiˢ li reueſt en maĩteˢ guiſes.
- *   Robeˢ faicteˢ ꝑ grãˢ maiſtriſeˢ.
- *   De biaulx dꝛaps de ſoye ⁊ de laĩe.
- *   Deſcarlate de tiretaine
+ *   Puiˢ li reueſt en maīteˢ guıſes.
+ *   Robeˢ faıcteˢ ꝑ grāˢ maıſtrıſeˢ.
+ *   De bıaulx dꝛaps de ſoye ⁊ de laīe.
+ *   Deſcarlate de tıretaine.
  *   De vert de pers ⁊ de bꝛunecte
- *   De couleᷣ freſche fine ⁊ necte
- *   Ou moult a riches paneˢ miſes.
- *   Herminees vaires et griſes
- *   Puis les li roſte puis reſſaye.
- *   Cõmant li ſiet robbe de ſaye
+ *   De couleᷣ freſche fine ⁊ necte.
+ *   Ou moult a rıches paneˢ mıſes.
+ *   Herminees vaıres et griſes
+ *   Puis les lı roſte puis reſſaye.
+ *   Cōmant lı ſıet robbe de ſaye
  *   Sendaulx meloguins galebꝛunˢ.
- *   Indes vermeilz iaunes ⁊ bꝛunˢ.
+ *   Indes vermeılz ıaunes ⁊ bꝛunˢ.
  *   [...]
- *   Aultre foiz luy repꝛẽd courage.
+ *   Aultre foız luy repꝛēd courage.
  *   De tout oſter ⁊ mectre guindeˢ.
- *   Iaunes vermeilles vers ⁊ indeˢ.
+ *   Iaunes vermeılles vers ⁊ indeˢ.
  *      (MS. Douce 195, fol. 150r)
  */
 
@@ -368,10 +368,10 @@ workbenchRoom: Room 'At the Workbench'
 ;
 
 /*
- *   Quauſſi es tu moult coᷣꝛouciee.
- *   Quãt chaſtete eſt exauciee.
- *   Se iay grãt peine deſſeruie.
- *   De ce q̄ ie lay tant ſeruie.
+ *   Quauſſı es tu moult coᷣꝛoucıee.
+ *   Quāt chaſtete eſt exaucıee.
+ *   Se ıay grāt peine deſſeruıe.
+ *   De ce q̄ ıe lay tant ſeruie.
  *      (MS. Douce 195, fol. 151r)
  */
 
@@ -427,14 +427,14 @@ replace grammar predicate(UnscrewWith): ' ': object;
         check
         {
             /*
-             *   Car quãt ie me vueil a aiſier.
-             *   Et dacoller et de baiſier.
-             *   Ie truis mamye autreſſi roide.
-             *   Cõme eſt.i.pel et auſſi froide.
-             *   Car quãt poᷣ la baiſier y touche.
-             *   Toute me refroidiſt la bouche.
-             *   Ha trop ay parle follemãt.
-             *   Mercy doulce amye ẽ demãd.
+             *   Car quāt ıe me vueıl a aıſier.
+             *   Et dacoller et de baıſıer.
+             *   Ie truis mamye autreſſı roıde.
+             *   Cōme eſt.ı.pel et auſſı froıde.
+             *   Car quāt poᷣ la baıſıer y touche.
+             *   Toute me refroıdıſt la bouche.
+             *   Ha trop ay parle follemāt.
+             *   Mercy doulce amye ē demād.
              *      (MS. Douce 195, fol. 149v)
              */
             failCheck('{The dobj/She} is as stiff and cold as a post, you know
@@ -465,12 +465,12 @@ replace grammar predicate(UnscrewWith): ' ': object;
         check
         {
             /*
-             *   Ainſi pymalion eſtriue.
-             *   En ſon eſtrif na fõs ne riue.
-             *   En vng eſtat poĩt ne demeure.
-             *   Oꝛ ayme oꝛ hait oꝛ rit oꝛ pleure.
-             *   Oꝛ eſt liez oꝛ a meſaiſe.
-             *   Oꝛ ſe toꝛmẽte oꝛ rappaiſe.
+             *   Ainſı pymalıon eſtriue.
+             *   En ſon eſtrif na fōs ne riue.
+             *   En vng eſtat poīt ne demeure.
+             *   Oꝛ ayme oꝛ haıt oꝛ rıt oꝛ pleure.
+             *   Oꝛ eſt lıez oꝛ a meſaıſe.
+             *   Oꝛ ſe toꝛmēte oꝛ rappaıſe.
              *      (MS. Douce 195, fol. 150r)
              */
             failCheck('Where did that thought come from? Even in the worst of
@@ -481,7 +481,7 @@ replace grammar predicate(UnscrewWith): ' ': object;
 ;
 
 /*
- *   Et treſſons gentilz et greſles.
+ *   Et treſſons gentılz et greſles.
  *   De ſoye vert a menuz perles.
  *      (MS. Douce 195, fol. 150r)
  */
@@ -525,13 +525,13 @@ altarRoom: Room 'At the Altar'
         action()
         {
             /*
-             *   Biaulx dieux diſt il tout ce poez.
-             *   Sil voꝰ plaiſt ma requeſte oez
+             *   Bıaulx dıeux dıſt ıl tout ce poez.
+             *   Sıl voꝰ plaıſt ma requeſte oez
              *   [...]
-             *   Et la belle q̇ mon cueᷣ emble
-             *   Qui ſi bien yuoyꝛe reſſemble.
-             *   Deuiengne ma loyal amye
-             *   De fẽme ait coꝛps ame et vie
+             *   Et la belle qͥ mon cueᷣ emble
+             *   Qui ſı bıen yuoyꝛe reſſemble.
+             *   Deuıengne ma loyal amye
+             *   De fēme aıt coꝛps ame et vıe
              *      (MS. Douce 195, fol. 151r)
              */
             local offering;
@@ -787,7 +787,7 @@ portico: OutdoorRoom 'Portico'
 ;
 
 /*
- *   Puis q̄ pymalion ay nom
+ *   Puıs q̄ pymalıon ay nom.
  *      (MS. Douce 195, fol. 149v)
  */
 
@@ -798,17 +798,17 @@ portico: OutdoorRoom 'Portico'
 ;
 
 /*
- *   Nama iadis ou boys rame.
+ *   Nama ıadıs ou boys rame.
  *   A la fontaine clere et pure.
- *   Narciſus ſa pꝛopꝛe figure.
- *   Quãt cuida ſa ſoif eſtanchier
- *   Noncq ne ſen pot reuanchier.
- *   Puis en fu moꝛt ſelon liſtoire.
- *   Qui encoꝛ eſt de grãt memoyꝛe.
- *   Dõc ſuys ie moĩs fol touteſuoiˢ.
- *   Car quãt ie vueil a ceſte vois
- *   Et la pꝛen ⁊ lacolle et baiſe
- *   Sen puiˢ mieulx ſouffrir ma meˢ-aiſe.
+ *   Narcıſus ſa pꝛopꝛe fıgure.
+ *   Quāt cuıda ſa ſoıf eſtanchıer
+ *   Noncq ne ſen pot reuanchıer.
+ *   Puis en fu moꝛt ſelon lıſtoıre.
+ *   Qui encoꝛ eſt de grāt memoyꝛe.
+ *   Dōc ſuys ıe moīs fol touteſuoıˢ.
+ *   Car quāt ıe vueıl a ceſte voıs
+ *   Et la pꝛen ⁊ lacolle et baıſe.
+ *   Sen puıˢ mieulx ſouffrır ma meˢ-aıſe.
  *      (MS. Douce 195, fol. 149v)
  */
 
@@ -861,9 +861,9 @@ portico: OutdoorRoom 'Portico'
 ;
 
 /*
- *   Par grãt amoᷣ loꝛs ſentrebꝛacet.
- *   Com.ii.coulõbiaux ſentrebaiſẽt.
- *   Moult ſẽtraimẽt moult ſẽtreaiſẽt.
+ *   Par grāt amoᷣ loꝛs ſentrebꝛacet.
+ *   Com.ii.coulōbıaux ſentrebaıſēt.
+ *   Moult ſētraimēt moult ſētreaıſēt.
  *      (MS. Douce 195, fol. 151v)
 */
 
@@ -1584,22 +1584,22 @@ DefineLiteralAction(Say)
                 else
                 {
                     /*
-                     *   Venus q̇ la pꝛiere ouyt
+                     *   Venus qͥ la pꝛiere ouyt
                      *   [...]
-                     *   A lymage ẽuoya loꝛs lame.
-                     *   Si deuĩt ſi treſbelle dame.
+                     *   A lymage ēuoya loꝛs lame.
+                     *   Sı deuīt ſı treſbelle dame.
                      *   Quoncq̄s en toute la contree.
-                     *   Not len ſi belle encontree.
+                     *   Not len ſı belle encontree.
                      *   [...]
-                     *   Doulx amys aĩs ſuy vꝛ̄e amye.
-                     *   Pꝛeſte de voſtre compaignye.
-                     *   Receuoir ⁊ mamoᷣ voꝰ offre.
-                     *   Sil voꝰ plaiſt receuoir tel offre.
+                     *   Doulx amys aīs ſuy vꝛ̄e amye.
+                     *   Pꝛeſte de voſtre compaıgnye.
+                     *   Receuoır ⁊ mamoᷣ voꝰ offre.
+                     *   Sıl voꝰ plaıſt receuoır tel offre.
                      *   [...]
-                     *   Aux dieux eulx.ii.graces rẽdirẽt.
-                     *   Qui tel courtoiſie leur firent
-                     *   Eſpecialmant a venus.
-                     *   Qui leᷣ ot aydie mieulx q̄ nulz.
+                     *   Aux dıeux eulx.ii.graces rēdırēt.
+                     *   Quı tel courtoıſıe leur fırent
+                     *   Eſpecıalmant a venus.
+                     *   Qui leᷣ ot aydıe mieulx q̄ nulz.
                      *      (MS. Douce 195, fol. 151v–152r)
                      */
                     "The air above the basin shimmers for a moment. You hear
