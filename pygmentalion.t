@@ -367,11 +367,19 @@ workbenchRoom: Room 'At the Workbench'
     "It&rsquo;s a smoothed block of marble about a cubit high. "
 ;
 
-// You're not Archimedes.
+/*
+ *   Quauſſi es tu moult coᷣꝛouciee.
+ *   Quãt chaſtete eſt exauciee.
+ *   Se iay grãt peine deſſeruie.
+ *   De ce q̄ ie lay tant ſeruie.
+ *      (MS. Douce 195, fol. 151r)
+ */
+
 replace grammar predicate(Screw): ' ': object;
 replace grammar predicate(ScrewWith): ' ': object;
 replace grammar predicate(Unscrew): ' ': object;
 replace grammar predicate(UnscrewWith): ' ': object;
+// You're not Archimedes.
 
 + + statue: Fixture, Surface
     '(flawless) (milk-white) "creation\'s" \
