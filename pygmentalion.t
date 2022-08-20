@@ -63,16 +63,16 @@ versionInfo: GameID
     forgivenessLevel = 'Merciful'
     copyingRules = 'Other; Compilations Allowed'
     presentationProfile = 'Multimedia'
-    showAbout() {
-        local showLink =
+    showLinks =
 #ifdef TADS_INCLUDE_NET
             true
 #else
             systemInfo(SysInfoLinksHttp) == 1
 #endif
-        ;
+    showAbout()
+    {
         "This is a short game originally designed to provide an example file for
-        the syntax highlighter <<if showLink>><a
+        the syntax highlighter <<if showLinks>><a
         href='https://pygments.org/'>Pygments</a><<else>>Pygments
         (https://pygments.org/)<<end>>.\b
         Scattered throughout the game are highlighted words corresponding to
@@ -86,8 +86,10 @@ versionInfo: GameID
     }
     showCredit() {
         "Credit goes to Pygments for providing the excuse to write this game.
-        The story was loosely inspired by a section of <i>Le Roman de la
-        Rose</i>.";
+        The story was loosely inspired by a section of <<if showLinks>><a
+        href=https://digital.bodleian.ox.ac.uk/objects/bb971cd2-a682-45e5-<<
+        >>866f-31ce76482afe/ target=_blank><<end>><i>Le Roman de la Rose</i><<if
+        showLinks>></a><<end>>.";
     }
 ;
 
