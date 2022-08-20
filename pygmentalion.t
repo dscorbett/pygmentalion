@@ -145,6 +145,14 @@ gameMain: GameMainDef
         <.notification>First-time players should type <<aHref('about',
         'ABOUT')>>.<./notification>\b";
     }
+    setAboutBox
+    {
+        "<aboutbox><center>
+        <b><<versionInfo.name.toUpper()>></b>\b
+        Version <<versionInfo.version>>\b
+        Copyright 2014, 2022 <<versionInfo.byline>>
+        </center></aboutbox>";
+    }
 ;
 
 enum token token, tokOp, token;
