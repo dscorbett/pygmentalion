@@ -127,6 +127,7 @@ modify _init()
 
 gameMain: GameMainDef
     initialPlayerChar: Actor {
+        vocabWords = 'Pygmentalion'
         desc = "You look the same as usual, but you feel unusually
             sentimental. "
         location = entrance
