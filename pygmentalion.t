@@ -1236,7 +1236,7 @@ DefineLiteralAction(Calculate)
         }
         goto doCalculation;
     binary: binaryOp:
-        switch (opString)
+        switch (opString.toLower())
         {
         case '+':
         case 'plus':
