@@ -457,9 +457,9 @@ replace grammar predicate(UnscrewWith): ' ': object;
              *   Mercy doulce amye ē demād.
              *      (MS. Douce 195, fol. 149v)
              */
-            failCheck('{The dobj/She} is as stiff and cold as a post, you know
-                from experience. It would be more satisfying if {it dobj/she}
-                were alive. Sorry, but it&rsquo;s true. ');
+            failCheck('{The dobj/She} {is} as stiff and cold as a post,
+                {you/he} know{s} from experience. It would be more satisfying if
+                {it dobj/she} were alive. Sorry, but it&rsquo;s true. ');
         }
     }
     dobjFor(Hug)
@@ -474,11 +474,11 @@ replace grammar predicate(UnscrewWith): ' ': object;
              *      (MS. Douce 195, fol. 150r)
              */
             "<<one of>>{You/He} hold{s} {the dobj/her} in {your} arms.
-            The ivory is cold, but as {you/he} linger in a loving
-            embrace, {you/he} notice {your dobj/her} hand feels different: it
+            The ivory is cold, but as {you/he} linger{s} in a loving
+            embrace, {you/he} notice{s} {its dobj/her} hand feels different: it
             has the warmth and softness of real flesh.
             <<if keywordToken.scoreCount>>Aphrodite did it! <<end>>
-            {The dobj/She} is finally coming to life!
+            {The dobj/She} {is} finally coming to life!
             <.p>Oh. That was just {your} own hand. Never mind.
             <<or>>{The dobj/She} {is} as stiff and cold as a post.
             <<stopping>>";
@@ -1061,7 +1061,7 @@ transient iris: Unthing
                         projecting a rainbow onto the blank wall. {Your/His}
                         vision swims. As {you/he} stare{s} at the rainbow, the
                         colors shift and coalesce, forming words. <<or>>The
-                        rainbow reappears. {You/He} <<if needToOpen>>start
+                        rainbow reappears. {You/He} <<if needToOpen>>start{s}
                         reading again from the beginning<<else>>continue{s}
                         reading where {you/he} left off<<end>>. <<stopping>>";
                         gTranscript.deactivate();
@@ -1514,8 +1514,8 @@ VerbRule(Calculate)
 DefineIAction(CalculateNothing)
     checkAction
     {
-        gActor.failCheck('{You/He} {must} be more specific about what you want
-            to calculate. ');
+        gActor.failCheck('{You/He} {must} be more specific about what {you/he}
+            want{s} to calculate. ');
     }
 ;
 
