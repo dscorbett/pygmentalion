@@ -1014,6 +1014,7 @@ transient iris: Unthing
             local line = nil;
             try {
                 local i = 0;
+                local screenHeight = self.screenHeight;
                 for (;
                      i < screenHeight && (line = file.readFile()) != nil;
                      ++i)
