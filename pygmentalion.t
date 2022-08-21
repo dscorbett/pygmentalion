@@ -1473,6 +1473,20 @@ VerbRule(Calculate)
     verbPhrase = 'calculate/calculating (what) (how) (what)'
 ;
 
+DefineIAction(CalculateNothing)
+    checkAction
+    {
+        gActor.failCheck('{You/He} {must} be more specific about what you want
+            to calculate. ');
+    }
+;
+
+VerbRule(CalculateNothing)
+    CalculateVerbList
+    : CalculateNothingAction
+    verbPhrase = 'calculate/calculating'
+;
+
 /* Cleaning */
 
 modify VerbRule(Clean)
