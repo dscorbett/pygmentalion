@@ -1676,6 +1676,20 @@ VerbRule(SayTo)
     verbPhrase = 'say/saying (what) (to what)'
 ;
 
+modify tryOops(
+    tokList, issuingActor, targetActor, firstTokenIndex, cmdTokenList, cmdType)
+{
+    if (cmdTokenList.length() == 1
+        && rexReplace(R'^([`\'"\u2018\u201C]|%s)+|([`\'"\u2019\u201D]|%s)+$',
+            getTokVal(cmdTokenList[1]).toLower(), '') == key.keyword)
+    {
+        throw new ReplacementCommandStringException(
+            'say ' + cmdTokenizer.buildOrigText(cmdTokenList), nil, nil);
+    }
+    return replaced(tokList, issuingActor, targetActor, firstTokenIndex,
+        cmdTokenList, cmdType);
+}
+
 /**/ #if /* Revere the basileus. */ 0   \
          // Expel the barbarian.
 ;
@@ -1928,5 +1942,6 @@ randomGreekWord()
         || rexSearch(R'^(plugh|xyzzy)$|
                      [aeiou](ie|y)|ee|o[ao]|y[aeioy]|y$|u[aeo]u',
                      word));
+    cmdDict.addWord(vocabRemover, word, &noun);
     return word;
 }
