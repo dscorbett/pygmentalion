@@ -1938,9 +1938,8 @@ randomGreekWord()
     } while ((retries-- && (word.length() < 4 || !rexSearch(
         new RexPattern('^(eu|hy|[pgm]n|bd|tm|rh)|(.h.|pp|kc|rr)h|ch([^aeioy])|'
                        + '([^aeiouy])y([^aeioy])$|(ps|x|o[ius])$'), word)))
-#pragma newline_spacing(delete)
-        || rexSearch(R'^(plugh|xyzzy)$|
-                     [aeiou](ie|y)|ee|o[ao]|y[aeioy]|y$|u[aeo]u',
+        || cmdDict.isWordDefined(word)
+        || rexSearch(R'[aeiou](ie|y)|ee|o[ao]|y[aeioy]|y$|u[aeo]u',
                      word));
     cmdDict.addWord(vocabRemover, word, &noun);
     return word;
