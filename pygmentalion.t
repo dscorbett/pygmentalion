@@ -143,7 +143,8 @@ gameMain: GameMainDef
         Copyright 2014, 2022 <<versionInfo.byline>>\n
         Version <<versionInfo.version>>\b
         <.notification>First-time players should type <<aHref('about',
-        'ABOUT')>>.<./notification>\b";
+        'ABOUT')>>. See also <<aHref('credits',
+        'CREDITS')>>.<./notification>\b";
     }
     setAboutBox
     {
