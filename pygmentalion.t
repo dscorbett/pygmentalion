@@ -839,10 +839,13 @@ portico: OutdoorRoom 'Portico'
     with water pressure, no doubt. Now you just use it as a birdbath.\b
     <<if overflowing>>Water is spilling over the sides in a turbulent flow.
     <<else if level >= 19500>>It is full to the brim with water. You can see
-    your reflection as clearly as Narcissus saw his. At least you are not as
-    foolish as he was: you can physically touch the object of your affections,
-    which is some consolation.
-    <<else if level >= 15000>>It is full of water. You can see your reflection.
+    your reflection<<if feather.location == basin>>, though it is partly
+    obscured by the feather<<else>> as clearly as Narcissus saw his. At least
+    you are not as foolish as he was: you can physically touch the object of
+    your affections, which is some consolation<<end>>.
+    <<else if level >= 15000>>It is full of water. You can see your
+    reflection<<if feather.location == basin>>, though it is partly obscured by
+    the feather<<end>>.
     <<else if level >= 10000>>It is half full. From the right angle, you can
     make out a shadowy reflection of the columns, but nothing more.
     <<else if level >= 1000>>There is some water in it, but you can still make
