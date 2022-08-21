@@ -728,6 +728,7 @@ export level 'waterLevel';
     {
         verify { illogical('''{You're} not thirsty. '''); }
     }
+    dobjFor(Taste) remapTo(Drink, DirectObject)
     iobjFor(CleanWith)
     {
         preCond = []
@@ -895,6 +896,7 @@ portico: OutdoorRoom 'Portico'
             illogical('Drinking from a birdbath might not be the best idea. ');
         }
     }
+    dobjFor(Taste) remapTo(Drink, DirectObject)
     iobjFor(CleanWith)
     {
         preCond = [touchObj]
@@ -952,6 +954,7 @@ class Water:PresentLater,Fixture'(floor) (ground) water puddle water''water'
         verify { }
         check { failCheck('{You\'re} not thirsty. '); }
     }
+    dobjFor(Taste) remapTo(Drink, DirectObject)
     iobjFor(CleanWith)
     {
         preCond = [touchObj]
