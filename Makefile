@@ -23,9 +23,13 @@ cli: pygmentalion.t3
 .PHONY: web
 web: pygmentalion-web.t3
 
-.PHONY: play
-play: pygmentalion.t3
-	frob -p $<
+.PHONY: play-curses
+play-curses: pygmentalion.t3
+	frob -p -i curses $<
+
+.PHONY: play-plain
+play-plain: pygmentalion.t3
+	frob -p -k UTF-8 -i plain $<
 
 .PHONY: play-qtads
 play-qtads: pygmentalion.t3
