@@ -462,7 +462,29 @@ replace grammar predicate(UnscrewWith): ' ': object;
                 were alive. Sorry, but it&rsquo;s true. ');
         }
     }
-    dobjFor(Hug) remapTo(Kiss, DirectObject)
+    dobjFor(Hug)
+    {
+        action
+        {
+            /*
+             *   Souef a ſes maīs la detaſte.
+             *   Et croıt aınſı ꝯ ſe fuſt paſte.
+             *   Que ce ſoıt ſa char quı lı fuye.
+             *   Maiˢ ceſt ſa main qͥl y appuye.
+             *      (MS. Douce 195, fol. 150r)
+             */
+            "<<one of>>{You/He} hold{s} {the dobj/her} in {your} arms.
+            The ivory is cold, but as {you/he} linger in a loving
+            embrace, {you/he} notice {your dobj/her} hand feels different: it
+            has the warmth and softness of real flesh.
+            <<if keywordToken.scoreCount>>Aphrodite did it! <<end>>
+            {The dobj/She} is finally coming to life!
+            <.p>Oh. That was just {your} own hand. Never mind.
+            <<or>>{The dobj/She} {is} as stiff and cold as a post.
+            <<stopping>>";
+        }
+    }
+    dobjFor(Feel) remapTo(Hug, DirectObject)
     iobjFor(PutOn)
     {
         check
