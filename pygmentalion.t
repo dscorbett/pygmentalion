@@ -1600,7 +1600,7 @@ modify /**//**/ // /* \\
 DefineLiteralAction(Say)
     execAction
     {
-        local literal = getLiteral().toLower();
+        local literal = rexReplace(R'^%s+|%s+$', getLiteral().toLower(), '');
         if (literal is in ('xyzzy', 'plugh'))
             tryImplicitActionMsg(&silentImplicitAction, Xyzzy);
         else if (literal != key.keyword)
