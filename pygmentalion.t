@@ -1007,7 +1007,8 @@ transient iris: Unthing
 #ifndef TADS_INCLUDE_NET
             // QTads crashes unpredictably in `CHtmlSysWinQt::measure_text` if
             // there is too much complex HTML on the screen.
-            if (systemInfo(SysInfoInterpClass) == SysInfoIClassHTML)
+            if (systemInfo(SysInfoInterpClass) == SysInfoIClassHTML
+                && systemInfo(SysInfoOsName) != 'POSIX_UNIX_MSWINDOWS')
                 cls();
 #endif
             local line = nil;

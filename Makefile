@@ -35,6 +35,10 @@ play-qtads: pygmentalion.t3
 play-web: pygmentalion-web.t3
 	frob -i plain -p -N 44 $< | { read -r line; read -r line; "$(OPEN)" "$$(printf %s "$$line" | cut -f 2- -d :)"; }
 
+.PHONY: play-xtads
+play-xtads: pygmentalion.t3
+	open -a XTads -n --args "$$(pwd)"/$<
+
 %.t3: pygmentalion.t.html pygmentalion.t %.t3m obj
 	t3make -a -f $* -res GameInfo.txt $<
 
