@@ -980,6 +980,12 @@ transient iris: Unthing
             BannerTypeText, BannerAlignTop, 100, BannerSizePercent, 0);
         local height = min(100, max(10, bannerGetInfo(probe)[3] - 12));
         bannerDelete(probe);
+        // Recalculating the screen height in XTads causes significant
+        // noticeable flickering when the scrollback buffer is very full. It is
+        // probably safe enough in practice to cache it.
+        if (systemInfo(SysInfoInterpClass) == SysInfoIClassHTML
+            && systemInfo(SysInfoOsName) == 'POSIX_UNIX_MSWINDOWS')
+            screenHeight = height;
         return height;
     }
     dobjFor(PrayAt)
