@@ -674,6 +674,7 @@ export level 'waterLevel';
     <<else if level >= 1000>>There is some water in the sink.
     <<else if level > 0>>A small puddle has formed at the bottom of the sink.
     <<otherwise>>It is empty. "
+    material = 'bronze'
     level = not in ([lst]) { return argcount; }
     not = in()
     overflowing = nil
