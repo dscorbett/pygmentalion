@@ -466,6 +466,7 @@ replace grammar predicate(UnscrewWith): ' ': object;
     }
     dobjFor(Hug)
     {
+        preCond = [actorStanding]
         action
         {
             /*
