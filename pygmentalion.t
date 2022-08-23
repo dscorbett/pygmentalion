@@ -1712,12 +1712,16 @@ VerbRule(SayTo)
 modify tryOops(
     tokList, issuingActor, targetActor, firstTokenIndex, cmdTokenList, cmdType)
 {
-    if (cmdTokenList.length() == 1
-        && rexReplace(R'^([`\'"\u2018\u201C]|%s)+|([`\'"\u2019\u201D]|%s)+$',
-            getTokVal(cmdTokenList[1]).toLower(), '') == key.keyword)
+    if (cmdTokenList.length() == 1)
     {
-        throw new ReplacementCommandStringException(
-            'say ' + cmdTokenizer.buildOrigText(cmdTokenList), nil, nil);
+        local tokVal = rexReplace(
+            R'^([`\'"\u2018\u201C]|%s)+|([`\'"\u2019\u201D]|%s)+$',
+            getTokVal(cmdTokenList[1]).toLower(), '');
+        if (tokVal == key.keyword)
+        {
+            throw new ReplacementCommandStringException(
+                'say <<tokVal>>', nil, nil);
+        }
     }
     return replaced(tokList, issuingActor, targetActor, firstTokenIndex,
         cmdTokenList, cmdType);
