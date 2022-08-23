@@ -108,10 +108,10 @@ versionInfo: GameID
  *   Et en touteˢ aultres matıres.
  *   Quon peult a tel oeuure trouuer.
  *   Poᷣ ſon grant engin eſpꝛouuer.
- *   Car maıſtre en fu bıen dıre loz.
+ *   Car maıſtre en fu bıen ꝺıre loz.
  *   Ainſı com poᷣ acquerre loz.
- *   Se voult a poᷣtraıre deduyꝛe.
- *   Sı fıſt vng ymage diuuyꝛe.
+ *   Se voult a poᷣtraıre ꝺeẟuyꝛe.
+ *   Sı fıſt vng ymage ꝺiuuyꝛe.
  *   Et miſt au faıre tel entente.
  *   Quel fu ſı plaıſāt et ſı gente.
  *   Quel ſembloıt eſtre auſſı viue.
@@ -206,20 +206,20 @@ modify cmdTokenizer
 /*
  *   Puiˢ li reueſt en maīteˢ guıſes.
  *   Robeˢ faıcteˢ ꝑ grāˢ maıſtrıſeˢ.
- *   De bıaulx dꝛaps de ſoye ⁊ de laīe.
- *   Deſcarlate de tıretaine.
- *   De vert de pers ⁊ de bꝛunecte
+ *   De bıaulx ꝺꝛaps ẟe ſoye ⁊ ꝺe laīe.
+ *   Deſcarlate ꝺe tıretaine.
+ *   De vert ꝺe pers ⁊ ẟe bꝛunecte
  *   De couleᷣ freſche fine ⁊ necte.
  *   Ou moult a rıches paneˢ mıſes.
  *   Herminees vaıres et griſes
  *   Puis les lı roſte puis reſſaye.
  *   Cōmant lı ſıet robbe de ſaye
- *   Sendaulx meloguins galebꝛunˢ.
- *   Indes vermeılz ıaunes ⁊ bꝛunˢ.
+ *   Senꝺaulx meloguins galebꝛunˢ.
+ *   Inꝺes vermeılz ıaunes ⁊ bꝛunˢ.
  *   [...]
- *   Aultre foız luy repꝛēd courage.
- *   De tout oſter ⁊ mectre guindeˢ.
- *   Iaunes vermeılles vers ⁊ indeˢ.
+ *   Aultre foız luy repꝛēẟ courage.
+ *   De tout oſter ⁊ mectre guinꝺeˢ.
+ *   Iaunes vermeılles vers ⁊ inꝺeˢ.
  *      (MS. Douce 195, fol. 150r)
  */
 
@@ -449,14 +449,14 @@ replace grammar predicate(UnscrewWith): ' ': object;
         check
         {
             /*
-             *   Car quāt ıe me vueıl a aıſier.
-             *   Et dacoller et de baıſıer.
-             *   Ie truis mamye autreſſı roıde.
-             *   Cōme eſt.ı.pel et auſſı froıde.
+             *   Car quāt ıe me vueıl a aıſıer.
+             *   Et ꝺacoller et ꝺe baıſıer.
+             *   Ie truis mamye autreſſı roıẟe.
+             *   Cōme eſt.ı.pel et auſſı froıꝺe.
              *   Car quāt poᷣ la baıſıer y touche.
-             *   Toute me refroıdıſt la bouche.
+             *   Toute me refroıꝺıſt la bouche.
              *   Ha trop ay parle follemāt.
-             *   Mercy doulce amye ē demād.
+             *   Mercy ꝺoulce amye ē ꝺemāẟ.
              *      (MS. Douce 195, fol. 149v)
              */
             failCheck('{The dobj/She} {is} as stiff and cold as a post,
@@ -512,7 +512,7 @@ replace grammar predicate(UnscrewWith): ' ': object;
             /*
              *   Ainſı pymalıon eſtriue.
              *   En ſon eſtrif na fōs ne riue.
-             *   En vng eſtat poīt ne demeure.
+             *   En vng eſtat poīt ne ẟemeure.
              *   Oꝛ ayme oꝛ haıt oꝛ rıt oꝛ pleure.
              *   Oꝛ eſt lıez oꝛ a meſaıſe.
              *   Oꝛ ſe toꝛmēte oꝛ rappaıſe.
@@ -570,7 +570,7 @@ altarRoom: Room 'At the Altar'
         action()
         {
             /*
-             *   Bıaulx dıeux dıſt ıl tout ce poez.
+             *   Bıaulx ꝺıeux ꝺıſt ıl tout ce poez.
              *   Sıl voꝰ plaıſt ma requeſte oez
              *   [...]
              *   Et la belle qͥ mon cueᷣ emble
@@ -844,17 +844,18 @@ portico: OutdoorRoom 'Portico'
 ;
 
 /*
- *   Nama ıadıs ou boys rame.
+ *   Nama ıaꝺıs ou boys rame.
  *   A la fontaine clere et pure.
  *   Narcıſus ſa pꝛopꝛe fıgure.
- *   Quāt cuıda ſa ſoıf eſtanchıer
+ *   Quāt cuıꝺa ſa ſoıf eſtanchıer
  *   Noncq ne ſen pot reuanchıer.
  *   Puis en fu moꝛt ſelon lıſtoıre.
- *   Qui encoꝛ eſt de grāt memoyꝛe.
+ *   Qui encoꝛ eſt ꝺe grāt memoyꝛe.
  *   Dōc ſuys ıe moīs fol touteſuoıˢ.
  *   Car quāt ıe vueıl a ceſte voıs
  *   Et la pꝛen ⁊ lacolle et baıſe.
- *   Sen puıˢ mieulx ſouffrır ma meˢ-aıſe.
+ *   Sen puıˢ mieulx ſouffrır ma meˢ-
+ *         aıſe.
  *      (MS. Douce 195, fol. 149v)
  */
 
@@ -1660,19 +1661,19 @@ DefineLiteralAction(Say)
                      *   Venus qͥ la pꝛiere ouyt
                      *   [...]
                      *   A lymage ēuoya loꝛs lame.
-                     *   Sı deuīt ſı treſbelle dame.
+                     *   Sı ꝺeuīt ſı treſbelle dame.
                      *   Quoncq̄s en toute la contree.
                      *   Not len ſı belle encontree.
                      *   [...]
                      *   Doulx amys aīs ſuy vꝛ̄e amye.
-                     *   Pꝛeſte de voſtre compaıgnye.
+                     *   Pꝛeſte ꝺe voſtre compaıgnye.
                      *   Receuoır ⁊ mamoᷣ voꝰ offre.
                      *   Sıl voꝰ plaıſt receuoır tel offre.
                      *   [...]
-                     *   Aux dıeux eulx.ii.graces rēdırēt.
+                     *   Aux ꝺıeux eulx.ii.graces rēẟırēt.
                      *   Quı tel courtoıſıe leur fırent
                      *   Eſpecıalmant a venus.
-                     *   Qui leᷣ ot aydıe mieulx q̄ nulz.
+                     *   Qui leᷣ ot ayꝺıe mieulx q̄ nulz.
                      *      (MS. Douce 195, fol. 151v–152r)
                      */
                     "The air above the basin shimmers for a moment. You hear
