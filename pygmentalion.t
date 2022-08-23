@@ -783,7 +783,7 @@ export level 'waterLevel';
     Warning: Do not use big <<highlight 'number'>>s or divide by zero!</bq>"
 ;
 
-+ calculator: Fixture, Thing 'add-on/button/buttons/calculator/screen'
++ calculator: Fixture, Thing 'add-on/addon/button/buttons/calculator/screen'
     'calculator'
     "The calculator is <<highlight 'built in'>>to the wall beside the sink. It
     has buttons for all the standard unary and binary operations.
