@@ -650,9 +650,9 @@ aphrodite: Unthing
 ;
 
 sinkRoom: Room 'Washroom'
-    "Sculpting marble is a dusty business. You use this sink to clean off after
-    a hard day&rsquo;s work. Beside the sink is a small end table, and on the
-    wall is a calculator. The rest of the studio is south and west. "
+    "Sculpting is a dusty business. You use this sink to clean off after a hard
+    day&rsquo;s work. Beside the sink is a small end table, and on the wall is a
+    calculator. The rest of the studio is south and west. "
     south = altarRoom
     southwest = entrance
     west = workbenchRoom
