@@ -1894,7 +1894,7 @@ DefineIAction(Xyzzy)
 ;
 
 VerbRule(Xyzzy)
-    "xyzzy" | "plugh" *
+    ("xyzzy" | "plugh") *
     : XyzzyAction
     verbPhrase = 'babble/talking like a barbarian'
 ;
