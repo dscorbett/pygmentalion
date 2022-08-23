@@ -1585,6 +1585,12 @@ modify Thing
     }
 ;
 
+/* Bug fix for adv3 */
+
+modify TryAsActorResolveResults
+    unknownNounPhrase(match, resolver) { return []; }
+;
+
 /* Sundry modifications */
 
 VerbRule(Hug)
