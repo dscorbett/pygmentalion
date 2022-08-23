@@ -383,8 +383,9 @@ workbenchRoom: Room 'At the Workbench'
     but now your tools and materials lie abandoned. "
 ;
 
-+ plinth: Fixture, Thing 'marble plinth/pedestal' 'plinth'
-    "It&rsquo;s a smoothed block of marble about a cubit high. "
++ plinth: Fixture, Thing 'plinth/pedestal' 'plinth'
+    "It&rsquo;s a smoothed block of marble half a cubit high. "
+    material = 'marble'
 ;
 
 /*
