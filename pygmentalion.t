@@ -386,6 +386,7 @@ workbenchRoom: Room 'At the Workbench'
 + plinth: Fixture, Thing 'plinth/pedestal' 'plinth'
     "It&rsquo;s a smoothed block of marble half a cubit high. "
     material = 'marble'
+    contentsListedInExamine = nil
 ;
 
 /*
