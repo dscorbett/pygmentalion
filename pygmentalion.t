@@ -415,8 +415,7 @@ replace grammar predicate(UnscrewWith): ' ': object;
     chignon<<if escapeToken.scoreCount>>, with a few strands falling down her
     neck<<end>><<if floatToken.scoreCount>>, and \v<<else>>. <<end>><<end>>
     <<if floatToken.scoreCount>>She radiates an aura of contrapposto grace.
-    <<end>>
-    <.p><<if labelToken.scoreCount || keywordToken.scoreCount ||
+    <<end>><.p><<if labelToken.scoreCount || keywordToken.scoreCount ||
     decoratorToken.scoreCount || operatorToken.scoreCount ||
     builtinToken.scoreCount || commentToken.scoreCount>>You wonder what she
     <<if labelToken.scoreCount>>is going to<<else if
@@ -433,8 +432,11 @@ replace grammar predicate(UnscrewWith): ' ': object;
     that you don&rsquo;t know. <<else>>Who knows? You can only dream. <<end>>
     <<if commentToken.scoreCount>>If only Aphrodite would bring her to life
     without this silly puzzle about tokens and mirrors! <<end>>
-    <<end>><.p>"
+    <<end>><.p><<if !contentsListedInExamine>>She is wearing
+    <<buildSynthParam('a/him', contents[1])>>. "
     material = 'ivory'
+    contentsListedInExamine =
+        (contents.length() != 1 || contents[1] != necklace)
     propertyset 'is*'
     {
         propertyset 'H*'
