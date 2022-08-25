@@ -579,7 +579,7 @@ altarRoom: Room 'At the Altar'
     "It&rsquo;s just a window above the altar. <<one of>>The space under the
     window is blank; as an interior <<highlight 'decorator'>>, you can&rsquo;t
     help but think the wall would benefit from a bas-relief, but &ndash;
-    <i>sigh</i> &endash you are too lovelorn to wield the chisel. <<||>>The
+    <i>sigh</i> &ndash; you are too lovelorn to wield the chisel. <<||>>The
     wall right below it is a boring <<highlight 'white space'>>. <<stopping>>"
 ;
 
@@ -610,7 +610,7 @@ altarRoom: Room 'At the Altar'
                 "<<one of>><q>O Aphrodite,</q> you say, <q>comforter of
                 hopeless lovers, hear my prayer! May she to whom I have given
                 my heart be given body, soul, and life. And a colorful
-                personality. And&mdash</q>\b
+                personality. And&mdash;</q>\b
                 You are interrupted by a shimmering about the altar. As you
                 watch, it takes the form of a callipygian goddess.\b
                 <q>Mortal, I have heard your heart-felt and oft-repeated plea,
@@ -793,10 +793,10 @@ export level 'waterLevel';
         <li><font face='TADS-Typewriter'>%</font> -- modulo\n
         <li><font face='TADS-Typewriter'>~</font> -- bitwise NOT\n
         <li><font face='TADS-Typewriter'>!</font>\u200B -- logical NOT\n
-        <li><font face='TADS-Typewriter'>&amp;</font> -- bitwise AND\n
+        <li><font face='TADS-Typewriter'>&amp</font> -- bitwise AND\n
         <li><font face='TADS-Typewriter'>|</font> -- bitwise OR\n
         <li><font face='TADS-Typewriter'>^</font> -- bitwise XOR\n
-        <li><font face='TADS-Typewriter'>&lt;&lt;</font> -- shift left\n
+        <li><font face='TADS-Typewriter'>&lt&lt;</font> -- shift left\n
         <li><font face='TADS-Typewriter'>&gt;&gt;</font> -- arithmetic shift
         right\n
         <li><font face='TADS-Typewriter'>&gt;&gt;&gt;</font> -- logical shift
