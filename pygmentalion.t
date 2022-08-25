@@ -261,9 +261,9 @@ DefineToken(operator, '<b><font color=\"#AA22F&#x46;\">', '</font></b>');
 DefineToken(string, '<font color=\'#BA212&#49;\'>', '</font>');
 DefineToken(whitespace, '<font color="bgcolor"bgcolor=\'text\'>', '</font>');
 
-function highlightToken(tokenString)
-{
-    local token = [
+highlightTokenOutputFilter: OutputFilter, InitObject
+    tagPattern = R'<nocase><langle>!token<rangle>(.*?)<langle>!/token<rangle>'
+    tokenMap = [
         'built in' -> builtinToken,
         'comment' -> commentToken,
         'decorator' -> decoratorToken,
@@ -280,11 +280,39 @@ function highlightToken(tokenString)
         'string' -> stringToken,
         'white space' -> whitespaceToken,
         * -> nil
-    ][tokenString.toLower()];
-    if (!token)
-        return tokenString;
-    token.awardPointsOnce();
-    return '<<token.before>><<tokenString>><<token.after>>';
+    ]
+    execute
+    {
+        mainOutputStream.addOutputFilter(self);
+    }
+    filterText(ostr, val)
+    {
+        local match;
+        local index = 1;
+        while ((match = rexSearch(tagPattern, val, index)) != nil)
+        {
+            local inputTokenString = rexGroup(1)[3];
+            local outputTokenString;
+            local token = tokenMap[inputTokenString.toLower()];
+            if (!token)
+                outputTokenString = inputTokenString;
+            else
+            {
+                token.awardPointsOnce();
+                outputTokenString =
+                    '<<token.before>><<inputTokenString>><<token.after>>';
+            }
+            local val0 = val.substr(1, match[1] - 1) + outputTokenString;
+            index = val0.length() + 1;
+            val = val0 + val.substr(match[1] + match[2]);
+        }
+        return val;
+    }
+;
+
+function highlightToken(tokenString)
+{
+    return '<!token><<tokenString>><!/token>';
 }
 
 string /**//**/ // /* \\
