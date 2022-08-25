@@ -338,6 +338,7 @@ entrance: Room 'Entrance'
     east = altarRoom
     south = door
     out asExit(south)
+    roomParts = (roomParts = inherited() - [defaultNorthWall, defaultEastWall])
 ;
 
 + door: LockableWithKey, Door 'door' 'door'
@@ -393,6 +394,7 @@ workbenchRoom: Room 'At the Workbench'
     east = sinkRoom
     southeast = altarRoom
     south = entrance
+    roomParts = (roomParts = inherited() - [defaultEastWall, defaultSouthWall])
     getDestName(actor, origin) { return 'the workbench'; }
 ;
 
@@ -568,6 +570,7 @@ altarRoom: Room 'At the Altar'
     north = sinkRoom
     northwest = workbenchRoom
     west = entrance
+    roomParts = (roomParts = inherited() - [defaultNorthWall, defaultWestWall])
     getDestName(actor, origin) { return 'the altar'; }
 ;
 
@@ -677,6 +680,7 @@ sinkRoom: Room 'Washroom'
     south = altarRoom
     southwest = entrance
     west = workbenchRoom
+    roomParts = (roomParts = inherited() - [defaultSouthWall, defaultWestWall])
 ;
 
 property level, overflowing;
@@ -834,6 +838,7 @@ portico: OutdoorRoom 'Portico'
     east = (south)
     west = (south)
     down asExit(south)
+    roomParts = (roomParts = inherited() + [defaultNorthWall])
 ;
 
 + error: LockableWithKey, Door ->door 'door'
