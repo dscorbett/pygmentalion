@@ -243,42 +243,32 @@ class Token: Achievement, InitObject
 
 Token template inherited 'before_' 'after_' 'desc_';
 
-#define DefineToken(name, before, after) name##Token: Token before after #@name
+#define DoTokens \
+    DoToken(builtin, '<font color=g&#x72;een>', '</font>') \
+    DoToken(comment, '<i><font color=#408080>', '</font></i>') \
+    DoToken(decorator, '<font color=#aa22ff>', '</font>') \
+    DoToken(error, '<U><FONT COLOR=RED>', '</FONT></U>') \
+    DoToken(escape, '<b><font color=#bb6622>', '</font></b>') \
+    DoToken(exception, '<b><font color=#D2413A>', '</font></b>') \
+    DoToken(float, '<u><font color=gray>', '</font></u>') \
+    DoToken(keyword, '<b><font face=TADS-Sans color=green>', '</font></b>') \
+    DoToken(label, '<font color=#A0A000>', '</font>') \
+    DoToken(long, '<i><font color=gray>', '</font></i>') \
+    DoToken(name, '<u>', '</u>') \
+    DoToken(number, '<font color=#666666>', '</font>') \
+    DoToken(operator, '<b><font color=\"#AA22F&#x46 \">', '</font></b>') \
+    DoToken(string, '<font color=\'#BA212&#49 \'>', '</font>') \
+    DoToken(whitespace, '<font color="bgcolor"bgcolor=\'text\'>', '</font>') \
 
-DefineToken(builtin, '<font color=g&#x72;een>', '</font>');
-DefineToken(comment, '<i><font color=#408080>', '</font></i>');
-DefineToken(decorator, '<font color=#aa22ff>', '</font>');
-DefineToken(error, '<U><FONT COLOR=RED>', '</FONT></U>');
-DefineToken(escape, '<b><font color=#bb6622>', '</font></b>');
-DefineToken(exception, '<b><font color=#D2413A>', '</font></b>');
-DefineToken(float, '<u><font color=gray>', '</font></u>');
-DefineToken(keyword, '<b><font face=TADS-Sans color=green>', '</font></b>');
-DefineToken(label, '<font color=#A0A000>', '</font>');
-DefineToken(long, '<i><font color=gray>', '</font></i>');
-DefineToken(name, '<u>', '</u>');
-DefineToken(number, '<font color=#666666>', '</font>');
-DefineToken(operator, '<b><font color=\"#AA22F&#x46;\">', '</font></b>');
-DefineToken(string, '<font color=\'#BA212&#49;\'>', '</font>');
-DefineToken(whitespace, '<font color="bgcolor"bgcolor=\'text\'>', '</font>');
+#define DoToken(name, before, after) name##Token: Token before after #@name;
+DoTokens
+#undef DoToken
+#define DoToken(name, before, after) #@name -> name##Token,
 
 highlightTokenOutputFilter: OutputFilter, InitObject
     tagPattern = R'<nocase><langle>!token<rangle>(.*?)<langle>!/token<rangle>'
     tokenMap = [
-        'built in' -> builtinToken,
-        'comment' -> commentToken,
-        'decorator' -> decoratorToken,
-        'error' -> errorToken,
-        'escape' -> escapeToken,
-        'exception' -> exceptionToken,
-        'float' -> floatToken,
-        'keyword' -> keywordToken,
-        'label' -> labelToken,
-        'long' -> longToken,
-        'name' -> nameToken,
-        'number' -> numberToken,
-        'operator' -> operatorToken,
-        'string' -> stringToken,
-        'white space' -> whitespaceToken,
+        DoTokens
         * -> nil
     ]
     execute
@@ -293,7 +283,8 @@ highlightTokenOutputFilter: OutputFilter, InitObject
         {
             local inputTokenString = rexGroup(1)[3];
             local outputTokenString;
-            local token = tokenMap[inputTokenString.toLower()];
+            local token = tokenMap[
+                rexReplace(R'<^AlphaNum>+', inputTokenString.toLower(), '')];
             if (!token)
                 outputTokenString = inputTokenString;
             else
