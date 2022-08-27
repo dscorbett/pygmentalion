@@ -557,12 +557,15 @@ replace grammar predicate(UnscrewWith): ' ': object;
 
 +++ necklace: Wearable
     '(fine) (seed) pearl necklace/string pearls'
-    '<<highlight 'string'>> of pearls'
+    '<<highlight 'string'>> of pearls<<gActor.setHasSeen(self)>>'
     "This necklace of countless fine seed pearls is the latest ornament with
     which you have adorned the statue, the latest attempt to express your
     feelings through gifts. "
     initDesc = "You put this pearl necklace on the statue yesterday. "
     canMatchThem = true
+    hideFromAll(action) { return !seen; }
+    hideFromDefault(action) { return !seen; }
+    suppressAutoSeen = true
 ;
 
 altarRoom: Room 'At the Altar'
