@@ -1464,8 +1464,9 @@ DefineLiteralAction(Calculate)
                   sink.overflowing>>The faucet shuts off and \v<<end>>The water
                 in the sink is sucked down the drain.
                 <<else if basin.level > 0 || basin.overflowing>>Water comes up
-                from the drain and <<if basin.overflowing>>spills over
-                the edges of<<else>>begins to fill<<end>> the sink.
+                from the drain<<if basin.overflowing>> and spills over the edges
+                of the sink<<else if basin.level >= 15000>> and begins to fill
+                the sink<<end>>.
                 <<else>>The sink gurgles and the pipes rattle. ";
                 sink.current = sink.current == sink ? basin : sink;
                 local _tmp = sink.level;
