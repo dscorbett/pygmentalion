@@ -547,6 +547,7 @@ replace grammar predicate(UnscrewWith): ' ': object;
                 {that dobj/her}. ');
         }
     }
+    dobjFor(Taste) remapTo(Eat, DirectObject)
 ;
 
 /*
