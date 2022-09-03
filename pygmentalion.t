@@ -1075,7 +1075,7 @@ transient iris: Unthing
                 {
                     file = File.openTextResource(resourceName);
                 } catch (FileException e) {
-                    "The source code cannot be opened. ";
+                    "Nothing happens here. ";
                     return;
                 }
                 file.setCharacterSet('utf-8');
