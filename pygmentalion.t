@@ -670,9 +670,15 @@ aphrodite: Unthing
     {
         verify
         {
+            if (gActor.canSee(altar) && gDobj == gActor)
+                nonObvious;
             illogical('{It iobj/She} {is}n&rsquo;t here. {You/He}&rsquo;ll have
                 to leave {the dobj/him} somewhere {it iobj/she} can find {it
                 dobj/him}. ');
+        }
+        action
+        {
+            replaceAction(PrayAt, altar);
         }
     }
     dobjFor(PrayAt) maybeRemapTo(gActor.canSee(altar), PrayAt, altar)
