@@ -17,6 +17,7 @@
 */
 
 #include <adv3.h>
+#include <bignum.h>
 #include <en_us.h>
 
 extern function extern_function;
@@ -128,9 +129,79 @@ modify _init()
 gameMain: GameMainDef
     initialPlayerChar: Actor {
         vocabWords = 'Pygmentalion'
-        desc = "You look the same as usual, but you feel unusually
-            sentimental. "
+        desc
+        {
+            "Your calm exterior belies the tempestuous feelings within. You are
+            currently <<feelings[rand_feeling_index_box_muller]>> ";
+        }
         location = entrance
+        rand_feeling_index_box_muller
+        {
+            local u1 = (rand(99) + 1) / 100.0;
+            local u2 = rand(100) / 100.0;
+            local std_dev = 6.0;
+            local tolerance = 1.3;
+            local magnitude = std_dev * (-2.0 * u1.logE()).sqrt();
+            local mean = (feelings.length - 1 - tolerance * std_dev)
+                * libScore.totalScore / gameMain.maxScore
+                + 1 + std_dev * tolerance / 2;
+            local z0 =
+                magnitude * (BigNumber.getPi(3) * 2.0 * u2).cosine() + mean;
+            return z0 < 1
+                ? 1
+                : z0 > feelings.length
+                ? feelings.length
+                : toInteger(z0);
+        }
+        feelings = [
+            'angry at the uncaring Fates.',
+            'bitter about how unfair everything is.',
+            'feeling tormented.',
+            'feeling harrowed by your tragic life.',
+            'in a panic that she will never love you.',
+            'in despair: she will never be able to love you.',
+            'jealous. What if someone sneaks into the studio and she loves him
+            instead?',
+            'jealous. What if someone peeks through the window and sees her?',
+            'feeling frustrated.',
+            'dejected.',
+            'in a blue funk.',
+            'exhausted and drained.',
+            'full of self-pity.',
+            'pessimistic.',
+            'lonely.',
+            'racked with doubts.',
+            'wincing at how desperate she must think you.',
+            'uneasy.',
+            'embarrassed about loving a statue.',
+            'nervous about loving a living woman.',
+            'wondering where you can find a woman that looks exactly like your
+            statue.',
+            'wondering how much longer you can buy such expensive gifts before
+            your credit runs out.',
+            'considering your plight with remote detachment.',
+            'running through what-if scenarios.',
+            'hoping a passing god might deign to metamorphose you into a
+            statue.',
+            'daydreaming about your most recent date.',
+            'feeling tentatively hopeful.',
+            'optimistic.',
+            'learning that life is okay.',
+            'daydreaming about your next date.',
+            'brainstorming dress patterns.',
+            'mentally composing an ode to her beauty.',
+            'determined to make this relationship work.',
+            'pleased with your progress so far.',
+            'smiling, thinking of her pretty face.',
+            'counting the ways you love her.',
+            'planning your wedding.',
+            'thinking about your future children.',
+            'grateful to the benevolent eudaemons.',
+            'feeling happy.',
+            'giddy with excitement.',
+            'euphoric due to infatuation.',
+            'thinking about how much you love her.'
+        ]
     }
     showIntro
     {
