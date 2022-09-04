@@ -50,7 +50,7 @@ obj:
 	mkdir $@
 
 %.html: %
-	pygmentize -l tads3 $< -f html -O nobackground,nowrap -o $@
+	pygmentize -l tads3 $< -f html -O nobackground,nowrap | ./html2ascii.py >$@
 
 .PHONY: clean
 clean:
