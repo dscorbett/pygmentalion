@@ -593,64 +593,17 @@ altarRoom: Room 'At the Altar'
     it anyway. You are sure the gods will understand. "
     material = 'marble' 'wood' 'wooden'
     bulkCapacity = 1
-    dobjFor(PrayAt)
+    dobjFor(Pray) { verify { } }
+    dobjFor(PrayTo)
     {
-        verify { }
-        action()
+        verify
         {
-            /*
-             *   Bıaulx ꝺıeux ꝺıſt ıl tout ce poez.
-             *   Sıl voꝰ plaıſt ma requeſte oez
-             *   [...]
-             *   Et la belle qͥ mon cueᷣ emble
-             *   Qui ſı bıen yuoyꝛe reſſemble.
-             *   Deuıengne ma loyal amye
-             *   De fēme aıt coꝛps ame et vıe
-             *      (MS. Douce 195, fol. 151r)
-             */
-            local offering;
-            foreach (offering in contents);
-            if (!keywordToken.scoreCount)
-                "<<one of>><q>O Aphrodite,</q> you say, <q>comforter of
-                hopeless lovers, hear my prayer! May she to whom I have given
-                my heart be given body, soul, and life. And a colorful
-                personality. And&mdash;</q>\b
-                You are interrupted by a shimmering about the altar. As you
-                watch, it takes the form of a callipygian goddess.\b
-                <q>Mortal, I have heard your heart-felt and oft-repeated plea,
-                and I will take pity on you,</q> says Aphrodite. <q>If you give
-                me a token of your love as an offering, I will give you the
-                <<highlight 'keyword'>> of life. Speak this word in the
-                presence of a mirror, and I will grant your request.</q>\b
-                She fades away, adding, <q>As for her colorful personality,
-                just look around you.</q> <<or>><<stopping>>";
-            else if (key.location)
-                "<q>O Aphrodite,</q> you say, <q>what am I supposed to do
-                again?</q>\bThe goddess reappears and reminds you to speak the
-                keyword of life at a mirror. <<one of>><q>What&rsquo;s the
-                keyword, then?</q> <q>Gods help those who help themselves.
-                Figure it out yourself.</q><<or>><q>Why a mirror?</q> <q>I like
-                mirrors.</q><<purely at random>> ";
-            else if (offering == necklace)
-            {
-                "Aphrodite reappears. <q>A necklace! Perfect!</q> The necklace
-                disappears in a bright flash. When your eyes readjust, you see
-                a key lying in its place. ";
-                necklace.moveInto(nil);
-                key.makePresent();
-            }
-            else if (+offering)
-                "Aphrodite reappears. She eyes <<offering.theNameObj>>
-                skeptically. <q><<one of>>No <<highlight 'comment'>>.<<or>>You
-                call <i>that</i> a token of love?<<or>>\^<<offering.aNameObj>>?
-                Really?<<or>>Come on, mortal, it&rsquo;s not that
-                difficult!<<then at random>></q> ";
-            else
-                "<q>I heard you the first time,</q> says Aphrodite. <q>Prove
-                your devotion by offering a token of your love at the altar,
-                or the deal&rsquo;s off.</q> ";
+            illogical('{subj actor}Praying to {the dobj/him} would make the gods
+                jealous. (Praying <em>at</em> the altar would be fine.) ');
         }
     }
+    dobjFor(PrayAt) remapTo(PrayToAt, aphrodite, DirectObject)
+    iobjFor(PrayToAt) { verify { } }
     iobjFor(GiveTo) {
         verify { }
         action {
@@ -659,10 +612,40 @@ altarRoom: Room 'At the Altar'
     }
 ;
 
-aphrodite: Unthing
+class Deity: Unthing
+    notHereMsg = 'A deity can only be interacted with through prayer. '
+    dobjFor(PrayTo)
+    {
+        verify { }
+        check
+        {
+            if (!gActor.canSee(altar))
+                failCheck('You need an altar to interact with a deity. ');
+        }
+        remap = (gActor.canSee(altar) ? [PrayToAtAction, DirectObject, altar] : inherited())
+    }
+    dobjFor(PrayAt) remapTo(PrayTo, DirectObject)
+    dobjFor(PrayToAt)
+    {
+        verify { }
+        check
+        {
+            if (!gActor.canSee(altar))
+                failCheck('You need an altar to interact with a deity. ');
+        }
+    }
+    iobjFor(PrayToAt)
+    {
+        verify
+        {
+            illogical('{The iobj/She} would not like to be prayed at as if {it
+                iobj/she} were an altar. ');
+        }
+    }
+;
+
+aphrodite: Deity
     '(love) aphrodite/cytherea/deity/god/goddess/venus love' 'Aphrodite'
-    '<<if gActor.canSee(altar)>>You can only pray to a deity.
-    <<else>>You need an altar to interact with a deity. '
     location = (gPlayerChar)
     isProperName = true
     isHer = true
@@ -681,7 +664,64 @@ aphrodite: Unthing
             replaceAction(PrayAt, altar);
         }
     }
-    dobjFor(PrayAt) maybeRemapTo(gActor.canSee(altar), PrayAt, altar)
+    dobjFor(PrayToAt)
+    {
+        action()
+        {
+            /*
+             *   Bıaulx ꝺıeux ꝺıſt ıl tout ce poez.
+             *   Sıl voꝰ plaıſt ma requeſte oez
+             *   [...]
+             *   Et la belle qͥ mon cueᷣ emble
+             *   Qui ſı bıen yuoyꝛe reſſemble.
+             *   Deuıengne ma loyal amye
+             *   De fēme aıt coꝛps ame et vıe
+             *      (MS. Douce 195, fol. 151r)
+             */
+            local offering;
+            foreach (offering in gIobj.contents);
+            if (!keywordToken.scoreCount)
+                "<<one of>><q>O Aphrodite,</q> {you/he} say{s}, <q>comforter of
+                hopeless lovers, hear my prayer! May <<statue.thatNom>> to whom
+                I have given my heart be given body, soul, and life. And a
+                colorful personality. And&mdash;</q>\b
+                {You/He} {is} interrupted by a shimmering about {the iobj/him}.
+                As {you/he} watch{es}, it takes the form of a callipygian
+                goddess.\b
+                <q>Mortal, I have heard your heart-felt and oft-repeated plea,
+                and I will take pity on you,</q> says {the dobj/she}. <q>If you
+                give me a token of your love as an offering, I will give you the
+                <<highlight 'keyword'>> of life. Speak this word in the
+                presence of a mirror, and I will grant your request.</q>\b
+                {It dobj/She} fade{s} away, adding, <q>As for her colorful
+                personality, just look around you.</q> <<or>><<stopping>>";
+            else if (key.location)
+                "<q>O Aphrodite,</q> {you/he} say{s}, <q>what am I supposed to
+                do again?</q>\bThe goddess reappears and reminds you to speak
+                the keyword of life at a mirror. <<one of>><q>What&rsquo;s the
+                keyword, then?</q> <q>Gods help those who help themselves.
+                Figure it out yourself.</q><<or>><q>Why a mirror?</q> <q>I like
+                mirrors.</q><<purely at random>> ";
+            else if (offering == necklace)
+            {
+                "Aphrodite reappears. <q>A necklace! Perfect!</q> The necklace
+                disappears in a bright flash. When {your} eyes readjust,
+                {you/he} see{s} <<key.aNameObj>> lying in its place. ";
+                necklace.moveInto(nil);
+                key.makePresent();
+            }
+            else if (+offering)
+                "{The dobj/She} reappear{s}. {It dobj/She} eye{s}
+                <<offering.theNameObj>> skeptically. <q><<one of>>No
+                <<highlight 'comment'>>.<<or>>You call <i>that</i> a token of
+                love?<<or>>\^<<offering.aNameObj>>? Really?<<or>>Come on,
+                mortal, it&rsquo;s not that difficult!<<then at random>></q> ";
+            else
+                "<q>I heard you the first time,</q> {subj dobj}say{s} {the
+                dobj/she}. <q>Prove your devotion by offering a token of your
+                love at {the iobj/him}, or the deal&rsquo;s off.</q> ";
+        }
+    }
 ;
 
 sinkRoom: Room 'Washroom'
@@ -1034,10 +1074,8 @@ modify typographicalOutputFilter
     filterText(ostr, val) { return isActive ? inherited(ostr, val) : val; }
 ;
 
-transient iris: Unthing
+transient iris: Deity
     'iris' 'Iris'
-    '<<if gActor.canSee(altar)>>You can only pray to a deity.
-    <<else>>You need an altar to interact with a deity. '
     location = (gPlayerChar)
     isProperName = true
     isHer = true
@@ -1058,12 +1096,8 @@ transient iris: Unthing
             screenHeight = height;
         return height;
     }
-    dobjFor(PrayAt)
+    dobjFor(PrayToAt)
     {
-        verify {
-            if (!gActor.canSee(altar))
-                illogicalNow('You need an altar to interact with a deity. ');
-        }
         action()
         {
             gTranscript.flushForInput();
@@ -1600,25 +1634,106 @@ modify Thing
 modify VerbRule(About) 'about' | 'help' :;
 
 VerbRule(Pray)
-    [badness 500] 'pray' singleDobj
-    : PrayAtAction
-    verbPhrase = 'pray/praying (at what)'
+    ('pray' | 'laud' | 'petition' | 'worship') singleDobj
+    : PrayAction
+    verbPhrase = 'pray/praying (at/to what)'
+;
+
+DefineTAction(Pray)
+    whatObj(which) { return 'what/who'; }
+    adjustDefaultObjectPrep(prep, obj)
+    {
+        return isAnimate(obj) ? 'to ' : 'at ';
+    }
+    isAnimate(obj)
+    {
+        return obj && (obj.isHer || obj.isHim || obj.ofKind(Actor));
+    }
+;
+
+modify Thing
+    dobjFor(Pray)
+    {
+        remap = [
+            PrayAction.isAnimate(gDobj)
+            //(gDobj && (gDobj.isHer || gDobj.isHim || gDobj.ofKind(Actor)))
+            ? PrayToAction : PrayAtAction,
+            DirectObject
+        ]
+    }
+;
+
+VerbRule(PrayTo)
+    ('pray' 'to' | 'laud' | 'petition' | 'worship') singleDobj
+    : PrayToAction
+    verbPhrase = 'pray/praying (to who)'
+;
+
+modify Thing
+    dobjFor(Pray)
+    {
+        verify
+        {
+            illogical('That is illogical! ');
+        }
+    }
+;
+
+DefineTAction(PrayTo);
+
+modify Thing
+    dobjFor(PrayTo)
+    {
+        verify
+        {
+            illogical('{subj actor}Praying to {the dobj/him} would make the gods
+                jealous. ');
+        }
+    }
 ;
 
 VerbRule(PrayAt)
-    'pray' ('at' | 'to') singleDobj
+    ('pray' | 'laud' | 'petition' | 'worship') 'at' singleDobj
     : PrayAtAction
     verbPhrase = 'pray/praying (at what)'
-    askDobjResponseProd = singleNoun
 ;
 
 DefineTAction(PrayAt);
+
 modify Thing
     dobjFor(PrayAt)
     {
         verify
         {
-            illogical('{You/He} {cannot} pray at {the dobj/him}. {It/he} {is} not an altar. ');
+            illogical('{You/He} {cannot} pray at {the dobj/him}. ');
+        }
+    }
+;
+
+VerbRule(PrayToAt)
+    ('pray' ('to'|) | 'laud' | 'petition' | 'worship') singleDobj
+    'at' singleIobj
+    | ('pray' | 'laud' | 'petition' | 'worship') 'at' singleIobj
+    'to' singleDobj
+    : PrayToAtAction
+    verbPhrase = 'pray/praying (to who) (at what)'
+;
+
+DefineTIAction(PrayToAt);
+
+modify Thing
+    dobjFor(PrayToAt)
+    {
+        verify {
+            illogical('{subj actor}Praying to {the dobj/him} would make the gods
+                jealous. ');
+        }
+    }
+    iobjFor(PrayToAt)
+    {
+        verify
+        {
+            illogical('{You/He} {cannot} pray at {the iobj/him}. ');
         }
     }
 ;
