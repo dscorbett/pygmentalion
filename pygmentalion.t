@@ -601,6 +601,11 @@ replace grammar predicate(UnscrewWith): ' ': object;
         replaceAction(TalkTo, self);
         return nil;
     }
+    afterAction
+    {
+        if (gActionIs(Yell))
+            "\^<<nameDoes>> not appear to hear {you/him} screaming. ";
+    }
     iobjFor(PutOn)
     {
         check
