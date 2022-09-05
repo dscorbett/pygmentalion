@@ -1320,10 +1320,90 @@ transient iris: Deity
                             line,
                             function() {
                                 local tags = tagStyles[rexGroup(1)[3]];
-                                return tags[1] + rexGroup(2)[3] + tags[2];
+                                return concat(tags[1], rexGroup(2)[3], tags[2]);
                             },
                         );
 #ifndef TADS_INCLUDE_NET
+                        line = rexReplace(
+                            R'&#([0-9]+);',
+                            line,
+                            {: makeString(toInteger(rexGroup(1)[3])) }
+                        );
+                        local cs =
+                            new CharacterSet(getLocalCharSet(CharsetDisplay));
+                        if (!cs.isMappable(line))
+                        {
+                            local replacements = [];
+                            for (local codePoint in line.toUnicode())
+                            {
+                                if (cs.isMappable(codePoint))
+                                    replacements += codePoint;
+                                else
+                                {
+                                    local replacement;
+                                    switch (codePoint)
+                                    {
+                                    case 0x0101:
+                                        replacement = 'a[n]';
+                                        break;
+                                    case 0x0113:
+                                        replacement = 'e[n]';
+                                        break;
+                                    case 0x012B:
+                                        replacement = 'i[n]';
+                                        break;
+                                    case 0x0131:
+                                        replacement = 'i';
+                                        break;
+                                    case 0x014D:
+                                        replacement = 'o[n]';
+                                        break;
+                                    case 0x017F:
+                                    case 0x02E2:
+                                        replacement = 's';
+                                        break;
+                                    case 0x0304:
+                                    case 0xFEFF:
+                                        replacement = '';
+                                        break;
+                                    case 0x0365:
+                                        replacement = '[i]';
+                                        break;
+                                    case 0x1DE3:
+                                        replacement = '[ur]';
+                                        break;
+                                    case 0x1E9F:
+                                    case 0xA77A:
+                                        replacement = 'd';
+                                        break;
+                                    case 0x2013:
+                                        replacement = '--';
+                                        break;
+                                    case 0x204A:
+                                        replacement = '&amp;';
+                                        break;
+                                    case 0xA751:
+                                        replacement = '[par]';
+                                        break;
+                                    case 0xA75B:
+                                        replacement = 'r';
+                                        break;
+                                    case 0xA76F:
+                                        replacement = '[con]';
+                                        break;
+                                    case 0xA770:
+                                        replacement = '[us]';
+                                        break;
+                                    default:
+                                        replacement = [codePoint];
+                                        break;
+                                    }
+                                    replacements += replacement.ofKind(String)
+                                        ? replacement.toUnicode() : replacement;
+                                }
+                            }
+                            line = makeString(replacements);
+                        }
                         line = line.findReplace('  ', ' \u00A0');
 #endif
                         "<<line.findReplace(['{', '}', '\n'],
