@@ -1817,6 +1817,12 @@ modify TryAsActorResolveResults
 
 /* Sundry modifications */
 
+modify VerbRule(GiveTo)
+    ('give' | 'offer') dobjList 'to' singleIobj
+    | 'offer' dobjList 'at' singleIobj
+    :
+;
+
 VerbRule(Hug)
     ('embrace' | 'hug') singleDobj
     : HugAction
