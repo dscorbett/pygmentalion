@@ -583,6 +583,24 @@ replace grammar predicate(UnscrewWith): ' ': object;
         }
     }
     dobjFor(Feel) remapTo(Hug, DirectObject)
+    dobjFor(TalkTo)
+    {
+        verify { }
+        action
+        {
+            "{You/He} break{s} the silence but hear{s} nothing back. {You/He}
+            {does}n&rsquo;t know what {you/he} {was} expecting; {it dobj/she}
+            never answer{s} {you/him}. ";
+        }
+    }
+    dobjFor(AskAbout) remapTo(TalkTo, DirectObject)
+    dobjFor(AskFor) remapTo(TalkTo, DirectObject)
+    dobjFor(TellAbout) remapTo(TalkTo, DirectObject)
+    acceptCommand(issuingActor)
+    {
+        replaceAction(TalkTo, self);
+        return nil;
+    }
     iobjFor(PutOn)
     {
         check
@@ -1889,7 +1907,16 @@ modify Thing
     }
 ;
 
-/* Bug fix for adv3 */
+/* Bug fixes for adv3 */
+
+modify Actor
+    canTalkTo(actor)
+    {
+        if (actor.communicationSenses == nil)
+            return nil;
+        return inherited(actor);
+    }
+;
 
 modify TryAsActorResolveResults
     unknownNounPhrase(match, resolver) { return []; }
