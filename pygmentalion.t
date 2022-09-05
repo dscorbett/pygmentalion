@@ -305,8 +305,19 @@ class Token: Achievement, InitObject
     {
         if (systemInfo(SysInfoTextColors) != SysInfoTxcRGB)
         {
-            before_ = '<font color=bgcolor bgcolor=text>';
-            after_ = '</font>';
+            if (systemInfo(SysInfoBanners))
+            {
+                before_ = '<font color=bgcolor bgcolor=text>';
+                after_ = '</font>';
+            }
+            else
+            {
+                // If banners are not supported, assume this is plain mode,
+                // which falsely claims that `systemInfo(SysInfoTextColors) ==
+                // SysInfoTxcAnsiFgBg`.
+                before_ = '[[';
+                after_ = ']]';
+            }
         }
     }
 #endif
