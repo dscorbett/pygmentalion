@@ -1791,7 +1791,7 @@ VerbRule(Pray)
 ;
 
 DefineTAction(Pray)
-    whatObj(which) { return 'what/who'; }
+    whatObj(which) { return 'what/<<libMessages.whomPronoun>>'; }
     adjustDefaultObjectPrep(prep, obj)
     {
         return isAnimate(obj) ? 'to ' : 'at ';
@@ -1817,7 +1817,7 @@ modify Thing
 VerbRule(PrayTo)
     ('pray' 'to' | 'laud' | 'petition' | 'worship') singleDobj
     : PrayToAction
-    verbPhrase = 'pray/praying (to who)'
+    verbPhrase = 'pray/praying (to whom)'
 ;
 
 modify Thing
@@ -1867,7 +1867,7 @@ VerbRule(PrayToAt)
     | ('pray' | 'laud' | 'petition' | 'worship') 'at' singleIobj
     'to' singleDobj
     : PrayToAtAction
-    verbPhrase = 'pray/praying (to who) (at what)'
+    verbPhrase = 'pray/praying (to whom) (at what)'
 ;
 
 DefineTIAction(PrayToAt);
@@ -1928,6 +1928,10 @@ modify Thing
             "{subj actor}Hugging {the dobj/him} has no obvious effect. ";
         }
     }
+;
+
+modify libMessages
+    whomPronoun = 'who'
 ;
 
 modify playerActionMessages {
