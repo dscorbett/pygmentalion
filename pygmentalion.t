@@ -973,8 +973,10 @@ aphrodite: Deity
                 "{The dobj/She} reappear{s}. {It dobj/She} eye{s}
                 <<offering.theNameObj>> skeptically. <q><<one of>>No
                 <<highlight 'comment'>>.<<or>>You call <i>that</i> a token of
-                love?<<or>>\^<<offering.aNameObjShort>>? Really?<<or>>Come on,
-                mortal, it&rsquo;s not that difficult!<<then at random>></q> ";
+                love?<<or>>\^<<offering.aNameObjShort>>? <<if offering ==
+                goldNugget>>You won&rsquo;t get it down the
+                steps.<<else>>Really?<<end>><<or>>Come on, mortal, it&rsquo;s
+                not that difficult!<<then at random>></q> ";
             else
                 "<q>I heard you the first time,</q> {subj dobj}say{s} {the
                 dobj/she}. <q>Prove your devotion by offering a token of your
