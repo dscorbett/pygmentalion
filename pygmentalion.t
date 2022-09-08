@@ -173,9 +173,10 @@ gameMain: GameMainDef
             'racked with doubts.',
             'wincing at how desperate she must think you.',
             'uneasy.',
+            'feeling sick of eating chopped liver every day.',
             'embarrassed about loving a statue.',
             'nervous about loving a living woman.',
-            'wondering where you can find a woman that looks exactly like your
+            'wondering where you can find a woman who looks exactly like your
             statue.',
             'wondering how much longer you can buy such expensive gifts before
             your credit runs out.',
@@ -209,8 +210,8 @@ gameMain: GameMainDef
         have ever done, and the most beautiful woman you have ever seen.
         Unfortunately, she is also an inanimate object, and now you can neither
         work nor rest for unrequitable love.\b
-        Once again you stumble into your studio, hoping and praying to find
-        your statue brought to life.\b
+        Once again you awake in your studio, hoping and praying to find your
+        statue brought to life.\b
         <b><<versionInfo.name>></b>\n
         Copyright 2014, 2022 <<versionInfo.byline>>\n
         Version <<versionInfo.version>>\b
@@ -412,9 +413,10 @@ grammar adjWord(material): <material material>->adj_ : AdjPhraseWithVocab
 
 + property location;
 
-entrance: Room 'Entrance'
-    "You are in the entrance to your studio. This is where you carve great
-    works of art, not that you have felt like making any lately. A door leads
+entrance: Room 'Studio Entrance'
+    "Your studio is where you create great works of art, though you have made
+    nothing since you carved that statue. This corner, which now serves as your
+    bedroom and dining room, is the entrance to the building. A door leads
     outside, and the studio itself is to the north and the east. "
     north = workbenchRoom
     northeast = sinkRoom
@@ -431,6 +433,116 @@ entrance: Room 'Entrance'
     cannotOpenLockedMsg = '{The dobj/He} {is} locked. <<first time>>In {your}
         distracted state, {you/he} must have misplaced the key. <<only>>You
         cannot <<highlight 'escape'>>! '
+;
+
++ campBed: Bed '(camp) bed' 'camp bed'
+    "It is a narrow portable camp bed. You brought it into the studio so you
+    would not have to leave the statue every night. "
+;
+
++ endTable: Surface 'end table*tables' 'end table'
+    "A small portable table. "
+;
+
+++ coinBox: OpenableContainer, RestrictedContainer
+    '(coin) box/pyx/pyxis' 'coin box'
+    "A small round box in which you keep your coins, when you have any. "
+    iobjFor(PutIn) {
+        check
+        {
+            failCheck('{You/He} {can} only put coins in the coin box. ');
+        }
+    }
+    openStatus
+    {
+        if (isOpen)
+            return '<<inherited>> and empty. Maybe next time you check, it will
+                contain a coin. You can only hope';
+        else
+            return inherited;
+    }
+;
+
+++ wineBottle: Thing 'bottle' 'bottle of wine'
+    "A bottle of sea-dark wine. "
+    material = 'dark' 'sea' 'sea-dark' 'seadark' 'wine'
+    aNameObjShort = (aNameFrom('bottle'))
+    getFacets() { return [seawaterBottle]; }
+    dobjFor(Taste)
+    {
+        action
+        {
+            local loc = location;
+            "{You/He} take{s} a sip and realize that this is not sea-dark wine
+            after all. It is just seawater. ";
+            moveInto(nil);
+            seawaterBottle.moveInto(loc);
+        }
+    }
+    dobjFor(Drink) remapTo(Taste, DirectObject)
+    dobjFor(Pour)
+    {
+        verify
+        {
+            illogical('That would be wasteful. ');
+        }
+    }
+    dobjFor(PourInto) remapTo(Pour, DirectObject)
+    dobjFor(PourOnto) remapTo(Pour, DirectObject)
+;
+
+++ plateOfLiver: Food 'chopped liver plate' 'plate of chopped liver'
+    "You have been living on chopped liver since you moved into the studio
+    permanently. It isn&rsquo;t bad, but it does get monotonous. "
+    getFacets() { return [plate]; }
+    dobjFor(Eat)
+    {
+        preCond = []
+        action
+        {
+            local loc = location;
+            "{You/He} eat{s} all the liver. The plate will be full again
+            tomorrow morning though. Somehow, the liver always regenerates
+            overnight. ";
+            moveInto(nil);
+            plate.moveInto(loc);
+        }
+    }
+;
+
+seawaterBottle: Thing 'bottle' 'bottle of seawater'
+    "A bottle of wine-dark seawater. "
+    material = 'dark' 'sea' 'seawater' 'water' 'wine-dark' 'winedark'
+    aNameObjShort = (aNameFrom('bottle'))
+    dobjFor(Taste)
+    {
+        action
+        {
+            "{It dobj/He} taste{s} salty. ";
+        }
+    }
+    dobjFor(Drink)
+    {
+        preCond = []
+        verify { }
+        check
+        {
+            failCheck('That would be disgusting. ');
+        }
+    }
+    dobjFor(Pour)
+    {
+        verify
+        {
+            illogical('That would be wasteful. ');
+        }
+    }
+    dobjFor(PourInto) remapTo(Pour, DirectObject)
+    dobjFor(PourOnto) remapTo(Pour, DirectObject)
+;
+
+plate: Thing 'plate' 'plate'
+    "It is empty for now. "
 ;
 
 key: PresentLater, Key 'grimy key' 'key' @altar
@@ -482,9 +594,50 @@ workbenchRoom: Room 'At the Workbench'
 ;
 
 + workbench: Fixture, Surface
-    'workbench/bench/material/materials/tool/tools' 'workbench'
-    "Normally, the workbench would be scattered with half-finished projects,
-    but now your tools and materials lie abandoned. "
+    'bench/workbench' 'workbench'
+    "Your workbench is usually scattered with tools and materials and
+    half-finished projects. "
+    descContentsLister: surfaceDescContentsLister
+    {
+        showListPrefixWide(itemCount, pov, parent)
+        {
+            "\b";
+            inherited(itemCount, pov, parent);
+        }
+    }
+;
+
+++ chisel: Thing 'chisel*tools' 'chisel'
+    "A sharp tool used for carving. "
+;
+
+/*
+ *   Dune aguılle bıen afılee.
+ *   Dargent ẟe fıl ꝺoꝛ enfılee.
+ *   Lı a pour mieulx eſtˢ veſtue.
+ *   Chūne manche eſtroıt couſue.
+ *      (MS. Douce 195, fol. 150v)
+ */
+
+++ needle: Thing 'needle*tools' 'needle'
+    "A sharp tool used for sewing. It is made of silver. "
+    material = 'silver'
+;
+
+/*
+ *   Anneletz ẟoꝛ es ẟoız lı boute.
+ *      (MS. Douce 195, fol. 150v)
+ */
+
+++ goldNugget: Thing 'large gold golden nugget' 'gold nugget'
+    "It is a large nugget of gold that sparkles in the light. You haven&rsquo;t
+    decided what to make it into yet. "
+;
+
+++ idol: Thing '(aphrodite) (cytherea) (venus) idol/statuette' 'idol'
+    "The idol is a small statuette of Aphrodite carved from meerschaum. "
+    material = 'meerschaum' 'sepiolite'
+    dobjFor(PrayTo) remapTo(PrayTo, aphrodite)
 ;
 
 + plinth: Fixture, Thing 'plinth/pedestal' 'plinth'
@@ -675,8 +828,9 @@ replace grammar predicate(UnscrewWith): ' ': object;
 ;
 
 altarRoom: Room 'At the Altar'
-    "Light from the window illuminates a crude altar. Until recently, this
-    corner was your bedroom. The rest of the studio lies north and west. "
+    "Light from the window illuminates a crude altar. Until recently, this area
+    was the gallery where customers would buy your art; all that is gone now.
+    The rest of the studio lies north and west. "
     north = sinkRoom
     northwest = workbenchRoom
     west = entrance
@@ -819,7 +973,7 @@ aphrodite: Deity
                 "{The dobj/She} reappear{s}. {It dobj/She} eye{s}
                 <<offering.theNameObj>> skeptically. <q><<one of>>No
                 <<highlight 'comment'>>.<<or>>You call <i>that</i> a token of
-                love?<<or>>\^<<offering.aNameObj>>? Really?<<or>>Come on,
+                love?<<or>>\^<<offering.aNameObjShort>>? Really?<<or>>Come on,
                 mortal, it&rsquo;s not that difficult!<<then at random>></q> ";
             else
                 "<q>I heard you the first time,</q> {subj dobj}say{s} {the
@@ -831,8 +985,8 @@ aphrodite: Deity
 
 sinkRoom: Room 'Washroom'
     "Sculpting is a dusty business. You use this sink to clean off after a hard
-    day&rsquo;s work. Beside the sink is a small end table, and on the wall is a
-    calculator. The rest of the studio is south and west. "
+    day&rsquo;s work. Beside the sink is a small side table, and on the wall is
+    a calculator. The rest of the studio is south and west. "
     south = altarRoom
     southwest = entrance
     west = workbenchRoom
@@ -930,9 +1084,13 @@ export level 'waterLevel';
     }
 ;
 
-+ table: Fixture, Surface 'small end bracket/table' 'table'
++ sideTable: Fixture, Surface 'small side bracket/table*tables' 'side table'
     "<<first time>>Upon closer inspection, you see that \v<<only>>The table is
     bracketed to the wall. "
+;
+
+++ comb: Thing 'comb*tools' 'comb'
+    "A tool to keep your hair tidy. "
 ;
 
 ++ manual: Readable '"operator\'s" book/manual' 'manual'
@@ -1391,6 +1549,9 @@ transient iris: Deity
                                         break;
                                     case 0x014D:
                                         replacement = 'o[n]';
+                                        break;
+                                    case 0x016B:
+                                        replacement = 'u[n]';
                                         break;
                                     case 0x017F:
                                     case 0x02E2:
@@ -1955,6 +2116,7 @@ VerbRule(Hug)
 DefineTAction(Hug);
 
 modify Thing
+    aNameObjShort = (aNameObj)
     dobjFor(GiveTo)
     {
         verify
