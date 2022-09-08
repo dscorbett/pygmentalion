@@ -593,7 +593,7 @@ workbenchRoom: Room 'At the Workbench'
     getDestName(actor, origin) { return 'the workbench'; }
 ;
 
-+ workbench: Fixture, Surface
++ workbench: Chair, Fixture
     'bench/workbench' 'workbench'
     "Your workbench is usually scattered with tools and materials and
     half-finished projects. "
@@ -1107,7 +1107,7 @@ export level 'waterLevel';
     }
 ;
 
-+ sideTable: Fixture, Surface 'small side bracket/table*tables' 'side table'
++ sideTable: Chair, Fixture 'small side bracket/table*tables' 'side table'
     "<<first time>>Upon closer inspection, you see that \v<<only>>The table is
     bracketed to the wall. "
 ;
