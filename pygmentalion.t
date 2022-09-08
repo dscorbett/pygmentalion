@@ -846,12 +846,13 @@ altarRoom: Room 'At the Altar'
     wall right below it is a boring <<highlight 'white space'>>. <<stopping>>"
 ;
 
-+ altar: Fixture, Surface 'crude rough altar/banker/slab' 'altar'
++ altar: Bed, Fixture 'crude rough altar/banker/slab' 'altar'
     "A rough marble slab lies on a wooden banker. In your rush to construct an
     altar, you neglected the usual surface finish and friezes, but you pray at
     it anyway. You are sure the gods will understand. "
     material = 'marble' 'wood' 'wooden'
     bulkCapacity = 1
+    obviousPostures = []
     dobjFor(Pray) { verify { } }
     dobjFor(PrayTo)
     {
@@ -862,12 +863,32 @@ altarRoom: Room 'At the Altar'
         }
     }
     dobjFor(PrayAt) remapTo(PrayToAt, aphrodite, DirectObject)
-    iobjFor(PrayToAt) { verify { } }
+    iobjFor(PrayToAt) {
+        preCond = [actorNotInObj]
+        verify { }
+    }
     iobjFor(GiveTo) {
         verify { }
         action {
             replaceAction(PutOn, gDobj, gIobj);
         }
+    }
+;
+
+actorNotInObj: PreCondition
+    checkPreCondition(obj, allowImplicit)
+    {
+        if (obj == nil || !gActor.isIn(obj))
+            return nil;
+        if (allowImplicit && tryImplicitAction(GetOutOf, obj))
+        {
+            if (gActor.isIn(obj))
+                exit;
+            return true;
+        }
+        reportFailure('{You/He} {must} get <<obj.actorOutOfPrep>>
+            <<obj.theName>> before {you/he} can do that. ');
+        exit;
     }
 ;
 
