@@ -1291,18 +1291,20 @@ class WaterContainerDescContentsLister: thingDescContentsLister
     {
         self.container = container;
     }
+    hasEnoughWater = (container.level >= 1000 || container.overflowing)
     showListPrefixWide(itemCount, pov, parent)
     {
         "<.p>";
-        if (container.level >= 1000)
+        if (hasEnoughWater)
             "\^";
         else
             inherited(itemCount, pov, parent);
     }
     showListSuffixWide(itemCount, pov, parent)
     {
-        if (container.level >= 1000)
-            " is <<highlight 'float'>>ing on the surface of the water. ";
+        if (hasEnoughWater)
+            " <<itemCount == 1 ? tSel('is', 'was') : tSel('are', 'were')>>
+            <<highlight 'float'>>ing on the surface of the water. ";
         else
             inherited(itemCount, pov, parent);
     }
@@ -1310,7 +1312,7 @@ class WaterContainerDescContentsLister: thingDescContentsLister
 
 class WaterContainer: RestrictedContainer
     grimyObjects = [key]
-    validContents = (grimyObjects + [idol])
+    validContents = (grimyObjects + [feather, idol])
     contentsListedSeparately = true
     descContentsLister = new WaterContainerDescContentsLister(self)
     iobjFor(PutIn) {
@@ -1323,6 +1325,44 @@ class WaterContainer: RestrictedContainer
             if (grimyObjects.indexOf(gDobj) != nil)
                 replaceAction(CleanWith, gDobj, gIobj);
             inherited();
+            if (overflowing)
+                washContentsAway();
+        }
+    }
+    washContentsAway()
+    {
+        if (sink.current.contents)
+        {
+            if (canBeSeenBy(gActor))
+            {
+                local tab = gActor.visibleInfoTable();
+                sink.current.setContentsSeenBy(tab, gActor);
+                local lst = sink.current.getContentsForExamine(
+                    washedAwayContentsLister, tab);
+                local featherIndex = lst.indexOf(feather);
+                if (featherIndex != nil)
+                    lst = lst.removeElementAt(featherIndex);
+                washedAwayContentsLister.showList(
+                    gActor, sink.current, lst, ListRecurse, 0,
+                    gActor.visibleInfoTable(), nil, examinee: sink.current);
+            }
+            for (local item in sink.current.contents)
+                if (item != feather)
+                    item.moveInto(sink.current.location);
+        }
+    }
+    washedAwayContentsLister: thingDescContentsLister
+    {
+        showListPrefixWide(itemCount, pov, parent) { "\^"; }
+        showListItem(obj, options, pov, infoTab)
+        {
+            say(obj.withVisualSenseInfo(pov, infoTab[obj], &theName));
+        }
+        showListSuffixWide(itemCount, pov, parent)
+        {
+            " <<tSel('get<<if itemCount == 1>>s', 'got')>> washed away onto
+            <<(gActor.canSee(defaultFloor) ? defaultFloor :
+            defaultGround).theName>>. ";
         }
     }
 ;
@@ -1934,6 +1974,7 @@ DefineLiteralAction(Calculate)
                         (sink.current == basin))
                         w.makePresent();
                 });
+                sink.current.washContentsAway();
                 sink.current.setLevel(level: nil);
                 break;
             default:
