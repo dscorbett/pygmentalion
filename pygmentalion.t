@@ -583,7 +583,8 @@ key: PresentLater, Key 'grimy key' 'key' @altar
 workbenchRoom: Room 'At the Workbench'
     "This workbench, in the northwest part of the studio, was where you would
     create works of art. Now you just come here to contemplate your
-    creation&rsquo;s beauty and lament your hopeless situation.\b
+    creation&rsquo;s beauty, dress her up, ply her with gifts, and lament your
+    hopeless situation.\b
     <<if gActor.setHer(statue)>><<end>>
     The statue stands on a plinth beside the workbench. "
     east = sinkRoom
