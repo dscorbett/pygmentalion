@@ -1220,8 +1220,8 @@ portico: OutdoorRoom 'Portico'
     with water pressure, no doubt. Now you just use it as a birdbath.
     <.p><<if overflowing>>Water is spilling over the sides in a turbulent flow.
     <<else if level >= 19500>>It is full to the brim with water. You can see
-    your reflection<<if feather.location == basin>>, though it is partly
-    obscured by the feather<<else>> as clearly as Narcissus saw his. At least
+    your reflection<<if obscuringItem>>, though it is partly obscured by
+    <<obscuringItem.theName>><<else>> as clearly as Narcissus saw his. At least
     you are not as foolish as he was: you can physically touch the object of
     your affections, which is some consolation<<end>>.
     <<else if level >= 15000>>It is full of water. You can see your
@@ -1242,6 +1242,7 @@ portico: OutdoorRoom 'Portico'
     }
     iobjFor(CleanWith) maybeRemapTo(basinWater.location, CleanWith,
                                     DirectObject, basinWater)
+    obscuringItem = (contents.valWhich({obj: !obj.ofKind(Fixture)}))
 ;
 
 ++ basinWater: Fixture '(basin) water basin puddle/water' 'water'
@@ -2273,7 +2274,7 @@ DefineLiteralAction(Say)
         {
             if (gActor.location == portico && basin.isMirror)
             {
-                if (feather.location == basin)
+                if (basin.obscuringItem)
                     "The air above the basin shimmers, and the feather bobs on
                     the rippling water. After a moment, the shimmering
                     disappears.";
