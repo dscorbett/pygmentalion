@@ -1019,19 +1019,19 @@ sinkRoom: Room 'Washroom'
 property level, overflowing;
 export overflowing;
 export level 'waterLevel';
-+ sink: Fixture
++ sink: Fixture, WaterContainer
     '(auto) (mop) auto-sink/autosink/backsplash/bowl/drain/faucet/sink' 'sink'
     "This is a state-of-the-art mop sink with anti-miasmic coating and bronze
     backsplash. It is so modern, there are no handles or other obvious ways to
-    turn it on.\b
-    <<if overflowing>>The faucet is stuck in the on position and the sink is
+    turn it on.
+    <.p><<if overflowing>>The faucet is stuck in the on position and the sink is
     overflowing.
     <<else unless level < 19500>>It is full to the brim with water.
     <<otherwise if level >= 15000>>It is full of water.
     <<otherwise unless level < 10000>>It is half full of water.
     <<else if level >= 1000>>There is some water in the sink.
     <<else if level > 0>>A small puddle has formed at the bottom of the sink.
-    <<otherwise>>It is empty. "
+    <<otherwise unless contents>>It is empty. "
     material = 'bronze'
     level = not in ([lst]) { return argcount; }
     not = in()
@@ -1065,17 +1065,6 @@ export level 'waterLevel';
             failCheck('{You/He} can&rsquo;t see any way to turn {it dobj/him}
                 off. <<if manual.described>><<one of>><<or>>The manual said to
                 use the calculator add-on. <<stopping>>');
-        }
-    }
-    iobjFor(PutIn) {
-        verify {
-            if (gDobj != key)
-                illogical('{The dobj/He} <<if overflowing || level !=
-                    0>>would<<else>>might<<end>> get wet. ');
-        }
-        action {
-            tryImplicitActionMsg(
-                &silentImplicitAction, CleanWith, gDobj, gIobj);
         }
     }
 ;
@@ -1223,12 +1212,12 @@ portico: OutdoorRoom 'Portico'
  *      (MS. Douce 195, fol. 149v)
  */
 
-+ basin: RestrictedContainer, Fixture
++ basin: Fixture, WaterContainer
     '(bird) basin/bath/birdbath/fountain/mosaic/pool/tile/tiles' 'basin'
     "It is shallow but wide, and lined with tiles. It used to be a fountain,
     but it stopped working after they installed the new sink. Something to do
-    with water pressure, no doubt. Now you just use it as a birdbath.\b
-    <<if overflowing>>Water is spilling over the sides in a turbulent flow.
+    with water pressure, no doubt. Now you just use it as a birdbath.
+    <.p><<if overflowing>>Water is spilling over the sides in a turbulent flow.
     <<else if level >= 19500>>It is full to the brim with water. You can see
     your reflection<<if feather.location == basin>>, though it is partly
     obscured by the feather<<else>> as clearly as Narcissus saw his. At least
@@ -1242,7 +1231,7 @@ portico: OutdoorRoom 'Portico'
     <<else if level >= 1000>>There is some water in it, but you can still make
     out the mosaic lining the basin.
     <<else if level > 0>>A small puddle has formed at the bottom of the basin.
-    <<else>>It is empty. "
+    <<else unless contents>>It is empty. "
     level = 0
     overflowing = nil
     isMirror = (level >= 15000)
@@ -1294,6 +1283,48 @@ portico: OutdoorRoom 'Portico'
 ;
 
 /* Water */
+
+class WaterContainerDescContentsLister: thingDescContentsLister
+    container = nil
+    construct(container)
+    {
+        self.container = container;
+    }
+    showListPrefixWide(itemCount, pov, parent)
+    {
+        "<.p>";
+        if (container.level >= 1000)
+            "\^";
+        else
+            inherited(itemCount, pov, parent);
+    }
+    showListSuffixWide(itemCount, pov, parent)
+    {
+        if (container.level >= 1000)
+            " is <<highlight 'float'>>ing on the surface of the water. ";
+        else
+            inherited(itemCount, pov, parent);
+    }
+;
+
+class WaterContainer: RestrictedContainer
+    grimyObjects = [key]
+    validContents = (grimyObjects + [idol])
+    contentsListedSeparately = true
+    descContentsLister = new WaterContainerDescContentsLister(self)
+    iobjFor(PutIn) {
+        verify {
+            if (validContents.indexOf(gDobj) == nil)
+                illogical('{The dobj/He} <<if overflowing || level !=
+                    0>>would<<otherwise>>might<<end>> get wet. ');
+        }
+        action {
+            if (grimyObjects.indexOf(gDobj) != nil)
+                replaceAction(CleanWith, gDobj, gIobj);
+            inherited();
+        }
+    }
+;
 
 trickling(water) multimethod
 {
