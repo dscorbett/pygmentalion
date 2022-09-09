@@ -1095,6 +1095,7 @@ export level 'waterLevel';
             }
         }
     }
+    iobjFor(PutIn) remapTo(PutIn, DirectObject, sink)
 ;
 
 + sideTable: Chair, Fixture 'small side bracket/table*tables' 'side table'
@@ -1264,6 +1265,7 @@ portico: OutdoorRoom 'Portico'
                 clean. ');
         }
     }
+    iobjFor(PutIn) remapTo(PutIn, DirectObject, basin)
 ;
 
 /*
