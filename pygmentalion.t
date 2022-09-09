@@ -2047,7 +2047,8 @@ DefineTAction(Pray)
     }
     isAnimate(obj)
     {
-        return obj && (obj.isHer || obj.isHim || obj.ofKind(Actor));
+        return obj
+            && (obj.isHer || obj.isHim || obj.ofKind(Actor) || obj == idol);
     }
 ;
 
@@ -2056,7 +2057,6 @@ modify Thing
     {
         remap = [
             PrayAction.isAnimate(gDobj)
-            //(gDobj && (gDobj.isHer || gDobj.isHim || gDobj.ofKind(Actor)))
             ? PrayToAction : PrayAtAction,
             DirectObject
         ]
