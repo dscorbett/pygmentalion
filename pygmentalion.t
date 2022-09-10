@@ -438,10 +438,12 @@ entrance: Room 'Studio Entrance'
 + campBed: Bed '(camp) bed' 'camp bed'
     "It is a narrow portable camp bed. You brought it into the studio so you
     would not have to leave the statue every night. "
+    bulk = 10
 ;
 
 + endTable: Surface 'end table*tables' 'end table'
     "A small portable table. "
+    bulk = 10
 ;
 
 ++ coinBox: OpenableContainer, RestrictedContainer
@@ -545,10 +547,10 @@ plate: Thing 'plate' 'plate'
     "It is empty for now. "
 ;
 
-key: PresentLater, Key 'grimy key' 'key' @altar
+key: PresentLater, Key 'grimy key/tool*tools' 'key' @altar
     "It is a <<unless clean>>grimy<<end>> bronze key. <<if clean>>On it is \
     etched the word <q><<keyword>></q>. "
-    material = 'bronze'
+    material = 'bronze' 'metal'
     clean = nil
     keyword = (keyword = greekWordGenerator.generate(), targetprop)
     dobjFor(Clean) {
@@ -608,8 +610,17 @@ workbenchRoom: Room 'At the Workbench'
     }
 ;
 
-++ chisel: Thing 'chisel*tools' 'chisel'
+++ chisel: Thing 'chisel/tool*tools' 'chisel'
     "A sharp tool used for carving. "
+    dobjFor(Attack)
+    {
+        check
+        {
+            failCheck('{You/He} {is}n&rsquo;t in the mood for carving anything.
+                ');
+        }
+    }
+    dobjFor(AttackWith) remapTo(Attack, DirectObject)
 ;
 
 /*
@@ -620,9 +631,9 @@ workbenchRoom: Room 'At the Workbench'
  *      (MS. Douce 195, fol. 150v)
  */
 
-++ needle: Thing 'needle*tools' 'needle'
+++ needle: Thing 'needle/tool*tools' 'needle'
     "A sharp tool used for sewing. It is made of silver. "
-    material = 'silver'
+    material = 'metal' 'silver'
 ;
 
 /*
@@ -630,9 +641,10 @@ workbenchRoom: Room 'At the Workbench'
  *      (MS. Douce 195, fol. 150v)
  */
 
-++ goldNugget: Thing 'large gold golden nugget' 'gold nugget'
+++ goldNugget: Thing '(large) nugget' 'gold nugget'
     "It is a large nugget of gold that sparkles in the light. You haven&rsquo;t
     decided what to make it into yet. "
+    material = 'gold' 'golden' 'metal'
 ;
 
 ++ idol: Thing '(aphrodite) (cytherea) (venus) idol/statuette' 'idol'
@@ -810,6 +822,7 @@ replace grammar predicate(UnscrewWith): ' ': object;
                 {that dobj/her}. ');
         }
     }
+    dobjFor(AttackWith) remapTo(Attack, DirectObject)
     dobjFor(Taste) remapTo(Eat, DirectObject)
 ;
 
@@ -849,6 +862,73 @@ altarRoom: Room 'At the Altar'
     help but think the wall would benefit from a bas-relief, but &ndash;
     <i>sigh</i> &ndash; you are too lovelorn to wield the chisel. <<||>>The
     wall right below it is a boring <<highlight 'white space'>>. <<stopping>>"
+;
+
+/*
+ *   Et poꝛte o moy par grāt ꝯfoꝛt.
+ *   Eſcharpe ⁊ bourꝺon bon ⁊ foꝛt
+ *   Tel qͥl na meſtıer ꝺe ferrer
+ *   Poᷣ ıournoyer ne pour eꝛꝛer
+ *   Leſcharpe eſt ꝺe bōne faıcture.
+ *   Dune pel ſoupple ſās couſture.
+ *      (MS. Douce 195, fol. 153v)
+ */
+
++ poolNet: Container
+    '(pool) walking bag/pack/pole/net/rod/sack/satchel/staff/stick/tool*tools'
+    'pool net'
+    "It is a <<highlight 'long'>> wooden staff with a sack attached to one
+    end. This versatile tool can be also used as a walking stick. "
+    material = 'wood' 'wooden'
+    initSpecialDesc = "A pool net leans ithyphallically against the wall. "
+    maxSingleBulk = 5
+    dobjFor(Examine)
+    {
+        action
+        {
+            inherited();
+            local discovered = [];
+            for (local item in contents)
+            {
+                if (item.ofKind(Hidden) && !item.discovered)
+                {
+                    item.discover();
+                    discovered += item;
+                }
+            }
+            if (discovered.length)
+                "<.p>In the sack, {you/he} find{s}
+                <<objectLister.showSimpleList(discovered)>>. ";
+        }
+    }
+;
+
+/*
+ *   Maıˢ ſachez q̄lle neſt paˢ vuyẟe.
+ *   Deux marteletz ꝑ grāt eſtuyẟe.
+ *   Y mıſt ꝺeꝺās ſı com moy ſēble.
+ *   Dılıgēmant ⁊ tous enſemble.
+ *   Nature quı les me baılla.
+ *      (MS. Douce 195, fol. 153v)
+ */
+
+class Hammer: Thing
+    iobjFor(AttackWith)
+    {
+        preCond = [objHeld]
+        verify() { }
+    }
+;
+
+++ ballPeenHammer: Hammer, Hidden
+    'ball peen ball-peen ballpeen hammer/tool*hammers tools' 'ball-peen hammer'
+    "A hammer used for hardening metal. "
+    material = 'metal' 'steel'
+;
+
+++ mallet: Hammer, Hidden 'hammer/mallet/tool*hammers tools' 'mallet'
+    "A wooden hammer with a large head, used to strike a chisel. "
+    material = 'wood' 'wooden'
 ;
 
 + altar: Bed, Fixture 'crude rough altar/banker/slab' 'altar'
@@ -1037,7 +1117,7 @@ export level 'waterLevel';
     <<else if level >= 1000>>There is some water in the sink.
     <<else if level > 0>>A small puddle has formed at the bottom of the sink.
     <<otherwise unless contents>>It is empty. "
-    material = 'bronze'
+    material = 'bronze' 'metal'
     level = not in ([lst]) { return argcount; }
     not = in()
     overflowing = nil
@@ -1107,7 +1187,7 @@ export level 'waterLevel';
     bracketed to the wall. "
 ;
 
-++ comb: Thing 'comb*tools' 'comb'
+++ comb: Thing 'comb/tool*tools' 'comb'
     "A tool to keep your hair tidy. "
 ;
 
