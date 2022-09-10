@@ -550,7 +550,7 @@ key: PresentLater, Key 'grimy key' 'key' @altar
     etched the word <q><<keyword>></q>. "
     material = 'bronze'
     clean = nil
-    keyword = (keyword = randomGreekWord(), targetprop)
+    keyword = (keyword = greekWordGenerator.generate(), targetprop)
     dobjFor(Clean) {
         verify {
             verifyDobjCleanWith();
@@ -2527,8 +2527,69 @@ VerbRule(Xyzzy)
     verbPhrase = 'babble/talking like a barbarian'
 ;
 
-englishWords: object
-    list = [
+#ifdef __DEBUG
+VerbRule(ReciteLexicon)
+    ('recite' ('the' |) |) 'lexicon'
+    : ReciteLexiconAction
+    verbPhrase = 'recite/reciting the lexicon'
+;
+
+DefineIAction(ReciteLexicon)
+    execAction
+    {
+        local protoWordPieceLists = [
+            ['', 'p', 't', 'k', 'b', 'd', 'g', 's', 'm'],
+            [''] + greekWordGenerator.clusters + greekWordGenerator.consonants,
+            ['', 'h'],
+            greekWordGenerator.vowels.getUnique(),
+            ['', 'i', 'u'] + greekWordGenerator.ends,
+            [''] + greekWordGenerator.clusters + greekWordGenerator.consonants,
+            ['', 'h'],
+            greekWordGenerator.vowels.getUnique(),
+            ['', 'i', 'u'] + greekWordGenerator.ends,
+            ['', 's']
+        ];
+        local indices = makeList(1, protoWordPieceLists.length);
+        gTranscript.deactivate();
+        typographicalOutputFilter.deactivate();
+        while (true)
+        {
+            local word = '';
+            for (local i = 1; i <= indices.length; ++i)
+            {
+                word += protoWordPieceLists[i][indices[i]];
+            }
+            "<<word.toUpper>> &gt; ";
+            word = greekWordGenerator.mutate(word);
+            if (greekWordGenerator.isUnacceptable(word))
+                "*";
+            else if (greekWordGenerator.isBarelyAcceptable(word))
+                "?";
+            "<<word>>\n";
+            flushOutput();
+            local done = true;
+            for (local i = indices.length; i >= 1; --i)
+            {
+                if (indices[i] < protoWordPieceLists[i].length)
+                {
+                    ++indices[i];
+                    done = nil;
+                    break;
+                }
+                else
+                    indices[i] = 1;
+            }
+            if (done)
+                break;
+        }
+        typographicalOutputFilter.activate();
+        gTranscript.activate();
+    }
+;
+#endif
+
+greekWordGenerator: object
+    englishWords = [
         'abos', 'abox', 'abys', 'achras', 'adeps', 'ados', 'agos', 'ainoi',
         'albyn', 'alex', 'alix', 'alkyl', 'allyl', 'alpax', 'alphos', 'alphyl',
         'alphyn', 'altos', 'ambos', 'amex', 'ammos', 'amos', 'amplex', 'ampyx',
@@ -2649,41 +2710,50 @@ englishWords: object
         'typos', 'tyros', 'xanthyl', 'xenos', 'xenyl', 'xerox', 'xylyl',
         'xystoi', 'xystos', 'zaps', 'zendos', 'zephyr', 'zeros', 'zips'
     ]
-;
-
-randomGreekWord()
-{
-    local vowels = ['a', 'e', 'e', 'i', 'o', 'y', 'o'];
-    local consonants = ['p', 't', 'k', 'b', 'd', 'g', 's', 'm', 'n', 'l', 'r'];
-    local clusters =
-        ['pn', 'pl', 'pr', 'tm', 'tr', 'kn', 'kl', 'kr', 'bl', 'br'];
-    local ends = consonants - ['b', 'd', 'g'];
-    local word;
-    local retries = 0;
-    for (local r in 0 .. -1 step -1)
+    vowels = ['a', 'e', 'e', 'i', 'o', 'y', 'o']
+    consonants = ['p', 't', 'k', 'b', 'd', 'g', 's', 'm', 'n', 'l', 'r']
+    clusters = ['pn', 'pl', 'pr', 'tm', 'tr', 'kn', 'kl', 'kr', 'bl', 'br']
+    ends = consonants - ['b', 'd', 'g']
+    generate()
     {
-        for ((r), local i = 0, local j = 2; i < j; ++i, --j)
+        local word;
+        local retries = 0;
+        for (local r in 0 .. -1 step -1)
         {
-            for (local s = 0, local n in [90, 30, 10]; ; --s)
-                retries -= s * n;
+            for ((r), local i = 0, local j = 2; i < j; ++i, --j)
+            {
+                for (local s = 0, local n in [90, 30, 10]; ; --s)
+                    retries -= s * n;
+            }
         }
+        retries *= 2;
+        retries >>= 1;
+        retries /= 2;
+        retries <<= 1;
+        retries >>>= 2;
+        retries %= 16;
+        retries &= ~1;
+        retries |= 2;
+        retries ^= retries ^ retries;
+        do
+        {
+            word = mutate(randomProtoWord);
+        } while (retries-- && isBarelyAcceptable(word)
+            || isUnacceptable(word));
+        cmdDict.addWord(vocabRemover, word, &noun);
+        return word;
     }
-    retries *= 2;
-    retries >>= 1;
-    retries /= 2;
-    retries <<= 1;
-    retries >>>= 2;
-    retries %= 16;
-    retries &= ~1;
-    retries |= 2;
-    retries ^= retries ^ retries;
-    do
+    randomProtoWord
     {
-        word = rand('[ptkbdgsm]?');
+        local word = rand('[ptkbdgsm]?');
         for (local i in 0 .. __TADS3)
             word += concat(rand(rand('', clusters, consonants)), rand('"h"?'),
                            rand(vowels...), rand('','', 'i', 'u', rand(ends)));
         word += rand('"s"?');
+        return word;
+    }
+    mutate(word)
+    {
         word = rexReplace(R'^[pk](?![tnlrhaeioy]|[tnlr]h?[^aeioy])', word, '');
         word = rexReplace(R'^b(?![dlrhaeioy]|[dlr]h?[^aeioy])', word, '');
         word = rexReplace(R'^g(?![nlrhaeioy]|[nlr]h?[^aeioy])', word, '');
@@ -2720,13 +2790,21 @@ randomGreekWord()
         word = rexReplace(R'ks', word, 'x');
         word = rexReplace(R'gg', word, 'kg');
         word = rexReplace(R'kh', word, 'ch');
-    } while ((retries-- && (word.length() < 4 || !rexSearch(
-        new RexPattern('^(eu|hy|[pgm]n|bd|tm|rh)|(.h.|pp|kc|rr)h|ch([^aeioy])|'
-                       + '([^aeiouy])y([^aeioy])$|(ps|x|o[ius])$'), word)))
-        || cmdDict.isWordDefined(word)
-        || englishWords.list.indexOf(word) != nil
-        || rexSearch(R'[aeiou](ie|y)|ee|o[ao]|y[aeioy]|y$|u[aeo]u',
-                     word));
-    cmdDict.addWord(vocabRemover, word, &noun);
-    return word;
-}
+        return word;
+    }
+    isBarelyAcceptable(word)
+    {
+        return word.length < 4 || !rexSearch(
+            new RexPattern(
+                '^(eu|hy|[pgm]n|bd|tm|rh)|(.h.|pp|kc|rr)h|ch([^aeioy])|'
+                + '([^aeiouy])y([^aeioy])$|(ps|x|o[ius])$'),
+            word);
+    }
+    isUnacceptable(word)
+    {
+        return cmdDict.isWordDefined(word)
+            || englishWords.indexOf(word) != nil
+            || rexSearch(R'[aeiou](ie|y)|ee|o[ao]|y[aeioy]|y$|u[aeo]u', word)
+                != nil;
+    }
+;
