@@ -753,6 +753,10 @@ replace grammar predicate(UnscrewWith): ' ': object;
         verify { }
         action
         {
+            /*
+             *   Car nentenꝺ rıēs ne ne ſent.
+             *      (MS. Douce 195, fol. 150r)
+             */
             "{You/He} break{s} the silence but hear{s} nothing back. {You/He}
             {does}n&rsquo;t know what {you/he} {was} expecting; {it dobj/she}
             never answer{s} {you/him}. ";
