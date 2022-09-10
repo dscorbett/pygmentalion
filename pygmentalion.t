@@ -2589,127 +2589,33 @@ DefineIAction(ReciteLexicon)
 #endif
 
 greekWordGenerator: object
-    englishWords = [
-        'abos', 'abox', 'abys', 'achras', 'adeps', 'ados', 'agos', 'ainoi',
-        'albyn', 'alex', 'alix', 'alkyl', 'allyl', 'alpax', 'alphos', 'alphyl',
-        'alphyn', 'altos', 'ambos', 'amex', 'ammos', 'amos', 'amplex', 'ampyx',
-        'amyl', 'anax', 'ankou', 'annex', 'anthos', 'anthrax', 'anthryl',
-        'apex', 'aphtha', 'aphthous', 'approx', 'archlet', 'archness', 'argos',
-        'arrha', 'arrhal', 'arsyl', 'artou', 'aryl', 'askoi', 'askos', 'atmos',
-        'auchlet', 'auloi', 'aulos', 'auryl', 'auspex', 'autos', 'azox',
-        'bambos', 'bandos', 'bangos', 'barhops', 'baroi', 'basos', 'bassos',
-        'basyl', 'bathos', 'bathyl', 'bauchle', 'beaux', 'bebops', 'bembex',
-        'bemix', 'benchless', 'benchlet', 'benchman', 'benchmar', 'benchmen',
-        'bendys', 'benthos', 'beryl', 'beryx', 'biblos', 'bichos', 'bilbos',
-        'bilos', 'bimbos', 'bingos', 'bios', 'birchman', 'bistros', 'blips',
-        'bokos', 'boldos', 'bollix', 'bollox', 'bolos', 'bombax', 'bombyx',
-        'bomos', 'bongos', 'bonos', 'bops', 'borax', 'bornyl', 'boryl',
-        'bostryx', 'bothroi', 'bothrops', 'bothros', 'boubou', 'bozos',
-        'brachman', 'branchless', 'branchlet', 'branchman', 'brios', 'bromos',
-        'bronchos', 'brontops', 'bros', 'chalkos', 'chamoix', 'chamos',
-        'changos', 'chaos', 'chaps', 'chartreux', 'cheaps', 'chelys', 'chinos',
-        'chips', 'chiros', 'chlamys', 'chloe', 'chlor', 'chloral', 'chlorals',
-        'chlordan', 'chlore', 'chlorin', 'chlornal', 'chloro', 'chlorous',
-        'chloryl', 'cholos', 'chops', 'chou', 'choux', 'chremsel', 'chria',
-        'chrimsel', 'chris', 'chrisma', 'chrismal', 'chrismon', 'chrisom',
-        'chrisoms', 'christen', 'christmas', 'christos', 'chrobat', 'chroma',
-        'chromas', 'chrome', 'chromes', 'chromo', 'chromos', 'chromous',
-        'chromyl', 'chron', 'chronal', 'chronol', 'chronon', 'chronos',
-        'chrotta', 'chrysal', 'chryseis', 'chrysin', 'chrysis', 'chrysler',
-        'chrysops', 'chytroi', 'dados', 'dagos', 'daps', 'darnex', 'darnix',
-        'dartos', 'daryl', 'datos', 'dattos', 'deimos', 'deinos', 'dekkos',
-        'demos', 'dentex', 'desex', 'desyl', 'detax', 'deux', 'didos', 'didym',
-        'dildos', 'dilos', 'dinos', 'diplex', 'dipnoi', 'dips', 'dipsos',
-        'direx', 'diskos', 'distrix', 'dittos', 'dobos', 'dodos', 'dollops',
-        'dolos', 'donax', 'doux', 'dyspnoi', 'eaux', 'echos', 'egos', 'eidos',
-        'ekoi', 'elaps', 'elix', 'ellops', 'elops', 'embox', 'emys', 'enos',
-        'entraps', 'ephoi', 'epos', 'eros', 'eryx', 'esox', 'essex', 'estops',
-        'ethnos', 'ethos', 'ethyl', 'etym', 'euchre', 'euchres', 'euda',
-        'euge', 'euler', 'eundem', 'euphon', 'eure', 'euro', 'euros', 'eurous',
-        'eusol', 'galax', 'gallops', 'galops', 'gaps', 'gauchos', 'genips',
-        'genos', 'genros', 'genys', 'gips', 'giros', 'gismos', 'gobos',
-        'gogos', 'gombos', 'gonys', 'gossips', 'gotos', 'goundou', 'gyps',
-        'gyros', 'hairdos', 'hallex', 'hallos', 'halos', 'hanoi', 'hapax',
-        'haps', 'hatbox', 'heaps', 'helix', 'hellos', 'henrys', 'heptyl',
-        'heros', 'hexyl', 'hillos', 'hippos', 'hips', 'hirmos', 'hobos',
-        'hollos', 'holmos', 'homos', 'hops', 'hormos', 'hotbox', 'houtou',
-        'hybla', 'hyblan', 'hybris', 'hyde', 'hyke', 'hyla', 'hylas', 'hyle',
-        'hyli', 'hymen', 'hynde', 'hynder', 'hyne', 'hype', 'hyper', 'hypes',
-        'hypnos', 'hypo', 'hypos', 'hyps', 'hyrax', 'hyrse', 'hyson', 'hyssop',
-        'hyssops', 'hystrix', 'hyte', 'ibex', 'ichthys', 'idyl', 'ilex',
-        'imbrex', 'immix', 'implex', 'index', 'indyl', 'inkos', 'intros',
-        'irpex', 'itys', 'kados', 'kagos', 'kainyn', 'kairos', 'kambou',
-        'karos', 'karou', 'kartos', 'kathryn', 'kekchi', 'kelchyn', 'kellys',
-        'keltoi', 'kendos', 'kendyr', 'kenos', 'keps', 'kernoi', 'kernos',
-        'keros', 'keryx', 'ketyl', 'kikoi', 'kilos', 'kinos', 'kips',
-        'klismoi', 'klismos', 'klops', 'knaps', 'knops', 'knox', 'kokos',
-        'kolos', 'kommos', 'kops', 'kordax', 'kosos', 'kotos', 'koumys',
-        'kouroi', 'kouros', 'koussos', 'krelos', 'kronos', 'kyklops', 'kylix',
-        'labrys', 'laos', 'laps', 'largos', 'larix', 'larnax', 'larnyx',
-        'lassos', 'lastex', 'latax', 'latex', 'lauryl', 'leaps', 'lenos',
-        'lentos', 'leos', 'lidos', 'limax', 'limbos', 'limos', 'lineups',
-        'linos', 'lips', 'lithos', 'lobos', 'lochlin', 'logoi', 'logos',
-        'lollops', 'lops', 'loros', 'lotos', 'lottos', 'loups', 'lychnis',
-        'machos', 'mailbox', 'maintops', 'makeups', 'makos', 'malax', 'mambos',
-        'mangos', 'manos', 'mantraps', 'maps', 'marchman', 'marchmen',
-        'margaux', 'marnix', 'maros', 'martrix', 'martyn', 'martyr', 'marys',
-        'maskoi', 'mastax', 'mastix', 'matax', 'matrix', 'maux', 'mebos',
-        'mechlin', 'melos', 'memos', 'menthyl', 'merops', 'meros', 'methyl',
-        'metros', 'milos', 'miltos', 'minos', 'mips', 'mirex', 'misos',
-        'mochras', 'mogos', 'monax', 'mondos', 'mongos', 'monos', 'mops',
-        'mormyr', 'morphos', 'mortreux', 'mottos', 'mousseux', 'mozos',
-        'myrrhis', 'myrrhol', 'mystax', 'mythoi', 'mythos', 'naiskoi',
-        'naiskos', 'naoi', 'naos', 'naphtha', 'naphthas', 'naphtho',
-        'naphthol', 'naphthols', 'naphthous', 'naphthyl', 'naps', 'narthex',
-        'natrix', 'neaps', 'nemos', 'nephrops', 'nephros', 'netops', 'ninos',
-        'ninox', 'nips', 'nitos', 'nitros', 'nitryl', 'noex', 'noix', 'nolos',
-        'nomoi', 'nomos', 'nontax', 'nonyl', 'norkyn', 'noummos', 'nymphos',
-        'obex', 'ochna', 'ochre', 'ochres', 'ochro', 'ochrous', 'odax', 'odyl',
-        'olax', 'onkos', 'onym', 'onyx', 'ophrys', 'ordos', 'orlops', 'orlos',
-        'orthros', 'ortyx', 'oryx', 'ottos', 'outbox', 'ouzos', 'oxyl',
-        'padou', 'pailou', 'paintrix', 'pakchoi', 'panax', 'panchax', 'panos',
-        'pantos', 'pappox', 'paps', 'papyr', 'pargos', 'pathos', 'patmos',
-        'patrix', 'pechys', 'pelops', 'pemphix', 'pengos', 'pentyl', 'peplos',
-        'pepos', 'peps', 'perdix', 'perhaps', 'permix', 'perplex', 'pesos',
-        'petos', 'phanos', 'pharos', 'phenix', 'phenyl', 'philos', 'phlox',
-        'phobos', 'phonos', 'phos', 'photos', 'phys', 'phytyl', 'pileups',
-        'pinax', 'pingos', 'pinkos', 'pintos', 'pinyl', 'pips', 'pistrix',
-        'pithoi', 'pithos', 'platys', 'plex', 'plops', 'pneum', 'pneuma',
-        'pneumas', 'pneume', 'pnyx', 'podex', 'podos', 'pollex', 'polloi',
-        'poloi', 'polos', 'polyp', 'polyps', 'polys', 'ponchos', 'ponos',
-        'pops', 'porchless', 'pornos', 'poros', 'pothos', 'pottos',
-        'pouchless', 'praos', 'premix', 'preps', 'prestos', 'pretax', 'preux',
-        'prex', 'primos', 'prinos', 'prix', 'prolix', 'prolyl', 'proplex',
-        'propos', 'props', 'propyl', 'prorex', 'pros', 'prosos', 'protax',
-        'prothyl', 'protyl', 'prox', 'prys', 'pyrex', 'pyrrha', 'pyrrhous',
-        'rhachi', 'rhachis', 'rhagon', 'rhaphe', 'rhaphes', 'rhapis', 'rhason',
-        'rhea', 'rheas', 'rhebok', 'rheda', 'rhedas', 'rhein', 'rhema',
-        'rheme', 'rheo', 'rhesis', 'rhet', 'rhetor', 'rheum', 'rheums',
-        'rhexes', 'rhexis', 'rhila', 'rhina', 'rhinal', 'rhine', 'rhino',
-        'rhinos', 'rhoda', 'rhodes', 'rhombi', 'rhombos', 'rhonchal',
-        'rhonchi', 'rhonda', 'rhos', 'rhyme', 'rhymer', 'rhymes', 'rhynchops',
-        'rhyssa', 'rhyta', 'rhythmal', 'rhyton', 'rhytta', 'sagos', 'saindoux',
-        'sakkoi', 'sakkos', 'saleps', 'salix', 'sambos', 'sandix', 'sandyx',
-        'sannops', 'santos', 'sappho', 'saps', 'sargos', 'sarlyk', 'saros',
-        'satraps', 'satyr', 'seax', 'segos', 'segou', 'sekos', 'selsyn',
-        'senex', 'seps', 'settos', 'sibyl', 'silex', 'silos', 'silyl',
-        'simplex', 'sioux', 'sips', 'sirex', 'siros', 'solos', 'songoi',
-        'sops', 'sorex', 'sorgos', 'soups', 'soursops', 'synchro', 'synchros',
-        'syntax', 'tainos', 'takyr', 'tangos', 'tannyl', 'taos', 'taps',
-        'tarbox', 'taros', 'tartryl', 'tatou', 'taupou', 'tauryl', 'techne',
-        'technol', 'tektos', 'telex', 'teloi', 'telos', 'telyn', 'tempos',
-        'tethys', 'tetrix', 'tetryl', 'tettix', 'theos', 'thermos', 'tholoi',
-        'tholos', 'thorax', 'thos', 'thou', 'thrax', 'threaps', 'threnos',
-        'thrinax', 'thrips', 'thronoi', 'thronos', 'throu', 'thymyl', 'tiou',
-        'tiptops', 'tiros', 'tmema', 'tmeses', 'tmesis', 'toitoi', 'tolyl',
-        'topoi', 'topos', 'tops', 'torchless', 'torchlit', 'torchman', 'toros',
-        'torpex', 'torsos', 'tortrix', 'touchless', 'trachle', 'trachles',
-        'traps', 'trauchle', 'trauchles', 'tremex', 'trenchlet', 'trigos',
-        'trigyn', 'triops', 'trios', 'triplex', 'tripos', 'trips', 'trityl',
-        'trix', 'trollops', 'tropyl', 'trotyl', 'tryp', 'tryt', 'typhlops',
-        'typos', 'tyros', 'xanthyl', 'xenos', 'xenyl', 'xerox', 'xylyl',
-        'xystoi', 'xystos', 'zaps', 'zendos', 'zephyr', 'zeros', 'zips'
-    ]
+    englishWords
+    {
+        local resourceName = 'englishWords.txt';
+        try
+        {
+            file = File.openTextResource(resourceName);
+        } catch (FileException e) {
+            return englishWords = new LookupTable();
+        }
+        file.setCharacterSet('utf-8');
+        local wordTable = new LookupTable();
+        local word = nil;
+        while ((word = file.readFile()) != nil)
+        {
+            word = word.findReplace('\n', '', ReplaceOnce);
+            local key = word.substr(1, 3);
+            if (!wordTable.isKeyPresent(key))
+                wordTable[key] = new Vector();
+            wordTable[key] += word;
+        }
+        return englishWords = wordTable;
+    }
+    isEnglishWord(word)
+    {
+        local subsection = englishWords[word.substr(1, 3)];
+        return subsection != nil && subsection.indexOf(word) != nil;
+    }
     vowels = ['a', 'e', 'e', 'i', 'o', 'y', 'o']
     consonants = ['p', 't', 'k', 'b', 'd', 'g', 's', 'm', 'n', 'l', 'r']
     clusters = ['pn', 'pl', 'pr', 'tm', 'tr', 'kn', 'kl', 'kr', 'bl', 'br']
@@ -2803,7 +2709,7 @@ greekWordGenerator: object
     isUnacceptable(word)
     {
         return cmdDict.isWordDefined(word)
-            || englishWords.indexOf(word) != nil
+            || isEnglishWord(word)
             || rexSearch(R'[aeiou](ie|y)|ee|o[ao]|y[aeioy]|y$|u[aeo]u', word)
                 != nil;
     }
