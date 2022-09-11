@@ -1546,7 +1546,7 @@ transient iris: Deity
         action()
         {
             gTranscript.flushForInput();
-            local resourceName = __FILE__ + '.html';
+            local resourceName = __FILE__ + '.pygm';
             local needToOpen = file == nil;
             if (needToOpen)
             {
@@ -1690,7 +1690,7 @@ transient iris: Deity
                             * -> ['', '']
                         ];
                         line = rexReplace(
-                            R'<span class="(.*?)">(.*?)</span>',
+                            R'<(.+?)>(.*?)<>',
                             line,
                             function() {
                                 local tags = tagStyles[rexGroup(1)[3]];

@@ -43,15 +43,18 @@ play-web: pygmentalion-web.t3
 play-xtads: pygmentalion.t3
 	open -a XTads -n --args "$$(pwd)"/$<
 
-%.t3: pygmentalion.t.html pygmentalion.t %.t3m obj
+%.t3: pygmentalion.t.pygm pygmentalion.t %.t3m obj
 	t3make -a -f $* -res GameInfo.txt englishWords.txt $<
 
 obj:
 	mkdir $@
 
-%.html: %
-	pygmentize -l tads3 $< -f html -O nobackground,nowrap | ./html2ascii.py >$@
+%.pygm: %
+	pygmentize -l tads3 $< -f html -O nobackground,nowrap \
+	| ./html2ascii.py \
+	| sed 's/<span class="\([^"]*\)">/<\1>/g; s:</span>:<>:g' \
+	>$@
 
 .PHONY: clean
 clean:
-	$(RM) -r pygmentalion.t3 pygmentalion-web.t3 pygmentalion.t.html obj
+	$(RM) -r pygmentalion.t3 pygmentalion-web.t3 pygmentalion.t.pygm obj
