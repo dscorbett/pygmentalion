@@ -1772,11 +1772,10 @@ transient iris: Deity
                                         replacement = '[us]';
                                         break;
                                     default:
-                                        replacement = [codePoint];
+                                        replacement = '\\u<<%04X codePoint>>';
                                         break;
                                     }
-                                    replacements += replacement.ofKind(String)
-                                        ? replacement.toUnicode() : replacement;
+                                    replacements += replacement.toUnicode();
                                 }
                             }
                             line = makeString(replacements);
