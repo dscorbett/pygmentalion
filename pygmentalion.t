@@ -1280,6 +1280,24 @@ portico: OutdoorRoom 'Portico'
     west = (south)
     down asExit(south)
     roomParts = (roomParts = inherited() + [defaultNorthWall])
+    afterTravel(traveler, connector)
+    {
+        if (traveler == gActor && !bird.seen && basin.isMirror)
+        {
+            if (canSee(poolNet))
+            {
+                "<.p>\^<<bird.aName>> appears, notices <<poolNet.theName>>, and
+                flies away! ";
+                bird.seen = true;
+            }
+            else
+            {
+                "<.p>\^<<bird.aName>> appears. ";
+                bird.makePresent();
+            }
+        }
+        inherited(traveler, connector);
+    }
 ;
 
 + error: LockableWithKey, Door ->door 'door'
@@ -1339,8 +1357,8 @@ portico: OutdoorRoom 'Portico'
     you are not as foolish as he was: you can physically touch the object of
     your affections, which is some consolation<<end>>.
     <<else if level >= 15000>>It is full of water. You can see your
-    reflection<<if feather.location == basin>>, though it is partly obscured by
-    the feather<<end>>.
+    reflection<<if obscuringItem>>, though it is partly obscured by
+    <<obscuringItem.theName>><<end>>.
     <<else if level >= 10000>>It is half full. From the right angle, you can
     make out a shadowy reflection of the columns, but nothing more.
     <<else if level >= 1000>>There is some water in it, but you can still make
@@ -1356,7 +1374,12 @@ portico: OutdoorRoom 'Portico'
     }
     iobjFor(CleanWith) maybeRemapTo(basinWater.location, CleanWith,
                                     DirectObject, basinWater)
-    obscuringItem = (contents.valWhich({obj: !obj.ofKind(Fixture)}))
+    obscuringItem
+    {
+        return contents
+            .sort(SortAsc, {x, y: toInteger(y == bird) - toInteger(x == bird)})
+            .valWhich({obj: !obj.ofKind(Fixture)});
+    }
 ;
 
 ++ basinWater: Fixture '(basin) water basin puddle/water' 'water'
@@ -1386,17 +1409,37 @@ portico: OutdoorRoom 'Portico'
  *   Com.ii.coulōbıaux ſentrebaıſēt.
  *   Moult ſētraimēt moult ſētreaıſēt.
  *      (MS. Douce 195, fol. 151v)
-*/
+ */
 
-++ feather: PresentLater, Thing
-    '(bird) (dove) (pigeon) (turtle) (turtle-dove) (turtledove) feather'
-    'feather' "It&rsquo;s a turtle-dove feather: an auspicious omen! "
-    initSpecialDesc = "<<one of>>A little brown bird is splashing around in the
-        basin. When it notices you, it ruffles its feathers, one of which falls
-        out, and flies out between the columns. <<or>>A feather is
-        <<if basin.overflowing>>spinning erratically on the water flowing from
-        <<else if basin.level >= 1000>><<highlight 'float'>>ing in
-        <<else>>lying in <<end>> the basin. <<stopping>>"
+++ bird: PresentLater, Thing
+    'bird/dove/pigeon/turtle/turtle-dove/turtledove' 'bird'
+    "It&rsquo;s a turtle-dove: an auspicious omen! "
+    afterTravel(traveler, connector)
+    {
+        if (traveler == gActor)
+        {
+            if (canSee(poolNet))
+            {
+                "<.p>\^<<theName>> sees you, looks at <<poolNet.theName>>, and
+                flies away! ";
+                moveInto(nil);
+            }
+            else
+                "<.p>\^<<theName>> notices you. ";
+        }
+        inherited(traveler, connector);
+    }
+    specialDesc = "<<if rand(2) == 0 && !canSee(poolNet)>>\^<<theName>> <<one
+        of>>flutters around <<basin.theName>><<or>>drinks from
+        <<basin.theName>><<or>>preens itself<<or>>coos<<at random>>. "
+    specialDescBeforeContents = true
+    dobjFor(Take)
+    {
+        check
+        {
+            failCheck('\^{The dobj/He} elude{s} {your/his} grasp. ');
+        }
+    }
 ;
 
 /* Water */
@@ -1428,7 +1471,7 @@ class WaterContainerDescContentsLister: thingDescContentsLister
 
 class WaterContainer: RestrictedContainer
     grimyObjects = [key]
-    validContents = (grimyObjects + [feather, idol])
+    validContents = (grimyObjects + [idol])
     contentsListedSeparately = true
     descContentsLister = new WaterContainerDescContentsLister(self)
     iobjFor(PutIn) {
@@ -1455,16 +1498,12 @@ class WaterContainer: RestrictedContainer
                 sink.current.setContentsSeenBy(tab, gActor);
                 local lst = sink.current.getContentsForExamine(
                     washedAwayContentsLister, tab);
-                local featherIndex = lst.indexOf(feather);
-                if (featherIndex != nil)
-                    lst = lst.removeElementAt(featherIndex);
                 washedAwayContentsLister.showList(
                     gActor, sink.current, lst, ListRecurse, 0,
                     gActor.visibleInfoTable(), nil, examinee: sink.current);
             }
             for (local item in sink.current.contents)
-                if (item != feather)
-                    item.moveInto(sink.current.location);
+                item.moveInto(sink.current.location);
         }
     }
     washedAwayContentsLister: thingDescContentsLister
@@ -2096,11 +2135,8 @@ DefineLiteralAction(Calculate)
                 throw e;
             }
         }
-        if (!gPlayerChar.hasSeen(feather))
-        {
-            feather.makePresentIf(basin.isMirror);
-            feather.moved = nil;
-        }
+        if (bird.seen)
+            bird.makePresentIf(basin.isMirror);
         if (sink.current == basin && basin.isMirror)
             cmdDict.addWord(basin, 'mirror', &noun);
         else
@@ -2388,10 +2424,12 @@ DefineLiteralAction(Say)
         {
             if (gActor.location == portico && basin.isMirror)
             {
-                if (basin.obscuringItem)
-                    "The air above the basin shimmers, and the feather bobs on
-                    the rippling water. After a moment, the shimmering
-                    disappears.";
+                local obscuringItem = basin.obscuringItem;
+                if (obscuringItem)
+                    "The air above the basin shimmers, and
+                    <<obscuringItem.theName>> <<obscuringItem == bird ?
+                    'flutters above' : 'bobs on'>> the rippling water. After a
+                    moment, the shimmering disappears. ";
                 else
                 {
                     /*
