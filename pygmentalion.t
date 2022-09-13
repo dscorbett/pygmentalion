@@ -1433,6 +1433,23 @@ portico: OutdoorRoom 'Portico'
         of>>flutters around <<basin.theName>><<or>>drinks from
         <<basin.theName>><<or>>preens itself<<or>>coos<<at random>>. "
     specialDescBeforeContents = true
+    dobjFor(Attack)
+    {
+        check
+        {
+            failCheck('\^{The dobj/He} elude{s} {your/his} attack. ');
+        }
+    }
+    dobjFor(AttackWith) remapTo(Attack, DirectObject)
+    iobjFor(ThrowAt)
+    {
+        action
+        {
+            "\^{The iobj/He} dart{s} out of the way. ";
+            if (location && !location.ofKind(BasicLocation))
+                replaceAction(ThrowAt, gDobj, location);
+        }
+    }
     dobjFor(Take)
     {
         check
