@@ -649,7 +649,16 @@ workbenchRoom: Room 'At the Workbench'
                 ');
         }
     }
-    dobjFor(AttackWith) remapTo(Attack, DirectObject)
+    dobjFor(AttackWith)
+    {
+        check
+        {
+            if (gIobj != mallet)
+                failCheck('\^{The iobj/He} is not a suitable tool for striking
+                    {a dobj/him} with. ');
+        }
+        action { replaceAction(Attack, gDobj); }
+    }
 ;
 
 /*
