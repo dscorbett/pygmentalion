@@ -951,7 +951,8 @@ class Hammer: Thing
 ;
 
 ++ ballPeenHammer: Hammer, Hidden
-    'ball peen ball-peen ballpeen hammer/tool*hammers tools' 'ball-peen hammer'
+    'ball ball-peen ballpeen peen peening hammer/tool*hammers tools'
+    'ball-peen hammer'
     "A hammer used for hardening metal. "
     material = 'metal' 'steel'
 ;
