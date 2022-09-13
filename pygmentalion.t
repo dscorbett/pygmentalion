@@ -2766,7 +2766,7 @@ DefineIAction(ReciteLexicon)
 ;
 #endif
 
-greekWordGenerator: object
+greekWordGenerator: PreinitObject
     englishWords
     {
         local resourceName = 'englishWords.txt';
@@ -2798,9 +2798,9 @@ greekWordGenerator: object
     consonants = ['p', 't', 'k', 'b', 'd', 'g', 's', 'm', 'n', 'l', 'r']
     clusters = ['pn', 'pl', 'pr', 'tm', 'tr', 'kn', 'kl', 'kr', 'bl', 'br']
     ends = consonants - ['b', 'd', 'g']
-    generate()
+    retries = nil
+    execute
     {
-        local word;
         local retries = 0;
         for (local r in 0 .. -1 step -1)
         {
@@ -2819,6 +2819,12 @@ greekWordGenerator: object
         retries &= ~1;
         retries |= 2;
         retries ^= retries ^ retries;
+        self.retries = retries;
+    }
+    generate()
+    {
+        local word;
+        local retries = self.retries;
         do
         {
             word = mutate(randomProtoWord);
