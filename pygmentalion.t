@@ -1310,6 +1310,7 @@ portico: OutdoorRoom 'Portico'
                 "<.p>\^<<bird.aName>> appears, notices <<poolNet.theName>>, and
                 flies away! ";
                 bird.seen = true;
+                bird.eventualLocation = nil;
             }
             else
             {
@@ -1446,13 +1447,14 @@ nonMirrorState: ThingState
     "It&rsquo;s a turtle-dove: an auspicious omen! "
     afterTravel(traveler, connector)
     {
-        if (traveler == gActor)
+        if (traveler == gActor && canBeSeenBy(gActor))
         {
             if (canSee(poolNet))
             {
                 "<.p>\^<<theName>> sees you, looks at <<poolNet.theName>>, and
                 flies away! ";
                 moveInto(nil);
+                eventualLocation = nil;
             }
             else
                 "<.p>\^<<theName>> notices you. ";
