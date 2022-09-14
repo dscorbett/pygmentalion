@@ -425,16 +425,17 @@ string /**//**/ // /* \\
 
 /* Grammar for materials */
 
-dictionary property material;
-grammar adjWord(material): <material material>->adj_ : AdjPhraseWithVocab
+dictionary property materialWord;
+grammar adjWord(materialWord): <materialWord materialWord>->adj_
+    : AdjPhraseWithVocab
     getVocabMatchList(resolver, results, extraFlags)
     {
-        return getWordMatches(adj_, &material, resolver, extraFlags,
+        return getWordMatches(adj_, &materialWord, resolver, extraFlags,
                               VocabTruncated);
     }
     getAdjustedTokens()
     {
-        return [adj_, &material];
+        return [adj_, &materialWord];
     }
 ;
 
@@ -457,7 +458,7 @@ entrance: Room 'Studio Entrance'
 
 + door: LockableWithKey, Door 'door' 'door'
     "It is a simple wooden door. "
-    material = 'wood' 'wooden'
+    materialWord = 'wood' 'wooden'
     keyList = [key]
     cannotOpenLockedMsg = '{The dobj/He} {is} locked. <<first time>>In {your}
         distracted state, {you/he} must have misplaced the key. <<only>>You
@@ -496,7 +497,7 @@ entrance: Room 'Studio Entrance'
 
 ++ wineBottle: Thing 'bottle' 'bottle of wine'
     "A bottle of sea-dark wine. "
-    material = 'dark' 'sea' 'sea-dark' 'seadark' 'wine'
+    materialWord = 'dark' 'sea' 'sea-dark' 'seadark' 'wine'
     aNameObjShort = (aNameFrom('bottle'))
     getFacets() { return [seawaterBottle]; }
     dobjFor(Taste)
@@ -543,7 +544,7 @@ entrance: Room 'Studio Entrance'
 
 seawaterBottle: Thing 'bottle' 'bottle of seawater'
     "A bottle of wine-dark seawater. "
-    material = 'dark' 'sea' 'seawater' 'water' 'wine-dark' 'winedark'
+    materialWord = 'dark' 'sea' 'seawater' 'water' 'wine-dark' 'winedark'
     aNameObjShort = (aNameFrom('bottle'))
     dobjFor(Taste)
     {
@@ -579,7 +580,7 @@ plate: Thing 'plate' 'plate'
 key: PresentLater, Key 'grimy key/tool*tools' 'key' @altar
     "It is a <<unless clean>>grimy<<end>> bronze key. <<if clean>>On it is \
     etched the word <q><<keyword>></q>. "
-    material = 'bronze' 'metal'
+    materialWord = 'bronze' 'metal'
     clean = nil
     keyword = (keyword = greekWordGenerator.generate(), targetprop)
     dobjFor(Clean) {
@@ -671,7 +672,7 @@ workbenchRoom: Room 'At the Workbench'
 
 ++ needle: Thing 'needle/tool*tools' 'needle'
     "A sharp tool used for sewing. It is made of silver. "
-    material = 'metal' 'silver'
+    materialWord = 'metal' 'silver'
 ;
 
 /*
@@ -682,18 +683,18 @@ workbenchRoom: Room 'At the Workbench'
 ++ goldNugget: Thing '(large) nugget' 'gold nugget'
     "It is a large nugget of gold that sparkles in the light. You haven&rsquo;t
     decided what to make it into yet. "
-    material = 'gold' 'golden' 'metal'
+    materialWord = 'gold' 'golden' 'metal'
 ;
 
 ++ idol: Thing '(aphrodite) (cytherea) (venus) idol/statuette' 'idol'
     "The idol is a small statuette of Aphrodite carved from meerschaum. "
-    material = 'meerschaum' 'sepiolite'
+    materialWord = 'meerschaum' 'sepiolite'
     dobjFor(PrayTo) remapTo(PrayTo, aphrodite)
 ;
 
 + plinth: Fixture, Thing 'plinth/pedestal' 'plinth'
     "It&rsquo;s a smoothed block of marble half a cubit high. "
-    material = 'marble'
+    materialWord = 'marble'
     contentsListedInExamine = nil
 ;
 
@@ -742,7 +743,7 @@ replace grammar predicate(UnscrewWith): ' ': object;
     without this silly puzzle about tokens and mirrors! <<end>>
     <<end>><.p><<if !contentsListedInExamine>>She is wearing
     <<buildSynthParam('a/him', contents[1])>>. "
-    material = 'ivory'
+    materialWord = 'ivory'
     contentsListedInExamine =
         (contents.length() != 1 || contents[1] != necklace)
     propertyset 'is*'
@@ -918,7 +919,7 @@ altarRoom: Room 'At the Altar'
     'pool net'
     "It is a <<highlight 'long'>> wooden staff with a sack attached to one
     end. This versatile tool can be also used as a walking stick. "
-    material = 'wood' 'wooden'
+    materialWord = 'wood' 'wooden'
     initSpecialDesc = "A pool net leans ithyphallically against the wall. "
     maxSingleBulk = 5
     dobjFor(Examine)
@@ -963,19 +964,19 @@ class Hammer: Thing
     'ball ball-peen ballpeen peen peening hammer/tool*hammers tools'
     'ball-peen hammer'
     "A hammer used for hardening metal. "
-    material = 'metal' 'steel'
+    materialWord = 'metal' 'steel'
 ;
 
 ++ mallet: Hammer, Hidden 'hammer/mallet/tool*hammers tools' 'mallet'
     "A wooden hammer with a large head, used to strike a chisel. "
-    material = 'wood' 'wooden'
+    materialWord = 'wood' 'wooden'
 ;
 
 + altar: Bed, Fixture 'crude rough altar/banker/slab' 'altar'
     "A rough marble slab lies on a wooden banker. In your rush to construct an
     altar, you neglected the usual surface finish and friezes, but you pray at
     it anyway. You are sure the gods will understand. "
-    material = 'marble' 'wood' 'wooden'
+    materialWord = 'marble' 'wood' 'wooden'
     bulkCapacity = 1
     obviousPostures = []
     dobjFor(Pray) { verify { } }
@@ -1157,7 +1158,7 @@ export level 'waterLevel';
     <<else if level >= 1000>>There is some water in the sink.
     <<else if level > 0>>A small puddle has formed at the bottom of the sink.
     <<otherwise unless contents>>It is empty. "
-    material = 'bronze' 'metal'
+    materialWord = 'bronze' 'metal'
     level = not in ([lst]) { return argcount; }
     not = in()
     overflowing = nil
@@ -1314,7 +1315,7 @@ portico: OutdoorRoom 'Portico'
 + error: LockableWithKey, Door ->door 'door'
     name = (otherSide.name)
     desc = (otherSide.desc)
-    material = 'wood' 'wooden'
+    materialWord = 'wood' 'wooden'
     keyList = (otherSide.keyList)
 ;
 
