@@ -1500,7 +1500,7 @@ class WaterContainerDescContentsLister: thingDescContentsLister
 
 class WaterContainer: RestrictedContainer
     grimyObjects = [key]
-    validContents = (grimyObjects + [idol])
+    validContents = (grimyObjects + [idol, needle])
     contentsListedSeparately = true
     descContentsLister = new WaterContainerDescContentsLister(self)
     iobjFor(PutIn) {
