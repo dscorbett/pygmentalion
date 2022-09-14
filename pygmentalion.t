@@ -2767,14 +2767,14 @@ DefineIAction(ReciteLexicon)
 #endif
 
 greekWordGenerator: PreinitObject
-    englishWords
+    arrheta
     {
-        local resourceName = 'englishWords.txt';
+        local resourceName = 'arrheta.txt';
         try
         {
             file = File.openTextResource(resourceName);
         } catch (FileException e) {
-            return englishWords = new LookupTable();
+            return arrheta = new LookupTable();
         }
         file.setCharacterSet('utf-8');
         local wordTable = new LookupTable();
@@ -2787,11 +2787,11 @@ greekWordGenerator: PreinitObject
                 wordTable[key] = new Vector();
             wordTable[key] += word;
         }
-        return englishWords = wordTable;
+        return arrheta = wordTable;
     }
-    isEnglishWord(word)
+    isArrheton(word)
     {
-        local subsection = englishWords[word.substr(1, 3)];
+        local subsection = arrheta[word.substr(1, 3)];
         return subsection != nil && subsection.indexOf(word) != nil;
     }
     vowels = ['a', 'e', 'e', 'i', 'o', 'y', 'o']
@@ -2893,7 +2893,7 @@ greekWordGenerator: PreinitObject
     isUnacceptable(word)
     {
         return cmdDict.isWordDefined(word)
-            || isEnglishWord(word)
+            || isArrheton(word)
             || rexSearch(R'[aeiou](ie|y)|ee|o[ao]|y[aeioy]|y$|u[aeo]u', word)
                 != nil;
     }

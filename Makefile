@@ -44,7 +44,7 @@ play-xtads: pygmentalion.t3
 	open -a XTads -n --args "$$(pwd)"/$<
 
 %.t3: pygmentalion.t.pygm pygmentalion.t %.t3m obj
-	t3make -a -f $* -res GameInfo.txt englishWords.txt $<
+	t3make -a -f $* -res GameInfo.txt arrheta.txt $<
 
 obj:
 	mkdir $@
