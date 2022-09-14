@@ -577,12 +577,14 @@ plate: Thing 'plate' 'plate'
     "It is empty for now. "
 ;
 
-key: PresentLater, Key 'grimy key/tool*tools' 'key' @altar
+key: PresentLater, Key 'clean grimy key/tool*tools' 'key' @altar
     "It is a <<unless clean>>grimy<<end>> bronze key. <<if clean>>On it is \
     etched the word <q><<keyword>></q>. "
     materialWord = 'bronze' 'metal'
     clean = nil
     keyword = (keyword = greekWordGenerator.generate(), targetprop)
+    getState = (clean ? cleanState : grimyState)
+    allStates = [cleanState, grimyState]
     dobjFor(Clean) {
         verify {
             verifyDobjCleanWith();
@@ -604,12 +606,19 @@ key: PresentLater, Key 'grimy key/tool*tools' 'key' @altar
         }
         action
         {
-            gDobj.clean = true;
-            vocabRemover.removeWord(self, 'grimy', &adjective);
+            clean = true;
             "{You/He} clean{s} {the dobj/him}, revealing an inscription. ";
         }
     }
     dobjFor(Read) { verify { nonObvious; } }
+;
+
+grimyState: ThingState
+    stateTokens = ['grimy']
+;
+
+cleanState: ThingState
+    stateTokens = ['clean']
 ;
 
 workbenchRoom: Room 'At the Workbench'
@@ -1358,7 +1367,7 @@ portico: OutdoorRoom 'Portico'
  */
 
 + basin: Fixture, WaterContainer
-    '(bird) basin/bath/birdbath/fountain/mosaic/pool/tile/tiles' 'basin'
+    '(bird) mirror basin/bath/birdbath/fountain/mosaic/pool/tile/tiles' 'basin'
     "It is shallow but wide, and lined with tiles. It used to be a fountain,
     but it stopped working after they installed the new sink. Something to do
     with water pressure, no doubt. Now you just use it as a birdbath.
@@ -1380,6 +1389,8 @@ portico: OutdoorRoom 'Portico'
     level = 0
     overflowing = nil
     isMirror = (level >= 15000)
+    getState = (isMirror ? mirrorState : nonMirrorState)
+    allStates = [mirrorState, nonMirrorState]
     setLevel(level:)
     {
         delegated sink.setLevel(_: sourceTextOrder ? level: nil, level: level);
@@ -1414,6 +1425,13 @@ portico: OutdoorRoom 'Portico'
         }
     }
     iobjFor(PutIn) remapTo(PutIn, DirectObject, basin)
+;
+
+mirrorState: ThingState
+    stateTokens = ['mirror']
+;
+
+nonMirrorState: ThingState
 ;
 
 /*
@@ -2166,10 +2184,6 @@ DefineLiteralAction(Calculate)
         }
         if (bird.seen)
             bird.makePresentIf(basin.isMirror);
-        if (sink.current == basin && basin.isMirror)
-            cmdDict.addWord(basin, 'mirror', &noun);
-        else
-            vocabRemover.removeWord(basin, 'mirror', &noun);
     }
 ;
 
@@ -2419,14 +2433,6 @@ modify playerActionMessages {
     cannotPutInRestrictedMsg = 'There is no reason for {you/him} to put {that
         dobj/him} in {the iobj/him}. '
 }
-
-vocabRemover: Unthing 'mirror'
-    removeWord(obj, str, voc_prop)
-    {
-        cmdDict.removeWord(obj, str, voc_prop);
-        cmdDict.addWord(self, str, voc_prop);
-    }
-;
 
 /* Extended grammar for 'in' and 'out' */
 
@@ -2831,7 +2837,7 @@ greekWordGenerator: PreinitObject
             word = mutate(randomProtoWord);
         } while (retries-- && isBarelyAcceptable(word)
             || isUnacceptable(word));
-        cmdDict.addWord(vocabRemover, word, &noun);
+        cmdDict.addWord(self, word, &noun);
         return word;
     }
     randomProtoWord
