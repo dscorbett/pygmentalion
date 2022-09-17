@@ -2722,21 +2722,23 @@ VerbRule(ReciteLexicon)
 ;
 
 DefineIAction(ReciteLexicon)
+    protoWordPieceLists
+    {
+        local protoWordPieceLists = new Vector;
+        greekWordGenerator.getWord(
+            {lst: protoWordPieceLists.append(lst.getUnique().sort())},
+            function(lst)
+            {
+                local ret = [];
+                for (local x in lst)
+                    ret += x;
+                return ret;
+            });
+        return self.protoWordPieceLists = protoWordPieceLists.toList();
+    }
     execAction
     {
-        local protoWordPieceLists = [
-            ['', 'p', 't', 'k', 'b', 'd', 'g', 's', 'm'],
-            [''] + greekWordGenerator.clusters + greekWordGenerator.consonants,
-            ['', 'h'],
-            greekWordGenerator.vowels.getUnique(),
-            ['', 'i', 'u'] + greekWordGenerator.ends,
-            [''] + greekWordGenerator.clusters + greekWordGenerator.consonants,
-            ['', 'h'],
-            greekWordGenerator.vowels.getUnique(),
-            ['', 'i', 'u'] + greekWordGenerator.ends,
-            ['', 's']
-        ];
-        local indices = makeList(1, protoWordPieceLists.length);
+        local indices = Vector.generate({i: 1}, protoWordPieceLists.length);
         gTranscript.deactivate();
         typographicalOutputFilter.deactivate();
         while (true)
@@ -2748,7 +2750,7 @@ DefineIAction(ReciteLexicon)
             }
             "<<word.toUpper>> &gt; ";
             word = greekWordGenerator.mutate(word);
-            if (greekWordGenerator.isUnacceptable(word))
+            if (greekWordGenerator.isUnacceptableByPattern(word))
                 "*";
             else if (greekWordGenerator.isBarelyAcceptable(word))
                 "?";
@@ -2778,15 +2780,15 @@ DefineIAction(ReciteLexicon)
 greekWordGenerator: PreinitObject
     arrheta
     {
+        local wordTable = new LookupTable();
         local resourceName = 'arrheta.txt';
         try
         {
             file = File.openTextResource(resourceName);
         } catch (FileException e) {
-            return arrheta = new LookupTable();
+            return arrheta = wordTable;
         }
         file.setCharacterSet('utf-8');
-        local wordTable = new LookupTable();
         local word = nil;
         while ((word = file.readFile()) != nil)
         {
@@ -2804,9 +2806,13 @@ greekWordGenerator: PreinitObject
         return subsection != nil && subsection.indexOf(word) != nil;
     }
     vowels = ['a', 'e', 'e', 'i', 'o', 'y', 'o']
-    consonants = ['p', 't', 'k', 'b', 'd', 'g', 's', 'm', 'n', 'l', 'r']
-    clusters = ['pn', 'pl', 'pr', 'tm', 'tr', 'kn', 'kl', 'kr', 'bl', 'br']
-    ends = consonants - ['b', 'd', 'g']
+    semivowels = ['','', 'i', 'u']
+    breathings = ['', 'h']
+    prefixes = ['', 'b', 'g', 'd', 'k', 'm', 'p', 's', 't']
+    consonants = prefixes - '' + ['l', 'n', 'r']
+    onsets = ['bl', 'br', 'kl', 'kn', 'kr', 'pl', 'pn', 'pr', 'tm', 'tr']
+    codas = consonants - ['b', 'g', 'd']
+    suffixes = ['', 's']
     retries = nil
     execute
     {
@@ -2842,15 +2848,20 @@ greekWordGenerator: PreinitObject
         cmdDict.addWord(self, word, &noun);
         return word;
     }
-    randomProtoWord
+    getWord(choose, fromList)
     {
-        local word = rand('[ptkbdgsm]?');
+        local ret = choose(fromList(prefixes));
         for (local i in 0 .. __TADS3)
-            word += concat(rand(rand('', clusters, consonants)), rand('"h"?'),
-                           rand(vowels...), rand('','', 'i', 'u', rand(ends)));
-        word += rand('"s"?');
-        return word;
+        {
+            ret += choose(fromList(fromList([[''], onsets, consonants])));
+            ret += choose(fromList(breathings));
+            ret += choose(fromList(vowels));
+            ret += choose(fromList(semivowels + fromList(codas)));
+        }
+        ret += choose(fromList(suffixes));
+        return ret;
     }
+    randomProtoWord = (getWord(rand, rand))
     mutate(word)
     {
         word = rexReplace(R'^[pk](?![tnlrhaeioy]|[tnlr]h?[^aeioy])', word, '');
@@ -2903,7 +2914,11 @@ greekWordGenerator: PreinitObject
     {
         return cmdDict.isWordDefined(word)
             || isArrheton(word)
-            || rexSearch(R'[aeiou](ie|y)|ee|o[ao]|y[aeioy]|y$|u[aeo]u', word)
-                != nil;
+            || isUnacceptableByPattern(word);
+    }
+    isUnacceptableByPattern(word)
+    {
+        return rexSearch(R'[aeiou](ie|y)|ee|o[ao]|y[aeioy]|y$|u[aeo]u', word)
+            != nil;
     }
 ;
