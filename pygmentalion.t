@@ -2777,6 +2777,13 @@ DefineIAction(ReciteLexicon)
 ;
 #endif
 
+function randListItem(lst)
+{
+    if (dataType(lst) != TypeList)
+        lst = [lst];
+    return rand(lst);
+}
+
 greekWordGenerator: PreinitObject
     arrheta
     {
@@ -2861,7 +2868,7 @@ greekWordGenerator: PreinitObject
         ret += choose(fromList(suffixes));
         return ret;
     }
-    randomProtoWord = (getWord(rand, rand))
+    randomProtoWord = (getWord(randListItem, randListItem))
     mutate(word)
     {
         word = rexReplace(R'^[pk](?![tnlrhaeioy]|[tnlr]h?[^aeioy])', word, '');
