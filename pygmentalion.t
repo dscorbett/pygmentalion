@@ -2780,7 +2780,7 @@ DefineIAction(ReciteLexicon)
 function randListItem(lst)
 {
     if (dataType(lst) != TypeList)
-        lst = [lst];
+        return lst;
     return rand(lst);
 }
 
