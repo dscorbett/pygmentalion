@@ -479,6 +479,7 @@ entrance: Room 'Studio Entrance'
 ++ coinBox: OpenableContainer, RestrictedContainer
     '(coin) box/pyx/pyxis' 'coin box'
     "A small round box in which you keep your coins, when you have any. "
+    bulk = 5
     iobjFor(PutIn) {
         check
         {
@@ -500,6 +501,7 @@ entrance: Room 'Studio Entrance'
     materialWord = 'dark' 'sea' 'sea-dark' 'seadark' 'wine'
     aNameObjShort = (aNameFrom('bottle'))
     getFacets() { return [seawaterBottle]; }
+    bulk = (getFacets()[1].bulk)
     dobjFor(Taste)
     {
         action
@@ -527,6 +529,7 @@ entrance: Room 'Studio Entrance'
     "You have been living on chopped liver since you moved into the studio
     permanently. It isn&rsquo;t bad, but it does get monotonous. "
     getFacets() { return [plate]; }
+    bulk = (getFacets()[1].bulk)
     dobjFor(Eat)
     {
         preCond = []
@@ -546,6 +549,7 @@ seawaterBottle: Thing 'bottle' 'bottle of seawater'
     "A bottle of wine-dark seawater. "
     materialWord = 'dark' 'sea' 'seawater' 'water' 'wine-dark' 'winedark'
     aNameObjShort = (aNameFrom('bottle'))
+    bulk = 5
     dobjFor(Taste)
     {
         action
@@ -575,9 +579,11 @@ seawaterBottle: Thing 'bottle' 'bottle of seawater'
 
 plate: Thing 'plate' 'plate'
     "It is empty for now. "
+    bulk = 5
 ;
 
-key: PresentLater, Key 'clean grimy key/tool*tools' 'key' @altar
+key: PresentLater, Key '(door) clean grimy key/tool*keys tools' 'bronze key'
+    @altar
     "It is a <<unless clean>>grimy<<end>> bronze key. <<if clean>>On it is \
     etched the word <q><<keyword>></q>. "
     materialWord = 'bronze' 'metal'
@@ -585,25 +591,8 @@ key: PresentLater, Key 'clean grimy key/tool*tools' 'key' @altar
     keyword = (keyword = greekWordGenerator.generate(), targetprop)
     getState = (clean ? cleanState : grimyState)
     allStates = [cleanState, grimyState]
-    dobjFor(Clean) {
-        verify {
-            verifyDobjCleanWith();
-        }
-        action {
-            if (sinkWater.canBeTouchedBy(gActor))
-                tryImplicitActionMsg(
-                    &silentImplicitAction, CleanWith, self, sinkWater);
-            else
-                askForIobj(CleanWith);
-        }
-    }
     dobjFor(CleanWith)
     {
-        verify
-        {
-            if (clean)
-                illogicalAlready('{The dobj/He} {is} already clean. ');
-        }
         action
         {
             clean = true;
@@ -698,6 +687,7 @@ workbenchRoom: Room 'At the Workbench'
 ++ idol: Thing '(aphrodite) (cytherea) (venus) idol/statuette' 'idol'
     "The idol is a small statuette of Aphrodite carved from meerschaum. "
     materialWord = 'meerschaum' 'sepiolite'
+    bulk = 5
     dobjFor(PrayTo) remapTo(PrayTo, aphrodite)
 ;
 
@@ -706,14 +696,6 @@ workbenchRoom: Room 'At the Workbench'
     materialWord = 'marble'
     contentsListedInExamine = nil
 ;
-
-/*
- *   Quauſſı es tu moult coᷣꝛoucıee.
- *   Quāt chaſtete eſt exaucıee.
- *   Se ıay grāt peine deſſeruıe.
- *   De ce q̄ ıe lay tant ſeruie.
- *      (MS. Douce 195, fol. 151r)
- */
 
 replace grammar predicate(Screw): ' ': object;
 replace grammar predicate(ScrewWith): ' ': object;
@@ -914,6 +896,88 @@ altarRoom: Room 'At the Altar'
 ;
 
 /*
+ *   Quauſſı es tu moult coᷣꝛoucıee.
+ *   Quāt chaſtete eſt exaucıee.
+ *   Se ıay grāt peine deſſeruıe.
+ *   De ce q̄ ıe lay tant ſeruie.
+ *      (MS. Douce 195, fol. 151r)
+ */
+
++ cage: KeyedContainer 'cage/padlock/lock' 'wicker cage'
+    "A knee-high wicker cage with an iron padlock. "
+    materialWord = 'iron' 'wicker'
+    keyList = [cageKey]
+    lockStatusObvious = true
+    maxSingleBulk = 5
+    maxSingleBulkWhenClosed = 1
+    material = coarseMesh
+    isListed = (!poolNet.isInInitState)
+    canFitObjThruOpening(obj)
+    {
+        return inherited(obj)
+            && (isOpen || obj.getBulk() <= maxSingleBulkWhenClosed);
+    }
+    checkMoveViaPath(obj, dest, op)
+    {
+        return op is in (PathIn, PathOut) && !isOpen
+            && canFitObjThruOpening(obj)
+            ? checkStatusSuccess
+            : inherited(obj, dest, op);
+    }
+    dobjFor(Take)
+    {
+        verify
+        {
+            if (poolNet.isIn(self))
+                illogicalNow('\^<<poolNet.theName>> <<poolNet.verbToBe>> too
+                    unwieldy. {You/He}&rsquo;ll have to remove
+                    <<poolNet.itObj>> from the cage first. ');
+        }
+    }
+    iobjFor(PutIn)
+    {
+        preCond
+        {
+            local lst = inherited();
+            if (gTentativeDobj.indexWhich({x:
+                    local bulk = x.obj_.getBulk(),
+                    bulk != nil && bulk > maxSingleBulkWhenClosed
+                }) == nil)
+                lst -= objOpen;
+            return lst;
+        }
+        check
+        {
+            if (isHeldBy(gActor) && gDobj == poolNet)
+                failCheck('{The dobj/He} {is} too unwieldy. {You/He}&rsquo;ll
+                    have to put {the iobj/him} down. ');
+            if (isOpen)
+                inherited();
+            else if (isLocked && gDobj != poolNet && knownKeyList.indexWhich(
+                {x: !x.isOrIsIn(gDobj) && gActor.canTouch(x)}) == nil)
+            {
+                gActor.setPronounObj(self);
+                local dobjBulk = gDobj.getBulk();
+                failCheck('{The iobj/He} is locked. <<if dobjBulk <=
+                    maxSingleBulkWhenClosed>>{You/He} could slip {the
+                    dobj/him} through the bars, but {you/he} might not be
+                    able to get {it dobj/him} back out again. ');
+            }
+        }
+        action
+        {
+            /*
+             *   Poᷣ ce que chaſtete laıſſoit
+             *      (MS. Douce 195, fol. 151v)
+             */
+            if (!isOpen || gDobj == poolNet)
+                "{The dobj/He} fit{s} through the bars. ";
+            inherited();
+        }
+    }
+;
+
+/*
  *   Et poꝛte o moy par grāt ꝯfoꝛt.
  *   Eſcharpe ⁊ bourꝺon bon ⁊ foꝛt
  *   Tel qͥl na meſtıer ꝺe ferrer
@@ -923,32 +987,122 @@ altarRoom: Room 'At the Altar'
  *      (MS. Douce 195, fol. 153v)
  */
 
-+ poolNet: Container
+++ poolNet: Container
     '(pool) walking bag/pack/pole/net/rod/sack/satchel/staff/stick/tool*tools'
     'pool net'
     "It is a <<highlight 'long'>> wooden staff with a sack attached to one
     end. This versatile tool can be also used as a walking stick. "
     materialWord = 'wood' 'wooden'
-    initSpecialDesc = "A pool net leans ithyphallically against the wall. "
+    initSpecialDesc = "\^<<aName>> sticks out <<if gActionIs(Examine)>>through
+    the bars<<else>>of <<location.aName>><<end>> and leans ithyphallically
+    against the wall. "
+    isInInitState
+    {
+        if (location != cage || !cage.location.ofKind(Room))
+            return nil;
+        for (local wall = firstObj(DefaultWall);
+            wall != nil;
+            wall = nextObj(wall, DefaultWall))
+        {
+            if (cage.canTouch(wall))
+                return true;
+        }
+        return nil;
+    }
+    useSpecialDescInContents(cont) { return isInInitState && cont == cage; }
     maxSingleBulk = 5
     dobjFor(Examine)
     {
         action
         {
             inherited();
-            local discovered = [];
-            for (local item in contents)
+            if (canBeTouchedBy(gActor))
             {
-                if (item.ofKind(Hidden) && !item.discovered)
+                local discovered = [];
+                for (local item in contents)
                 {
-                    item.discover();
-                    discovered += item;
+                    if (item.ofKind(Hidden) && !item.discovered)
+                    {
+                        item.discover();
+                        discovered += item;
+                    }
+                }
+                if (discovered.length)
+                    "<.p>In the sack, {you/he} find{s}
+                    <<objectLister.showSimpleList(discovered)>>. ";
+            }
+            else
+            {
+                for (local item in contents)
+                {
+                    if (item.ofKind(Hidden) && !item.discovered
+                        && item.bulk >= maxSingleBulk)
+                    {
+                        "There is something bulky in the sack, but {you/he}
+                        {can't} see what it is. ";
+                        break;
+                    }
                 }
             }
-            if (discovered.length)
-                "<.p>In the sack, {you/he} find{s}
-                <<objectLister.showSimpleList(discovered)>>. ";
         }
+    }
+    isHidden(obj) { return obj.ofKind(Hidden) && !obj.discovered; }
+    firstBulkyItem = (contents
+        .sort(SortAsc, {x, y:
+            toInteger(isHidden(x)) - toInteger(isHidden(y))
+        }).valWhich({x: x.bulk >= maxSingleBulk}))
+    dobjFor(Take)
+    {
+        preCond = (inherited() - (isIn(cage) ? touchObj : []))
+        verify
+        {
+            if (!isIn(cage))
+                inherited();
+        }
+        check
+        {
+            if (isIn(cage))
+            {
+                local bulkyItem = firstBulkyItem;
+                if (bulkyItem)
+                {
+                    if (isHidden(bulkyItem) || !cage.isOpen)
+                        failCheck('Something bulky in the sack prevents it. ');
+                    else
+                        failCheck('The bulky <<bulkyItem.name>> in the sack
+                            prevents it. ');
+                }
+            }
+        }
+        action
+        {
+            if (isIn(cage))
+                "{The dobj/He} slip{s} through the bars. ";
+            inherited();
+        }
+    }
+    dobjFor(PutIn)
+    {
+        check
+        {
+            if (gIobj == cage)
+            {
+                local bulkyItem = firstBulkyItem;
+                if (bulkyItem)
+                {
+                    if (isHidden(bulkyItem))
+                        failCheck('Something bulky in the sack prevents putting
+                            it in. ');
+                    else
+                        failCheck('The bulky <<bulkyItem.name>> in the sack
+                            prevents putting it in. ');
+                }
+            }
+        }
+    }
+    dobjFor(LookIn)
+    {
+        preCond = (inherited() + touchObj)
     }
 ;
 
@@ -969,16 +1123,18 @@ class Hammer: Thing
     }
 ;
 
-++ ballPeenHammer: Hammer, Hidden
++++ ballPeenHammer: Hammer, Hidden
     'ball ball-peen ballpeen peen peening hammer/tool*hammers tools'
     'ball-peen hammer'
     "A hammer used for hardening metal. "
     materialWord = 'metal' 'steel'
+    bulk = 5
 ;
 
-++ mallet: Hammer, Hidden 'hammer/mallet/tool*hammers tools' 'mallet'
++++ mallet: Hammer, Hidden 'hammer/mallet/tool*hammers tools' 'mallet'
     "A wooden hammer with a large head, used to strike a chisel. "
     materialWord = 'wood' 'wooden'
+    bulk = 5
 ;
 
 + altar: Bed, Fixture 'crude rough altar/banker/slab' 'altar'
@@ -986,7 +1142,6 @@ class Hammer: Thing
     altar, you neglected the usual surface finish and friezes, but you pray at
     it anyway. You are sure the gods will understand. "
     materialWord = 'marble' 'wood' 'wooden'
-    bulkCapacity = 1
     obviousPostures = []
     dobjFor(Pray) { verify { } }
     dobjFor(PrayTo)
@@ -1006,6 +1161,15 @@ class Hammer: Thing
         verify { }
         action {
             replaceAction(PutOn, gDobj, gIobj);
+        }
+    }
+    iobjFor(PutOn)
+    {
+        verify
+        {
+            if (contents.length)
+                illogicalNow('There is already something on {the iobj/him}. ');
+            inherited();
         }
     }
 ;
@@ -1217,7 +1381,6 @@ export level 'waterLevel';
     dobjFor(Taste) remapTo(Drink, DirectObject)
     iobjFor(CleanWith)
     {
-        preCond = []
         verify {
             if (!sink.overflowing)
             {
@@ -1435,6 +1598,22 @@ mirrorState: ThingState
 nonMirrorState: ThingState
 ;
 
+++ cageKey: Key '(cage) clean grimy key/tool*keys tools' 'iron key'
+    "It is <<aNameFrom('<<unless clean>>grimy <<end>>iron')>> key. "
+    materialWord = 'iron' 'metal'
+    clean = nil
+    getState = (clean ? cleanState : grimyState)
+    allStates = [cleanState, grimyState]
+    dobjFor(CleanWith)
+    {
+        action
+        {
+            clean = true;
+            "{You/He} clean{s} {the dobj/him}. ";
+        }
+    }
+;
+
 /*
  *   Par grāt amoᷣ loꝛs ſentrebꝛacet.
  *   Com.ii.coulōbıaux ſentrebaıſēt.
@@ -1500,27 +1679,61 @@ class WaterContainerDescContentsLister: thingDescContentsLister
         self.container = container;
     }
     hasEnoughWater = (container.level >= 1000 || container.overflowing)
-    showListPrefixWide(itemCount, pov, parent)
+    showListPrefixWide(itemCount, pov, parent) { }
+    showListSuffixWide(itemCount, pov, parent) { }
+    showArrangedList(
+        pov, parent, lst, options, indent, infoTab, itemCount, singles, groups,
+        groupTab, origLst)
     {
-        "<.p>";
-        if (hasEnoughWater)
-            "\^";
+        if (itemCount == 0 || options & ListTall || groups.length)
+            inherited(
+                pov, parent, lst, options, indent, infoTab, itemCount, singles,
+                groups, groupTab, origLst);
         else
-            inherited(itemCount, pov, parent);
-    }
-    showListSuffixWide(itemCount, pov, parent)
-    {
-        if (hasEnoughWater)
-            " <<itemCount == 1 ? tSel('is', 'was') : tSel('are', 'were')>>
-            <<highlight 'float'>>ing on the surface of the water. ";
-        else
-            inherited(itemCount, pov, parent);
+        {
+            groups = new Vector();
+            groupTab = new LookupTable();
+            local floaters = new Vector();
+            local sinkers = new Vector();
+            local hasEnoughWater = self.hasEnoughWater;
+            for (local item in lst)
+                (container.floatingObjects.indexOf(item) != nil
+                    && hasEnoughWater ? floaters : sinkers).append(item);
+            "<.p>";
+            for (local subLstWithDesc in [
+                [floaters,
+                '<<highlight 'float'>>ing on the surface of the water'],
+                [sinkers, 'lodged in the drain']
+            ])
+            {
+                local subLst = subLstWithDesc[1];
+                local desc = subLstWithDesc[2];
+                if (subLst.length != 0)
+                {
+                    if (hasEnoughWater)
+                        "\^";
+                    else
+                        thingDescContentsLister.showListPrefixWide(
+                            subLst.length, pov, parent);
+                    inherited(
+                        pov, parent, subLst, options, indent, infoTab,
+                        subLst.length, subLst, groups, groupTab, origLst);
+                    if (hasEnoughWater)
+                        " <<if subLst.length == 1>>is<<else>>are<<end>>
+                        <<desc>>. ";
+                    else
+                        thingDescContentsLister.showListSuffixWide(
+                            subLst.length, pov, parent);
+                }
+            }
+        }
     }
 ;
 
 class WaterContainer: RestrictedContainer
-    grimyObjects = [key]
-    validContents = (grimyObjects + [idol, needle])
+    grimyObjects = [key, cageKey]
+    floatingObjects = [idol, needle]
+    validContents = (grimyObjects + floatingObjects)
     contentsListedSeparately = true
     descContentsLister = new WaterContainerDescContentsLister(self)
     iobjFor(PutIn) {
@@ -1545,6 +1758,8 @@ class WaterContainer: RestrictedContainer
             {
                 local tab = gActor.visibleInfoTable();
                 sink.current.setContentsSeenBy(tab, gActor);
+                for (local grimyObject in grimyObjects)
+                    tab.removeElement(grimyObject);
                 local lst = sink.current.getContentsForExamine(
                     washedAwayContentsLister, tab);
                 washedAwayContentsLister.showList(
@@ -1552,7 +1767,8 @@ class WaterContainer: RestrictedContainer
                     gActor.visibleInfoTable(), nil, examinee: sink.current);
             }
             for (local item in sink.current.contents)
-                item.moveInto(sink.current.location);
+                if (!item.ofKind(Fixture) && grimyObjects.indexOf(item) == nil)
+                    item.moveInto(sink.current.location);
         }
     }
     washedAwayContentsLister: thingDescContentsLister
@@ -1601,7 +1817,6 @@ class Water:PresentLater,Fixture'(floor) (ground) water puddle water''water'
     dobjFor(Taste) remapTo(Drink, DirectObject)
     iobjFor(CleanWith)
     {
-        preCond = [touchObj]
         verify { illogical('The water on the ground is too dirty. '); }
     }
 ;
@@ -2261,10 +2476,35 @@ modify Thing
     {
         verify
         {
-            illogical('{The dobj/He} {does} not need cleaning. ');
+            if (getState() == cleanState)
+                illogicalAlready('{The dobj/He} {is} already clean. ');
+            else if (getState() == grimyState)
+                logical;
+            else
+            {
+                local msg = '{The dobj/He} {does} not need cleaning. ';
+                if (allStates.indexOf(grimyState) != nil)
+                    illogicalNow(msg);
+                else
+                    illogical(msg);
+            }
+        }
+        action {
+            if (sinkWater.canBeTouchedBy(gActor))
+                tryImplicitActionMsg(
+                    &silentImplicitAction, CleanWith, self, sinkWater);
+            else
+                askForIobj(CleanWith);
         }
     }
-    dobjFor(CleanWith) asDobjFor(Clean)
+    dobjFor(CleanWith)
+    {
+        verify { return inherited Thing.verifyDobjClean(); }
+    }
+    iobjFor(CleanWith)
+    {
+        preCond = [touchObj]
+    }
 ;
 
 /* Prayer */
