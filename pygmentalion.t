@@ -3118,6 +3118,7 @@ greekWordGenerator: PreinitObject
         word = rexReplace(R'(?<!(^|[ptk]))h', word, '');
         word = rexReplace(R'^h(?![aeioy])', word, '');
         word = rexReplace(R'h(?=.*h)', word, '');
+        word = rexReplace(R'^phn', word, 'pn');
         word = rexReplace(R'(?<=^|r)r', word, 'rh');
         word = rexReplace(R'([iy]+)[iu]', word, '%1');
         word = rexReplace(R'nl', word, 'll');
