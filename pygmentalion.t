@@ -1165,12 +1165,7 @@ class Hammer: Thing
     }
     iobjFor(PutOn)
     {
-        verify
-        {
-            if (contents.length)
-                illogicalNow('There is already something on {the iobj/him}. ');
-            inherited();
-        }
+        preCond = inherited() + objEmpty
     }
 ;
 
