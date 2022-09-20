@@ -3106,7 +3106,8 @@ greekWordGenerator: PreinitObject
     randomProtoWord = (getWord(randListItem, randListItem))
     mutate(word)
     {
-        word = rexReplace(R'^[pk](?![tnlrhaeioy]|[tnlr]h?[^aeioy])', word, '');
+        word =
+            rexReplace(R'^[pk](?![tsnlrhaeioy]|[tsnlr]h?[^aeioy])', word, '');
         word = rexReplace(R'^b(?![dlrhaeioy]|[dlr]h?[^aeioy])', word, '');
         word = rexReplace(R'^g(?![nlrhaeioy]|[nlr]h?[^aeioy])', word, '');
         word = rexReplace(R'^t(?![mrhaeioy]|[mlr]h?[^aeioy])', word, '');
@@ -3149,7 +3150,7 @@ greekWordGenerator: PreinitObject
     {
         return word.length < 4 || !rexSearch(
             new RexPattern(
-                '^(eu|hy|[pgm]n|bd|tm|rh)|(.h.|pp|kc|rr)h|ch([^aeioy])|'
+                '^(eu|hy|[pgm]n|ps|x|bd|tm|rh)|(.h.|pp|kc|rr)h|ch([^aeioy])|'
                 + '([^aeiouy])y([^aeioy])$|(ps|x|o[ius])$'),
             word);
     }
