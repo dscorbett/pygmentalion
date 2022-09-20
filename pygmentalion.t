@@ -1138,10 +1138,10 @@ class Hammer: Thing
 ;
 
 + altar: Bed, Fixture 'crude rough altar/banker/slab' 'altar'
-    "A rough marble slab lies on a wooden banker. In your rush to construct an
+    "A rough marble slab lies on a granite banker. In your rush to construct an
     altar, you neglected the usual surface finish and friezes, but you pray at
     it anyway. You are sure the gods will understand. "
-    materialWord = 'marble' 'wood' 'wooden'
+    materialWord = 'granite' 'marble' 'stone'
     obviousPostures = []
     dobjFor(Pray) { verify { } }
     dobjFor(PrayTo)
