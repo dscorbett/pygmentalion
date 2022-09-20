@@ -903,9 +903,9 @@ altarRoom: Room 'At the Altar'
  *      (MS. Douce 195, fol. 151r)
  */
 
-+ cage: KeyedContainer 'cage/padlock/lock' 'wicker cage'
++ cage: KeyedContainer 'cage' 'wicker cage'
     "A knee-high wicker cage with an iron padlock. "
-    materialWord = 'iron' 'wicker'
+    materialWord = 'wicker'
     keyList = [cageKey]
     lockStatusObvious = true
     maxSingleBulk = 5
@@ -975,6 +975,18 @@ altarRoom: Room 'At the Altar'
             inherited();
         }
     }
+;
+
+++ padlock: LockableWithKey, Component 'lock/padlock' 'padlock'
+    "An unbreakable iron padlock. "
+    materialWord = 'iron' 'metal'
+    lockStatusObvious = true
+    examineStatus { return delegated Lockable; }
+    keyList = (location.keyList)
+    knownKeyList = (location.knownKeyList)
+    isLocked = (location.isLocked)
+    dobjFor(Lock) remapTo(Lock, location)
+    dobjFor(LockWith) remapTo(LockWith, location, IndirectObject)
 ;
 
 /*
