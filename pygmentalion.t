@@ -359,7 +359,7 @@ Token template inherited 'before_' 'after_' 'desc_';
     DoToken(builtin, '<font color=g&#x72;een>', '</font>') \
     DoToken(comment, '<i><font color=#408080>', '</font></i>') \
     DoToken(decorator, '<font color=#aa22ff>', '</font>') \
-    DoToken(error, '<U><FONT COLOR=RED>', '</FONT></U>') \
+    DoToken(error, '<FONT COLOR=RED><U>', '</U></FONT>') \
     DoToken(escape, '<b><font color=#bb6622>', '</font></b>') \
     DoToken(exception, '<b><font color=#D2413A>', '</font></b>') \
     DoToken(float, '<u><font color=gray>', '</font></u>') \
