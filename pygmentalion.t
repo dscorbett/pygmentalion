@@ -302,6 +302,38 @@ modify cmdTokenizer
     }
 ;
 
+ul(plain, [items])
+{
+    local s = new StringBuffer;
+    if (!outputManager.htmlMode)
+        s.append('\b');
+    s.append('<ul');
+    if (plain)
+        s.append(outputManager.htmlMode
+            ? ' style="list-style-type: none"'
+            : ' plain');
+    s.append('>');
+    for (local item in items)
+    {
+        if (!outputManager.htmlMode)
+            s.append('\t');
+        s.append('<li>');
+        if (outputManager.htmlMode)
+            s.append(item);
+        else
+        {
+            s.append(
+                rexReplace(['<li>', R'\b(?=<ul%b)', R'(?<=</ul>)\b'],
+                item, ['\t%*', '\n']));
+            s.append('\n');
+        }
+    }
+    s.append('</ul>');
+    if (!outputManager.htmlMode)
+        s.append('\b');
+    return toString(s);
+}
+
 /* Tokens */
 
 /*
@@ -1440,22 +1472,21 @@ export level 'waterLevel';
     "<center ><<highlight 'Operator'>>&rsquo;s Manual</center>\b
     <bq>To control the auto-sink, use the calculator add-on to enter the
     desired volume of water. It supports the standard Thalassa++ unary and
-    binary operations:\b
-    <ul plain>
-        <li><kbd>+</kbd> -- addition\n
-        <li><kbd>-</kbd> -- subtraction\n
-        <li><kbd>*</kbd> -- multiplication\n
-        <li><kbd>/</kbd> -- division\n
-        <li><kbd>%</kbd> -- modulo\n
-        <li><kbd>~</kbd> -- bitwise NOT\n
-        <li><kbd>!</kbd>\u200B -- logical NOT\n
-        <li><kbd>&amp</kbd> -- bitwise AND\n
-        <li><kbd>|</kbd> -- bitwise OR\n
-        <li><kbd>^</kbd> -- bitwise XOR\n
-        <li><kbd>&lt&lt;</kbd> -- shift left\n
-        <li><kbd>&gt;&gt;</kbd> -- arithmetic shift right\n
-        <li><kbd>&gt;&gt;&gt;</kbd> -- logical shift right\n
-    </ul>\b
+    binary operations:<<ul(true,
+        '<kbd>+</kbd> -- addition',
+        '<kbd>-</kbd> -- subtraction',
+        '<kbd>*</kbd> -- multiplication',
+        '<kbd>/</kbd> -- division',
+        '<kbd>%</kbd> -- modulo',
+        '<kbd>~</kbd> -- bitwise NOT',
+        '<kbd>!</kbd>\u200B -- logical NOT',
+        '<kbd>&amp</kbd> -- bitwise AND',
+        '<kbd>|</kbd> -- bitwise OR',
+        '<kbd>^</kbd> -- bitwise XOR',
+        '<kbd>&lt&lt;</kbd> -- shift left',
+        '<kbd>&gt;&gt;</kbd> -- arithmetic shift right',
+        '<kbd>&gt;&gt;&gt;</kbd> -- logical shift right'
+    )>>
     For example,\n
     \t\t<<aHref('calculate 69 * 105', 'CALCULATE 69 TIMES 105')>>\n
     to fill the basin with <<% ,d 0x69 * 0105>> kochliaria<!-- an ancient Greek
