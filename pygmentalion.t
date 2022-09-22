@@ -363,7 +363,8 @@ Token template inherited 'before_' 'after_' 'desc_';
     DoToken(escape, '<b><font color=#bb6622>', '</font></b>') \
     DoToken(exception, '<b><font color=#D2413A>', '</font></b>') \
     DoToken(float, '<u><font color=gray>', '</font></u>') \
-    DoToken(keyword, '<b><font face=TADS-Sans color=green>', '</font></b>') \
+    DoToken(keyword, \
+        '<b><font face=TADS-Sans,sans-serif color=green>', '</font></b>') \
     DoToken(label, '<font color=#A0A000>', '</font>') \
     DoToken(long, '<i><font color=gray>', '</font></i>') \
     DoToken(name, '<u>', '</u>') \
@@ -1441,21 +1442,19 @@ export level 'waterLevel';
     desired volume of water. It supports the standard Thalassa++ unary and
     binary operations:\b
     <ul plain>
-        <li><font face='TADS-Typewriter'>+</font> -- addition\n
-        <li><font face='TADS-Typewriter'>-</font> -- subtraction\n
-        <li><font face='TADS-Typewriter'>*</font> -- multiplication\n
-        <li><font face='TADS-Typewriter'>/</font> -- division\n
-        <li><font face='TADS-Typewriter'>%</font> -- modulo\n
-        <li><font face='TADS-Typewriter'>~</font> -- bitwise NOT\n
-        <li><font face='TADS-Typewriter'>!</font>\u200B -- logical NOT\n
-        <li><font face='TADS-Typewriter'>&amp</font> -- bitwise AND\n
-        <li><font face='TADS-Typewriter'>|</font> -- bitwise OR\n
-        <li><font face='TADS-Typewriter'>^</font> -- bitwise XOR\n
-        <li><font face='TADS-Typewriter'>&lt&lt;</font> -- shift left\n
-        <li><font face='TADS-Typewriter'>&gt;&gt;</font> -- arithmetic shift
-        right\n
-        <li><font face='TADS-Typewriter'>&gt;&gt;&gt;</font> -- logical shift
-        right\n
+        <li><kbd>+</kbd> -- addition\n
+        <li><kbd>-</kbd> -- subtraction\n
+        <li><kbd>*</kbd> -- multiplication\n
+        <li><kbd>/</kbd> -- division\n
+        <li><kbd>%</kbd> -- modulo\n
+        <li><kbd>~</kbd> -- bitwise NOT\n
+        <li><kbd>!</kbd>\u200B -- logical NOT\n
+        <li><kbd>&amp</kbd> -- bitwise AND\n
+        <li><kbd>|</kbd> -- bitwise OR\n
+        <li><kbd>^</kbd> -- bitwise XOR\n
+        <li><kbd>&lt&lt;</kbd> -- shift left\n
+        <li><kbd>&gt;&gt;</kbd> -- arithmetic shift right\n
+        <li><kbd>&gt;&gt;&gt;</kbd> -- logical shift right\n
     </ul>\b
     For example,\n
     \t\t<<aHref('calculate 69 * 105', 'CALCULATE 69 TIMES 105')>>\n
@@ -1475,8 +1474,8 @@ export level 'waterLevel';
 
 method wrongContextMsg()
 {
-    return '<font face="TADS-Typewriter"><<highlight '<<'ERROR'>>'>> {{can\'t
-        use\ \"<<literalMatch.htmlify>>\" in that context}}</font>. ';
+    return '<samp><<highlight '<<'ERROR'>>'>> {{can\'t use
+        \"<<literalMatch.htmlify>>\" in that context}}</samp>. ';
 }
 
 portico: OutdoorRoom 'Portico'
@@ -2312,8 +2311,7 @@ DefineLiteralAction(Calculate)
             local result = toInteger(numMatch ? op(a, b) : op(b));
             calculator.setMethod(&screen, method()
             {
-                return '<font face="TADS-Typewriter"><<a>><<opString>><<b>> =
-                    <<%d result>></font>. ';
+                return '<samp><<a>><<opString>><<b>> = <<%d result>></samp>. ';
             });
             local oldLevel = sink.current.level;
             local oldOverflowing = sink.current.overflowing;
@@ -2383,8 +2381,8 @@ DefineLiteralAction(Calculate)
         {
             calculator.setMethod(&screen, new method
             {
-                return '<font face=\"TADS-Typewriter\"><<highlight 'ERROR'>>
-                    {{<<e.exceptionMessage>>}}</font>. ';
+                return '<samp><<highlight 'ERROR'>>
+                    {{<<e.exceptionMessage>>}}</samp>. ';
             });
             "<<calculator.screen()>>";
             switch (e.errno_)
