@@ -110,7 +110,8 @@ versionInfo: GameID
         necessary to beat the game. Some are easy to find, but these are the
         <<highlightToken('exception')>> rather than the rule. Many are hidden
         and some may become unavailable as the story progresses.\b
-        The command CALCULATE may be abbreviated as C.\b
+        The command CALCULATE may be abbreviated as C. For more commands, type
+        <<aHref('help', 'HELP')>>.\b
         For hints, <<aHref('pray to Iris', 'PRAY TO IRIS')>>.
         <!-- For clues, ask Ariadne. -->";
     }
@@ -245,7 +246,8 @@ gameMain: GameMainDef
         Copyright 2014, 2022 <<versionInfo.byline>>\n
         Version <<versionInfo.version>>\b
         <.notification>First-time players should type <<aHref('about',
-        'ABOUT')>>. See also <<aHref('credits',
+        'ABOUT')>>. Those unfamiliar with interactive fiction in general should
+        type <<aHref('help', 'HELP')>>. See also <<aHref('credits',
         'CREDITS')>>.<./notification>\b";
     }
     setAboutBox
@@ -2569,8 +2571,6 @@ modify Thing
 
 /* Prayer */
 
-modify VerbRule(About) 'about' | 'help' :;
-
 VerbRule(Pray)
     ('pray' | 'laud' | 'petition' | 'worship') singleDobj
     : PrayAction
@@ -2697,6 +2697,65 @@ modify VerbRule(GiveTo)
     ('give' | 'offer') dobjList 'to' singleIobj
     | 'offer' dobjList 'at' singleIobj
     :
+;
+
+VerbRule(Help)
+    'help'
+    : HelpAction
+    verbPhrase = 'show/showing help'
+;
+
+DefineSystemAction(Help)
+    objectPlaceholder
+    {
+        return objectPlaceholder = outputManager.htmlMode
+            ? '<var>object</var>'
+            : '[object]';
+    }
+    execSystemAction
+    {
+        "<.parser>This is a work of interactive fiction. Type commands at the
+        prompt to interact with the fiction. Basic commands (some of which
+        have abbreviations) include:<<ul(nil,
+            'Looking around:' + ul(nil,
+                'LOOK (L)',
+                'EXAMINE (X) <<objectPlaceholder>>',
+                'READ <<objectPlaceholder>>',
+                'SEARCH <<objectPlaceholder>>'
+            ),
+            'Moving around:' + ul(nil,
+                'NORTH (N)',
+                'SOUTH (S)',
+                'EAST (E)',
+                'WEST (W)',
+                'UP (U)',
+                'DOWN (D)'
+            ),
+            'Inventory management:' + ul(nil,
+                'INVENTORY (I)',
+                'GET <<objectPlaceholder>>',
+                'DROP <<objectPlaceholder>>',
+                'PUT <<objectPlaceholder>> IN/ON <<objectPlaceholder>>',
+                'WEAR <<objectPlaceholder>>'
+            ),
+            'Meta commands:' + ul(nil,
+                'UNDO',
+                'SAVE',
+                'RESTORE',
+                'QUIT'
+            )
+        )>>Other useful verbs should become obvious when necessary.
+        <.p>This particular interactive fiction is an allegorical romance, also
+        known as a puzzle-based adventure game. Each word appearing in the
+        story is an allegory. For example, the word <q>help</q> is an allegory
+        for the concept of help. The story assumes a basic familiarity with
+        written language so this lesson in semiotics need not be belabored.
+        <.p>If you are not familiar with written language, then learning to
+        read is your first puzzle. Congratulations on making it this far!
+        Otherwise, most puzzles involve going to various locations and using
+        various objects. Some objects have side effects &ndash; for example,
+        the rod scares the bird.<./parser>";
+    }
 ;
 
 VerbRule(Hug)
