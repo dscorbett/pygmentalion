@@ -911,7 +911,7 @@ altarRoom: Room 'At the Altar'
     maxSingleBulk = 5
     maxSingleBulkWhenClosed = 1
     material = coarseMesh
-    isListed = (!poolNet.isInInitState)
+    isListed = (!net.isInInitState)
     canFitObjThruOpening(obj)
     {
         return inherited(obj)
@@ -928,10 +928,9 @@ altarRoom: Room 'At the Altar'
     {
         verify
         {
-            if (poolNet.isIn(self))
-                illogicalNow('\^<<poolNet.theName>> <<poolNet.verbToBe>> too
-                    unwieldy. {You/He}&rsquo;ll have to remove
-                    <<poolNet.itObj>> from the cage first. ');
+            if (net.isIn(self))
+                illogicalNow('\^<<net.nameIs>> too unwieldy. {You/He}&rsquo;ll
+                    have to remove <<net.itObj>> from the cage first. ');
         }
     }
     iobjFor(PutIn)
@@ -948,12 +947,12 @@ altarRoom: Room 'At the Altar'
         }
         check
         {
-            if (isHeldBy(gActor) && gDobj == poolNet)
+            if (isHeldBy(gActor) && gDobj == net)
                 failCheck('{The dobj/He} {is} too unwieldy. {You/He}&rsquo;ll
                     have to put {the iobj/him} down. ');
             if (isOpen)
                 inherited();
-            else if (isLocked && gDobj != poolNet && knownKeyList.indexWhich(
+            else if (isLocked && gDobj != net && knownKeyList.indexWhich(
                 {x: !x.isOrIsIn(gDobj) && gActor.canTouch(x)}) == nil)
             {
                 gActor.setPronounObj(self);
@@ -970,7 +969,7 @@ altarRoom: Room 'At the Altar'
              *   Poᷣ ce que chaſtete laıſſoit
              *      (MS. Douce 195, fol. 151v)
              */
-            if (!isOpen || gDobj == poolNet)
+            if (!isOpen || gDobj == net)
                 "{The dobj/He} fit{s} through the bars. ";
             inherited();
         }
@@ -999,15 +998,18 @@ altarRoom: Room 'At the Altar'
  *      (MS. Douce 195, fol. 153v)
  */
 
-++ poolNet: Container
-    '(pool) walking bag/pack/pole/net/rod/sack/satchel/staff/stick/tool*tools'
-    'pool net'
-    "It is a <<highlight 'long'>> wooden staff with a sack attached to one
-    end. This versatile tool can be also used as a walking stick. "
+++ net: Container
+    '(butterfly) (pool) walking
+    bag/pack/pole/net/quarterstaff/rod/sack/satchel/staff/stick/tool*tools'
+    desc = "It is a <<highlight 'long'>> wooden pole with
+    <<aNameFrom(bagName)>> attached to <<if location == cage>>the end inside
+    <<location.theName>><<else>>one end<<end>>. This versatile tool be used as
+    a quarterstaff, butterfly net, pool net, or walking stick. "
     materialWord = 'wood' 'wooden'
-    initSpecialDesc = "\^<<aName>> sticks out <<if gActionIs(Examine)>>through
-    the bars<<else>>of <<location.aName>><<end>> and leans ithyphallically
-    against the wall. "
+    initSpecialDesc = "\^<<if bagMentioned>><<theNameFrom(poleName)>> of
+    <<end>><<aName>> sticks out <<if gActionIs(Examine)>>through the
+    bars<<else>>of <<location.aName>><<end>> and leans ithyphallically against
+    the wall. "
     isInInitState
     {
         if (location != cage || !cage.location.ofKind(Room))
@@ -1022,6 +1024,14 @@ altarRoom: Room 'At the Altar'
         return nil;
     }
     useSpecialDescInContents(cont) { return isInInitState && cont == cage; }
+    bagMentioned = nil
+    poleName = 'pole'
+    bagName = (bagMentioned = true, bagName = 'bag')
+    name = (gActionIn(LookIn, Search) && gDobj == self
+        ? bagName
+        : bagMentioned
+        ? 'net'
+        : poleName)
     maxSingleBulk = 5
     dobjFor(Examine)
     {
@@ -1040,7 +1050,7 @@ altarRoom: Room 'At the Altar'
                     }
                 }
                 if (discovered.length)
-                    "<.p>In the sack, {you/he} find{s}
+                    "<.p>In <<theNameFrom(bagName)>>, {you/he} find{s}
                     <<objectLister.showSimpleList(discovered)>>. ";
             }
             else
@@ -1050,8 +1060,8 @@ altarRoom: Room 'At the Altar'
                     if (item.ofKind(Hidden) && !item.discovered
                         && item.bulk >= maxSingleBulk)
                     {
-                        "There is something bulky in the sack, but {you/he}
-                        {can't} see what it is. ";
+                        "There is something bulky in <<theNameFrom(bagName)>>,
+                        but {you/he} {can't} see what it is. ";
                         break;
                     }
                 }
@@ -1078,11 +1088,18 @@ altarRoom: Room 'At the Altar'
                 local bulkyItem = firstBulkyItem;
                 if (bulkyItem)
                 {
+                    local preamble = bagMentioned ? ''
+                        : '{You/He} tr{ies} to remove <<theName>> from
+                        <<cage.theName>>, but there is <<aNameFrom(bagName)>>
+                        attached to the end inside, and \v';
                     if (isHidden(bulkyItem) || !cage.isOpen)
-                        failCheck('Something bulky in the sack prevents it. ');
+                        failCheck('<<preamble>>Something in
+                            <<theNameFrom(bagName)>> is too big to fit through
+                            the bars. ');
                     else
-                        failCheck('The bulky <<bulkyItem.name>> in the sack
-                            prevents it. ');
+                        failCheck('<<preamble>>The <<bulkyItem.name>> is too
+                            big for <<theNameFrom(bagName)>> to fit through the
+                            bars. ');
                 }
             }
         }
@@ -1103,14 +1120,21 @@ altarRoom: Room 'At the Altar'
                 if (bulkyItem)
                 {
                     if (isHidden(bulkyItem))
-                        failCheck('Something bulky in the sack prevents putting
-                            it in. ');
-                    else
-                        failCheck('The bulky <<bulkyItem.name>> in the sack
+                        failCheck('Something bulky in <<theNameFrom(bagName)>>
                             prevents putting it in. ');
+                    else
+                        failCheck('The bulky <<bulkyItem.name>> in
+                            <<theNameFrom(bagName)>> prevents putting it in.
+                            ');
                 }
             }
         }
+    }
+    lookInDesc
+    {
+        if (!bagMentioned)
+            mainReport('At one end of <<theNameFrom(poleName)>> is
+                <<aNameFrom(bagName)>>. ');
     }
     dobjFor(LookIn)
     {
@@ -1475,9 +1499,9 @@ portico: OutdoorRoom 'Portico'
     {
         if (traveler == gActor && !bird.seen && basin.isMirror)
         {
-            if (canSee(poolNet))
+            if (canSee(net))
             {
-                "<.p>\^<<bird.aName>> appears, notices <<poolNet.theName>>, and
+                "<.p>\^<<bird.aName>> appears, notices <<net.theName>>, and
                 flies away! ";
                 bird.seen = true;
                 bird.eventualLocation = nil;
@@ -1635,9 +1659,9 @@ nonMirrorState: ThingState
     {
         if (traveler == gActor && canBeSeenBy(gActor))
         {
-            if (canSee(poolNet))
+            if (canSee(net))
             {
-                "<.p>\^<<theName>> sees you, looks at <<poolNet.theName>>, and
+                "<.p>\^<<theName>> sees you, looks at <<net.theName>>, and
                 flies away! ";
                 moveInto(nil);
                 eventualLocation = nil;
@@ -1647,7 +1671,7 @@ nonMirrorState: ThingState
         }
         inherited(traveler, connector);
     }
-    specialDesc = "<<if rand(2) == 0 && !canSee(poolNet)>>\^<<theName>> <<one
+    specialDesc = "<<if rand(2) == 0 && !canSee(net)>>\^<<theName>> <<one
         of>>flutters around <<basin.theName>><<or>>drinks from
         <<basin.theName>><<or>>preens itself<<or>>coos<<at random>>. "
     specialDescBeforeContents = true
