@@ -993,9 +993,9 @@ altarRoom: Room 'At the Altar'
                 gActor.setPronounObj(self);
                 local dobjBulk = gDobj.getBulk();
                 failCheck('{The iobj/He} is locked. <<if dobjBulk <=
-                    maxSingleBulkWhenClosed>>{You/He} could slip {the
-                    dobj/him} through the bars, but {you/he} might not be
-                    able to get {it dobj/him} back out again. ');
+                    maxSingleBulkWhenClosed && gDobj.isIn(gActor)>>{You/He}
+                    could slip {the dobj/him} through the bars, but {you/he}
+                    might not be able to get {it dobj/him} back out again. ');
             }
         }
         action
@@ -1529,20 +1529,15 @@ portico: OutdoorRoom 'Portico'
     roomParts = (roomParts = inherited() + [defaultNorthWall])
     afterTravel(traveler, connector)
     {
-        if (traveler == gActor && !bird.seen && basin.isMirror)
+        if (!bird.seen && basin.isMirror)
         {
-            if (canSee(net))
-            {
-                "<.p>\^<<bird.aName>> appears, notices <<net.theName>>, and
-                flies away! ";
-                bird.seen = true;
-                bird.eventualLocation = nil;
-            }
-            else
-            {
-                "<.p>\^<<bird.aName>> appears. ";
-                bird.makePresent();
-            }
+            bird.makePresent();
+            "<.p>\^<<bird.aName>> fl<<bird.verbEndingIes>> in through the
+            columns<<if bird.canSee(net) && net.isIn(traveler)>>.
+            \^<<bird.itNom>> circle<<bird.verbEndingS>> above <<basin.theName>>
+            before alighting on the side of it opposite
+            <<traveler.theNameObj>><<else>> and alight<<bird.verbEndingS>> in
+            <<basin.theName>><<end>>. ";
         }
         inherited(traveler, connector);
     }
@@ -1600,13 +1595,16 @@ portico: OutdoorRoom 'Portico'
     with water pressure, no doubt. Now you just use it as a birdbath.
     <.p><<if overflowing>>Water is spilling over the sides in a turbulent flow.
     <<else if level >= 19500>>It is full to the brim with water. You can see
-    your reflection<<if obscuringItem>>, though it is partly obscured by
-    <<obscuringItem.theName>><<else>> as clearly as Narcissus saw his. At least
-    you are not as foolish as he was: you can physically touch the object of
-    your affections, which is some consolation<<end>>.
+    your reflection<<if obscuringItem == bird>>, though it is distorted by the
+    ripples issuing from <<obscuringItem.theName>><<else if obscuringItem>>,
+    though it is partly obscured by <<obscuringItem.theName>><<else>> as
+    clearly as Narcissus saw his. At least you are not as foolish as he was:
+    you can physically touch the object of your affections, which is some
+    consolation<<end>>.
     <<else if level >= 15000>>It is full of water. You can see your
-    reflection<<if obscuringItem>>, though it is partly obscured by
-    <<obscuringItem.theName>><<end>>.
+    reflection<<if obscuringItem == bird>>, though it is distorted by the
+    ripples issuing from <<obscuringItem.theName>><<else if obscuringItem>>,
+    though it is partly obscured by <<obscuringItem.theName>><<end>>.
     <<else if level >= 10000>>It is half full. From the right angle, you can
     make out a shadowy reflection of the columns, but nothing more.
     <<else if level >= 1000>>There is some water in it, but you can still make
@@ -1687,48 +1685,65 @@ nonMirrorState: ThingState
 ++ bird: PresentLater, Thing
     'bird/dove/pigeon/turtle/turtle-dove/turtledove' 'bird'
     "It&rsquo;s a turtle-dove: an auspicious omen! "
+    showAfterTravelMessage(traveler)
+    {
+        return canBeSeenBy(gPlayerChar) && canSee(net) && net.isIn(traveler);
+    }
     afterTravel(traveler, connector)
     {
-        if (traveler == gActor && canBeSeenBy(gActor))
-        {
-            if (canSee(net))
-            {
-                "<.p>\^<<theName>> sees you, looks at <<net.theName>>, and
-                flies away! ";
-                moveInto(nil);
-                eventualLocation = nil;
-            }
-            else
-                "<.p>\^<<theName>> notices you. ";
-        }
+        if (showAfterTravelMessage(traveler))
+            "<.p>\^<<nameIs>> startled and hops to the far side of
+            <<location.theName>>. ";
         inherited(traveler, connector);
     }
-    specialDesc = "<<if rand(2) == 0 && !canSee(net)>>\^<<theName>> <<one
-        of>>flutters around <<basin.theName>><<or>>drinks from
-        <<basin.theName>><<or>>preens itself<<or>>coos<<at random>>. "
+    specialDesc = "<<if gActionIn(Travel, TravelVia) ?
+        !showAfterTravelMessage(gActor) : rand(2) == 0>>\^<<theName>> <<one
+        of>>preens itself<<or>>flutters around <<location.theName>><<or>>drinks
+        from <<location.theName>><<or>>ruffles its feathers in
+        <<location.theName>><<or>>coos<<at random>>. "
     specialDescBeforeContents = true
+    bulk = 5
     dobjFor(Attack)
     {
-        check
+        action
         {
-            failCheck('\^{The dobj/He} elude{s} {your/his} attack. ');
+            reportFailure('{The dobj/He} effortlessly dodge{s} {your/his}
+                attack. ');
         }
     }
-    dobjFor(AttackWith) remapTo(Attack, DirectObject)
+    dobjFor(AttackWith)
+    {
+        remap = (gIobj == net
+            ? [PutInAction, DirectObject, IndirectObject]
+            : [AttackAction, DirectObject])
+    }
     iobjFor(ThrowAt)
     {
         action
         {
-            "\^{The iobj/He} dart{s} out of the way. ";
+            reportFailure('{The iobj/He} dart{s} out of the way. ');
             if (location && !location.ofKind(BasicLocation))
                 replaceAction(ThrowAt, gDobj, location);
         }
     }
     dobjFor(Take)
     {
-        check
+        action
         {
-            failCheck('\^{The dobj/He} elude{s} {your/his} grasp. ');
+            reportFailure('{The dobj/He} hop{s} out of arm&rsquo;s reach. ');
+        }
+    }
+    dobjFor(PutIn)
+    {
+        preCond = inherited() - (gIobj == net ? objHeld : [])
+        action
+        {
+            reportFailure('{You/He} swipe{s} at {the dobj/him} with {the
+                iobj/him} but {it dobj/he} dart{s} out of the way. {It dobj/He}
+                flap{s} noisily out of the portico, through the columns and
+                away towards the west. ');
+            moveInto(nil);
+            eventualLocation = nil;
         }
     }
 ;
@@ -2766,6 +2781,22 @@ VerbRule(Hug)
 
 DefineTAction(Hug);
 
+modify VerbRule(PutIn)
+    ('place' | 'put' | 'set') dobjList
+    ('in' | 'in' 'to' | 'inside' | 'inside' 'of' | 'into') singleIobj
+    | ('capture' | 'catch') dobjList 'in' singleIobj
+    | ('capture' | 'catch' | 'get' | 'pick' 'up' | 'take') dobjList
+    'with' singleIobj
+    | 'pick' dobjList 'up' 'with' singleIobj
+    :
+;
+
+modify VerbRule(Take)
+    ('capture' | 'catch' | 'get' | 'pick' 'up' | 'take') dobjList
+    | 'pick' dobjList 'up'
+    :
+;
+
 modify Thing
     aNameObjShort = (aNameObj)
     dobjFor(GiveTo)
@@ -2824,8 +2855,8 @@ DefineLiteralAction(Say)
                 if (obscuringItem)
                     "The air above the basin shimmers, and
                     <<obscuringItem.theName>> <<obscuringItem == bird ?
-                    'flutters above' : 'bobs on'>> the rippling water. After a
-                    moment, the shimmering disappears. ";
+                    'ruffles its feathers in' : 'bobs on'>> the rippling water.
+                    After a moment, the shimmering disappears. ";
                 else
                 {
                     /*
