@@ -2855,6 +2855,8 @@ modify playerActionMessages {
 
 /* Help */
 
+modify VerbRule(About) 'about' | 'info' :;
+
 VerbRule(Help)
     'help'
     : HelpAction
