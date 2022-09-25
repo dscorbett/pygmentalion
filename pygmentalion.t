@@ -653,7 +653,6 @@ key: PresentLater, Key '(door) clean grimy key/tool*keys tools' 'bronze key'
             "{You/He} clean{s} {the dobj/him}, revealing an inscription. ";
         }
     }
-    dobjFor(Read) { verify { nonObvious; } }
 ;
 
 grimyState: ThingState
@@ -1603,7 +1602,6 @@ portico: OutdoorRoom 'Portico'
 + Fixture, Readable 'label/doorpost' '<<highlight 'label'>>'
     "The <<highlight 'label'>> says <q>Pygmentalion</q><<first time>> (which is
     your <<highlight 'name'>>)<<only>>. "
-    dobjFor(Read) asDobjFor(Examine)
 ;
 
 /*
@@ -2877,6 +2875,7 @@ modify Thing
             "{subj actor}Hugging {the dobj/him} has no obvious effect. ";
         }
     }
+    dobjFor(Read) { verify { nonObvious; } }
 ;
 
 modify libMessages
