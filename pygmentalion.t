@@ -1437,9 +1437,6 @@ export level 'waterLevel';
 ++ sinkWater: Fixture
     '(sink) water sink puddle/water' 'water' "<<sink.desc>>"
     disambigName = 'water in the sink'
-    canBeTouchedBy(actor) {
-        return (sink.overflowing || sink.level != 0) && inherited(actor);
-    }
     dobjFor(Drink)
     {
         verify { illogical('''{You're} not thirsty. '''); }
