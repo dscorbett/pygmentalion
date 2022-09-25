@@ -1149,12 +1149,11 @@ altarRoom: Room 'At the Altar'
                         reportFailure('<<preamble>>The <<bulkyItem.name>> is
                             too big for <<theNameFrom(bagName)>> to fit through
                             the bars. ');
+                    return;
                 }
-                else
-                    "{The dobj/He} slip{s} through the bars. ";
+                "{The dobj/He} slip{s} through the bars. ";
             }
-            else
-                inherited();
+            inherited();
         }
     }
     dobjFor(PutIn)
