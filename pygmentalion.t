@@ -497,7 +497,7 @@ entrance: Room 'Studio Entrance'
     keyList = [key]
     cannotOpenLockedMsg = '{The dobj/He} {is} locked. <<first time>>In {your}
         distracted state, {you/he} must have misplaced the key. <<only>>You
-        cannot <<highlight 'escape'>>! '
+        cannot <<highlight 'escape'>>!<<breakingWouldBeUseful = true, nil>> '
 ;
 
 + campBed: Bed '(camp) bed' 'camp bed'
@@ -1027,8 +1027,8 @@ altarRoom: Room 'At the Altar'
     dobjFor(Break)
     {
         preCond = inherited() - touchObj
-        verify() { }
-        action
+        verify() { nonObvious; }
+        check
         {
             reportFailure('{That dobj/He} might as well be made of adamant for
                 all {you/he} could do to break it. ');
@@ -1129,33 +1129,32 @@ altarRoom: Room 'At the Altar'
             if (!isIn(cage))
                 inherited();
         }
-        check
+        action
         {
             if (isIn(cage))
             {
                 local bulkyItem = firstBulkyItem;
                 if (bulkyItem)
                 {
+                    cage.breakingWouldBeUseful = true;
                     local preamble = bagMentioned ? ''
                         : '{You/He} tr{ies} to remove <<theName>> from
                         <<cage.theName>>, but there is <<aNameFrom(bagName)>>
                         attached to the end inside, and \v';
                     if (isHidden(bulkyItem) || !cage.isOpen)
-                        failCheck('<<preamble>>Something in
+                        reportFailure('<<preamble>>Something in
                             <<theNameFrom(bagName)>> is too big to fit through
                             the bars. ');
                     else
-                        failCheck('<<preamble>>The <<bulkyItem.name>> is too
-                            big for <<theNameFrom(bagName)>> to fit through the
-                            bars. ');
+                        reportFailure('<<preamble>>The <<bulkyItem.name>> is
+                            too big for <<theNameFrom(bagName)>> to fit through
+                            the bars. ');
                 }
+                else
+                    "{The dobj/He} slip{s} through the bars. ";
             }
-        }
-        action
-        {
-            if (isIn(cage))
-                "{The dobj/He} slip{s} through the bars. ";
-            inherited();
+            else
+                inherited();
         }
     }
     dobjFor(PutIn)
@@ -2805,6 +2804,20 @@ modify VerbRule(Take)
     ('capture' | 'catch' | 'get' | 'pick' 'up' | 'take') dobjList
     | 'pick' dobjList 'up'
     :
+;
+
+modify LockableWithKey
+    breakingWouldBeUseful = nil
+    dobjFor(Break)
+    {
+        verify = breakingWouldBeUseful && knownKeyList.length == 0
+            ? nonObvious : inherited()
+        check
+        {
+            failCheck('Rather than destroying {your} possessions, it would be
+                better in the long run if {you/he} could just find the key. ');
+        }
+    }
 ;
 
 modify Thing
