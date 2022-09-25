@@ -2614,7 +2614,7 @@ modify Thing
 /* Prayer */
 
 VerbRule(Pray)
-    ('pray' | 'laud' | 'petition' | 'worship') singleDobj
+    'pray' singleDobj
     : PrayAction
     verbPhrase = 'pray/praying (at/to what)'
 ;
@@ -2644,7 +2644,7 @@ modify Thing
 ;
 
 VerbRule(PrayTo)
-    ('pray' 'to' | 'laud' | 'petition' | 'worship') singleDobj
+    ('laud' | 'petition' | 'praise' | 'pray' 'to' | 'worship') singleDobj
     : PrayToAction
     verbPhrase = 'pray/praying (to whom)'
 ;
@@ -2673,7 +2673,7 @@ modify Thing
 ;
 
 VerbRule(PrayAt)
-    ('pray' | 'laud' | 'petition' | 'worship') 'at' singleDobj
+    ('laud' | 'petition' | 'praise' | 'pray' | 'worship') 'at' singleDobj
     : PrayAtAction
     verbPhrase = 'pray/praying (at what)'
 ;
@@ -2691,9 +2691,9 @@ modify Thing
 ;
 
 VerbRule(PrayToAt)
-    ('pray' ('to'|) | 'laud' | 'petition' | 'worship') singleDobj
+    ('laud' | 'petition' | 'praise' | 'pray' ('to'|) | 'worship') singleDobj
     'at' singleIobj
-    | ('pray' | 'laud' | 'petition' | 'worship') 'at' singleIobj
+    | ('laud' | 'petition' | 'praise' | 'pray' | 'worship') 'at' singleIobj
     'to' singleDobj
     : PrayToAtAction
     verbPhrase = 'pray/praying (to whom) (at what)'
