@@ -1240,7 +1240,7 @@ class Hammer: Thing
         verify { }
     }
     iobjFor(GiveTo) {
-        verify { }
+        verify { nonObvious; }
         action {
             replaceAction(PutOn, gDobj, gIobj);
         }
