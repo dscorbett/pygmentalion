@@ -1022,6 +1022,8 @@ altarRoom: Room 'At the Altar'
     isLocked = (location.isLocked)
     dobjFor(Lock) remapTo(Lock, location)
     dobjFor(LockWith) remapTo(LockWith, location, IndirectObject)
+    dobjFor(Unlock) remapTo(Unlock, location)
+    dobjFor(UnlockWith) remapTo(UnlockWith, location, IndirectObject)
     dobjFor(Break)
     {
         preCond = inherited() - touchObj
