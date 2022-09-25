@@ -2715,6 +2715,11 @@ modify TryAsActorResolveResults
     unknownNounPhrase(match, resolver) { return []; }
 ;
 
+modify playerActionMessages
+    shouldNotBreakMsg = '{subj actor}Breaking {that dobj/him} would {|have}
+        serve{|d} no purpose. '
+;
+
 /* Sundry modifications */
 
 modify VerbRule(GiveTo)
