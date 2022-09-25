@@ -1793,6 +1793,19 @@ nonMirrorState: ThingState
     }
 ;
 
+modify touchObj
+    checkPreCondition(obj, allowImplicit)
+    {
+        local ret = inherited(obj, allowImplicit);
+        if (obj == bird && !gActionIs(Take))
+        {
+            tryImplicitAction(Take, obj);
+            exit;
+        }
+        return ret;
+    }
+;
+
 /* Water */
 
 class WaterContainerDescContentsLister: thingDescContentsLister
