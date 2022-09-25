@@ -2734,8 +2734,10 @@ modify TryAsActorResolveResults
 ;
 
 modify playerActionMessages
-    shouldNotBreakMsg = '{subj actor}Breaking {that dobj/him} would {|have}
-        serve{|d} no purpose. '
+    moveNoEffectMsg = '{subj actor}<<inherited>>'
+    pullNoEffectMsg = '{subj actor}<<inherited>>'
+    pushNoEffectMsg = '{subj actor}<<inherited>>'
+    shouldNotBreakMsg = '{subj actor}<<inherited>>'
 ;
 
 /* Sundry modifications */
