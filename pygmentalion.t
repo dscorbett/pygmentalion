@@ -1022,6 +1022,16 @@ altarRoom: Room 'At the Altar'
     isLocked = (location.isLocked)
     dobjFor(Lock) remapTo(Lock, location)
     dobjFor(LockWith) remapTo(LockWith, location, IndirectObject)
+    dobjFor(Break)
+    {
+        preCond = inherited() - touchObj
+        verify() { }
+        action
+        {
+            reportFailure('{That dobj/He} might as well be made of adamant for
+                all {you/he} could do to break it. ');
+        }
+    }
 ;
 
 /*
