@@ -116,19 +116,11 @@ versionInfo: GameID
         <!-- For clues, ask Ariadne. -->";
     }
     showCredit() {
-        local italicizeTitle =
-#ifdef TADS_INCLUDE_NET
-            true
-#else
-            systemInfo(SysInfoInterpClass) != SysInfoIClassText
-#endif
-            ;
         "Credit goes to Pygments for providing the excuse to write this game.
-        The story was loosely inspired by a section of <<if showLinks>><a
+        The story was loosely inspired by a section of <a
         href=https://digital.bodleian.ox.ac.uk/objects/bb971cd2-a682-45e5-<<
-        >>866f-31ce76482afe/ target=_blank><<end>><<if
-        italicizeTitle>><i><<else>><q><<end>>Le Roman de la Rose<<if
-        italicizeTitle>></i><<else>></q><<end>><<if showLinks>></a><<end>>. ";
+        >>866f-31ce76482afe/ target=_blank><<iOrQ('Le Roman de la
+        Rose')>></a>. ";
     }
 ;
 
@@ -322,6 +314,12 @@ modify cmdTokenizer
         toks.append([txt.findReplace(',', ''), typ, txt]);
     }
 ;
+
+iOrQ(txt)
+{
+    local element = outputManager.htmlMode ? 'i' : 'q';
+    return '\x3C<<element>>><<txt>></<<element>>>';
+}
 
 ul(plain, [items])
 {
@@ -2773,65 +2771,6 @@ modify VerbRule(GiveToWhom)
     verbPhrase = 'offer/offering (what) (to what)'
 ;
 
-VerbRule(Help)
-    'help'
-    : HelpAction
-    verbPhrase = 'show/showing help'
-;
-
-DefineSystemAction(Help)
-    objectPlaceholder
-    {
-        return objectPlaceholder = outputManager.htmlMode
-            ? '<var>object</var>'
-            : '[object]';
-    }
-    execSystemAction
-    {
-        "<.parser>This is a work of interactive fiction. Type commands at the
-        prompt to interact with the fiction. Basic commands (some of which
-        have abbreviations) include:<<ul(nil,
-            'Looking around:' + ul(nil,
-                'LOOK (L)',
-                'EXAMINE (X) <<objectPlaceholder>>',
-                'READ <<objectPlaceholder>>',
-                'SEARCH <<objectPlaceholder>>'
-            ),
-            'Moving around:' + ul(nil,
-                'NORTH (N)',
-                'SOUTH (S)',
-                'EAST (E)',
-                'WEST (W)',
-                'UP (U)',
-                'DOWN (D)'
-            ),
-            'Inventory management:' + ul(nil,
-                'INVENTORY (I)',
-                'GET <<objectPlaceholder>>',
-                'DROP <<objectPlaceholder>>',
-                'PUT <<objectPlaceholder>> IN/ON <<objectPlaceholder>>',
-                'WEAR <<objectPlaceholder>>'
-            ),
-            'Meta commands:' + ul(nil,
-                'UNDO',
-                'SAVE',
-                'RESTORE',
-                'QUIT'
-            )
-        )>>Other useful verbs should become obvious when necessary.
-        <.p>This particular interactive fiction is an allegorical romance, also
-        known as a puzzle-based adventure game. Each word appearing in the
-        story is an allegory. For example, the word <q>help</q> is an allegory
-        for the concept of help. The story assumes a basic familiarity with
-        written language so this lesson in semiotics need not be belabored.
-        <.p>If you are not familiar with written language, then learning to
-        read is your first puzzle. Congratulations on making it this far!
-        Otherwise, most puzzles involve going to various locations and using
-        various objects. Some objects have side effects &ndash; for example,
-        the rod scares the bird.<./parser>";
-    }
-;
-
 VerbRule(Hug)
     ('embrace' | 'hug') singleDobj
     : HugAction
@@ -2900,6 +2839,89 @@ modify playerActionMessages {
     cannotPutInRestrictedMsg = 'There is no reason for {you/him} to put {that
         dobj/him} in {the iobj/him}. '
 }
+
+/* Help */
+
+VerbRule(Help)
+    'help'
+    : HelpAction
+    verbPhrase = 'show/showing help'
+;
+
+DefineSystemAction(Help)
+    objectPlaceholder
+    {
+        return objectPlaceholder = outputManager.htmlMode
+            ? '<var>object</var>'
+            : '[object]';
+    }
+    execSystemAction
+    {
+        "<.parser>This is a work of interactive fiction. Type commands at the
+        prompt to interact with the fiction. Basic commands (some of which
+        have abbreviations) include:<<ul(nil,
+            'Looking around:' + ul(nil,
+                'LOOK (L)',
+                'EXAMINE (X) <<objectPlaceholder>>',
+                'READ <<objectPlaceholder>>',
+                'SEARCH <<objectPlaceholder>>'
+            ),
+            'Moving around:' + ul(nil,
+                'NORTH (N)',
+                'SOUTH (S)',
+                'EAST (E)',
+                'WEST (W)',
+                'UP (U)',
+                'DOWN (D)'
+            ),
+            'Inventory management:' + ul(nil,
+                'INVENTORY (I)',
+                'GET <<objectPlaceholder>>',
+                'DROP <<objectPlaceholder>>',
+                'PUT <<objectPlaceholder>> IN/ON <<objectPlaceholder>>',
+                'WEAR <<objectPlaceholder>>'
+            ),
+            'Meta commands:' + ul(nil,
+                'UNDO',
+                'SAVE',
+                'RESTORE',
+                'QUIT'
+            )
+        )>>Other useful verbs should become obvious when necessary.
+        <.p>This particular interactive fiction is an allegorical romance, also
+        known as a puzzle-based adventure game. Each word appearing in the
+        story is an allegory. For example, the word <q>help</q> is an allegory
+        for the concept of help. The story assumes a basic familiarity with
+        written language so this lesson in semiotics need not be belabored.
+        <.p>If you are not familiar with written language, then learning to
+        read is your first puzzle. Congratulations on making it this far!
+        Otherwise, most puzzles involve going to various locations and using
+        various objects. Some objects have side effects &ndash; for example,
+        the rod scares the bird.
+        <.p>For a much more verbose introduction to interactive fiction, not
+        written for <<iOrQ(versionInfo.name)>> but part of the TADS 3 standard
+        library, type <<aHref('instructions', 'INSTRUCTIONS')>>.<./parser>";
+    }
+;
+
+modify InstructionsAction
+    crueltyLevel = (crueltyLevel = [
+        'Merciful' -> 0,
+        'Polite' -> 1,
+        'Tough' -> 1,
+        'Nasty' -> 1,
+        'Cruel' -> 2,
+        * -> inherited
+    ][versionInfo.forgivenessLevel])
+    customVerbs = [
+        'CALCULATE 69 TIMES 105',
+        'PRAY TO IRIS',
+        'SAY "HAPAX LEGOMENON"'
+    ]
+    conversationVerbs = []
+    conversationAbbr = ""
+    showConversationChapter { }
+;
 
 /* Catalog of shipboard directions */
 
