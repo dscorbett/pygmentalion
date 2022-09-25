@@ -678,6 +678,11 @@ workbenchRoom: Room 'At the Workbench'
     getDestName(actor, origin) { return 'the workbench'; }
 ;
 
++ chair: Chair 'diphros folding chair/okladias/stool' 'stool'
+    "A portable folding stool, or diphros okladias. "
+    bulk = 10
+;
+
 + workbench: Chair, Fixture
     'bench/workbench' 'workbench'
     "Your workbench is usually scattered with tools and materials and
@@ -690,6 +695,7 @@ workbenchRoom: Room 'At the Workbench'
             inherited(itemCount, pov, parent);
         }
     }
+    obviousPostures = []
 ;
 
 ++ chisel: Thing 'chisel/tool*tools' 'chisel'
