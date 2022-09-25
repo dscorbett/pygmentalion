@@ -962,7 +962,7 @@ altarRoom: Room 'At the Altar'
     getDestName(actor, origin) { return 'the altar'; }
 ;
 
-+ window: Fixture 'light/window' 'window'
++ window: Fixture 'window' 'window'
     "It&rsquo;s just a window above the altar. <<one of>>The space under the
     window is blank; as an interior <<highlight 'decorator'>>, you can&rsquo;t
     help but think the wall would benefit from a bas-relief, but &ndash;
