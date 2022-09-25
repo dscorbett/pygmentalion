@@ -866,6 +866,20 @@ replace grammar predicate(UnscrewWith): ' ': object;
     dobjFor(AskAbout) remapTo(TalkTo, DirectObject)
     dobjFor(AskFor) remapTo(TalkTo, DirectObject)
     dobjFor(TellAbout) remapTo(TalkTo, DirectObject)
+    iobjFor(ShowTo)
+    {
+        verify { }
+        action
+        {
+            /*
+             *   Car de tāt com voꝰ me daıgnıez.
+             *   Doulcemāt regarder et rıre.
+             *   (MS. Douce 195, fol. 149v)
+             */
+            "{The iobj/She} stare{s} straight ahead with a smile on her lips.
+            ";
+        }
+    }
     acceptCommand(issuingActor)
     {
         replaceAction(TalkTo, self);
