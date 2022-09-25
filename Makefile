@@ -27,6 +27,10 @@ web: pygmentalion-web.t3
 play-curses: pygmentalion.t3
 	frob -p -i curses $<
 
+.PHONY: play-lectrote
+play-lectrote: pygmentalion.t3
+	open -a Lectrote $<
+
 .PHONY: play-plain
 play-plain: pygmentalion.t3
 	frob -p -k UTF-8 -i plain $<

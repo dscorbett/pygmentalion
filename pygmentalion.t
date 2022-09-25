@@ -384,9 +384,12 @@ class Token: Achievement, InitObject
 #ifndef TADS_INCLUDE_NET
     execute()
     {
-        if (systemInfo(SysInfoTextColors) != SysInfoTxcRGB)
+        // Gargoyle (or at least Lectrote) falsely claims to support RGB, but
+        // it does not even support swapping foreground and background colors.
+        local gargoyle = systemInfo(SysInfoOsName) == 'Gargoyle';
+        if (gargoyle || systemInfo(SysInfoTextColors) != SysInfoTxcRGB)
         {
-            if (systemInfo(SysInfoBanners))
+            if (!gargoyle && systemInfo(SysInfoBanners))
             {
                 before_ = '<font color=bgcolor bgcolor=text>';
                 after_ = '</font>';
