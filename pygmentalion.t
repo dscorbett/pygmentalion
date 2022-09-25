@@ -888,6 +888,7 @@ replace grammar predicate(UnscrewWith): ' ': object;
         }
     }
     dobjFor(AttackWith) remapTo(Attack, DirectObject)
+    dobjFor(Break) remapTo(Attack, DirectObject)
     dobjFor(Taste) remapTo(Eat, DirectObject)
     iobjFor(ThrowAt) remapTo(Attack, IndirectObject)
 ;
