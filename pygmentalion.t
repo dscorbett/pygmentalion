@@ -2901,6 +2901,20 @@ modify playerActionMessages {
         dobj/him} in {the iobj/him}. '
 }
 
+/* Catalog of shipboard directions */
+
+replace grammar directionName(port): (): object;
+
+replace grammar directionName(starboard): (): object;
+
+replace grammar directionName(aft): (): object;
+
+replace grammar directionName(fore): (): object;
+
+replace VerbRule(Port) (): object;
+
+replace VerbRule(Starboard) (): object;
+
 /* Extended grammar for 'in' and 'out' */
 
 modify grammar directionName(in): 'in' | 'inside':
