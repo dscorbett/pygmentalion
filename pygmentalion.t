@@ -1467,6 +1467,7 @@ export level 'waterLevel';
 ++ sinkWater: Fixture
     '(sink) water sink puddle/water' 'water' "<<sink.desc>>"
     disambigName = 'water in the sink'
+    hideFromAll(action) { return delegated Component(action); }
     dobjFor(Drink)
     {
         verify { illogical('''{You're} not thirsty. '''); }
@@ -1660,6 +1661,7 @@ portico: OutdoorRoom 'Portico'
 ++ basinWater: Fixture '(basin) water basin puddle/water' 'water'
     "<<basin.desc>>"
     disambigName = 'water in the basin'
+    hideFromAll(action) { return delegated Component(action); }
     dobjFor(Drink)
     {
         verify
