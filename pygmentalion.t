@@ -233,6 +233,25 @@ gameMain: GameMainDef
             'euphoric due to infatuation.',
             'thinking about how much you love her.'
         ]
+        dobjFor(GiveTo)
+        {
+            verify
+            {
+                if (gIobj == statue)
+                    /*
+                     *   Oꝛ ſuys par ceſte mal baıllys.
+                     *   Par le meſt tout lı ſēs faıllys.
+                     *   Las ꝺont me vint ceſte penſee.
+                     *   Cōme fu telle amour bꝛaſcee.
+                     *      (MS. Douce 195, fol. 149r–149v)
+                     */
+                    illogicalAlready('{You/He} {have} already given {yourself}
+                        to {that iobj/her}. {You/He} {were} {its iobj/hers}
+                        from the moment {you/he} first saw {that iobj/her}. ');
+                else
+                    nonObvious;
+            }
+        }
     }
     showIntro
     {
@@ -864,7 +883,7 @@ replace grammar predicate(UnscrewWith): ' ': object;
         }
     }
     iobjFor(GiveTo) {
-        verify { }
+        verify { nonObvious; }
         action {
             replaceAction(PutOn, gDobj, gIobj);
         }
@@ -2727,6 +2746,11 @@ modify VerbRule(GiveTo)
     :
 ;
 
+modify VerbRule(GiveToWhom)
+    :
+    verbPhrase = 'offer/offering (what) (to what)'
+;
+
 VerbRule(Help)
     'help'
     : HelpAction
@@ -2832,6 +2856,7 @@ modify Thing
         {
             if (!isIn(gActor))
                 logicalRank(80, 'not held');
+            inherited();
         }
     }
     dobjFor(Hug)
