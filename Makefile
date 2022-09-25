@@ -39,6 +39,10 @@ play-plain: pygmentalion.t3
 play-qtads: pygmentalion.t3
 	open -a QTads $<
 
+.PHONY: play-spatterlight
+play-spatterlight: pygmentalion.t3
+	open -a Spatterlight $<
+
 .PHONY: play-web
 play-web: pygmentalion-web.t3
 	frob -i plain -p -N 44 $< | { read -r line; read -r line; "$(OPEN)" "$$(printf %s "$$line" | cut -f 2- -d :)"; }
