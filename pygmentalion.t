@@ -2786,7 +2786,7 @@ modify playerActionMessages
 
 modify VerbRule(GiveTo)
     ('give' | 'offer') dobjList 'to' singleIobj
-    | 'offer' dobjList 'at' singleIobj
+    | 'offer' dobjList ('at' | 'on') singleIobj
     :
 ;
 
