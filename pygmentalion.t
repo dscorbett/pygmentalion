@@ -1264,6 +1264,14 @@ class Hammer: Thing
     it anyway. You are sure the gods will understand. "
     materialWord = 'granite' 'marble' 'stone'
     obviousPostures = []
+    descContentsLister: surfaceDescContentsLister
+    {
+        showListPrefixWide(itemCount, pov, parent)
+        {
+            "\b";
+            inherited(itemCount, pov, parent);
+        }
+    }
     dobjFor(Pray) { verify { } }
     dobjFor(PrayTo)
     {
