@@ -1515,6 +1515,8 @@ export level 'waterLevel';
         }
     }
     iobjFor(PutIn) remapTo(PutIn, DirectObject, sink)
+    dobjFor(TurnOn) remapTo(TurnOn, sink)
+    dobjFor(TurnOff) remapTo(TurnOff, sink)
 ;
 
 + sideTable: Chair, Fixture 'small side bracket/table*tables' 'side table'
