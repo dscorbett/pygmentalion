@@ -41,7 +41,7 @@ play-qtads: pygmentalion.t3
 
 .PHONY: play-spatterlight
 play-spatterlight: pygmentalion.t3
-	open -a Spatterlight $<
+	open -a Spatterlight -n $<
 
 .PHONY: play-web
 play-web: pygmentalion-web.t3
