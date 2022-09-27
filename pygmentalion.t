@@ -715,12 +715,6 @@ workbenchRoom: Room 'At the Workbench'
     }
     dobjFor(AttackWith)
     {
-        check
-        {
-            if (gIobj != mallet)
-                failCheck('\^{The iobj/He} is not a suitable tool for striking
-                    {a dobj/him} with. ');
-        }
         action { replaceAction(Attack, gDobj); }
     }
 ;
@@ -2657,6 +2651,17 @@ modify Thing
     iobjFor(CleanWith)
     {
         preCond = [touchObj]
+    }
+    iobjFor(AttackWith)
+    {
+        verify
+        {
+            if (gDobj == chisel)
+                illogical('{The iobj/He} {is} not a suitable tool for striking
+                    {a dobj/him} with. ');
+            else
+                inherited();
+        }
     }
 ;
 
