@@ -899,6 +899,7 @@ replace grammar predicate(UnscrewWith): ' ': object;
                 in (necklace, __objref(necklace, warn)))
                 failCheck(
                     'What would {it iobj/she} want with {that dobj/him}? ');
+            inherited();
         }
     }
     iobjFor(GiveTo) {
@@ -998,15 +999,6 @@ altarRoom: Room 'At the Altar'
             ? checkStatusSuccess
             : inherited(obj, dest, op);
     }
-    dobjFor(Take)
-    {
-        verify
-        {
-            if (net.isIn(self))
-                illogicalNow('\^<<net.nameIs>> too unwieldy. {You/He}&rsquo;ll
-                    have to remove <<net.itObj>> from the cage first. ');
-        }
-    }
     iobjFor(PutIn)
     {
         preCond
@@ -1021,12 +1013,7 @@ altarRoom: Room 'At the Altar'
         }
         check
         {
-            if (isHeldBy(gActor) && gDobj == net)
-                failCheck('{The dobj/He} {is} too unwieldy. {You/He}&rsquo;ll
-                    have to put {the iobj/him} down. ');
-            if (isOpen)
-                inherited();
-            else if (isLocked && gDobj != net && knownKeyList.indexWhich(
+            if (isLocked && gDobj != net && knownKeyList.indexWhich(
                 {x: !x.isOrIsIn(gDobj) && gActor.canTouch(x)}) == nil)
             {
                 gActor.setPronounObj(self);
@@ -1036,6 +1023,7 @@ altarRoom: Room 'At the Altar'
                     could slip {the dobj/him} through the bars, but {you/he}
                     might not be able to get {it dobj/him} back out again. ');
             }
+            inherited();
         }
         action
         {
@@ -1198,6 +1186,7 @@ altarRoom: Room 'At the Altar'
     {
         check
         {
+            inherited();
             if (gIobj == cage)
             {
                 local bulkyItem = firstBulkyItem;
@@ -1223,6 +1212,42 @@ altarRoom: Room 'At the Altar'
     dobjFor(LookIn)
     {
         preCond = (inherited() + touchObj)
+    }
+;
+
+modify Thing
+    dobjFor(Take)
+    {
+        check
+        {
+            if (net.isIn(self))
+                failCheck('\^<<net.nameIs>> too unwieldy. {You/He}&rsquo;ll
+                    have to remove <<net.itObj>> from <<net.location.theName>>
+                    first. ');
+            inherited();
+        }
+    }
+    checkPut
+    {
+        if (isHeldBy(gActor) && gDobj == net)
+            failCheck('{The dobj/He} {is} too unwieldy. {You/He}&rsquo;ll have
+                to put {the iobj/him} down first. ');
+    }
+    iobjFor(PutIn)
+    {
+        check
+        {
+            checkPut();
+            inherited();
+        }
+    }
+    iobjFor(PutOn)
+    {
+        check
+        {
+            checkPut();
+            inherited();
+        }
     }
 ;
 
