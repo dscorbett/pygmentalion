@@ -3435,6 +3435,8 @@ greekWordGenerator: PreinitObject
     randomProtoWord = (getWord(randListItem, randListItem))
     mutate(word)
     {
+        word = rexReplace(R'^sb', word, 'sp');
+        word = rexReplace(R'^sg', word, 'sk');
         word =
             rexReplace(R'^[pk](?![tsnlrhaeioy]|[tsnlr]h?[^aeioy])', word, '');
         word = rexReplace(R'^b(?![dlrhaeioy]|[dlr]h?[^aeioy])', word, '');
