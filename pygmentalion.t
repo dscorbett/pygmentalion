@@ -425,8 +425,13 @@ Token template inherited 'before_' 'after_' 'desc_';
     DoToken(number, '<font color=#666666>', '</font>') \
     DoToken(operator, '<b><font color=\"#AA22F&#x46\">', '</font></b>') \
     DoToken(string, '<font color=\'#BA212&#49\'>', '</font>') \
-    DoToken(whitespace, '<font color="bgcolor"bgcolor=\'text\' \
-        style="color: white; background-color: black">', '</font>') \
+    DoToken(whitespace, \
+        '''<font <<if systemInfo(SysInfoOsName) == 'Spatterlight'>> \
+        color=white bgcolor=black \
+        <<else>> \
+        color="bgcolor"bgcolor=\'text\' \
+        style="color: white; background-color: black" \
+        <<end>>>''', '</font>') \
 
 #define DoToken(name, before, after) name##Token: Token before after #@name;
 DoTokens
