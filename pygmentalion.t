@@ -423,8 +423,8 @@ Token template inherited 'before_' 'after_' 'desc_';
     DoToken(long, '<i><font color=gray>', '</font></i>') \
     DoToken(name, '<u>', '</u>') \
     DoToken(number, '<font color=#666666>', '</font>') \
-    DoToken(operator, '<b><font color=\"#AA22F&#x46 \">', '</font></b>') \
-    DoToken(string, '<font color=\'#BA212&#49 \'>', '</font>') \
+    DoToken(operator, '<b><font color=\"#AA22F&#x46\">', '</font></b>') \
+    DoToken(string, '<font color=\'#BA212&#49\'>', '</font>') \
     DoToken(whitespace, '<font color="bgcolor"bgcolor=\'text\' \
         style="color: white; background-color: black">', '</font>') \
 
