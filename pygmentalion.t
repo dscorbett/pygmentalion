@@ -1056,8 +1056,8 @@ altarRoom: Room 'At the Altar'
         verify() { nonObvious; }
         check
         {
-            reportFailure('{That dobj/He} might as well be made of adamant for
-                all {you/he} could do to break it. ');
+            failCheck('{That dobj/He} might as well be made of adamant for all
+                {you/he} could do to break it. ');
         }
     }
 ;
