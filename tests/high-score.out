@@ -1,0 +1,343 @@
+  The statue is undeniably a masterpiece: the most skillful carving you have ever
+done, and the most beautiful woman you have ever seen.  Unfortunately, she is
+also an inanimate object, and now you can neither work nor rest for
+unrequitable love.
+
+Once again you awake in your studio, hoping and praying to find your statue
+brought to life.
+
+Pygmentalion
+Copyright 2014, 2022 by David Corbett
+Version 1.1.0
+
+(First-time players should type ABOUT.  Those unfamiliar with interactive
+fiction in general should type HELP.  See also CREDITS.)
+
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+You see a camp bed and an end table (on which are a bottle of wine, a plate of
+chopped liver, and a coin box) here.
+
+>about
+This is a short game originally designed to provide an example file for the
+syntax highlighter Pygments (https://pygments.org/).
+
+Scattered throughout the game are highlighted words corresponding to syntactic
+token types.  Finding them increases your score but is not necessary to beat
+the game.  Some are easy to find, but these are the [[exception]] rather than
+the rule.  Many are hidden and some may become unavailable as the story
+progresses.
+
+The command CALCULATE may be abbreviated as C.  For more commands, type HELP.
+
+For hints, PRAY TO IRIS.
+
+(Your score has just increased by one point.)
+
+(If you’d prefer not to be notified about score changes in the future, type
+NOTIFY OFF.)
+
+>n
+At the Workbench
+This workbench, in the northwest part of the studio, was where you would create
+works of art.  Now you just come here to contemplate your creation’s beauty,
+dress her up, ply her with gifts, and lament your hopeless situation.
+
+The statue stands on a plinth beside the workbench.
+
+You see a stool here.  On the workbench are a gold nugget, a needle, a chisel,
+and an idol.
+
+>get idol,pearls
+idol: Taken.
+[[string]] of pearls: Taken.
+
+(Your score has just increased by one point.)
+
+>se
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+A pole sticks out of a wicker cage and leans ithyphallically against the wall.
+
+>x window
+It’s just a window above the altar.  The space under the window is blank; as an
+interior [[decorator]], you can’t help but think the wall would benefit from a
+bas-relief, but – sigh – you are too lovelorn to wield the chisel.
+
+(Your score has just increased by one point.)
+
+>g
+It’s just a window above the altar.  The wall right below it is a boring
+[[white space]].
+
+(Your score has just increased by one point.)
+
+>put idol on altar
+Done.
+
+>pray
+(at the altar)
+“O Aphrodite,” you say, “comforter of hopeless lovers, hear my prayer!  May she
+to whom I have given my heart be given body, soul, and life.  And a colorful
+personality.  And—”
+
+You are interrupted by a shimmering about the altar.  As you watch, it takes
+the form of a callipygian goddess.
+
+“Mortal, I have heard your heart-felt and oft-repeated plea, and I will take
+pity on you,” says Aphrodite.  “If you give me a token of your love as an
+offering, I will give you the [[keyword]] of life.  Speak this word in the
+presence of a mirror, and I will grant your request.”
+
+She fades away, adding, “As for her colorful personality, just look around
+you.”
+
+(Your score has just increased by one point.)
+
+>g
+(at the altar)
+Aphrodite reappears.  She eyes the idol skeptically.  “No [[comment]].”
+
+(Your score has just increased by one point.)
+
+>put pearls on altar
+(first taking the idol from the altar)
+Done.
+
+>pray
+(at the altar)
+Aphrodite reappears.  “A necklace!  Perfect!”  The necklace disappears in a
+bright flash.  When your eyes readjust, you see a bronze key lying in its
+place.
+
+>get all
+bronze key: Taken.
+
+wicker cage: The pole is too unwieldy.  You’ll have to remove it from the
+wicker cage first.
+
+>n
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+On the side table are a manual and a comb.
+
+>c +20000
+The calculator outputs +20000 = 20000.  Water flows from the faucet, filling
+the sink.
+
+>put all in sink
+idol: Done.
+bronze key: You clean the bronze key, revealing an inscription.
+
+manual: The manual would get wet.
+
+comb: The comb would get wet.
+
+>x all
+bronze key: It is a bronze key.  On it is etched the word “rhimon”.
+
+calculator: The calculator is [[built in]]to the wall beside the sink.  It has
+buttons for all the standard unary and binary operations.  The screen reads
++20000 = 20000.
+
+side table: Upon closer inspection, you see that the table is bracketed to the
+wall.  On the side table are a manual and a comb.
+
+manual: [[Operator]]’s Manual
+
+To control the auto-sink, use the calculator add-on to enter the desired volume
+of water.  It supports the standard Thalassa++ unary and binary operations:
+
+   + – addition
+   - – subtraction
+   * – multiplication
+   / – division
+   % – modulo
+   ~ – bitwise NOT
+   ! – logical NOT
+   & – bitwise AND
+   | – bitwise OR
+   ^ – bitwise XOR
+   << – shift left
+   >> – arithmetic shift right
+   >>> – logical shift right
+
+For example,
+       CALCULATE 69 TIMES 105
+to fill the basin with 7,245 kochliaria.
+
+Warning: Do not use big [[number]]s or divide by zero!
+
+comb: A tool to keep your hair tidy.
+
+sink: This is a state-of-the-art mop sink with anti-miasmic coating and bronze
+backsplash.  It is so modern, there are no handles or other obvious ways to
+turn it on.
+
+It is full to the brim with water.
+
+An idol is [[float]]ing on the surface of the water.
+
+idol: The idol is a small statuette of Aphrodite carved from meerschaum.
+
+(Your score has just increased by four points.)
+
+>c 1/0
+The calculator outputs [[ERROR]] {division by zero}.  The water in the sink is
+sucked down the drain.
+
+(Your score has just increased by one point.)
+
+>sw
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+You see a camp bed and an end table (on which are a bottle of wine, a plate of
+chopped liver, and a coin box) here.
+
+>s
+(first trying to open the door)
+The door is locked.  In your distracted state, you must have misplaced the key.
+You cannot [[escape]]!
+
+(Your score has just increased by one point.)
+
+>unlock
+(the door)
+(with the bronze key)
+Unlocked.
+
+>s
+(first opening the door)
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A [[label]] is
+affixed to the doorpost.
+
+The basin contains an iron key.
+
+A bird flies in through the columns and alights in the basin.
+
+(Your score has just increased by one point.)
+
+>get key
+You take the iron key.
+
+>n
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+You see a camp bed and an end table (on which are a bottle of wine, a plate of
+chopped liver, and a coin box) here.
+
+>e
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+A pole sticks out of a wicker cage and leans ithyphallically against the wall.
+
+>unlock cage with iron
+Unlocked.
+
+>l in net
+(first opening the wicker cage)
+At one end of the pole is a bag.  The bag contains a mallet and a ball-peen
+hammer.
+
+>get tools,net
+net: The ball-peen hammer is too big for the bag to fit through the bars.
+
+ball-peen hammer: Taken.
+mallet: Taken.
+net: The net slips through the bars.
+
+>w
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+You see a camp bed and an end table (on which are a bottle of wine, a plate of
+chopped liver, and a coin box) here.
+
+>s
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The bird is startled and hops to the far side of the basin.
+
+>put bird in net
+You swipe at the bird with the net but it darts out of the way.  It flaps
+noisily out of the portico, through the columns and away towards the west.
+
+>x all
+bronze key: It is a bronze key.  On it is etched the word “rhimon”.
+
+iron key: It is a grimy iron key.
+
+ball-peen hammer: A hammer used for hardening metal.
+mallet: A wooden hammer with a large head, used to strike a chisel.
+
+net: It is a [[long]] wooden pole with a bag attached to one end.  This
+versatile tool be used as a quarterstaff, butterfly net, pool net, or walking
+stick.
+
+basin: It is shallow but wide, and lined with tiles.  It used to be a fountain,
+but it stopped working after they installed the new sink.  Something to do with
+water pressure, no doubt.  Now you just use it as a birdbath.
+
+It is full to the brim with water.  You can see your reflection as clearly as
+Narcissus saw his.  At least you are not as foolish as he was: you can
+physically touch the object of your affections, which is some consolation.
+
+door: It is a simple wooden door.  It’s open.
+
+columns: There are six slender columns with scrollwork in the capitals.  Above
+the architrave is a frieze depicting some of your wares.  The cornice overhangs
+the frieze a bit too much, you think; perhaps you should shorten it.  You try
+to concentrate on the architecture of the portico, stoically ignoring what you
+cannot change, but it doesn’t work.  It never does.
+
+label: The label says “Pygmentalion” (which is your [[name]]).
+
+(Your score has just increased by two points.)
+
+>rhimon
+The air above the basin shimmers for a moment.  You hear footsteps behind you.
+Turning around, you see a woman who looks remarkably like your statue.
+
+“Hello, world,” she says.  “It’s nice to be alive at last!  Hello, dearest
+Pygmentalion.”
+
+Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
+
+*** YOU HAVE WON ***
+
+In 31 moves, you have scored 15 of a possible 15 points.
+
+Would you like to RESTORE a saved position, RESTART the story, UNDO the last
+move, see your FULL SCORE, or QUIT?
+
+>q

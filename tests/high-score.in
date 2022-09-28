@@ -12,9 +12,36 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-/GameInfo.txt
-/logs/
-/obj/
-*.html
-*.t3
-*.t3s
+>about
+>n
+>get idol,pearls
+>se
+>x window
+>g
+>put idol on altar
+>pray
+>g
+>put pearls on altar
+>pray
+>get all
+>n
+>c +20000
+>put all in sink
+>x all
+>c 1/0
+>sw
+>s
+>unlock
+>s
+>get key
+>n
+>e
+>unlock cage with iron
+>l in net
+>get tools,net
+>w
+>s
+>put bird in net
+>x all
+>rhimon
+>q

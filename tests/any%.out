@@ -1,0 +1,209 @@
+  The statue is undeniably a masterpiece: the most skillful carving you have ever
+done, and the most beautiful woman you have ever seen.  Unfortunately, she is
+also an inanimate object, and now you can neither work nor rest for
+unrequitable love.
+
+Once again you awake in your studio, hoping and praying to find your statue
+brought to life.
+
+Pygmentalion
+Copyright 2014, 2022 by David Corbett
+Version 1.1.0
+
+(First-time players should type ABOUT.  Those unfamiliar with interactive
+fiction in general should type HELP.  See also CREDITS.)
+
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+You see a camp bed and an end table (on which are a bottle of wine, a plate of
+chopped liver, and a coin box) here.
+
+>n
+At the Workbench
+This workbench, in the northwest part of the studio, was where you would create
+works of art.  Now you just come here to contemplate your creation’s beauty,
+dress her up, ply her with gifts, and lament your hopeless situation.
+
+The statue stands on a plinth beside the workbench.
+
+You see a stool here.  On the workbench are a gold nugget, a needle, a chisel,
+and an idol.
+
+>get pearls
+Taken.
+
+>se
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+A pole sticks out of a wicker cage and leans ithyphallically against the wall.
+
+>put it on altar
+Done.
+
+>pray
+(at the altar)
+“O Aphrodite,” you say, “comforter of hopeless lovers, hear my prayer!  May she
+to whom I have given my heart be given body, soul, and life.  And a colorful
+personality.  And—”
+
+You are interrupted by a shimmering about the altar.  As you watch, it takes
+the form of a callipygian goddess.
+
+“Mortal, I have heard your heart-felt and oft-repeated plea, and I will take
+pity on you,” says Aphrodite.  “If you give me a token of your love as an
+offering, I will give you the [[keyword]] of life.  Speak this word in the
+presence of a mirror, and I will grant your request.”
+
+She fades away, adding, “As for her colorful personality, just look around
+you.”
+
+(Your score has just increased by one point.)
+
+(If you’d prefer not to be notified about score changes in the future, type
+NOTIFY OFF.)
+
+>g
+(at the altar)
+Aphrodite reappears.  “A necklace!  Perfect!”  The necklace disappears in a
+bright flash.  When your eyes readjust, you see a bronze key lying in its
+place.
+
+>get key
+Taken.
+
+>n
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+On the side table are a manual and a comb.
+
+>c +20000
+The calculator outputs +20000 = 20000.  Water flows from the faucet, filling
+the sink.
+
+>wash
+(the bronze key)
+You clean the bronze key, revealing an inscription.
+
+>c 1/0
+The calculator outputs [[ERROR]] {division by zero}.  The water in the sink is
+sucked down the drain.
+
+(Your score has just increased by one point.)
+
+>sw
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+You see a camp bed and an end table (on which are a bottle of wine, a plate of
+chopped liver, and a coin box) here.
+
+>unlock
+(the door)
+(with the bronze key)
+Unlocked.
+
+>s
+(first opening the door)
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A [[label]] is
+affixed to the doorpost.
+
+The basin contains an iron key.
+
+A bird flies in through the columns and alights in the basin.
+
+(Your score has just increased by one point.)
+
+>get key
+You take the iron key.
+
+>n
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+You see a camp bed and an end table (on which are a bottle of wine, a plate of
+chopped liver, and a coin box) here.
+
+>e
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+A pole sticks out of a wicker cage and leans ithyphallically against the wall.
+
+>unlock cage with iron
+Unlocked.
+
+>l in net
+(first opening the wicker cage)
+At one end of the pole is a bag.  The bag contains a mallet and a ball-peen
+hammer.
+
+>get tools,net
+net: The ball-peen hammer is too big for the bag to fit through the bars.
+
+ball-peen hammer: Taken.
+mallet: Taken.
+net: The net slips through the bars.
+
+>w
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+You see a camp bed and an end table (on which are a bottle of wine, a plate of
+chopped liver, and a coin box) here.
+
+>s
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The bird is startled and hops to the far side of the basin.
+
+>put bird in net
+You swipe at the bird with the net but it darts out of the way.  It flaps
+noisily out of the portico, through the columns and away towards the west.
+
+>x bronze
+It is a bronze key.  On it is etched the word “rhimon”.
+
+>rhimon
+The air above the basin shimmers for a moment.  You hear footsteps behind you.
+Turning around, you see a woman who looks remarkably like your statue.
+
+“Hello, world,” she says.  “It’s nice to be alive at last!  Hello, dearest
+Pygmentalion.”
+
+Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
+
+*** YOU HAVE WON ***
+
+In 25 moves, you have scored 3 of a possible 15 points.
+
+Would you like to RESTORE a saved position, RESTART the story, UNDO the last
+move, see your FULL SCORE, or QUIT?
+
+>q

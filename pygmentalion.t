@@ -142,12 +142,6 @@ versionInfo: GameID
  *      (MS. Douce 195, fol. 149r)
  */
 
-modify _init()
-{
-    ({: local r, r = randomize, r})();
-    replaced();
-}
-
 gameMain: GameMainDef
     initialPlayerChar: Actor {
         vocabWords = 'Pygmentalion'

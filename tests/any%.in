@@ -12,9 +12,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-/GameInfo.txt
-/logs/
-/obj/
-*.html
-*.t3
-*.t3s
+>n
+>get pearls
+>se
+>put it on altar
+>pray
+>g
+>get key
+>n
+>c +20000
+>wash
+>c 1/0
+>sw
+>unlock
+>s
+>get key
+>n
+>e
+>unlock cage with iron
+>l in net
+>get tools,net
+>w
+>s
+>put bird in net
+>x bronze
+>rhimon
+>q

@@ -54,7 +54,7 @@ play-xtads: pygmentalion.t3
 %.t3: pygmentalion.t.pygm pygmentalion.t %.t3m obj
 	t3make -a -f $* -res GameInfo.txt arrheta.txt $<
 
-obj:
+logs obj:
 	mkdir $@
 
 %.pygm: %
@@ -65,4 +65,16 @@ obj:
 
 .PHONY: clean
 clean:
-	$(RM) -r pygmentalion.t3 pygmentalion-web.t3 pygmentalion.t.pygm obj
+	$(RM) -r pygmentalion.t3 pygmentalion-web.t3 pygmentalion.t.pygm logs obj
+
+.PHONY: check
+check: $(addprefix logs/,$(addsuffix .out,$(basename $(notdir $(wildcard tests/*.in)))))
+
+.PRECIOUS: logs/%.out
+logs/%.out: tests/%.in logs pygmentalion.t3 FORCE
+	tail -n 1 $< | grep -qx '>q'
+	frob -S -p -k UTF-8 -i plain -R $< pygmentalion.t3 >$@
+	diff tests/$*.out $@
+
+.PHONY: FORCE
+FORCE:
