@@ -1021,9 +1021,15 @@ altarRoom: Room 'At the Altar'
         }
         action
         {
-            if (!isOpen || gDobj == net)
-                "{The dobj/He} fit{s} through the bars. ";
             inherited();
+            if (gDobj == net)
+                "{You/He} slip{s} <<theNameFrom(net.bagName)>> of {the
+                dobj/him} between the bars. \^<<theNameFrom(net.poleName)>> of
+                {the dobj/him} is too long to fit inside {the iobj/him}, so it
+                sticks out<<if net.isInInitState>>, touching the wall<<end>>.
+                ";
+            else if (!isOpen)
+                "{The dobj/He} fit{s} through the bars. ";
         }
     }
 ;
@@ -1087,7 +1093,13 @@ altarRoom: Room 'At the Altar'
         }
         return nil;
     }
-    useSpecialDescInContents(cont) { return isInInitState && cont == cage; }
+    useSpecialDescInContents(cont)
+    {
+        return cont == cage && isInInitState
+            && contents.valWhich({x:
+                x.isListedInContents && (!x.ofKind(Hidden) || x.discovered)
+            }) == nil;
+    }
     bagMentioned = nil
     poleName = 'pole'
     bagName = (bagMentioned = true, bagName = 'bag')
