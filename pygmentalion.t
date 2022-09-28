@@ -1715,6 +1715,17 @@ portico: OutdoorRoom 'Portico'
             .sort(SortAsc, {x, y: toInteger(y == bird) - toInteger(x == bird)})
             .valWhich({obj: !obj.ofKind(Fixture)});
     }
+    dobjFor(Examine)
+    {
+        action
+        {
+            if (canBeTouchedBy(gActor))
+                for (local item in contents)
+                    if (item.ofKind(Hidden) && !item.discovered)
+                        item.discover();
+            inherited();
+        }
+    }
 ;
 
 ++ basinWater: Fixture '(basin) water basin puddle/water' 'water'
@@ -1747,7 +1758,7 @@ mirrorState: ThingState
 nonMirrorState: ThingState
 ;
 
-++ cageKey: Key '(cage) clean grimy key/tool*keys tools' 'iron key'
+++ cageKey: Hidden, Key '(cage) clean grimy key/tool*keys tools' 'iron key'
     "It is <<aNameFrom('<<unless clean>>grimy <<end>>iron')>> key. "
     materialWord = 'iron' 'metal'
     clean = nil

@@ -16,8 +16,7 @@
 >n
 >get idol,pearls
 >se
->x window
->g
+>x all,all
 >put idol on altar
 >pray
 >g
@@ -33,6 +32,7 @@
 >s
 >unlock
 >s
+>x all
 >get key
 >n
 >e
@@ -42,6 +42,5 @@
 >w
 >s
 >put bird in net
->x all
 >rhimon
 >q

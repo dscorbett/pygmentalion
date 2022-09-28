@@ -123,9 +123,35 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A [[label]] is
 affixed to the doorpost.
 
-The basin contains an iron key.
-
 A bird flies in through the columns and alights in the basin.
+
+(Your score has just increased by one point.)
+
+>x all
+bronze key: It is a bronze key.  On it is etched the word “rhimon”.
+
+basin: It is shallow but wide, and lined with tiles.  It used to be a fountain,
+but it stopped working after they installed the new sink.  Something to do with
+water pressure, no doubt.  Now you just use it as a birdbath.
+
+It is full to the brim with water.  You can see your reflection, though it is
+distorted by the ripples issuing from the bird.
+
+An iron key is lodged in the drain.
+
+The bird flutters around the basin.
+
+bird: It’s a turtle-dove: an auspicious omen!
+
+door: It is a simple wooden door.  It’s open.
+
+columns: There are six slender columns with scrollwork in the capitals.  Above
+the architrave is a frieze depicting some of your wares.  The cornice overhangs
+the frieze a bit too much, you think; perhaps you should shorten it.  You try
+to concentrate on the architecture of the portico, stoically ignoring what you
+cannot change, but it doesn’t work.  It never does.
+
+label: The label says “Pygmentalion” (which is your [[name]]).
 
 (Your score has just increased by one point.)
 
@@ -187,9 +213,6 @@ The bird is startled and hops to the far side of the basin.
 You swipe at the bird with the net but it darts out of the way.  It flaps
 noisily out of the portico, through the columns and away towards the west.
 
->x bronze
-It is a bronze key.  On it is etched the word “rhimon”.
-
 >rhimon
 The air above the basin shimmers for a moment.  You hear footsteps behind you.
 Turning around, you see a woman who looks remarkably like your statue.
@@ -201,7 +224,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 25 moves, you have scored 3 of a possible 15 points.
+In 25 moves, you have scored 4 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
