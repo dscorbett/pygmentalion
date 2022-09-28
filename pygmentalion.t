@@ -1021,10 +1021,6 @@ altarRoom: Room 'At the Altar'
         }
         action
         {
-            /*
-             *   Poᷣ ce que chaſtete laıſſoit
-             *      (MS. Douce 195, fol. 151v)
-             */
             if (!isOpen || gDobj == net)
                 "{The dobj/He} fit{s} through the bars. ";
             inherited();
@@ -1171,6 +1167,10 @@ altarRoom: Room 'At the Altar'
                             the bars. ');
                     return;
                 }
+                /*
+                 *   Poᷣ ce que chaſtete laıſſoit
+                 *      (MS. Douce 195, fol. 151v)
+                 */
                 "{The dobj/He} slip{s} through the bars. ";
             }
             inherited();
