@@ -1504,8 +1504,8 @@ export level 'waterLevel';
         }
         check {
             failCheck('{You/He} can&rsquo;t see any way to turn {it dobj/him}
-                on. <<if manual.described>><<one of>><<or>>The manual said to
-                use the calculator add-on. <<stopping>>');
+                on. <<if manual.described>><<one of>><<or>>(The manual said to
+                use the calculator add-on.) <<stopping>>');
         }
     }
     dobjFor(TurnOff) {
@@ -1516,8 +1516,8 @@ export level 'waterLevel';
         }
         check {
             failCheck('{You/He} can&rsquo;t see any way to turn {it dobj/him}
-                off. <<if manual.described>><<one of>><<or>>The manual said to
-                use the calculator add-on. <<stopping>>');
+                off. <<if manual.described>><<one of>><<or>>(The manual said to
+                use the calculator add-on.) <<stopping>>');
         }
     }
 ;
@@ -3072,8 +3072,8 @@ DefineLiteralAction(Say)
                 }
             }
             else
-                "Nothing happens. <<if keywordToken.scoreCount>>Aphrodite said
-                you would need a mirror. <<end>>";
+                "Nothing happens. <<if keywordToken.scoreCount>>(Aphrodite said
+                you would need a mirror.) <<end>>";
         }
     }
 ;
