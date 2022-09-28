@@ -72,7 +72,7 @@ check: $(addprefix logs/,$(addsuffix .out,$(basename $(notdir $(wildcard tests/*
 
 .PRECIOUS: logs/%.out
 logs/%.out: tests/%.in logs pygmentalion.t3 FORCE
-	tail -n 1 $< | grep -qx '>q'
+	tail -n 2 $< | tr -d '\n' | grep -qx '>q>y'
 	frob -S -p -k UTF-8 -i plain -R $< pygmentalion.t3 >$@
 	diff tests/$*.out $@
 
