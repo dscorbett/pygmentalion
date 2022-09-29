@@ -16,5 +16,6 @@
 /logs/
 /obj/
 *.html
+*.pygm
 *.t3
 *.t3s
