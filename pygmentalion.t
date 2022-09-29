@@ -2418,7 +2418,8 @@ DefineLiteralAction(Calculate)
         case '/':
         case 'over':
         case 'divided\\by':
-            opString = '/';
+            local cs = new CharacterSet(getLocalCharSet(CharsetDisplay));
+            opString = cs.isMappable(0x2215) ? '&#x2215;' : '/';
             op = function(a, b) { return a / b; };
             break;
         case '%':
