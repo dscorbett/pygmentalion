@@ -1523,8 +1523,10 @@ export level 'waterLevel';
 ;
 
 ++ sinkWater: Fixture
-    '(sink) water sink puddle/water' 'water' "<<sink.desc>>"
-    disambigName = 'water in the sink'
+    vocabWords = (rexReplace('/', sink.vocabWords, ' ') + ' water')
+    name = 'water'
+    desc = "<<sink.desc>>"
+    disambigName = 'water in <<sink.theName>>'
     hideFromAll(action) { return delegated Component(action); }
     dobjFor(Drink)
     {
@@ -1728,9 +1730,13 @@ portico: OutdoorRoom 'Portico'
     }
 ;
 
-++ basinWater: Fixture '(basin) water basin puddle/water' 'water'
-    "<<basin.desc>>"
-    disambigName = 'water in the basin'
+++ basinWater: Fixture
+    vocabWords = (rexReplace('/', basin.vocabWords, ' ') + ' water')
+    name = 'water'
+    desc = "<<basin.desc>>"
+    getState = nonMirrorState
+    allStates = (basin.allStates)
+    disambigName = 'water in <<basin.theName>>'
     hideFromAll(action) { return delegated Component(action); }
     dobjFor(Drink)
     {
