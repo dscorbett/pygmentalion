@@ -3013,13 +3013,13 @@ modify InstructionsAction
 
 /* Catalog of shipboard directions */
 
-replace grammar directionName(port): (): object;
+replace grammar directionName(port): ' ': object;
 
-replace grammar directionName(starboard): (): object;
+replace grammar directionName(starboard): ' ': object;
 
-replace grammar directionName(aft): (): object;
+replace grammar directionName(aft): ' ': object;
 
-replace grammar directionName(fore): (): object;
+replace grammar directionName(fore): ' ': object;
 
 replace VerbRule(Port) (): object;
 
