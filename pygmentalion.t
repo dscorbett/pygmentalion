@@ -1810,6 +1810,7 @@ nonMirrorState: ThingState
     bulk = 5
     dobjFor(Attack)
     {
+        preCond = (inherited() - touchObj)
         action
         {
             reportFailure('{The dobj/He} effortlessly dodge{s} {your/his}
