@@ -1483,8 +1483,7 @@ export level 'waterLevel';
     <<otherwise if level >= 15000>>It is full of water.
     <<otherwise unless level < 10000>>It is half full of water.
     <<else if level >= 1000>>There is some water in the sink.
-    <<else if level > 0>>A small puddle has formed at the bottom of the sink.
-    <<otherwise unless contents>>It is empty. "
+    <<else if level > 0>>A small puddle has formed at the bottom of the sink. "
     materialWord = 'bronze' 'metal'
     level = not in ([lst]) { return argcount; }
     not = in()
@@ -1699,7 +1698,7 @@ portico: OutdoorRoom 'Portico'
     <<else if level >= 1000>>There is some water in it, but you can still make
     out the mosaic lining the basin.
     <<else if level > 0>>A small puddle has formed at the bottom of the basin.
-    <<else unless contents>>It is empty. "
+    "
     level = 0
     overflowing = nil
     isMirror = (level >= 15000)
