@@ -1894,11 +1894,11 @@ class WaterContainerDescContentsLister: thingDescContentsLister
             local hasEnoughWater = self.hasEnoughWater;
             for (local item in lst)
                 (container.floatingObjects.indexOf(item) != nil
-                    && hasEnoughWater ? floaters : sinkers).append(item);
+                    ? floaters : sinkers).append(item);
             "<.p>";
             for (local subLstWithDesc in [
-                [floaters,
-                '<<highlight 'float'>>ing on the surface of the water'],
+                [floaters, !hasEnoughWater ? nil
+                    : '<<highlight 'float'>>ing on the surface of the water'],
                 [sinkers, 'lodged in the drain']
             ])
             {
@@ -1906,7 +1906,7 @@ class WaterContainerDescContentsLister: thingDescContentsLister
                 local desc = subLstWithDesc[2];
                 if (subLst.length != 0)
                 {
-                    if (hasEnoughWater)
+                    if (desc)
                         "\^";
                     else
                         thingDescContentsLister.showListPrefixWide(
@@ -1914,7 +1914,7 @@ class WaterContainerDescContentsLister: thingDescContentsLister
                     inherited(
                         pov, parent, subLst, options, indent, infoTab,
                         subLst.length, subLst, groups, groupTab, origLst);
-                    if (hasEnoughWater)
+                    if (desc)
                         " <<if subLst.length == 1>>is<<else>>are<<end>>
                         <<desc>>. ";
                     else
