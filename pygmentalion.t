@@ -1209,6 +1209,10 @@ altarRoom: Room 'At the Altar'
             }
         }
     }
+    iobjFor(PutIn)
+    {
+        preCond = (inherited() + (gDobj == bird ? objHeld : []))
+    }
     lookInDesc
     {
         if (!bagMentioned)

@@ -1406,6 +1406,7 @@ The bird darts out of the way.  The net hits the basin without any obvious
 effect, and falls to the ground.
 
 >put bird in it
+(first taking the net)
 You swipe at the bird with the net but it darts out of the way.  It flaps
 noisily out of the portico, through the columns and away towards the west.
 
@@ -1481,7 +1482,7 @@ affixed to the doorpost.
 
 The floor is covered with water.
 
-You see a net here.  The basin contains an idol.
+The basin contains an idol.
 
 >x it
 It is shallow but wide, and lined with tiles.  It used to be a fountain, but it
@@ -2004,8 +2005,6 @@ affixed to the doorpost.
 
 The floor is covered with water.
 
-You see a net here.
-
 >close
 (the door)
 Closed.
@@ -2036,8 +2035,6 @@ south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
 The floor is covered with water.
-
-You see a net here.
 
 >lock door with clean
 (the bronze key)
