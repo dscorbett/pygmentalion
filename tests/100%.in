@@ -1,0 +1,270 @@
+# Copyright 2022 David Corbett
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+>credit
+>xyzzy
+>c 1
+>c 2
+>c 3
+>c 4
+>c 5
+>c 6
+>break me
+>pray
+>pray me
+>pray at god
+>pray to god at god
+>x god
+>x all
+>eat liver
+>x it
+>give god it
+>drink
+>g
+>taste it
+>pour it
+>put it in box
+>x box
+>n
+>scream
+>give me to her
+>hug it
+>undo
+>a it
+>kiss it
+>hit it
+>put chisel on it
+>show her it
+>hit her with it
+>throw chisel at it
+>x bench,gold,idol,it,pearl,plinth,stool,tools
+>get gold,idol,needle,pearl
+>x pearl
+>u
+>e
+>x book
+>w
+>x her
+>se
+>break lock
+>break cage
+>get rod,rod
+>break cage
+>undo
+>g
+>x altar,cage,lock,window,window
+>put gold in cage
+>pray iris
+>pray to altar
+>pray
+>g
+>put idol on it
+>pray
+>g
+>put gold on it
+>pray
+>undo
+>put sea on it
+>pray
+>g
+>put pearl on it
+>pray
+>g
+>get all
+>x key
+>wash it with me
+>nw
+>x her
+>s
+>break door
+>open it
+>g
+>break it
+>unlock
+>s
+>get all
+>x bath,column,door,label,label
+>x iron
+>get it
+>wash it in bath
+>n
+>ne
+>x addon,comb,sink,table,table
+>wash me,iron
+>put keys,idol,needle,sea in sink
+>turn sink on
+>turn it off
+>turn water on
+>c
+>c inverse 0
+>c 3 and 6
+>put sea in sink
+>wash iron in sink
+>x sink
+>c /
+>c 1/0
+>sw
+>s
+>x bath
+>n
+>ne
+>c 1/0
+>c 5%4
+>c not 0
+>c negate 0
+>c 999 plus 2
+>c positive 1000
+>x sink
+>c 1/0
+>sw
+>s
+>x bath
+>n
+>ne
+>c 1/0
+>c 1000 minus 1
+>c 10000 lshr 0
+>x sink
+>c 1/0
+>sw
+>s
+>x bath
+>n
+>ne
+>c 1/0
+>c 15000 lshr 0
+>x sink
+>c 1/0
+>sw
+>s
+>undo
+>e
+>put iron in cage
+>unlock cage with iron
+>put iron in cage
+>l in net
+>undo
+>open cage
+>x net
+>get tools,it
+>x hammers
+>put mallet in net
+>put net in cage
+>hit chisel
+>hit it with me
+>hit it with mallet
+>put net in cage
+>get it,cage
+>put net in cage
+>w
+>s
+>get bird
+>hit it
+>x bath,it
+>n
+>ne
+>c 1/0
+>c 10000 shl 1
+>x sink
+>c 1/0
+>sw
+>s
+>x bath
+>n
+>ne
+>c 1/0
+>c 20000 or 20
+>c 42880/2
+>c 37280 shr 0
+>c 999999999*9
+>undo
+>get needle
+>c 999999999*9
+>x sink
+>turn it on
+>turn it off
+>turn water off
+>x water
+>floor
+>sw
+>x water
+>wash iron with it
+>ne
+>c 1/0
+>sw
+>s
+>x water
+>floor
+>x bath
+>n
+>ne
+>c 1/0
+>c 40*400
+>undo
+>c 555620000 xor 0
+>c 40*400
+>x floor water
+>drink water
+>put keys,iron in sink
+>x addon,idol,keys
+>get idol
+>c 1/0
+>w
+>x her
+>hug it
+>g
+>say a
+>gochnys
+>s
+>u
+>put cage on bed
+>put net in cage
+>get bed
+>get net
+>x it
+>s
+>gochnys
+>throw it at bird
+>put bird in it
+>put idol in bath
+>x it
+>gochnys
+>n
+>ne
+>c 1/0
+>c 2X10001
+>c 1/0
+>sw
+>s
+>x it
+>get idol
+>x water
+>bath
+>drink it
+>about
+>help
+>instru
+>y
+>x me
+>s
+>gochnys
+>u
+>close
+>gochnys
+>u
+>lock door with clean
+>gochnys
+>f
+>q
+>y
