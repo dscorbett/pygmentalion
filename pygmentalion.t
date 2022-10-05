@@ -85,10 +85,10 @@ versionInfo: GameID
         highlighter Pygments.'
     htmlDesc = 'The statue is undeniably a masterpiece: the most skillful
         carving you have ever done, and the most beautiful woman you have ever
-        seen\x2E Unfortunately, she is also an inanimate object, and now you can
-        neither work nor rest for unrequitable love.<p><i>Pygmentalion</i> is a
-        short game originally designed to provide an example file for the syntax
-        highlighter <a href="https://pygments.org/">Pygments</a>.'
+        seen\x2E Unfortunately, she is also an inanimate object, and now you
+        can neither work nor rest for unrequitable love.<p><i>Pygmentalion</i>
+        is a short game originally designed to provide an example file for the
+        syntax highlighter <a href="https://pygments.org/">Pygments</a>.'
     firstPublished = '2014-10-08'
     forgivenessLevel = 'Merciful'
     copyingRules = 'Other; Compilations Allowed'
@@ -101,8 +101,8 @@ versionInfo: GameID
 #endif
     showAbout()
     {
-        "This is a short game originally designed to provide an example file for
-        the syntax highlighter <<if showLinks>><a
+        "This is a short game originally designed to provide an example file
+        for the syntax highlighter <<if showLinks>><a
         href='https://pygments.org/'>Pygments</a><<else>>Pygments
         (https://pygments.org/)<<end>>.\b
         Scattered throughout the game are highlighted words corresponding to
@@ -772,13 +772,13 @@ replace grammar predicate(UnscrewWith): ' ': object;
     decoratorToken.scoreCount || operatorToken.scoreCount ||
     builtinToken.scoreCount || commentToken.scoreCount>>You wonder what she
     <<if labelToken.scoreCount>>is going to<<else if
-    keywordToken.scoreCount>>will<<else>>would<<end>> be like as a living woman.
-    <<if decoratorToken.scoreCount>>Maybe she&rsquo;<<if
+    keywordToken.scoreCount>>will<<else>>would<<end>> be like as a living
+    woman. <<if decoratorToken.scoreCount>>Maybe she&rsquo;<<if
     keywordToken.scoreCount>>ll<<else>>d<<end>> be a painter and expand your
     business. <<end>>
     <<if operatorToken.scoreCount>>Maybe she&rsquo;<<if
-    keywordToken.scoreCount>>ll<<else>>d<<end>> have a head for figures and <<if
-    keywordToken.scoreCount>>will<<else>>would<<end>> put the accounts in
+    keywordToken.scoreCount>>ll<<else>>d<<end>> have a head for figures and
+    <<if keywordToken.scoreCount>>will<<else>>would<<end>> put the accounts in
     order. <<end>>
     <<if builtinToken.scoreCount>>She&rsquo;<<if
     keywordToken.scoreCount>>ll<<else>>d<<end>> love you, obviously, but beyond
@@ -815,8 +815,8 @@ replace grammar predicate(UnscrewWith): ' ': object;
              *      (MS. Douce 195, fol. 149v)
              */
             failCheck('{The dobj/She} {is} as stiff and cold as a post,
-                {you/he} know{s} from experience. It would be more satisfying if
-                {it dobj/she} were alive. Sorry, but it&rsquo;s true. ');
+                {you/he} know{s} from experience. It would be more satisfying
+                if {it dobj/she} were alive. Sorry, but it&rsquo;s true. ');
         }
     }
     dobjFor(Hug)
@@ -1311,8 +1311,9 @@ class Hammer: Thing
     {
         verify
         {
-            illogical('{subj actor}Praying to {the dobj/him} would make the gods
-                jealous. (Praying <em>at</em> the altar would be fine.) ');
+            illogical('{subj actor}Praying to {the dobj/him} would make the
+                gods jealous. (Praying <em>at</em> the altar would be fine.)
+                ');
         }
     }
     dobjFor(PrayAt) remapTo(PrayToAt, aphrodite, DirectObject)
@@ -1359,7 +1360,9 @@ class Deity: Unthing
             if (!gActor.canSee(altar))
                 failCheck('You need an altar to interact with a deity. ');
         }
-        remap = (gActor.canSee(altar) ? [PrayToAtAction, DirectObject, altar] : inherited())
+        remap = (gActor.canSee(altar)
+            ? [PrayToAtAction, DirectObject, altar]
+            : inherited())
     }
     dobjFor(PrayAt) remapTo(PrayTo, DirectObject)
     dobjFor(PrayToAt)
@@ -1427,8 +1430,8 @@ aphrodite: Deity
                 goddess.\b
                 <q>Mortal, I have heard your heart-felt and oft-repeated plea,
                 and I will take pity on you,</q> says {the dobj/she}. <q>If you
-                give me a token of your love as an offering, I will give you the
-                <<highlight 'keyword'>> of life. Speak this word in the
+                give me a token of your love as an offering, I will give you
+                the <<highlight 'keyword'>> of life. Speak this word in the
                 presence of a mirror, and I will grant your request.</q>\b
                 {It dobj/She} fade{s} away, adding, <q>As for her colorful
                 personality, just look around you.</q> <<or>><<stopping>>";
@@ -1481,8 +1484,8 @@ export level 'waterLevel';
     "This is a state-of-the-art mop sink with anti-miasmic coating and bronze
     backsplash. It is so modern, there are no handles or other obvious ways to
     turn it on.
-    <.p><<if overflowing>>The faucet is stuck in the on position and the sink is
-    overflowing.
+    <.p><<if overflowing>>The faucet is stuck in the on position and the sink
+    is overflowing.
     <<else unless level < 19500>>It is full to the brim with water.
     <<otherwise if level >= 15000>>It is full of water.
     <<otherwise unless level < 10000>>It is half full of water.
@@ -2110,13 +2113,14 @@ transient iris: Deity
                         "<br>";
                     else
                     {
-                        "<<one of>>The light coming through the window refracts,
-                        projecting a rainbow onto the blank wall. {Your/His}
-                        vision swims. As {you/he} stare{s} at the rainbow, the
-                        colors shift and coalesce, forming words. <<or>>The
-                        rainbow reappears. {You/He} <<if needToOpen>>start{s}
-                        reading again from the beginning<<else>>continue{s}
-                        reading where {you/he} left off<<end>>. <<stopping>>";
+                        "<<one of>>The light coming through the window
+                        refracts, projecting a rainbow onto the blank wall.
+                        {Your/His} vision swims. As {you/he} stare{s} at the
+                        rainbow, the colors shift and coalesce, forming words.
+                        <<or>>The rainbow reappears. {You/He} <<if
+                        needToOpen>>start{s} reading again from the
+                        beginning<<else>>continue{s} reading where {you/he}
+                        left off<<end>>. <<stopping>>";
                         gTranscript.deactivate();
                         typographicalOutputFilter.deactivate();
                         "<pre>";
@@ -2226,7 +2230,8 @@ transient iris: Deity
                             line,
                             function() {
                                 local tags = tagStyles[rexGroup(1)[3]];
-                                return concat(tags[1], rexGroup(2)[3], tags[2]);
+                                return concat(
+                                    tags[1], rexGroup(2)[3], tags[2]);
                             },
                         );
 #ifndef TADS_INCLUDE_NET
@@ -2334,12 +2339,12 @@ transient iris: Deity
                     gTranscript.activate();
                 }
                 if (line)
-                    "<<first time>>\b<.notification>Continue to <<aHref('pray to
-                    Iris', 'PRAY TO IRIS')>> to see the next page of
+                    "<<first time>>\b<.notification>Continue to <<aHref('pray
+                    to Iris', 'PRAY TO IRIS')>> to see the next page of
                     text.<./notification><<only>>";
                 else
-                    "<<first time>>\b<.notification><<aHref('pray to Iris', 'PRAY
-                    TO IRIS')>> again to restart at the
+                    "<<first time>>\b<.notification><<aHref('pray to Iris',
+                    'PRAY TO IRIS')>> again to restart at the
                     beginning.<./notification><<only>>";
             } finally {
                 if (file && line == nil)
@@ -2362,12 +2367,12 @@ DefineLiteralAction(Calculate)
         if (defined(calculator) && !gActor.canTouch(calculator))
         {
             { gActor.failCheck('{You/He} {can\'t} do that kind of math in
-                {your} head. <<one of>>{You\'re} not Pythagoras! <<or>>{You\'re}
-                not Euclid. <<or>>{You\'re} not Aristotle. <<or>>{You\'re} not
-                Eratosthenes. <<or>><<or>>(Further attempts to calculate
-                mentally won&rsquo;t elicit any more references to famous
-                mathematicians. {You/He} {have} reached the end of {your} list:
-                {you\'re} not Zeno.) <<or>><<stopping>>'); }
+                {your} head. <<one of>>{You\'re} not Pythagoras!
+                <<or>>{You\'re} not Euclid. <<or>>{You\'re} not Aristotle.
+                <<or>>{You\'re} not Eratosthenes. <<or>><<or>>(Further attempts
+                to calculate mentally won&rsquo;t elicit any more references to
+                famous mathematicians. {You/He} {have} reached the end of
+                {your} list: {you\'re} not Zeno.) <<or>><<stopping>>'); }
         }
     }
     execAction()
@@ -2489,9 +2494,9 @@ DefineLiteralAction(Calculate)
             sink.current.setLevel(level: result);
             "<<calculator.screen()>>
             <<if sink.current == basin>>
-                <<if oldOverflowing || basin.level != oldLevel>>{You/He} hear{s}
-                water flowing through distant pipes, but nothing comes out the
-                faucet.
+                <<if oldOverflowing || basin.level != oldLevel>>{You/He}
+                hear{s} water flowing through distant pipes, but nothing comes
+                out the faucet.
                 <<else if result < 0>>The pipes rattle.
                 <<end>>
             <<else if sink.level == oldLevel && result <= oldLevel
@@ -2508,7 +2513,8 @@ DefineLiteralAction(Calculate)
                     <<else>>The puddle at the bottom of the sink shrinks
                     slightly.
                     <<end>>
-                <<else>>Water drains from the sink, leaving only a small puddle.
+                <<else>>Water drains from the sink, leaving only a small
+                puddle.
                 <<end>>
             <<else if sink.level
               < (oldOverflowing ? 20000 : oldLevel)
@@ -2517,8 +2523,8 @@ DefineLiteralAction(Calculate)
             <<else if sink.level < (oldOverflowing ? 20000 : oldLevel)>><<if
               oldOverflowing>>The faucet shuts off and \v<<end>>The water level
               in the sink goes down slightly.
-            <<else if oldOverflowing>>The faucet shuts off. Water stops spilling
-                over the edge of the sink.
+            <<else if oldOverflowing>>The faucet shuts off. Water stops
+            spilling over the edge of the sink.
             <<else>>
                 Water flows
                 <<if oldLevel >= result - 0x7D0>>briefly <<end>>
@@ -2527,15 +2533,15 @@ DefineLiteralAction(Calculate)
                 the sink<<end>>.
                 <<if sink.level <= result - 5.556e8>>Enough water to fill an
                 Olympic-size swimming pool pours down the overflow hole.
-                <<first time>>The hole is small, so it takes quite a <<highlight
-                'long'>> time before all the excess disappears and the faucet
-                shuts off. <<only>>
-                <<else if sink.level <= result - 17280>>Metretes of excess water
-                pour wastefully down the overflow hole.
+                <<first time>>The hole is small, so it takes quite a
+                <<highlight 'long'>> time before all the excess disappears and
+                the faucet shuts off. <<only>>
+                <<else if sink.level <= result - 17280>>Metretes of excess
+                water pour wastefully down the overflow hole.
                 <<else if sink.level <= result - 1440>>Choes of excess water
                 pour wastefully down the overflow hole.
-                <<else if sink.level <= result - 20>>The excess water pours down
-                the overflow hole.
+                <<else if sink.level <= result - 20>>The excess water pours
+                down the overflow hole.
                 <<else if sink.level < result>>Some excess water trickles down
                 the overflow hole.
             ";
@@ -2543,7 +2549,8 @@ DefineLiteralAction(Calculate)
         catch (is in)
         {
             calculator.literalMatch = literalMatch.getVal();
-            if (calculator.literalMatch == nil || calculator.literalMatch.length() == 0)
+            if (calculator.literalMatch == nil
+                || calculator.literalMatch.length() == 0)
                 calculator.literalMatch = literalMatch;
             calculator.setMethod(&screen, &wrongContextMsg);
             "<<calculator.screen()>>";
@@ -2564,9 +2571,9 @@ DefineLiteralAction(Calculate)
                   sink.overflowing>>The faucet shuts off and \v<<end>>The water
                 in the sink is sucked down the drain.
                 <<else if basin.level > 0 || basin.overflowing>>Water comes up
-                from the drain<<if basin.overflowing>> and spills over the edges
-                of the sink<<else if basin.level >= 15000>> and begins to fill
-                the sink<<end>>.
+                from the drain<<if basin.overflowing>> and spills over the
+                edges of the sink<<else if basin.level >= 15000>> and begins to
+                fill the sink<<end>>.
                 <<else>>The sink gurgles and the pipes rattle. ";
                 sink.current = sink.current == sink ? basin : sink;
                 local _tmp = sink.level;
@@ -2604,7 +2611,8 @@ DefineLiteralAction(Calculate)
     }
 ;
 
-#define miscTokenListFirstToken (tokPunct -> txt_ | tokWord -> txt_ | tokOp -> txt_ | tokString -> txt_ | tokInt -> txt_)
+#define miscTokenListFirstToken (tokPunct -> txt_ | tokWord -> txt_ \
+    | tokOp -> txt_ | tokString -> txt_ | tokInt -> txt_)
 
 grammar miscToken:
     miscTokenListFirstToken
@@ -2635,7 +2643,8 @@ VerbRule(Calculate)
     CalculateVerbList (()|(singleNumber|))
     (tokOp->literalMatch | '!'->literalMatch | 'x'->literalMatch)
     numberPhrase -> numMatch2
-    | [badness 400] CalculateVerbList miscToken tokOp -> literalMatch miscTokenList
+    | [badness 400]
+    CalculateVerbList miscToken tokOp -> literalMatch miscTokenList
     | [badness 500] CalculateVerbList miscToken -> literalMatch miscTokenList
     : CalculateAction
     verbPhrase = 'calculate/calculating (what) (how) (what)'
@@ -2773,8 +2782,8 @@ modify Thing
     {
         verify
         {
-            illogical('{subj actor}Praying to {the dobj/him} would make the gods
-                jealous. ');
+            illogical('{subj actor}Praying to {the dobj/him} would make the
+                gods jealous. ');
         }
     }
 ;
@@ -2812,8 +2821,8 @@ modify Thing
     dobjFor(PrayToAt)
     {
         verify {
-            illogical('{subj actor}Praying to {the dobj/him} would make the gods
-                jealous. ');
+            illogical('{subj actor}Praying to {the dobj/him} would make the
+                gods jealous. ');
         }
     }
     iobjFor(PrayToAt)
@@ -3082,7 +3091,7 @@ DefineLiteralAction(Say)
                      */
                     "The air above the basin shimmers for a moment. You hear
                     <<if door.isOpen()>>footsteps<<else>>the door <<if
-                    door.isLocked()>>being unlocked<<else>>opening<<end>><<end>>
+                    door.isLocked>>being unlocked<<else>>opening<<end>><<end>>
                     behind you. Turning around, you see a
                     woman who looks remarkably like your statue.\b
                     <q>Hello, world,</q> she says. <q>It&rsquo;s nice to be

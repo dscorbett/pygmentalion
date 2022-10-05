@@ -68,13 +68,17 @@ clean:
 	$(RM) -r pygmentalion.t3 pygmentalion-web.t3 pygmentalion.t.pygm logs obj
 
 .PHONY: check
-check: $(addprefix logs/,$(addsuffix .out,$(basename $(notdir $(wildcard tests/*.in)))))
+check: $(addprefix logs/,$(addsuffix .out,$(basename $(notdir $(wildcard tests/*.in))))) check-line-length
 
 .PRECIOUS: logs/%.out
 logs/%.out: tests/%.in logs pygmentalion.t3 FORCE
 	tail -n 2 $< | tr '\n' ' ' | grep -qx '>q >y '
 	frob -S -p -k UTF-8 -i plain -R $< pygmentalion.t3 >$@
 	diff tests/$*.out $@
+
+.PHONY: check-line-length
+check-line-length:
+	! grep -v '^ *\*   [^ ]*$$' pygmentalion.t | grep -q '^.\{80\}'
 
 .PHONY: FORCE
 FORCE:
