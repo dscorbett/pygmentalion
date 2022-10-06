@@ -1838,6 +1838,18 @@ nonMirrorState: ThingState
                 replaceAction(ThrowAt, gDobj, location);
         }
     }
+    dobjFor(Clean)
+    {
+        preCond = (inherited() - (bird.canSee(basin) ? touchObj: []))
+        check
+        {
+            if (bird.canSee(basin))
+                failCheck('{The dobj/He} {does} not need {your} help using the
+                    birdbath. ');
+            else
+                inherited();
+        }
+    }
     dobjFor(Take)
     {
         action
@@ -1864,7 +1876,7 @@ modify touchObj
     checkPreCondition(obj, allowImplicit)
     {
         local ret = inherited(obj, allowImplicit);
-        if (obj == bird && !gActionIs(Take))
+        if (allowImplicit && obj == bird && !gActionIs(Take))
         {
             tryImplicitAction(Take, obj);
             exit;
@@ -2688,15 +2700,12 @@ modify Thing
             if (getState() == cleanState)
                 illogicalAlready('{The dobj/He} {is} already clean. ');
             else if (getState() == grimyState)
-                logical;
-            else
-            {
-                local msg = '{The dobj/He} {does} not need cleaning. ';
-                if (allStates.indexOf(grimyState) != nil)
-                    illogicalNow(msg);
-                else
-                    illogical(msg);
-            }
+                logicalRank(150, 'grimy');
+        }
+        check
+        {
+            if (getState() != grimyState)
+                failCheck('{The dobj/He} {does} not need cleaning. ');
         }
         action {
             if (sinkWater.canBeTouchedBy(gActor))
@@ -2709,6 +2718,7 @@ modify Thing
     dobjFor(CleanWith)
     {
         verify { return inherited Thing.verifyDobjClean(); }
+        check { return inherited Thing.checkDobjClean(); }
     }
     iobjFor(CleanWith)
     {

@@ -1015,6 +1015,9 @@ The bird hops out of arm’s reach.
 >hit it
 The bird effortlessly dodges your attack.
 
+>wash it
+The bird does not need your help using the birdbath.
+
 >x bath,it
 basin: It is shallow but wide, and lined with tiles.  It used to be a fountain,
 but it stopped working after they installed the new sink.  Something to do with
@@ -1189,6 +1192,7 @@ You see a camp bed and an end table (on which are a coin box and a plate) here.
 The water on the floor is trickling into the wall.
 
 >wash iron with it
+(the iron key)
 The water on the ground is too dirty.
 
 >ne
@@ -1990,7 +1994,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 221 moves, you have scored 15 of a possible 15 points.
+In 222 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2021,7 +2025,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 222 moves, you have scored 15 of a possible 15 points.
+In 223 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2052,13 +2056,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 223 moves, you have scored 15 of a possible 15 points.
+In 224 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 223 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 224 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]
