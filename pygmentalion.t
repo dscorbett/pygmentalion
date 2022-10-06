@@ -540,13 +540,12 @@ entrance: Room 'Studio Entrance'
             failCheck('{You/He} {can} only put coins in the coin box. ');
         }
     }
+    lookInDesc_ = 'empty. Maybe next time {you/he} check{s}, {it dobj/he} will
+        contain a coin. {You/He} can only hope'
+    lookInDesc = "\^<<itIsContraction>> <<lookInDesc_>>. "
     openStatus
     {
-        if (isOpen)
-            return '<<inherited>> and empty. Maybe next time you check, it will
-                contain a coin. You can only hope';
-        else
-            return inherited;
+        return isOpen ? '<<inherited>> and <<lookInDesc_>>' : inherited;
     }
 ;
 

@@ -118,6 +118,10 @@ A small round box in which you keep your coins, when you have any.  It’s open
 and empty.  Maybe next time you check, it will contain a coin.  You can only
 hope.
 
+>l in it
+It’s empty.  Maybe next time you check, it will contain a coin.  You can only
+hope.
+
 >n
 At the Workbench
 This workbench, in the northwest part of the studio, was where you would create
@@ -1994,7 +1998,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 222 moves, you have scored 15 of a possible 15 points.
+In 223 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2025,7 +2029,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 223 moves, you have scored 15 of a possible 15 points.
+In 224 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2056,13 +2060,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 224 moves, you have scored 15 of a possible 15 points.
+In 225 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 224 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 225 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]
