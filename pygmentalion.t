@@ -635,8 +635,8 @@ plate: Thing 'plate' 'plate'
     bulk = 5
 ;
 
-key: PresentLater, Key '(door) clean grimy key/tool*keys tools' 'bronze key'
-    @altar
+key: PresentLater, Key
+    '(door) clean grime grimy key/tool*keys tools' 'bronze key' @altar
     "It is a <<unless clean>>grimy<<end>> bronze key. <<if clean>>On it is \
     etched the word <q><<keyword>></q>. "
     materialWord = 'bronze' 'metal'
@@ -655,7 +655,7 @@ key: PresentLater, Key '(door) clean grimy key/tool*keys tools' 'bronze key'
 ;
 
 grimyState: ThingState
-    stateTokens = ['grimy']
+    stateTokens = ['grime', 'grimy']
 ;
 
 cleanState: ThingState
@@ -1769,8 +1769,11 @@ mirrorState: ThingState
 nonMirrorState: ThingState
 ;
 
-++ cageKey: Hidden, Key '(cage) clean grimy key/tool*keys tools' 'iron key'
-    "It is <<aNameFrom('<<unless clean>>grimy <<end>>iron')>> key. "
+++ cageKey: Hidden, Key
+    '(cage) clean grime grimy key/tool*keys tools' 'iron key'
+    "It is <<aNameFrom('<<unless clean || moved>>grimy <<end>>iron')>> key.
+    <<if moved && !clean>>It is covered in grime from the drain of
+    <<basin.theName>>. "
     materialWord = 'iron' 'metal'
     clean = nil
     getState = (clean ? cleanState : grimyState)

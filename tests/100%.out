@@ -604,11 +604,14 @@ calculator.  The rest of the studio is south and west.
 
 On the side table are a manual and a comb.
 
->x addon,comb,sink,table,table
+>x addon,comb,iron,sink,table,table
 calculator: The calculator is [[built in]]to the wall beside the sink.  It has
 buttons for all the standard unary and binary operations.
 
 comb: A tool to keep your hair tidy.
+
+iron key: It is an iron key.  It is covered in grime from the drain of the
+basin.
 
 sink: This is a state-of-the-art mop sink with anti-miasmic coating and bronze
 backsplash.  It is so modern, there are no handles or other obvious ways to
