@@ -2728,8 +2728,14 @@ modify Thing
         verify
         {
             if (gDobj == chisel)
-                illogical('{The iobj/He} {is} not a suitable tool for striking
-                    {a dobj/him} with. ');
+            {
+                if (gIobj == chisel)
+                    illogicalSelf('{You/he} {can\'t} strike {the dobj/him} with
+                        {itself}. ');
+                else
+                    illogical('{The iobj/He} {is} not a suitable tool for
+                        striking {a dobj/him} with. ');
+            }
             else
                 inherited();
         }

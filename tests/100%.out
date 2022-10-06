@@ -977,6 +977,9 @@ The bulky mallet in the bag prevents putting it in.
 >hit chisel
 You aren’t in the mood for carving anything.
 
+>hit it with it
+You can’t strike the chisel with itself.
+
 >hit it with me
 You are not a suitable tool for striking a chisel with.
 
@@ -1998,7 +2001,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 223 moves, you have scored 15 of a possible 15 points.
+In 224 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2029,7 +2032,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 224 moves, you have scored 15 of a possible 15 points.
+In 225 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2060,13 +2063,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 225 moves, you have scored 15 of a possible 15 points.
+In 226 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 225 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 226 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]
