@@ -874,6 +874,23 @@ needle.
 The calculator outputs ERROR {division by zero}.  Water comes up from the
 drain.
 
+>c 999999999*9
+The calculator outputs ERROR {numeric overflow}.  High-pressure water gushes
+from the faucet, filling the sink, overwhelming the overflow hole, and spilling
+over the edge.  Rivulets begin running down the slight gradient of the floor.
+The idol and the needle get washed away onto the floor.
+
+>undo
+Taking back one turn: “c 999999999 * 9”.
+
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+On the side table are a manual and a comb.  The sink contains an idol and a
+needle.
+
 >c 15000 lshr 0
 The calculator outputs 15000 >>> 0 = 15000.  Water flows from the faucet,
 filling the sink.
@@ -1141,23 +1158,6 @@ Choes of excess water pour wastefully down the overflow hole.
 >c 37280 shr 0
 The calculator outputs 37280 >> 0 = 37280.  Water flows from the faucet.
 Metretes of excess water pour wastefully down the overflow hole.
-
->c 999999999*9
-The calculator outputs ERROR {numeric overflow}.  High-pressure water gushes
-from the faucet, overwhelming the overflow hole and spilling over the edge of
-the sink.  Rivulets begin running down the slight gradient of the floor.  The
-idol and the needle get washed away onto the floor.
-
->undo
-Taking back one turn: “c 999999999 * 9”.
-
-Washroom
-Sculpting is a dusty business.  You use this sink to clean off after a hard
-day’s work.  Beside the sink is a small side table, and on the wall is a
-calculator.  The rest of the studio is south and west.
-
-On the side table are a manual and a comb.  The sink contains an idol and a
-needle.
 
 >get needle
 Taken.
