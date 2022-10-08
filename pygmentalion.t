@@ -72,6 +72,7 @@ object /**//**/ // /* \\
 versionInfo: GameID
     IFID = '17D8EFC3-07DA-4DDE-A837-FF7C4E386A77'
     name = 'Pygmentalion'
+    headline = 'An Interactive Romance'
     byline = 'by David Corbett'
     htmlByline = 'by <a href="mailto:corbett.dav\100northeastern.edu">David
         Corbett</a>'
