@@ -14,7 +14,7 @@
 
 /GameInfo.txt
 /logs/
-/obj/
+/obj-*/
 *.html
 *.pygm
 *.t3

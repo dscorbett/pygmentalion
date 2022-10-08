@@ -15,7 +15,8 @@
 -D LANGUAGE=en_us
 -D MESSAGESTYLE=neu
 -D TADS_INCLUDE_NET
--Fy obj -Fo obj
+-Fy obj-pygmentalion-web
+-Fo obj-pygmentalion-web
 -o pygmentalion-web.t3
 -lib system
 -lib adv3/adv3web

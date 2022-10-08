@@ -56,10 +56,10 @@ play-web: pygmentalion-web.t3
 play-xtads: pygmentalion.t3
 	open -a XTads -n --args "$$(pwd)"/$<
 
-%.t3: pygmentalion.t.pygm pygmentalion.t %.t3m obj
+%.t3: pygmentalion.t.pygm pygmentalion.t %.t3m obj-%
 	t3make -a -f $* -res GameInfo.txt arrheta.txt $<
 
-logs obj:
+logs obj-pygmentalion obj-pygmentalion-web:
 	mkdir $@
 
 %.pygm: %
@@ -70,7 +70,7 @@ logs obj:
 
 .PHONY: clean
 clean:
-	$(RM) -r pygmentalion.t3 pygmentalion-web.t3 pygmentalion.t.pygm logs obj
+	$(RM) -r pygmentalion.t3 pygmentalion-web.t3 pygmentalion.t.pygm logs obj-pygmentalion obj-pygmentalion-web
 
 .PHONY: check
 check: $(addprefix logs/,$(addsuffix .out,$(basename $(notdir $(wildcard tests/*.in))))) check-line-length
