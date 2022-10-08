@@ -92,6 +92,7 @@ versionInfo: GameID
         syntax highlighter <a href="https://pygments.org/">Pygments</a>.'
     firstPublished = '2014-10-08'
     forgivenessLevel = 'Merciful'
+    gameUrl = 'http://github.com/dscorbett/pygmentalion'
     copyingRules = 'Other; Compilations Allowed'
     presentationProfile = 'Multimedia'
     showLinks =
