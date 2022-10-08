@@ -13,6 +13,7 @@
 # limitations under the License.
 
 OPEN := open
+PARCHMENT ?= ../parchment.html
 
 .PHONY: all
 all: pygmentalion.t3 pygmentalion-web.t3
@@ -30,6 +31,10 @@ play-curses: pygmentalion.t3
 .PHONY: play-lectrote
 play-lectrote: pygmentalion.t3
 	open -a Lectrote $<
+
+.PHONY: play-parchment
+play-parchment: pygmentalion.t3
+	"$(OPEN)" "$(PARCHMENT)"
 
 .PHONY: play-plain
 play-plain: pygmentalion.t3
