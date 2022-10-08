@@ -78,18 +78,17 @@ versionInfo: GameID
         Corbett</a>'
     version = '1.1.0'
     authorEmail = 'David Corbett\040<corbett.dav\x40northeastern.edu>'
-    desc = 'The statue is undeniably a masterpiece: the most skillful carving
-        you have ever done, and the most beautiful woman you have ever seen\x2e
-        Unfortunately, she is also an inanimate object, and now you can neither
-        work nor rest for unrequitable love.\\nPygmentalion is a short game
-        originally designed to provide an example file for the syntax
-        highlighter Pygments.'
-    htmlDesc = 'The statue is undeniably a masterpiece: the most skillful
-        carving you have ever done, and the most beautiful woman you have ever
-        seen\x2E Unfortunately, she is also an inanimate object, and now you
-        can neither work nor rest for unrequitable love.<p><i>Pygmentalion</i>
-        is a short game originally designed to provide an example file for the
-        syntax highlighter <a href="https://pygments.org/">Pygments</a>.'
+    desc = 'Colors gleam and fade as her wardrobe runs the gamut, but she
+        remains pale and lifeless. Though she is a statue carved by your own
+        hand, you love her more than anything. If only she could live and love
+        you too.\\nPygmentalion is a short game originally designed to provide
+        an example file for the syntax highlighter Pygments.'
+    htmlDesc = 'Colors gleam and fade as her wardrobe runs the gamut, but she
+        remains pale and lifeless. Though she is a statue carved by your own
+        hand, you love her more than anything. If only she could live and love
+        you too.<p><i>Pygmentalion</i> is a short game originally designed to
+        provide an example file for the syntax highlighter <a
+        href="https://pygments.org/">Pygments</a>.'
     firstPublished = '2014-10-08'
     forgivenessLevel = 'Merciful'
     gameUrl = 'http://github.com/dscorbett/pygmentalion'
@@ -243,12 +242,15 @@ gameMain: GameMainDef
     }
     showIntro
     {
-        "The statue is undeniably a masterpiece: the most skillful carving you
-        have ever done, and the most beautiful woman you have ever seen.
-        Unfortunately, she is also an inanimate object, and now you can neither
-        work nor rest for unrequitable love.\b
-        Once again you awake in your studio, hoping and praying to find your
-        statue brought to life.\b
+        "Ivory&mdash; Horn&mdash; Ivory&mdash; You push on the gates separating
+        you from your beloved, but they do not budge.
+        <.p>Darkness&mdash; Light&mdash; Darkness&mdash; Colors gleam and fade
+        as her wardrobe runs the gamut, but she remains pale and lifeless.
+        Though she is a statue carved by your own hand, you love her more than
+        anything. If only she could live and love you too.
+        <.p>You pound again on the ivory gate, and as you do&mdash;
+        <.p>You awake in your studio. Perhaps this is the day your prayers will
+        be answered.\b
         <b><<versionInfo.name>></b>\n
         Copyright 2014, 2022 <<versionInfo.byline>>\n
         Version <<versionInfo.version>>\b
