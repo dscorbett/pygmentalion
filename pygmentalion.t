@@ -395,8 +395,8 @@ class Token: Achievement, InitObject
                 // If banners are not supported, assume this is plain mode,
                 // which falsely claims that `systemInfo(SysInfoTextColors) ==
                 // SysInfoTxcAnsiFgBg`.
-                before_ = '[[';
-                after_ = ']]';
+                before_ = '<b>[[';
+                after_ = ']]</b>';
             }
         }
     }
