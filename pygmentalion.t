@@ -2932,6 +2932,10 @@ modify LockableWithKey
     }
 ;
 
+modify NonPortable
+    dobjFor(Examine) { verify { inherited Thing; } }
+;
+
 modify Thing
     aNameObjShort = (aNameObj)
     dobjFor(GiveTo)
