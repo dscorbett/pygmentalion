@@ -242,6 +242,18 @@ gameMain: GameMainDef
     }
     showIntro
     {
+        /*
+         *   Bıen le cuıẟay lācer de bout.
+         *   Maıs ıl reſſoꝛt ⁊ ıe rebout.
+         *   Ce rıēs ny vault touſıoᷣˢ recule.
+         *   Ny pot entrer poᷣ choſe nulle.
+         *   [...]
+         *   Troys foız hurta.iij.foız faıllıt.
+         *   Troys foız a ſa poꝛte aſſaıllıt.
+         *   Troys foız ſaſſıſt en la vallee.
+         *   Tout las poᷣ pꝛenꝺꝛe allenee.
+         *      (MS. Douce 195, fol. 155r)
+         */
         "Ivory&mdash; Horn&mdash; Ivory&mdash; You push on the gates separating
         you from your beloved, but they do not budge.
         <.p>Darkness&mdash; Light&mdash; Darkness&mdash; Colors gleam and fade
