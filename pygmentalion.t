@@ -3038,7 +3038,7 @@ DefineSystemAction(Help)
         read is your first puzzle. Congratulations on making it this far!
         Otherwise, most puzzles involve going to various locations and using
         various objects. Some objects have side effects &ndash; for example,
-        the rod scares the bird.
+        the pole scares the bird.
         <.p>For a much more verbose introduction to interactive fiction, not
         written for <<iOrQ(versionInfo.name)>> but part of the TADS 3 standard
         library, type <<aHref('instructions', 'INSTRUCTIONS')>>.<./parser>";
