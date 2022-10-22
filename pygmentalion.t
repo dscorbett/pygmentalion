@@ -1828,11 +1828,17 @@ nonMirrorState: ThingState
             <<location.theName>>. ";
         inherited(traveler, connector);
     }
-    specialDesc = "<<if gActionIn(Travel, TravelVia) ?
+    afterAction()
+    {
+        if (gActionIs(Wait))
+            extraReport('<.p><<specialDesc_>>');
+    }
+    specialDesc_ = '<<if gActionIn(Travel, TravelVia) ?
         !showAfterTravelMessage(gActor) : rand(2) == 0>>\^<<theName>> <<one
         of>>preens itself<<or>>flutters around <<location.theName>><<or>>drinks
         from <<location.theName>><<or>>ruffles its feathers in
-        <<location.theName>><<or>>coos<<at random>>. "
+        <<location.theName>><<or>>coos<<at random>>. '
+    specialDesc = "<<specialDesc_>>"
     specialDescBeforeContents = true
     bulk = 5
     dobjFor(Attack)
