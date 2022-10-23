@@ -19,12 +19,6 @@ PARCHMENT ?= ../parchment.html
 .PHONY: all
 all: pygmentalion.t3 pygmentalion-web.t3
 
-.PHONY: cli
-cli: pygmentalion.t3
-
-.PHONY: web
-web: pygmentalion-web.t3
-
 .PHONY: play-curses
 play-curses: pygmentalion.t3
 	frob -p -i curses $<
