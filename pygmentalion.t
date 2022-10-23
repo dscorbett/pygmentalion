@@ -111,12 +111,10 @@ versionInfo: GameID
     }
     showCredit() {
         "Credit goes to Pygments for providing the excuse to write this game.
-        The story was loosely inspired by a section of <<iOrQ('Le Roman de la
-        Rose')>>, quotations from which are transcribed from
-        <<externalLink('https://digital.bodleian.ox.ac.uk/objects/<<
-        >>bb971cd2-a682-45e5-866f-31ce76482afe/', 'MS. Douce 195')>>. The cover
-        art is a modification of an image of MS. Douce 195, copyright 2019
-        Bodleian Libraries, University of Oxford. ";
+        The story was loosely inspired by a section of <<externalLink(
+        'https://digital.bodleian.ox.ac.uk/objects/bb971cd2-a682-45e5-866f-<<
+        >>31ce76482afe/', iOrQ('Le Roman de la Rose'))>>. For license and
+        copyright information, type <<aHref('license', 'LICENSE')>>. ";
     }
 ;
 
@@ -2953,6 +2951,36 @@ VerbRule(Hug)
 ;
 
 DefineTAction(Hug);
+
+VerbRule(License)
+    'copyright' | 'license'
+    : LicenseAction
+    verbPhrase = 'show/showing license information'
+;
+
+DefineSystemAction(License)
+    execSystemAction
+    {
+        "Copyright 2014, 2022 David Corbett
+        <.p>Licensed under the Apache License, Version 2.0 (the \"License\");
+        you may not use this file except in compliance with the License. You
+        may obtain a copy of the License at
+        <.p>\t<a href='http://www.apache.org/licenses/LICENSE-2.0'
+        target=_blank>http://www.apache.org/licenses/LICENSE-2.0</a>
+        <.p>Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an \"AS IS\" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+        implied. See the License for the specific language governing
+        permissions and limitations under the License.
+        <.p>The cover art is a modification of an image of <<externalLink(
+        'https://digital.bodleian.ox.ac.uk/objects/bb971cd2-a682-45e5-866f-<<
+        >>31ce76482afe/', 'Bodleian Library MS. Douce 195')>>, copyright 2019
+        Bodleian Libraries, University of Oxford, licensed under <<externalLink
+        ('https://creativecommons.org/licenses/by-nc/4.0/legalcode', 'the
+        Creative Commons Attribution-NonCommercial 4.0 International Public
+        License')>>. ";
+    }
+;
 
 modify VerbRule(PutIn)
     ('place' | 'put' | 'set') dobjList
