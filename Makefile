@@ -64,11 +64,11 @@ play-xtads: pygmentalion.t3
 	>$@
 
 .system/CoverArt.png.unopt: .system
-	convert CoverArt.png \
+	convert assets/CoverArt.png \
 		-define png:exclude-chunk=date,tIME \
-		-background '#ece4cd' -fill '#822329' -font UnifrakturMaguntia -pointsize 240 label:Pygmentalion \
+		-background '#ece4cd' -fill '#822329' -font @assets/UnifrakturMaguntia.ttf -pointsize 240 label:Pygmentalion \
 		-gravity Center -smush 24 \
-		-fill '#346d9b' -font Iosevka-Bold-Italic -pointsize 90 label:'/* David Corbett */ ' \
+		-fill '#346d9b' -font @assets/iosevka-bolditalic.ttf -pointsize 90 label:'/* David Corbett */ ' \
 		-gravity East -smush -48 \
 		-resize $(COVER_ART_DIMENSIONS) -extent $(COVER_ART_DIMENSIONS) \
 		$@
