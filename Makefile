@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+COVER_ART_DIMENSIONS := 960x960
 OPEN := open
 PARCHMENT ?= ../parchment.html
 
@@ -56,10 +57,10 @@ play-web: pygmentalion-web.t3
 play-xtads: pygmentalion.t3
 	open -a XTads -n --args "$$(pwd)"/$<
 
-%.t3: pygmentalion.t.pygm pygmentalion.t %.t3m obj-%
-	t3make -a -f $* -res GameInfo.txt arrheta.txt $<
+%.t3: .system/CoverArt.png pygmentalion.t.pygm pygmentalion.t %.t3m obj-%
+	t3make -a -f $* -res .system/CoverArt.png GameInfo.txt arrheta.txt pygmentalion.t.pygm
 
-logs obj-pygmentalion obj-pygmentalion-web:
+.system logs obj-pygmentalion obj-pygmentalion-web:
 	mkdir $@
 
 %.pygm: %
@@ -68,18 +69,35 @@ logs obj-pygmentalion obj-pygmentalion-web:
 	| sed 's/<span class="\([^"]*\)">/<\1>/g; s:</span>:<>:g' \
 	>$@
 
+.system/CoverArt.png.unopt: .system
+	convert CoverArt.png \
+		-define png:exclude-chunk=date,tIME \
+		-background '#ece4cd' -fill '#822329' -font UnifrakturMaguntia -pointsize 240 label:Pygmentalion \
+		-gravity Center -smush 24 \
+		-fill '#346d9b' -font Iosevka-Bold-Italic -pointsize 90 label:'/* David Corbett */ ' \
+		-gravity East -smush -48 \
+		-resize $(COVER_ART_DIMENSIONS) -extent $(COVER_ART_DIMENSIONS) \
+		$@
+
+.system/CoverArt.png: .system/CoverArt.png.unopt
+	pngcrush $< $@
+
 .PHONY: clean
 clean:
-	$(RM) -r pygmentalion.t3 pygmentalion-web.t3 pygmentalion.t.pygm logs obj-pygmentalion obj-pygmentalion-web
+	$(RM) -r .system pygmentalion.t3 pygmentalion-web.t3 pygmentalion.t.pygm logs obj-pygmentalion obj-pygmentalion-web
 
 .PHONY: check
-check: $(addprefix logs/,$(addsuffix .out,$(basename $(notdir $(wildcard tests/*.in))))) check-line-length
+check: $(addprefix logs/,$(addsuffix .out,$(basename $(notdir $(wildcard tests/*.in))))) check-cover-art check-line-length
 
 .PRECIOUS: logs/%.out
 logs/%.out: tests/%.in logs pygmentalion.t3 FORCE
 	tail -n 2 $< | tr '\n' ' ' | grep -qx '>q >y '
 	frob -S -p -k UTF-8 -i plain -R $< pygmentalion.t3 >$@
 	diff tests/$*.out $@
+
+.PHONY: check-cover-art
+check-cover-art: .system/CoverArt.png
+	test "$$(identify -ping -format %wx%h $<)" = $(COVER_ART_DIMENSIONS)
 
 .PHONY: check-line-length
 check-line-length:

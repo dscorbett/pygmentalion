@@ -94,18 +94,11 @@ versionInfo: GameID
     gameUrl = 'http://github.com/dscorbett/pygmentalion'
     copyingRules = 'Other; Compilations Allowed'
     presentationProfile = 'Multimedia'
-    showLinks =
-#ifdef TADS_INCLUDE_NET
-            true
-#else
-            systemInfo(SysInfoLinksHttp) == 1
-#endif
     showAbout()
     {
         "This is a short game originally designed to provide an example file
-        for the syntax highlighter <<if showLinks>><a
-        href='https://pygments.org/'>Pygments</a><<else>>Pygments
-        (https://pygments.org/)<<end>>.\b
+        for the syntax highlighter <<externalLink('https://pygments.org/',
+        'Pygments')>>.\b
         Scattered throughout the game are highlighted words corresponding to
         syntactic token types. Finding them increases your score but is not
         necessary to beat the game. Some are easy to find, but these are the
@@ -118,10 +111,12 @@ versionInfo: GameID
     }
     showCredit() {
         "Credit goes to Pygments for providing the excuse to write this game.
-        The story was loosely inspired by a section of <a
-        href=https://digital.bodleian.ox.ac.uk/objects/bb971cd2-a682-45e5-<<
-        >>866f-31ce76482afe/ target=_blank><<iOrQ('Le Roman de la
-        Rose')>></a>. ";
+        The story was loosely inspired by a section of <<iOrQ('Le Roman de la
+        Rose')>>, quotations from which are transcribed from
+        <<externalLink('https://digital.bodleian.ox.ac.uk/objects/<<
+        >>bb971cd2-a682-45e5-866f-31ce76482afe/', 'MS. Douce 195')>>. The cover
+        art is a modification of an image of MS. Douce 195, copyright 2019
+        Bodleian Libraries, University of Oxford. ";
     }
 ;
 
@@ -324,6 +319,20 @@ modify cmdTokenizer
         toks.append([txt.findReplace(',', ''), typ, txt]);
     }
 ;
+
+externalLink(href, txt)
+{
+    local linksHttp =
+#ifdef TADS_INCLUDE_NET
+        true
+#else
+        systemInfo(SysInfoLinksHttp) == 1
+#endif
+        ;
+    if (linksHttp)
+        return '<a href="<<href.htmlify>>" target=_blank><<txt>></a>';
+    return '<<txt>> (<<href.htmlify>>)';
+}
 
 iOrQ(txt)
 {
@@ -2115,6 +2124,30 @@ transient iris: Deity
             screenHeight = height;
         return height;
     }
+    coverArt
+    {
+        local supportsPng =
+#ifdef TADS_INCLUDE_NET
+            true
+#else
+            systemInfo(SysInfoPng) && !(
+            // XTads claims to support PNG but does not.
+            systemInfo(SysInfoInterpClass) == SysInfoIClassHTML
+            && systemInfo(SysInfoOsName) == 'POSIX_UNIX_MSWINDOWS')
+#endif
+            ;
+        local src = '.system/CoverArt.png';
+        if (supportsPng)
+            try
+            {
+                File.openRawResource(src);
+            } catch (FileException e) {
+                supportsPng = nil;
+            }
+        local ret = supportsPng ? '<.p><img src=<<src>> width=240>' : '';
+        coverArt = ret;
+        return ret;
+    }
     dobjFor(PrayToAt)
     {
         action()
@@ -2156,6 +2189,7 @@ transient iris: Deity
                         refracts, projecting a rainbow onto the blank wall.
                         {Your/His} vision swims. As {you/he} stare{s} at the
                         rainbow, the colors shift and coalesce, forming words.
+                        <<coverArt>>
                         <<or>>The rainbow reappears. {You/He} <<if
                         needToOpen>>start{s} reading again from the
                         beginning<<else>>continue{s} reading where {you/he}

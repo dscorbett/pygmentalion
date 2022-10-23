@@ -28,7 +28,7 @@ jobs:
       - name: Install build tools
         run: |
           brew update
-          brew install frobtads make
+          brew install frobtads make pngcrush
       - name: Build
         run: make -j
       - name: Test
