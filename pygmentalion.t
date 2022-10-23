@@ -76,7 +76,7 @@ versionInfo: GameID
     byline = 'by David Corbett'
     htmlByline = 'by <a href="mailto:corbett.dav\100northeastern.edu">David
         Corbett</a>'
-    version = '1.1.0'
+    version = '2'
     authorEmail = 'David Corbett\040<corbett.dav\x40northeastern.edu>'
     desc = 'Colors gleam and fade as her wardrobe runs the gamut, but she
         remains pale and lifeless. Though she is a statue carved by your own
