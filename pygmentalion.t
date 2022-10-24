@@ -436,7 +436,7 @@ Token template inherited 'before_' 'after_' 'desc_';
     DoToken(error, '<FONT COLOR=RED><U>', '</U></FONT>') \
     DoToken(escape, '<b><font color=#bb6622>', '</font></b>') \
     DoToken(exception, '<b><font color=#D2413A>', '</font></b>') \
-    DoToken(float, '<u><font color=gray>', '</font></u>') \
+    DoToken(float, '<font color=gray><u>', '</u></font>') \
     DoToken(keyword, \
         '<b><font face=TADS-Sans,sans-serif color=green>', '</font></b>') \
     DoToken(label, '<font color=#A0A000><u>', '</u></font>') \
@@ -2253,7 +2253,7 @@ transient iris: Deity
                             // Name.Builtin.Pseudo
                             'bp' -> ['<b><font color=#5918bb>', '</font></b>'],
                             // Name.Class
-                            'nc' -> ['<u><font color=#c5060b>', '</font></u>'],
+                            'nc' -> ['<font color=#c5060b><u>', '</u></font>'],
                             // Name.Constant
                             'no' -> ['<font color=#318495>', '</font>'],
                             // Name.Entity
