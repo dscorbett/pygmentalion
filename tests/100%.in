@@ -155,8 +155,12 @@
 >undo
 >e
 >put iron in cage
+>x net
+>undo
 >unlock cage with iron
 >put iron in cage
+>x net
+>undo
 >l in net
 >undo
 >open cage

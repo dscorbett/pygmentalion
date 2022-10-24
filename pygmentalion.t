@@ -1162,7 +1162,10 @@ altarRoom: Room 'At the Altar'
                         && item.bulk >= maxSingleBulk)
                     {
                         "There is something bulky in <<theNameFrom(bagName)>>,
-                        but {you/he} {can't} see what it is. ";
+                        but {you/he} {can't} see what it is<<if location ==
+                        cage && !location.isOpen && !location.isLocked>>
+                        because <<location.theName>> is
+                        <<location.openDesc>><<end>>. ";
                         break;
                     }
                 }

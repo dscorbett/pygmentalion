@@ -970,11 +970,47 @@ A pole sticks out of a wicker cage and leans ithyphallically against the wall.
 The wicker cage is locked.  You could slip the iron key through the bars, but
 you might not be able to get it back out again.
 
+>x net
+It is a [[long]] wooden pole with a bag attached to the end inside the wicker
+cage.  This versatile tool be used as a quarterstaff, butterfly net, pool net,
+or walking stick.  There is something bulky in the bag, but you can’t see what
+it is.
+
+(Your score has just increased by one point.)
+
+>undo
+Taking back one turn: “x net”.
+
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+A pole sticks out of a wicker cage and leans ithyphallically against the wall.
+
 >unlock cage with iron
 Unlocked.
 
 >put iron in cage
 The iron key fits through the bars.
+
+>x net
+It is a [[long]] wooden pole with a bag attached to the end inside the wicker
+cage.  This versatile tool be used as a quarterstaff, butterfly net, pool net,
+or walking stick.  There is something bulky in the bag, but you can’t see what
+it is because the wicker cage is closed.
+
+(Your score has just increased by one point.)
+
+>undo
+Taking back one turn: “x net”.
+
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+A pole sticks out of a wicker cage and leans ithyphallically against the wall.
 
 >l in net
 (first opening the wicker cage)
