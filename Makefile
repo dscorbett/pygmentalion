@@ -63,7 +63,7 @@ play-xtads: pygmentalion.t3
 	| sed 's/<span class="\([^"]*\)">/<\1>/g; s:</span>:<>:g' \
 	>$@
 
-.system/CoverArt.png.unopt: .system
+.system/CoverArt.png.unopt: | .system
 	convert assets/CoverArt.png \
 		-define png:exclude-chunk=date,tIME \
 		-background '#ece4cd' -fill '#822329' -font @assets/UnifrakturMaguntia.ttf -pointsize 240 label:Pygmentalion \
