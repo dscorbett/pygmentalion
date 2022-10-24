@@ -430,21 +430,21 @@ class Token: Achievement, InitObject
 Token template inherited 'before_' 'after_' 'desc_';
 
 #define DoTokens \
-    DoToken(builtin, '<font color=g&#x72;een>', '</font>') \
+    DoToken(builtin, '<font color=g&#x72;een><u>', '</u></font>') \
     DoToken(comment, '<i><font color=#408080>', '</font></i>') \
-    DoToken(decorator, '<font color=#aa22ff>', '</font>') \
+    DoToken(decorator, '<font color=#aa22ff><u>', '</u></font>') \
     DoToken(error, '<FONT COLOR=RED><U>', '</U></FONT>') \
     DoToken(escape, '<b><font color=#bb6622>', '</font></b>') \
     DoToken(exception, '<b><font color=#D2413A>', '</font></b>') \
     DoToken(float, '<u><font color=gray>', '</font></u>') \
     DoToken(keyword, \
         '<b><font face=TADS-Sans,sans-serif color=green>', '</font></b>') \
-    DoToken(label, '<font color=#A0A000>', '</font>') \
+    DoToken(label, '<font color=#A0A000><u>', '</u></font>') \
     DoToken(long, '<i><font color=gray>', '</font></i>') \
     DoToken(name, '<u>', '</u>') \
-    DoToken(number, '<font color=#666666>', '</font>') \
+    DoToken(number, '<font color=#666666><u>', '</u></font>') \
     DoToken(operator, '<b><font color=\"#AA22F&#x46\">', '</font></b>') \
-    DoToken(string, '<font color=\'#BA212&#49\'>', '</font>') \
+    DoToken(string, '<font color=\'#BA212&#49\'><u>', '</u></font>') \
     DoToken(whitespace, \
         '''<font <<if systemInfo(SysInfoOsName) == 'Spatterlight'>> \
         color=white bgcolor=black \
