@@ -1099,6 +1099,9 @@ affixed to the doorpost.
 A bird flies in through the columns.  It circles above the basin before
 alighting on the side of it opposite you.
 
+>show bird sea
+The bird ignores the bottle of seawater.
+
 >get bird
 The bird hops out of arm’s reach.
 
@@ -1477,6 +1480,9 @@ The bird is startled and hops to the far side of the basin.
 >gochnys
 The air above the basin shimmers, and the bird ruffles its feathers in the
 rippling water.  After a moment, the shimmering disappears.
+
+>show bird it
+The bird is startled and hops to the far side of the basin.
 
 >throw it at bird
 The bird darts out of the way.  The net hits the basin without any obvious
@@ -2066,7 +2072,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 224 moves, you have scored 15 of a possible 15 points.
+In 226 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2097,7 +2103,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 225 moves, you have scored 15 of a possible 15 points.
+In 227 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2128,13 +2134,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 226 moves, you have scored 15 of a possible 15 points.
+In 228 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 226 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 228 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]

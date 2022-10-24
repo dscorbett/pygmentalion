@@ -1834,8 +1834,10 @@ nonMirrorState: ThingState
     afterTravel(traveler, connector)
     {
         if (showAfterTravelMessage(traveler))
-            "<.p>\^<<nameIs>> startled and hops to the far side of
-            <<location.theName>>. ";
+        {
+            "<.p>";
+            tryImplicitActionMsg(&silentImplicitAction, ShowTo, net, self);
+        }
         inherited(traveler, connector);
     }
     afterAction()
@@ -1905,6 +1907,18 @@ nonMirrorState: ThingState
                 away towards the west. ');
             moveInto(nil);
             eventualLocation = nil;
+        }
+    }
+    iobjFor(ShowTo)
+    {
+        verify { inherited Actor.verifyIobjShowTo(); }
+        action
+        {
+            if (gDobj == net)
+                "\^<<nameIs>> startled and hop<<verbEndingS>> to the far side
+                of <<location.theName>>. ";
+            else
+                "{The iobj/He} ignore{s} {the dobj/him}. ";
         }
     }
 ;
