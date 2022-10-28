@@ -305,7 +305,7 @@ modify cmdTokenizer
          tokString, nil, nil],
         ['string unterminated', R'''([`\'"\u2018\u201C](.*)''', tokString,
          nil, nil],
-        ['integer', new RexPattern('[0-9](,?[0-9]+)*'), tokInt, &tokCvtInt,
+        ['integer', new RexPattern('[0-9](,?[0-9])*'), tokInt, &tokCvtInt,
          nil]
     ]
     replace tokCvtSpelledOperator(txt, typ, toks)
