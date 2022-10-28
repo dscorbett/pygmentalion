@@ -242,6 +242,17 @@ chisel: A sharp tool used for carving.
 (If you’d prefer not to be notified about score changes in the future, type
 NOTIFY OFF.)
 
+>l
+At the Workbench
+This workbench, in the northwest part of the studio, was where you would create
+works of art.  Now you just come here to contemplate your creation’s beauty,
+dress her up, ply her with gifts, and lament your hopeless situation.
+
+The statue stands on a plinth beside the workbench, wearing a string of pearls.
+
+You see a stool here.  On the workbench are a gold nugget, a needle, and an
+idol.
+
 >get gold,idol,needle,pearl
 gold nugget: Taken.
 idol: Taken.
@@ -2072,7 +2083,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 226 moves, you have scored 15 of a possible 15 points.
+In 227 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2103,7 +2114,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 227 moves, you have scored 15 of a possible 15 points.
+In 228 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2134,13 +2145,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 228 moves, you have scored 15 of a possible 15 points.
+In 229 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 228 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 229 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]

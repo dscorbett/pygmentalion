@@ -694,7 +694,9 @@ workbenchRoom: Room 'At the Workbench'
     creation&rsquo;s beauty, dress her up, ply her with gifts, and lament your
     hopeless situation.\b
     <<if gActor.setHer(statue)>><<end>>
-    The statue stands on a plinth beside the workbench. "
+    The statue stands on a plinth beside the workbench<<if
+    !statue.contentsListedInExamine && statue.contents[1].seen>>, wearing
+    <<statue.contents[1].aName>><<end>>. "
     east = sinkRoom
     southeast = altarRoom
     south = entrance
