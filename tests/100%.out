@@ -283,7 +283,7 @@ of water.  It supports the standard Thalassa++ unary and binary operations:
 
 For example,
        CALCULATE 69 TIMES 105
-to fill the basin with 7,245 kochliaria.
+to fill the sink with 7,245 kochliaria.
 
 Warning: Do not use big [[number]]s or divide by zero!
 

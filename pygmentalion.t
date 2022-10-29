@@ -1657,7 +1657,7 @@ export level 'waterLevel';
     )>>
     For example,\n
     \t\t<<aHref('calculate 69 * 105', 'CALCULATE 69 TIMES 105')>>\n
-    to fill the basin with <<% ,d 0x69 * 0105>> kochliaria<!-- an ancient Greek
+    to fill the sink with <<% ,d 0x69 * 0105>> kochliaria<!-- an ancient Greek
     unit, < 5 ml >.\b
     Warning: Do not use big <<highlight 'number'>>s or divide by zero!</bq>"
 ;
