@@ -603,10 +603,19 @@ entrance: Room 'Studio Entrance'
     }
     dobjFor(PourInto)
     {
-        remap = ((gIobj ?? gTentativeIobj ?? self).ofKind(WaterContainer)
-            ? inherited()
-            : [PourAction, DirectObject])
-        verify { }
+        remap
+        {
+            local iobj = gIobj ?? gTentativeIobj;
+            return iobj != nil && (iobj.ofKind(WaterContainer) || iobj == self)
+                ? inherited()
+                : [PourAction, DirectObject];
+        }
+        verify
+        {
+            if (self == gIobj)
+                illogicalSelf('{You/He} {can\'t} pour {that dobj/him} into
+                    {itself}. ');
+        }
         check
         {
             failCheck('That would be a waste of good wine: {the iobj/he} {is}
@@ -650,10 +659,8 @@ seawaterBottle: Thing
     }
     dobjFor(PourInto)
     {
-        remap = ((gIobj ?? gTentativeIobj ?? self).ofKind(WaterContainer)
-            ? inherited()
-            : [PourAction, DirectObject])
-        verify { }
+        remap { return delegated wineBottle; }
+        verify { return delegated wineBottle; }
         action
         {
             bottle.moveInto(location);
@@ -1625,6 +1632,8 @@ export level 'waterLevel';
             }
         }
     }
+    iobjFor(PourInto) remapTo(PourInto, DirectObject, sink)
+    iobjFor(PourOnto) remapTo(PourOnto, DirectObject, sink)
     iobjFor(PutIn) remapTo(PutIn, DirectObject, sink)
     dobjFor(TurnOn) remapTo(TurnOn, sink)
     dobjFor(TurnOff) remapTo(TurnOff, sink)
@@ -1833,6 +1842,8 @@ portico: OutdoorRoom 'Portico'
                 clean. ');
         }
     }
+    iobjFor(PourInto) remapTo(PourInto, DirectObject, basin)
+    iobjFor(PourOnto) remapTo(PourOnto, DirectObject, basin)
     iobjFor(PutIn) remapTo(PutIn, DirectObject, basin)
 ;
 

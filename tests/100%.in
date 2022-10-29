@@ -106,12 +106,14 @@
 >n
 >ne
 >pour sea
+>pour it in it
 >pour it in sink
 >drink
 >g
 >taste it
 >pour it
->pour it in sink
+>pour it in it
+>pour it in sink water
 >undo
 >x it
 >x addon,comb,iron,sink,table,table
@@ -166,7 +168,7 @@
 >ne
 >c 1/0
 >c 999999999*9
->pour sea in sink
+>pour sea on sink water
 >undo
 >g
 >c 15000 lshr 0
@@ -209,7 +211,7 @@
 >pour sea in bath
 >drink it
 >pour it
->pour it in bath
+>pour it in bath water
 >pour it on bath
 >put it in bath
 >x bath,it
@@ -311,7 +313,7 @@
 >n
 >get sea
 >s
->pour it in bath
+>pour it on bath water
 >undo
 >about
 >help

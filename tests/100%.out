@@ -680,6 +680,9 @@ On the side table are a manual and a comb.
 >pour sea
 That would be a waste of good wine.
 
+>pour it in it
+You can’t pour that into itself.
+
 >pour it in sink
 That would be a waste of good wine: the sink is not a krater.
 
@@ -698,11 +701,14 @@ It tastes salty.
 >pour it
 That would make a mess.
 
->pour it in sink
+>pour it in it
+You can’t pour that into itself.
+
+>pour it in sink water
 You empty the bottle of seawater into the sink, forming a small puddle.
 
 >undo
-Taking back one turn: “pour it in sink”.
+Taking back one turn: “pour it in sink water”.
 
 Washroom
 Sculpting is a dusty business.  You use this sink to clean off after a hard
@@ -1035,11 +1041,11 @@ from the faucet, filling the sink, overwhelming the overflow hole, and spilling
 over the edge.  Rivulets begin running down the slight gradient of the floor.
 The idol and the needle get washed away onto the floor.
 
->pour sea in sink
+>pour sea on sink water
 You empty the bottle of seawater into the overflowing sink.
 
 >undo
-Taking back one turn: “pour sea in sink”.
+Taking back one turn: “pour sea on sink water”.
 
 Washroom
 Sculpting is a dusty business.  You use this sink to clean off after a hard
@@ -1286,7 +1292,7 @@ The bottle is empty.
 >pour it
 The bottle is empty.
 
->pour it in bath
+>pour it in bath water
 The bottle is empty.
 
 >pour it on bath
@@ -1334,7 +1340,7 @@ south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
 >g
-Taking back one turn: “pour it in bath”.
+Taking back one turn: “pour it in bath water”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
@@ -1913,11 +1919,11 @@ affixed to the doorpost.
 
 The ground is covered with water.
 
->pour it in bath
+>pour it on bath water
 That would overflow the basin.
 
 >undo
-Taking back one turn: “pour it in bath”.
+Taking back one turn: “pour it on bath water”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
@@ -2404,7 +2410,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 241 moves, you have scored 15 of a possible 15 points.
+In 243 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2435,7 +2441,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 242 moves, you have scored 15 of a possible 15 points.
+In 244 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2466,13 +2472,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 243 moves, you have scored 15 of a possible 15 points.
+In 245 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 243 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 245 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]
