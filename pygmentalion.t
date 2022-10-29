@@ -1583,6 +1583,7 @@ export level 'waterLevel';
     {
         targetobj.current.overflowing = level == nil;
         targetobj.current.level = max(min(level ?? 0, 20000), 0);
+        ebbAndFlow();
     }
     iobjFor(CleanWith)
     {
@@ -2008,6 +2009,14 @@ modify touchObj
     }
 modifyWaterScopeTurn(Off);
 modifyWaterScopeTurn(On);
+
+ebbAndFlow()
+{
+    for (local water in [basinWater, sinkWater])
+        water.makePresentIf(
+            sink.current == water.eventualLocation
+            && (sink.current.level || sink.current.overflowing));
+}
 
 class WaterContainerDescContentsLister: thingDescContentsLister
     container = nil
@@ -2800,10 +2809,7 @@ DefineLiteralAction(Calculate)
         }
         if (bird.seen)
             bird.makePresentIf(basin.isMirror);
-        for (local water in [basinWater, sinkWater])
-            water.makePresentIf(
-                sink.current == water.eventualLocation
-                && (sink.current.level || sink.current.overflowing));
+        ebbAndFlow();
     }
 ;
 
