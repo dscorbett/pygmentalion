@@ -704,11 +704,11 @@ That would make a mess.
 >pour it in it
 You can’t pour that into itself.
 
->pour it in sink water
+>pour it in sink
 You empty the bottle of seawater into the sink, forming a small puddle.
 
 >undo
-Taking back one turn: “pour it in sink water”.
+Taking back one turn: “pour it in sink”.
 
 Washroom
 Sculpting is a dusty business.  You use this sink to clean off after a hard
@@ -741,14 +741,13 @@ and a comb.
 
 (Your score has just increased by one point.)
 
->wash me,iron
-you: You do not need cleaning.
+>wash me
+You do not need cleaning.
 
-iron key: There is not enough water in the sink to clean anything with.
+>wash iron in sink
+There is no water in the sink.
 
->put keys,idol,needle,sea in sink
-bronze key: There is no water in the sink.
-
+>put iron,idol,needle,sea in sink
 iron key: There is no water in the sink.
 
 idol: Done.
@@ -776,16 +775,19 @@ The calculator outputs ~0 = -1.  The pipes rattle.
 That would be disgusting.
 
 >drink sink water
-You’re not thirsty.
+You see no sink water here.
 
 >c 3 and 6
 The calculator outputs 3 & 6 = 2.  Water dribbles from the faucet.
 
->pour water in sink
+>drink sink water
+You’re not thirsty.
+
+>pour water in it
 You empty the bottle of seawater into the sink.  The puddle grows slightly.
 
 >undo
-Taking back one turn: “pour water in sink”.
+Taking back one turn: “pour water in it”.
 
 Washroom
 Sculpting is a dusty business.  You use this sink to clean off after a hard
@@ -797,6 +799,10 @@ needle.
 
 >wash iron in sink
 There is not enough water in the sink.
+
+>wash it
+(the iron key)
+There is not enough water in the sink to clean anything with.
 
 >x sink
 This is a state-of-the-art mop sink with anti-miasmic coating and bronze
@@ -2410,7 +2416,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 243 moves, you have scored 15 of a possible 15 points.
+In 245 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2441,7 +2447,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 244 moves, you have scored 15 of a possible 15 points.
+In 246 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2472,13 +2478,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 245 moves, you have scored 15 of a possible 15 points.
+In 247 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 245 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 247 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]

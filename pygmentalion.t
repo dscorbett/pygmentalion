@@ -1580,7 +1580,21 @@ export level 'waterLevel';
         targetobj.current.overflowing = level == nil;
         targetobj.current.level = max(min(level ?? 0, 20000), 0);
     }
-    iobjFor(CleanWith) remapTo(CleanWith, DirectObject, sinkWater)
+    iobjFor(CleanWith)
+    {
+        preCond = [touchObj]
+        verify
+        {
+            if (!overflowing)
+            {
+                if (level == 0 && !gAction.isImplicit)
+                    illogicalNow('There is no water in the sink. ');
+                else if (level < 1e3)
+                    illogicalNow('There is not enough water in the sink<<if
+                        gAction.isImplicit>> to clean anything with<<end>>. ');
+            }
+        }
+    }
     dobjFor(TurnOn) {
         verify {
             if (overflowing)
@@ -1608,7 +1622,7 @@ export level 'waterLevel';
     iobjFor(PourInto) { check { } }
 ;
 
-++ sinkWater: Fixture
+++ sinkWater: PresentLater, Fixture
     vocabWords = (rexReplace('/', sink.vocabWords, ' ') + ' water')
     name = 'water'
     desc = "<<sink.desc>>"
@@ -1619,19 +1633,7 @@ export level 'waterLevel';
         verify { illogical('''{You're} not thirsty. '''); }
     }
     dobjFor(Taste) remapTo(Drink, DirectObject)
-    iobjFor(CleanWith)
-    {
-        verify {
-            if (!sink.overflowing)
-            {
-                if (sink.level == 0 && !gAction.isImplicit)
-                    illogicalNow('There is no water in the sink. ');
-                else if (sink.level < 1e3)
-                    illogicalNow('There is not enough water in the sink<<if
-                        gAction.isImplicit>> to clean anything with<<end>>. ');
-            }
-        }
-    }
+    iobjFor(CleanWith) remapTo(CleanWith, DirectObject, sink)
     iobjFor(PourInto) remapTo(PourInto, DirectObject, sink)
     iobjFor(PourOnto) remapTo(PourOnto, DirectObject, sink)
     iobjFor(PutIn) remapTo(PutIn, DirectObject, sink)
@@ -1797,8 +1799,14 @@ portico: OutdoorRoom 'Portico'
     {
         delegated sink.setLevel(_: sourceTextOrder ? level: nil, level: level);
     }
-    iobjFor(CleanWith) maybeRemapTo(basinWater.location, CleanWith,
-                                    DirectObject, basinWater)
+    iobjFor(CleanWith)
+    {
+        preCond = [touchObj]
+        verify {
+            illogical('Washing something in a birdbath is unlikely to get it
+                clean. ');
+        }
+    }
     obscuringItem
     {
         return contents
@@ -1818,7 +1826,7 @@ portico: OutdoorRoom 'Portico'
     }
 ;
 
-++ basinWater: Fixture
+++ basinWater: PresentLater, Fixture
     vocabWords = (rexReplace('/', basin.vocabWords, ' ') + ' water')
     name = 'water'
     desc = "<<basin.desc>>"
@@ -1834,14 +1842,7 @@ portico: OutdoorRoom 'Portico'
         }
     }
     dobjFor(Taste) remapTo(Drink, DirectObject)
-    iobjFor(CleanWith)
-    {
-        preCond = [touchObj]
-        verify {
-            illogical('Washing something in a birdbath is unlikely to get it
-                clean. ');
-        }
-    }
+    iobjFor(CleanWith) remapTo(CleanWith, DirectObject, basin)
     iobjFor(PourInto) remapTo(PourInto, DirectObject, basin)
     iobjFor(PourOnto) remapTo(PourOnto, DirectObject, basin)
     iobjFor(PutIn) remapTo(PutIn, DirectObject, basin)
@@ -1993,6 +1994,16 @@ modify touchObj
 ;
 
 /* Water */
+
+#define modifyWaterScopeTurn(direction) modify Turn##direction##Action \
+    objInScope(obj) \
+    { \
+        return inherited(obj) \
+            || obj == basinWater && inherited(basin) \
+            || obj == sinkWater && inherited(sink); \
+    }
+modifyWaterScopeTurn(Off);
+modifyWaterScopeTurn(On);
 
 class WaterContainerDescContentsLister: thingDescContentsLister
     container = nil
@@ -2785,6 +2796,10 @@ DefineLiteralAction(Calculate)
         }
         if (bird.seen)
             bird.makePresentIf(basin.isMirror);
+        for (local water in [basinWater, sinkWater])
+            water.makePresentIf(
+                sink.current == water.eventualLocation
+                && (sink.current.level || sink.current.overflowing));
     }
 ;
 

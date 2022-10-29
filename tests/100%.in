@@ -113,12 +113,13 @@
 >taste it
 >pour it
 >pour it in it
->pour it in sink water
+>pour it in sink
 >undo
 >x it
 >x addon,comb,iron,sink,table,table
->wash me,iron
->put keys,idol,needle,sea in sink
+>wash me
+>wash iron in sink
+>put iron,idol,needle,sea in sink
 >turn sink on
 >turn it off
 >turn water on
@@ -127,9 +128,11 @@
 >drink water
 >drink sink water
 >c 3 and 6
->pour water in sink
+>drink sink water
+>pour water in it
 >undo
 >wash iron in sink
+>wash it
 >x sink
 >c /
 >c 1/0
