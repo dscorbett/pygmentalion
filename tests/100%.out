@@ -455,35 +455,14 @@ Aphrodite reappears.  She eyes the idol skeptically.  “No [[comment]].”
 Aphrodite reappears.  She eyes the idol skeptically.  “You call that a token of
 love?”
 
->put gold on it
-(first taking the idol from the altar)
-Done.
-
->pray
-(at the altar)
-Aphrodite reappears.  She eyes the gold nugget skeptically.  “A gold nugget?
-You won’t get it down the steps.”
-
->undo
-Taking back one turn: “pray”.
-
-At the Altar
-Light from the window illuminates a crude altar.  Until recently, this area was
-the gallery where customers would buy your art; all that is gone now.  The rest
-of the studio lies north and west.
-
-A pole sticks out of a wicker cage and leans ithyphallically against the wall.
-
-On the altar is a gold nugget.
-
->put sea on it
-(first taking the gold nugget from the altar)
-Done.
-
 >drink
 (the bottle of wine)
 You take a sip and realize that this is not sea-dark wine after all.  It is
 just seawater.
+
+>put it on altar
+(first taking the idol from the altar)
+Done.
 
 >pray
 (at the altar)
@@ -503,7 +482,40 @@ A pole sticks out of a wicker cage and leans ithyphallically against the wall.
 On the altar is a bottle of seawater.
 
 >g
+Taking back one turn: “put it on altar”.
+
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+A pole sticks out of a wicker cage and leans ithyphallically against the wall.
+
+On the altar is an idol.
+
+>g
 Taking back one turn: “drink”.
+
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+A pole sticks out of a wicker cage and leans ithyphallically against the wall.
+
+On the altar is an idol.
+
+>put sea on it
+(first taking the idol from the altar)
+Done.
+
+>pray
+(at the altar)
+Aphrodite reappears.  She eyes the bottle of wine skeptically.  “A bottle?
+Really?”
+
+>undo
+Taking back one turn: “pray”.
 
 At the Altar
 Light from the window illuminates a crude altar.  Until recently, this area was
@@ -514,18 +526,22 @@ A pole sticks out of a wicker cage and leans ithyphallically against the wall.
 
 On the altar is a bottle of wine.
 
+>put gold on it
+(first taking the bottle of wine from the altar)
+Done.
+
 >pray
 (at the altar)
-Aphrodite reappears.  She eyes the bottle of wine skeptically.  “A bottle?
-Really?”
+Aphrodite reappears.  She eyes the gold nugget skeptically.  “A gold nugget?
+You won’t get it down the steps.”
 
->g
+>pray
 (at the altar)
-Aphrodite reappears.  She eyes the bottle of wine skeptically.  “Come on,
-mortal, it’s not that difficult!”
+Aphrodite reappears.  She eyes the gold nugget skeptically.  “Come on, mortal,
+it’s not that difficult!”
 
 >put pearl on it
-(first taking the bottle of wine from the altar)
+(first taking the gold nugget from the altar)
 Done.
 
 >pray

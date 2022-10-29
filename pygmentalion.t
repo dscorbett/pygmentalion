@@ -583,6 +583,7 @@ entrance: Room 'Studio Entrance'
     bulk = (getFacets()[1].bulk)
     dobjFor(Taste)
     {
+        preCond = (inherited() + objHeld)
         action
         {
             local loc = location;
