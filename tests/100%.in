@@ -31,11 +31,7 @@
 >eat liver
 >x it
 >give god it
->drink
->g
->taste it
->pour it
->put it in box
+>put sea in box
 >x box
 >l in it
 >n
@@ -79,6 +75,10 @@
 >pray
 >undo
 >put sea on it
+>drink
+>pray
+>undo
+>g
 >pray
 >g
 >put pearl on it
@@ -103,6 +103,15 @@
 >wash it in bath
 >n
 >ne
+>pour sea
+>pour it in sink
+>drink
+>g
+>taste it
+>pour it
+>pour it in sink
+>undo
+>x it
 >x addon,comb,iron,sink,table,table
 >wash me,iron
 >put keys,idol,needle,sea in sink
@@ -112,11 +121,14 @@
 >c
 >c inverse 0
 >c 3 and 6
->put sea in sink
+>pour sea in sink
+>undo
 >wash iron in sink
 >x sink
 >c /
 >c 1/0
+>pour sea in sink
+>undo
 >sw
 >s
 >x bath
@@ -128,6 +140,9 @@
 >c negate 0
 >c 999 plus 2
 >c positive 1000
+>put sea in sink
+>pour it on sink
+>undo
 >x sink
 >c 1/0
 >sw
@@ -147,7 +162,9 @@
 >ne
 >c 1/0
 >c 999999999*9
+>pour sea in sink
 >undo
+>g
 >c 15000 lshr 0
 >x sink
 >c 1/0
@@ -179,11 +196,26 @@
 >put net in cage
 >w
 >s
->show bird sea
+>show bird bird
+>show it gold
 >get bird
 >hit it
 >wash it
 >x bath,it
+>pour sea in bath
+>drink it
+>pour it
+>pour it in bath
+>pour it on bath
+>put it in bath
+>x bath,it
+>undo
+>g
+>g
+>g
+>g
+>g
+>g
 >n
 >ne
 >c 1/0
@@ -193,6 +225,7 @@
 >sw
 >s
 >x bath
+>pour sea in it
 >n
 >ne
 >c 1/0
@@ -220,8 +253,10 @@
 >n
 >ne
 >c 1/0
->c 40*400
+>c 92*163
+>pour sea in sink
 >undo
+>g
 >c 555620000 xor 0
 >c 40*400
 >x floor water
@@ -235,7 +270,7 @@
 >hug it
 >g
 >say a
->gochnys
+>chnedin
 >s
 >u
 >put cage on bed
@@ -244,17 +279,19 @@
 >get net
 >x it
 >s
->gochnys
+>chnedin
 >show bird it
 >throw it at bird
 >put bird in it
 >put idol in bath
 >x bath
->gochnys
+>chnedin
 >n
 >ne
 >c 1/0
 >c 2X10001
+>pour sea in sink
+>undo
 >c 1/0
 >sw
 >s
@@ -263,19 +300,21 @@
 >x water
 >bath
 >drink it
+>pour sea in bath
+>undo
 >about
 >help
 >instru
 >y
 >x me
 >s
->gochnys
+>chnedin
 >u
 >close
->gochnys
+>chnedin
 >u
 >lock door with clean
->gochnys
+>chnedin
 >f
 >q
 >y

@@ -121,23 +121,8 @@ It is empty for now.
 >give god it
 She isn’t here.  You’ll have to leave the plate somewhere she can find it.
 
->drink
-(the bottle of wine)
-You take a sip and realize that this is not sea-dark wine after all.  It is
-just seawater.
-
->g
-(the bottle of seawater)
-That would be disgusting.
-
->taste it
-It tastes salty.
-
->pour it
-That would be wasteful.
-
->put it in box
-(first taking the bottle of seawater, then opening the coin box)
+>put sea in box
+(first taking the bottle of wine, then opening the coin box)
 You can only put coins in the coin box.
 
 >x box
@@ -495,18 +480,52 @@ On the altar is a gold nugget.
 (first taking the gold nugget from the altar)
 Done.
 
+>drink
+(the bottle of wine)
+You take a sip and realize that this is not sea-dark wine after all.  It is
+just seawater.
+
 >pray
 (at the altar)
 Aphrodite reappears.  She eyes the bottle of seawater skeptically.  “A bottle?
 Really?”
 
+>undo
+Taking back one turn: “pray”.
+
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+A pole sticks out of a wicker cage and leans ithyphallically against the wall.
+
+On the altar is a bottle of seawater.
+
+>g
+Taking back one turn: “drink”.
+
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+A pole sticks out of a wicker cage and leans ithyphallically against the wall.
+
+On the altar is a bottle of wine.
+
+>pray
+(at the altar)
+Aphrodite reappears.  She eyes the bottle of wine skeptically.  “A bottle?
+Really?”
+
 >g
 (at the altar)
-Aphrodite reappears.  She eyes the bottle of seawater skeptically.  “Come on,
+Aphrodite reappears.  She eyes the bottle of wine skeptically.  “Come on,
 mortal, it’s not that difficult!”
 
 >put pearl on it
-(first taking the bottle of seawater from the altar)
+(first taking the bottle of wine from the altar)
 Done.
 
 >pray
@@ -642,6 +661,43 @@ calculator.  The rest of the studio is south and west.
 
 On the side table are a manual and a comb.
 
+>pour sea
+That would be a waste of good wine.
+
+>pour it in sink
+That would be a waste of good wine: the sink is not a krater.
+
+>drink
+(the bottle of wine)
+You take a sip and realize that this is not sea-dark wine after all.  It is
+just seawater.
+
+>g
+(the bottle of seawater)
+That would be disgusting.
+
+>taste it
+It tastes salty.
+
+>pour it
+That would make a mess.
+
+>pour it in sink
+You empty the bottle of seawater into the sink, forming a small puddle.
+
+>undo
+Taking back one turn: “pour it in sink”.
+
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+On the side table are a manual and a comb.
+
+>x it
+A bottle of wine-dark seawater.
+
 >x addon,comb,iron,sink,table,table
 calculator: The calculator is [[built in]]to the wall beside the sink.  It has
 buttons for all the standard unary and binary operations.
@@ -697,8 +753,19 @@ The calculator outputs ~0 = -1.  The pipes rattle.
 >c 3 and 6
 The calculator outputs 3 & 6 = 2.  Water dribbles from the faucet.
 
->put sea in sink
-The bottle of seawater would get wet.
+>pour sea in sink
+You empty the bottle of seawater into the sink.  The puddle grows slightly.
+
+>undo
+Taking back one turn: “pour sea in sink”.
+
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+On the side table are a manual and a comb.  The sink contains an idol and a
+needle.
 
 >wash iron in sink
 There is not enough water in the sink.
@@ -720,6 +787,21 @@ The calculator outputs [[ERROR]] {can't use "/" in that context}.
 >c 1/0
 The calculator outputs ERROR {division by zero}.  The water in the sink is
 sucked down the drain.
+
+>pour sea in sink
+You empty the bottle of seawater into the sink.  The water pours down the
+drain.
+
+>undo
+Taking back one turn: “pour sea in sink”.
+
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+On the side table are a manual and a comb.  The sink contains an idol and a
+needle.
 
 >sw
 Studio Entrance
@@ -781,6 +863,24 @@ The calculator outputs 999 + 2 = 1001.  Water flows briefly from the faucet.
 >c positive 1000
 The calculator outputs +1000 = 1000.  The water level in the sink goes down
 slightly.
+
+>put sea in sink
+The bottle of seawater would get wet.
+
+>pour it on sink
+You empty the bottle of seawater into the sink.  The water level rises
+insignificantly.
+
+>undo
+Taking back one turn: “pour it on sink”.
+
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+On the side table are a manual and a comb.  The sink contains an idol and a
+needle.
 
 >x sink
 This is a state-of-the-art mop sink with anti-miasmic coating and bronze
@@ -913,7 +1013,22 @@ from the faucet, filling the sink, overwhelming the overflow hole, and spilling
 over the edge.  Rivulets begin running down the slight gradient of the floor.
 The idol and the needle get washed away onto the floor.
 
+>pour sea in sink
+You empty the bottle of seawater into the overflowing sink.
+
 >undo
+Taking back one turn: “pour sea in sink”.
+
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+The floor is covered with water.
+
+You see an idol and a needle here.  On the side table are a manual and a comb.
+
+>g
 Taking back one turn: “c 999999999 * 9”.
 
 Washroom
@@ -1110,8 +1225,12 @@ affixed to the doorpost.
 A bird flies in through the columns.  It circles above the basin before
 alighting on the side of it opposite you.
 
->show bird sea
-The bird ignores the bottle of seawater.
+>show bird bird
+Showing the bird to itself won’t accomplish anything.
+
+>show it gold
+(the bird)
+The bird ignores the gold nugget.
 
 >get bird
 The bird hops out of arm’s reach.
@@ -1133,6 +1252,100 @@ the ripples issuing from the bird.
 The bird flutters around the basin.
 
 bird: It’s a turtle-dove: an auspicious omen!
+
+>pour sea in bath
+You empty the bottle of seawater into the basin.  The water level rises
+insignificantly.
+
+>drink it
+(the bottle)
+The bottle is empty.
+
+>pour it
+The bottle is empty.
+
+>pour it in bath
+The bottle is empty.
+
+>pour it on bath
+The bottle is empty.
+
+>put it in bath
+Done.
+
+>x bath,it
+basin: It is shallow but wide, and lined with tiles.  It used to be a fountain,
+but it stopped working after they installed the new sink.  Something to do with
+water pressure, no doubt.  Now you just use it as a birdbath.
+
+It is full of water.  You can see your reflection, though it is distorted by
+the ripples issuing from the bird.
+
+A bottle is floating on the surface of the water.
+
+bottle: An empty bottle.
+
+>undo
+Taking back one turn: “x bath, it”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The basin contains a bottle.
+
+>g
+Taking back one turn: “put it in bath”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+>g
+Taking back one turn: “pour it on bath”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+>g
+Taking back one turn: “pour it in bath”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+>g
+Taking back one turn: “pour it”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+>g
+Taking back one turn: “drink it”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The bird preens itself.
+
+>g
+Taking back one turn: “pour sea in bath”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The bird ruffles its feathers in the basin.
 
 >n
 Studio Entrance
@@ -1196,6 +1409,9 @@ pressure, no doubt.  Now you just use it as a birdbath.
 
 It is full to the brim with water.  You can see your reflection, though it is
 distorted by the ripples issuing from the bird.
+
+>pour sea in it
+That would overflow the basin.
 
 >n
 Studio Entrance
@@ -1353,12 +1569,28 @@ You see an idol here.  On the side table are a manual and a comb.
 The calculator outputs ERROR {division by zero}.  Water comes up from the drain
 and spills over the edges of the sink.
 
->c 40*400
-The calculator outputs 40 × 400 = 16000.  The faucet shuts off and some water
+>c 92*163
+The calculator outputs 92 × 163 = 14996.  The faucet shuts off and some water
 drains from the sink.
 
+>pour sea in sink
+You empty the bottle of seawater into the sink.  It could just barely be
+considered full now.
+
 >undo
-Taking back one turn: “c 40 * 400”.
+Taking back one turn: “pour sea in sink”.
+
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+The floor is covered with water.
+
+You see an idol here.  On the side table are a manual and a comb.
+
+>g
+Taking back one turn: “c 92 * 163”.
 
 Washroom
 Sculpting is a dusty business.  You use this sink to clean off after a hard
@@ -1395,7 +1627,7 @@ buttons for all the standard unary and binary operations.  The screen reads 40
 
 idol: The idol is a small statuette of Aphrodite carved from meerschaum.
 
-bronze key: It is a bronze key.  On it is etched the word “gochnys”.
+bronze key: It is a bronze key.  On it is etched the word “chnedin”.
 
 iron key: It is an iron key.
 
@@ -1443,7 +1675,7 @@ The statue is as stiff and cold as a post.
 >say a
 Nothing happens.
 
->gochnys
+>chnedin
 Nothing happens.  (Aphrodite said you would need a mirror.)
 
 >s
@@ -1488,7 +1720,7 @@ The floor is covered with water.
 
 The bird is startled and hops to the far side of the basin.
 
->gochnys
+>chnedin
 The air above the basin shimmers, and the bird ruffles its feathers in the
 rippling water.  After a moment, the shimmering disappears.
 
@@ -1517,7 +1749,7 @@ by the idol.
 
 An idol is floating on the surface of the water.
 
->gochnys
+>chnedin
 The air above the basin shimmers, and the idol bobs on the rippling water.
 After a moment, the shimmering disappears.
 
@@ -1550,6 +1782,22 @@ and begins to fill the sink.
 >c 2X10001
 The calculator outputs 2 × 10001 = 20002.  Water flows from the faucet.  Some
 excess water trickles down the overflow hole.
+
+>pour sea in sink
+You empty the bottle of seawater into the sink.  Some excess water trickles
+down the overflow hole.
+
+>undo
+Taking back one turn: “pour sea in sink”.
+
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+The floor is covered with water.
+
+On the side table are a manual and a comb.
 
 >c 1/0
 The calculator outputs ERROR {division by zero}.  The water in the sink is
@@ -1604,6 +1852,19 @@ physically touch the object of your affections, which is some consolation.
 
 >drink it
 Drinking from a birdbath might not be the best idea.
+
+>pour sea in bath
+That would overflow the basin.
+
+>undo
+Taking back one turn: “pour sea in bath”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The floor is covered with water.
 
 >about
 This is a short game originally designed to provide an example file for the
@@ -2066,13 +2327,13 @@ for hints is the Usenet newsgroup rec.games.int-fiction.
 
 >x me
 Your calm exterior belies the tempestuous feelings within.  You are currently
-brainstorming dress patterns.
+pleased with your progress so far.
 
 >s
 You begin moving away from the door, but then you remember the statue.  The
 gods won’t bring her to life if you give up this easily!
 
->gochnys
+>chnedin
 The air above the basin shimmers for a moment.  You hear footsteps behind you.
 Turning around, you see a woman who looks remarkably like your statue.
 
@@ -2083,13 +2344,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 227 moves, you have scored 15 of a possible 15 points.
+In 232 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >u
-Taking back one turn: “say gochnys”.
+Taking back one turn: “say chnedin”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
@@ -2102,7 +2363,7 @@ The floor is covered with water.
 (the door)
 Closed.
 
->gochnys
+>chnedin
 The air above the basin shimmers for a moment.  You hear the door opening
 behind you.  Turning around, you see a woman who looks remarkably like your
 statue.
@@ -2114,13 +2375,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 228 moves, you have scored 15 of a possible 15 points.
+In 233 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >u
-Taking back one turn: “say gochnys”.
+Taking back one turn: “say chnedin”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
@@ -2133,7 +2394,7 @@ The floor is covered with water.
 (the bronze key)
 Locked.
 
->gochnys
+>chnedin
 The air above the basin shimmers for a moment.  You hear the door being
 unlocked behind you.  Turning around, you see a woman who looks remarkably like
 your statue.
@@ -2145,13 +2406,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 229 moves, you have scored 15 of a possible 15 points.
+In 234 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 229 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 234 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]

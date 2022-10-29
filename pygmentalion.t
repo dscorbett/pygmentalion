@@ -578,7 +578,7 @@ entrance: Room 'Studio Entrance'
 ++ wineBottle: Thing 'bottle' 'bottle of wine'
     "A bottle of sea-dark wine. "
     materialWord = 'dark' 'sea' 'sea-dark' 'seadark' 'wine'
-    aNameObjShort = (aNameFrom('bottle'))
+    aNameObjShort = (getFacets()[1].aNameObjShort)
     getFacets() { return [seawaterBottle]; }
     bulk = (getFacets()[1].bulk)
     dobjFor(Taste)
@@ -597,38 +597,30 @@ entrance: Room 'Studio Entrance'
     {
         verify
         {
-            illogical('That would be wasteful. ');
+            illogical('That would be a waste of good wine. ');
         }
     }
-    dobjFor(PourInto) remapTo(Pour, DirectObject)
-    dobjFor(PourOnto) remapTo(Pour, DirectObject)
-;
-
-++ plateOfLiver: Food 'chopped liver plate' 'plate of chopped liver'
-    "You have been living on chopped liver since you moved into the studio
-    permanently. It isn&rsquo;t bad, but it does get monotonous. "
-    getFacets() { return [plate]; }
-    bulk = (getFacets()[1].bulk)
-    dobjFor(Eat)
+    dobjFor(PourInto)
     {
-        preCond = []
-        action
+        remap = ((gIobj ?? gTentativeIobj ?? self).ofKind(WaterContainer)
+            ? inherited()
+            : [PourAction, DirectObject])
+        verify
         {
-            local loc = location;
-            "{You/He} eat{s} all the liver. The plate will be full again
-            tomorrow morning though. Somehow, the liver always regenerates
-            overnight. ";
-            moveInto(nil);
-            plate.moveInto(loc);
+            illogical('That would be a waste of good wine: {the iobj/he} {is}
+                not a krater. ');
         }
     }
+    dobjFor(PourOnto) remapTo(PourInto, DirectObject, IndirectObject)
 ;
 
 seawaterBottle: Thing 'bottle' 'bottle of seawater'
     "A bottle of wine-dark seawater. "
     materialWord = 'dark' 'sea' 'seawater' 'water' 'wine-dark' 'winedark'
-    aNameObjShort = (aNameFrom('bottle'))
-    bulk = 5
+    aNameObjShort = (getFacets()[1].aNameObj)
+    getFacets() { return [bottle]; }
+    bulk = (getFacets()[1].bulk)
+    pourVolume = 163  // 750 ml - 1 sip
     dobjFor(Taste)
     {
         action
@@ -649,11 +641,57 @@ seawaterBottle: Thing 'bottle' 'bottle of seawater'
     {
         verify
         {
-            illogical('That would be wasteful. ');
+            illogical('That would make a mess. ');
         }
     }
-    dobjFor(PourInto) remapTo(Pour, DirectObject)
-    dobjFor(PourOnto) remapTo(Pour, DirectObject)
+    dobjFor(PourInto)
+    {
+        remap = ((gIobj ?? gTentativeIobj ?? self).ofKind(WaterContainer)
+            ? inherited()
+            : [PourAction, DirectObject])
+        verify { }
+        action
+        {
+            bottle.moveInto(location);
+            moveInto(nil);
+        }
+    }
+    dobjFor(PourOnto) remapTo(PourInto, DirectObject, IndirectObject)
+;
+
+bottle: Thing 'bottle' 'bottle'
+    "An empty bottle. "
+    bulk = 5
+    dobjFor(Drink)
+    {
+        verify
+        {
+            illogical('{The dobj/He} {is} empty. ');
+        }
+    }
+    dobjFor(Pour) remapTo(Drink, DirectObject)
+    dobjFor(PourInto) remapTo(Drink, DirectObject)
+    dobjFor(PourOnto) remapTo(Drink, DirectObject)
+;
+
+++ plateOfLiver: Food 'chopped liver plate' 'plate of chopped liver'
+    "You have been living on chopped liver since you moved into the studio
+    permanently. It isn&rsquo;t bad, but it does get monotonous. "
+    getFacets() { return [plate]; }
+    bulk = (getFacets()[1].bulk)
+    dobjFor(Eat)
+    {
+        preCond = []
+        action
+        {
+            local loc = location;
+            "{You/He} eat{s} all the liver. The plate will be full again
+            tomorrow morning though. Somehow, the liver always regenerates
+            overnight. ";
+            moveInto(nil);
+            plate.moveInto(loc);
+        }
+    }
 ;
 
 plate: Thing 'plate' 'plate'
@@ -1556,6 +1594,7 @@ export level 'waterLevel';
                 use the calculator add-on.) <<stopping>>');
         }
     }
+    iobjFor(PourInto) { check { } }
 ;
 
 ++ sinkWater: Fixture
@@ -2000,10 +2039,43 @@ class WaterContainerDescContentsLister: thingDescContentsLister
 
 class WaterContainer: RestrictedContainer
     grimyObjects = [key, cageKey]
-    floatingObjects = [idol, needle]
+    floatingObjects = [bottle, idol, needle]
     validContents = (grimyObjects + floatingObjects)
     contentsListedSeparately = true
     descContentsLister = new WaterContainerDescContentsLister(self)
+    iobjFor(PourInto)
+    {
+        verify { }
+        check
+        {
+            if ((gDobj.pourVolume ?? 0) + level > 20000)
+                failCheck('That would overflow {the iobj/him}. ');
+        }
+        action
+        {
+            "{You/He} empt{ies} {the dobj/him} into <<if overflowing>>the
+            overflowing <<name>><<else>>{the iobj/him}";
+            if (sink.current != self)
+                ". The water pours down the drain";
+            else if (!overflowing)
+            {
+                local oldLevel = level;
+                local newLevel = oldLevel + (gDobj.pourVolume ?? 0);
+                setLevel(level: newLevel);
+                if (oldLevel == 0)
+                    ", forming a small puddle";
+                else if (oldLevel < 1000)
+                    ". The puddle grows slightly";
+                else if (level < newLevel)
+                    ". Some excess water trickles down the overflow hole";
+                else if (oldLevel < 15000 && level >= 15000)
+                    ". It could just barely be considered full now";
+                else
+                    ". The water level rises insignificantly";
+            }
+            ". ";
+        }
+    }
     iobjFor(PutIn) {
         verify {
             if (validContents.indexOf(gDobj) == nil)
