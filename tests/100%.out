@@ -766,14 +766,20 @@ You must be more specific about what you want to calculate.
 >c inverse 0
 The calculator outputs ~0 = -1.  The pipes rattle.
 
+>drink water
+That would be disgusting.
+
+>drink sink water
+You’re not thirsty.
+
 >c 3 and 6
 The calculator outputs 3 & 6 = 2.  Water dribbles from the faucet.
 
->pour sea in sink
+>pour water in sink
 You empty the bottle of seawater into the sink.  The puddle grows slightly.
 
 >undo
-Taking back one turn: “pour sea in sink”.
+Taking back one turn: “pour water in sink”.
 
 Washroom
 Sculpting is a dusty business.  You use this sink to clean off after a hard
@@ -1429,6 +1435,9 @@ distorted by the ripples issuing from the bird.
 >pour sea in it
 That would overflow the basin.
 
+>drop sea
+Dropped.
+
 >n
 Studio Entrance
 Your studio is where you create great works of art, though you have made
@@ -1512,7 +1521,7 @@ The water on the floor is trickling into the wall.
 
 >wash iron with it
 (the iron key)
-The water on the ground is too dirty.
+The water on the floor is too dirty.
 
 >ne
 Washroom
@@ -1545,13 +1554,16 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The floor is covered with water.
+The ground is covered with water.
+
+You see a bottle of seawater here.
 
 >x water
-Which water do you mean, the water on the floor, or the water in the basin?
+Which water do you mean, the water on the ground, the bottle of seawater, or
+the water in the basin?
 
 >floor
-The water on the floor is trickling down the stairs.
+The water on the ground is trickling down the stairs.
 
 >x bath
 It is shallow but wide, and lined with tiles.  It used to be a fountain, but it
@@ -1559,6 +1571,9 @@ stopped working after they installed the new sink.  Something to do with water
 pressure, no doubt.  Now you just use it as a birdbath.
 
 Water is spilling over the sides in a turbulent flow.
+
+>get sea
+Taken.
 
 >n
 Studio Entrance
@@ -1624,11 +1639,14 @@ stops spilling over the edge of the sink.
 >c 40*400
 The calculator outputs 40 × 400 = 16000.  Some water drains from the sink.
 
->x floor water
+>drink floor water
+The water on the floor is too dirty.
+
+>x it
 The water on the floor is a stagnant puddle.
 
 >drink water
-You’re not thirsty.
+That would be disgusting.
 
 >put keys,iron in sink
 bronze key: You clean the bronze key, revealing an inscription.
@@ -1732,7 +1750,7 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The floor is covered with water.
+The ground is covered with water.
 
 The bird is startled and hops to the far side of the basin.
 
@@ -1831,17 +1849,20 @@ The floor is covered with water.
 You see an end table (on which are a coin box and a plate) and a camp bed (on
 which is a wicker cage) here.
 
+>drop sea
+Dropped.
+
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The floor is covered with water.
+The ground is covered with water.
 
 The basin contains an idol.
 
->x it
+>x bath
 It is shallow but wide, and lined with tiles.  It used to be a fountain, but it
 stopped working after they installed the new sink.  Something to do with water
 pressure, no doubt.  Now you just use it as a birdbath.
@@ -1855,7 +1876,7 @@ An idol is floating on the surface of the water.
 Taken.
 
 >x water
-Which water do you mean, the water on the floor, or the water in the basin?
+Which water do you mean, the water on the ground, or the water in the basin?
 
 >bath
 It is shallow but wide, and lined with tiles.  It used to be a fountain, but it
@@ -1869,18 +1890,41 @@ physically touch the object of your affections, which is some consolation.
 >drink it
 Drinking from a birdbath might not be the best idea.
 
->pour sea in bath
+>n
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+The floor is covered with water.
+
+You see an end table (on which are a coin box and a plate), a camp bed (on
+which is a wicker cage), and a bottle of seawater here.
+
+>get sea
+Taken.
+
+>s
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The ground is covered with water.
+
+>pour it in bath
 That would overflow the basin.
 
 >undo
-Taking back one turn: “pour sea in bath”.
+Taking back one turn: “pour it in bath”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The floor is covered with water.
+The ground is covered with water.
 
 >about
 This is a short game originally designed to provide an example file for the
@@ -2360,7 +2404,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 232 moves, you have scored 15 of a possible 15 points.
+In 241 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2373,7 +2417,7 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The floor is covered with water.
+The ground is covered with water.
 
 >close
 (the door)
@@ -2391,7 +2435,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 233 moves, you have scored 15 of a possible 15 points.
+In 242 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2404,7 +2448,7 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The floor is covered with water.
+The ground is covered with water.
 
 >lock door with clean
 (the bronze key)
@@ -2422,13 +2466,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 234 moves, you have scored 15 of a possible 15 points.
+In 243 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 234 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 243 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]

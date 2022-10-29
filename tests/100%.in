@@ -122,8 +122,10 @@
 >turn water on
 >c
 >c inverse 0
+>drink water
+>drink sink water
 >c 3 and 6
->pour sea in sink
+>pour water in sink
 >undo
 >wash iron in sink
 >x sink
@@ -228,6 +230,7 @@
 >s
 >x bath
 >pour sea in it
+>drop sea
 >n
 >ne
 >c 1/0
@@ -252,6 +255,7 @@
 >x water
 >floor
 >x bath
+>get sea
 >n
 >ne
 >c 1/0
@@ -261,7 +265,8 @@
 >g
 >c 555620000 xor 0
 >c 40*400
->x floor water
+>drink floor water
+>x it
 >drink water
 >put keys,iron in sink
 >x addon,idol,keys
@@ -296,13 +301,17 @@
 >undo
 >c 1/0
 >sw
+>drop sea
 >s
->x it
+>x bath
 >get idol
 >x water
 >bath
 >drink it
->pour sea in bath
+>n
+>get sea
+>s
+>pour it in bath
 >undo
 >about
 >help

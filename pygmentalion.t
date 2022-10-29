@@ -575,9 +575,8 @@ entrance: Room 'Studio Entrance'
     }
 ;
 
-++ wineBottle: Thing 'bottle' 'bottle of wine'
+++ wineBottle: Thing 'dark sea sea-dark seadark bottle/wine' 'bottle of wine'
     "A bottle of sea-dark wine. "
-    materialWord = 'dark' 'sea' 'sea-dark' 'seadark' 'wine'
     aNameObjShort = (getFacets()[1].aNameObjShort)
     getFacets() { return [seawaterBottle]; }
     bulk = (getFacets()[1].bulk)
@@ -596,9 +595,10 @@ entrance: Room 'Studio Entrance'
     dobjFor(Drink) remapTo(Taste, DirectObject)
     dobjFor(Pour)
     {
-        verify
+        verify { }
+        check
         {
-            illogical('That would be a waste of good wine. ');
+            failCheck('That would be a waste of good wine. ');
         }
     }
     dobjFor(PourInto)
@@ -606,18 +606,20 @@ entrance: Room 'Studio Entrance'
         remap = ((gIobj ?? gTentativeIobj ?? self).ofKind(WaterContainer)
             ? inherited()
             : [PourAction, DirectObject])
-        verify
+        verify { }
+        check
         {
-            illogical('That would be a waste of good wine: {the iobj/he} {is}
+            failCheck('That would be a waste of good wine: {the iobj/he} {is}
                 not a krater. ');
         }
     }
     dobjFor(PourOnto) remapTo(PourInto, DirectObject, IndirectObject)
 ;
 
-seawaterBottle: Thing 'bottle' 'bottle of seawater'
+seawaterBottle: Thing
+    'dark sea wine-dark winedark bottle/seawater/water'
+    'bottle of seawater'
     "A bottle of wine-dark seawater. "
-    materialWord = 'dark' 'sea' 'seawater' 'water' 'wine-dark' 'winedark'
     aNameObjShort = (getFacets()[1].aNameObj)
     getFacets() { return [bottle]; }
     bulk = (getFacets()[1].bulk)
@@ -640,9 +642,10 @@ seawaterBottle: Thing 'bottle' 'bottle of seawater'
     }
     dobjFor(Pour)
     {
-        verify
+        verify { }
+        check
         {
-            illogical('That would make a mess. ');
+            failCheck('That would make a mess. ');
         }
     }
     dobjFor(PourInto)
@@ -2146,19 +2149,19 @@ trickling(water) multimethod
 }
 
 class Water:PresentLater,Fixture'(floor) (ground) water puddle water''water'
-    "The water on the floor is <<trickling(self)>>. "
-    disambigName = 'water on the floor'
-    specialDesc = "The floor is covered with water. "
+    "The <<disambigName>> is <<trickling(self)>>. "
+    disambigName = 'water on the <<floorName>>'
+    specialDesc = "The <<floorName>> is covered with water. "
+    floorName = ((canSee(defaultFloor) ? defaultFloor : defaultGround).name)
     dobjFor(Drink)
     {
         preCond = [touchObj]
-        verify { }
-        check { failCheck('{You\'re} not thirsty. '); }
+        verify { return verifyIobjCleanWith(); }
     }
     dobjFor(Taste) remapTo(Drink, DirectObject)
     iobjFor(CleanWith)
     {
-        verify { illogical('The water on the ground is too dirty. '); }
+        verify { illogical('The <<disambigName>> is too dirty. '); }
     }
 ;
 
