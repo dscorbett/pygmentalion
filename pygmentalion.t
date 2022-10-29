@@ -595,6 +595,7 @@ entrance: Room 'Studio Entrance'
     dobjFor(Drink) remapTo(Taste, DirectObject)
     dobjFor(Pour)
     {
+        preCond = (inherited() + objHeld)
         verify { }
         check
         {
@@ -610,6 +611,7 @@ entrance: Room 'Studio Entrance'
                 ? inherited()
                 : [PourAction, DirectObject];
         }
+        preCond = (inherited() + objHeld)
         verify
         {
             if (self == gIobj)
@@ -651,6 +653,7 @@ seawaterBottle: Thing
     }
     dobjFor(Pour)
     {
+        preCond = (inherited() + objHeld)
         verify { }
         check
         {
@@ -660,6 +663,7 @@ seawaterBottle: Thing
     dobjFor(PourInto)
     {
         remap { return delegated wineBottle; }
+        preCond = (inherited() + objHeld)
         verify { return delegated wineBottle; }
         action
         {
