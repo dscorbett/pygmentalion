@@ -2254,7 +2254,7 @@ class ContainedWater: Water
     iobjFor(PutIn) remapTo(PutIn, DirectObject, location)
 ;
 
-class FloorWater:Water'(floor) (ground) water puddle water''water'
+class FloorWater:Water'(floor) (ground) water''water'
     "The <<disambigName>> is <<trickling(self)>>. "
     disambigName = 'water on the <<floorName>>'
     specialDesc = "The <<floorName>> is covered with water. "
@@ -2279,7 +2279,7 @@ FloorWater { +workbenchRoom };
 entranceWater: FloorWater +entrance
     "<<if sink.overflowing>>At your feet, all the water from the sink flows
     into a <<%-o 02>>-dactyl slit in the baseboard. <<else>><<inherited>>"
-    vocabWords = 'water baseboard/puddle/slit water'
+    vocabWords = 'water baseboard/slit water'
 ;
 trickling(entranceWater w)
 {
