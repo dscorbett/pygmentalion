@@ -125,6 +125,9 @@ She isn’t here.  You’ll have to leave the plate somewhere she can find it.
 (first taking the bottle of wine, then opening the coin box)
 You can only put coins in the coin box.
 
+>put box in sea
+The bottle is already full of wine.
+
 >x box
 A small round box in which you keep your coins, when you have any.  It’s open
 and empty.  Maybe next time you check, it will contain a coin.  You can only
@@ -1571,7 +1574,7 @@ The ground is covered with water.
 You see a bottle of seawater here.
 
 >x water
-Which water do you mean, the water on the ground, the bottle of seawater, or
+Which water do you mean, the bottle of seawater, the water on the ground, or
 the water in the basin?
 
 >floor
@@ -1833,17 +1836,26 @@ excess water trickles down the overflow hole.
 You empty the bottle of seawater into the sink.  Some excess water trickles
 down the overflow hole.
 
->undo
-Taking back one turn: “pour sea in sink”.
+>put needle,net in it
+needle: The bottle is for liquids only.
 
-Washroom
-Sculpting is a dusty business.  You use this sink to clean off after a hard
-day’s work.  Beside the sink is a small side table, and on the wall is a
-calculator.  The rest of the studio is south and west.
+net: The net is too big to fit through the neck of the bottle.
 
-The floor is covered with water.
+>put floor water in it
+The water is too shallow for you to get any of it into the bottle.
 
-On the side table are a manual and a comb.
+>put sink water in it
+You fill the bottle with water.
+
+>x it
+A bottle of water.
+
+>drink
+(the bottle of water)
+You’re not thirsty.
+
+>taste it
+It tastes much as you would expect.
 
 >c 1/0
 The calculator outputs ERROR {division by zero}.  The water in the sink is
@@ -1912,10 +1924,13 @@ outside, and the studio itself is to the north and the east.
 The floor is covered with water.
 
 You see an end table (on which are a coin box and a plate), a camp bed (on
-which is a wicker cage), and a bottle of seawater here.
+which is a wicker cage), and a bottle of water here.
 
 >get sea
 Taken.
+
+>put net in it
+The bottle is already full of water.
 
 >s
 Portico
@@ -1926,7 +1941,8 @@ affixed to the doorpost.
 The ground is covered with water.
 
 >pour it on bath water
-That would overflow the basin.
+You empty the bottle of water into the basin.  The water level rises
+insignificantly.
 
 >undo
 Taking back one turn: “pour it on bath water”.
@@ -2416,7 +2432,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 245 moves, you have scored 15 of a possible 15 points.
+In 254 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2447,7 +2463,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 246 moves, you have scored 15 of a possible 15 points.
+In 255 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2478,13 +2494,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 247 moves, you have scored 15 of a possible 15 points.
+In 256 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 247 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 256 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]

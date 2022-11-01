@@ -578,7 +578,7 @@ entrance: Room 'Studio Entrance'
 ++ wineBottle: Thing 'dark sea sea-dark seadark bottle/wine' 'bottle of wine'
     "A bottle of sea-dark wine. "
     aNameObjShort = (getFacets()[1].aNameObjShort)
-    getFacets() { return [seawaterBottle]; }
+    getFacets() { return [waterBottle]; }
     bulk = (getFacets()[1].bulk)
     dobjFor(Taste)
     {
@@ -589,7 +589,7 @@ entrance: Room 'Studio Entrance'
             "{You/He} take{s} a sip and realize that this is not sea-dark wine
             after all. It is just seawater. ";
             moveInto(nil);
-            seawaterBottle.moveInto(loc);
+            waterBottle.moveInto(loc);
         }
     }
     dobjFor(Drink) remapTo(Taste, DirectObject)
@@ -625,21 +625,32 @@ entrance: Room 'Studio Entrance'
         }
     }
     dobjFor(PourOnto) remapTo(PourInto, DirectObject, IndirectObject)
+    iobjFor(PutIn)
+    {
+        verify
+        {
+            illogical('The bottle is already full of wine. ');
+        }
+    }
 ;
 
-seawaterBottle: Thing
+waterBottle: Thing
     'dark sea wine-dark winedark bottle/seawater/water'
-    'bottle of seawater'
-    "A bottle of wine-dark seawater. "
+    'bottle of <<if salty>>sea<<end>>water'
+    "A bottle of <<if salty>>wine-dark sea<<end>>water. "
     aNameObjShort = (getFacets()[1].aNameObj)
     getFacets() { return [bottle]; }
     bulk = (getFacets()[1].bulk)
     pourVolume = 163  // 750 ml - 1 sip
+    salty = true
     dobjFor(Taste)
     {
         action
         {
-            "{It dobj/He} taste{s} salty. ";
+            if (salty)
+                "{It dobj/He} taste{s} salty. ";
+            else
+                inherited();
         }
     }
     dobjFor(Drink)
@@ -648,7 +659,10 @@ seawaterBottle: Thing
         verify { }
         check
         {
-            failCheck('That would be disgusting. ');
+            if (salty)
+                failCheck('That would be disgusting. ');
+            else
+                failCheck('{You\'re} not thirsty. ');
         }
     }
     dobjFor(Pour)
@@ -672,11 +686,28 @@ seawaterBottle: Thing
         }
     }
     dobjFor(PourOnto) remapTo(PourInto, DirectObject, IndirectObject)
+    iobjFor(PutIn)
+    {
+        verify
+        {
+            illogical('The bottle is already full of water. ');
+        }
+    }
 ;
 
-bottle: Thing 'bottle' 'bottle'
+bottle: RestrictedContainer 'bottle' 'bottle'
     "An empty bottle. "
+    getFacets() { return [waterBottle]; }
     bulk = 5
+    maxSingleBulk = 0
+    canPutIn(obj)
+    {
+        return obj.ofKind(Water);
+    }
+    cannotPutInMsg(obj)
+    {
+        return '\^<<nameIs>> for liquids only. ';
+    }
     dobjFor(Drink)
     {
         verify
@@ -687,6 +718,38 @@ bottle: Thing 'bottle' 'bottle'
     dobjFor(Pour) remapTo(Drink, DirectObject)
     dobjFor(PourInto) remapTo(Drink, DirectObject)
     dobjFor(PourOnto) remapTo(Drink, DirectObject)
+    iobjFor(PutIn)
+    {
+        check
+        {
+            if (gDobj.bulk > maxSingleBulk)
+                /*
+                 *   Par la ſentelle q̄ ıay dıcte.
+                 *   Quı tāt ert eſtroıcte et petıte.
+                 *      (MS. Douce 195, fol. 155r)
+                 */
+                failCheck('{The dobj/He} {is} too big to fit through the neck
+                    of {the iobj/him}. ');
+            else
+                inherited();
+        }
+        action
+        {
+            if (gDobj.ofKind(FloorWater) || gDobj.location.level < 1000)
+                "{The dobj/He} {is} too shallow for {you/him} to get any of it
+                into {the iobj/him}. ";
+            else
+            {
+                "{You/He} fill{s} {the iobj/him} with water. ";
+                gDobj.location.setLevel(
+                    level: gDobj.location.level - waterBottle.pourVolume);
+                local loc = location;
+                moveInto(nil);
+                waterBottle.salty = nil;
+                waterBottle.moveInto(loc);
+            }
+        }
+    }
 ;
 
 ++ plateOfLiver: Food 'chopped liver plate' 'plate of chopped liver'
@@ -804,6 +867,7 @@ workbenchRoom: Room 'At the Workbench'
 ++ needle: Thing 'needle/tool*tools' 'needle'
     "A sharp tool used for sewing. It is made of silver. "
     materialWord = 'metal' 'silver'
+    bulk = 0
 ;
 
 /*
@@ -1057,6 +1121,7 @@ altarRoom: Room 'At the Altar'
     materialWord = 'wicker'
     keyList = [cageKey]
     lockStatusObvious = true
+    bulk = 10
     maxSingleBulk = 5
     maxSingleBulkWhenClosed = 1
     material = coarseMesh
@@ -1627,21 +1692,12 @@ export level 'waterLevel';
     iobjFor(PourInto) { check { } }
 ;
 
-++ sinkWater: PresentLater, Fixture
+++ sinkWater: ContainedWater
     vocabWords = (rexReplace('/', sink.vocabWords, ' ') + ' water')
-    name = 'water'
-    desc = "<<sink.desc>>"
-    disambigName = 'water in <<sink.theName>>'
-    hideFromAll(action) { return delegated Component(action); }
     dobjFor(Drink)
     {
         verify { illogical('''{You're} not thirsty. '''); }
     }
-    dobjFor(Taste) remapTo(Drink, DirectObject)
-    iobjFor(CleanWith) remapTo(CleanWith, DirectObject, sink)
-    iobjFor(PourInto) remapTo(PourInto, DirectObject, sink)
-    iobjFor(PourOnto) remapTo(PourOnto, DirectObject, sink)
-    iobjFor(PutIn) remapTo(PutIn, DirectObject, sink)
     dobjFor(TurnOn) remapTo(TurnOn, sink)
     dobjFor(TurnOff) remapTo(TurnOff, sink)
 ;
@@ -1831,14 +1887,10 @@ portico: OutdoorRoom 'Portico'
     }
 ;
 
-++ basinWater: PresentLater, Fixture
+++ basinWater: ContainedWater
     vocabWords = (rexReplace('/', basin.vocabWords, ' ') + ' water')
-    name = 'water'
-    desc = "<<basin.desc>>"
     getState = nonMirrorState
     allStates = (basin.allStates)
-    disambigName = 'water in <<basin.theName>>'
-    hideFromAll(action) { return delegated Component(action); }
     dobjFor(Drink)
     {
         verify
@@ -1846,11 +1898,6 @@ portico: OutdoorRoom 'Portico'
             illogical('Drinking from a birdbath might not be the best idea. ');
         }
     }
-    dobjFor(Taste) remapTo(Drink, DirectObject)
-    iobjFor(CleanWith) remapTo(CleanWith, DirectObject, basin)
-    iobjFor(PourInto) remapTo(PourInto, DirectObject, basin)
-    iobjFor(PourOnto) remapTo(PourOnto, DirectObject, basin)
-    iobjFor(PutIn) remapTo(PutIn, DirectObject, basin)
 ;
 
 mirrorState: ThingState
@@ -2183,7 +2230,31 @@ trickling(water) multimethod
     return 'a stagnant puddle';
 }
 
-class Water:PresentLater,Fixture'(floor) (ground) water puddle water''water'
+class Water: PresentLater, Fixture
+    dobjFor(PutIn)
+    {
+        preCond = (inherited() - objHeld)
+        verify
+        {
+            if (gIobj != bottle)
+                inherited();
+        }
+    }
+;
+
+class ContainedWater: Water
+    name = 'water'
+    desc = "<<location.desc>>"
+    disambigName = 'water in <<location.theName>>'
+    hideFromAll(action) { return delegated Component(action); }
+    dobjFor(Taste) remapTo(Drink, DirectObject)
+    iobjFor(CleanWith) remapTo(CleanWith, DirectObject, location)
+    iobjFor(PourInto) remapTo(PourInto, DirectObject, location)
+    iobjFor(PourOnto) remapTo(PourOnto, DirectObject, location)
+    iobjFor(PutIn) remapTo(PutIn, DirectObject, location)
+;
+
+class FloorWater:Water'(floor) (ground) water puddle water''water'
     "The <<disambigName>> is <<trickling(self)>>. "
     disambigName = 'water on the <<floorName>>'
     specialDesc = "The <<floorName>> is covered with water. "
@@ -2200,12 +2271,12 @@ class Water:PresentLater,Fixture'(floor) (ground) water puddle water''water'
     }
 ;
 
-Water template +location | ~location "specialDesc"? inherited;
-Water +altarRoom;
-Water +sinkRoom { ;; };
-Water { +workbenchRoom };
+FloorWater template +location | ~location "specialDesc"? inherited;
+FloorWater +altarRoom;
+FloorWater +sinkRoom { ;; };
+FloorWater { +workbenchRoom };
 
-entranceWater: Water +entrance
+entranceWater: FloorWater +entrance
     "<<if sink.overflowing>>At your feet, all the water from the sink flows
     into a <<%-o 02>>-dactyl slit in the baseboard. <<else>><<inherited>>"
     vocabWords = 'water baseboard/puddle/slit water'
@@ -2215,7 +2286,7 @@ trickling(entranceWater w)
     return sink.overflowing ? 'trickling into the wall' : inherited<*>(w);
 }
 
-porticoWater: Water ~portico;
+porticoWater: FloorWater ~portico;
 trickling(porticoWater w)
 {
     return basin.overflowing ? 'trickling down the stairs' : inherited<*>(w);
@@ -2795,7 +2866,7 @@ DefineLiteralAction(Calculate)
                     edge<<if sink.level >= 15000>> of the sink<<end>>. Rivulets
                     begin running down the slight gradient of the floor.
                     <<else>>The pipes shake loudly. ";
-                forEachInstance(Water, function(w) {
+                forEachInstance(FloorWater, function(w) {
                     if ((w.eventualLocation == portico) ==
                         (sink.current == basin))
                         w.makePresent();

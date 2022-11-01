@@ -32,6 +32,7 @@
 >x it
 >give god it
 >put sea in box
+>put box in sea
 >x box
 >l in it
 >n
@@ -303,7 +304,12 @@
 >c 1/0
 >c 2X10001
 >pour sea in sink
->undo
+>put needle,net in it
+>put floor water in it
+>put sink water in it
+>x it
+>drink
+>taste it
 >c 1/0
 >sw
 >drop sea
@@ -315,6 +321,7 @@
 >drink it
 >n
 >get sea
+>put net in it
 >s
 >pour it on bath water
 >undo
