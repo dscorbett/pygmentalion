@@ -1371,6 +1371,7 @@ altarRoom: Room 'At the Altar'
     {
         preCond = (inherited() + touchObj)
     }
+    dobjFor(Open) remapTo(Search, DirectObject)
 ;
 
 modify Thing
