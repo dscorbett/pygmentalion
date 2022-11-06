@@ -635,8 +635,9 @@ affixed to the doorpost.
 You see nothing suitable here.
 
 >x bath,column,door,label,label
-basin: It is shallow but wide, and lined with tiles.  It used to be a fountain,
-but it stopped working after they installed the new sink.  Something to do with
+basin: It is shallow but wide, and lined with black tiles.  It grows gradually
+deeper towards a decorative vase in the center.  It used to be a fountain, but
+it stopped working after they installed the new sink.  Something to do with
 water pressure, no doubt.  Now you just use it as a birdbath.
 
 An iron key is lodged in the drain.
@@ -857,7 +858,8 @@ south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
 >x bath
-It is shallow but wide, and lined with tiles.  It used to be a fountain, but it
+It is shallow but wide, and lined with black tiles.  It grows gradually deeper
+towards a decorative vase in the center.  It used to be a fountain, but it
 stopped working after they installed the new sink.  Something to do with water
 pressure, no doubt.  Now you just use it as a birdbath.
 
@@ -951,11 +953,12 @@ south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
 >x bath
-It is shallow but wide, and lined with tiles.  It used to be a fountain, but it
+It is shallow but wide, and lined with black tiles.  It grows gradually deeper
+towards a decorative vase in the center.  It used to be a fountain, but it
 stopped working after they installed the new sink.  Something to do with water
 pressure, no doubt.  Now you just use it as a birdbath.
 
-There is some water in it, but you can still make out the mosaic lining the
+There is some water in it, but you can still make out the tiles lining the
 basin.
 
 >n
@@ -1016,7 +1019,8 @@ south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
 >x bath
-It is shallow but wide, and lined with tiles.  It used to be a fountain, but it
+It is shallow but wide, and lined with black tiles.  It grows gradually deeper
+towards a decorative vase in the center.  It used to be a fountain, but it
 stopped working after they installed the new sink.  Something to do with water
 pressure, no doubt.  Now you just use it as a birdbath.
 
@@ -1281,8 +1285,9 @@ The bird effortlessly dodges your attack.
 The bird does not need your help using the birdbath.
 
 >x bath,it
-basin: It is shallow but wide, and lined with tiles.  It used to be a fountain,
-but it stopped working after they installed the new sink.  Something to do with
+basin: It is shallow but wide, and lined with black tiles.  It grows gradually
+deeper towards a decorative vase in the center.  It used to be a fountain, but
+it stopped working after they installed the new sink.  Something to do with
 water pressure, no doubt.  Now you just use it as a birdbath.
 
 It is full of water.  You can see your reflection, though it is distorted by
@@ -1313,8 +1318,9 @@ The bottle is empty.
 Done.
 
 >x bath,it
-basin: It is shallow but wide, and lined with tiles.  It used to be a fountain,
-but it stopped working after they installed the new sink.  Something to do with
+basin: It is shallow but wide, and lined with black tiles.  It grows gradually
+deeper towards a decorative vase in the center.  It used to be a fountain, but
+it stopped working after they installed the new sink.  Something to do with
 water pressure, no doubt.  Now you just use it as a birdbath.
 
 It is full of water.  You can see your reflection, though it is distorted by
@@ -1442,7 +1448,8 @@ affixed to the doorpost.
 The bird is startled and hops to the far side of the basin.
 
 >x bath
-It is shallow but wide, and lined with tiles.  It used to be a fountain, but it
+It is shallow but wide, and lined with black tiles.  It grows gradually deeper
+towards a decorative vase in the center.  It used to be a fountain, but it
 stopped working after they installed the new sink.  Something to do with water
 pressure, no doubt.  Now you just use it as a birdbath.
 
@@ -1583,11 +1590,13 @@ the water in the basin?
 The water on the ground is trickling down the stairs.
 
 >x bath
-It is shallow but wide, and lined with tiles.  It used to be a fountain, but it
+It is shallow but wide, and lined with black tiles.  It grows gradually deeper
+towards a decorative vase in the center.  It used to be a fountain, but it
 stopped working after they installed the new sink.  Something to do with water
 pressure, no doubt.  Now you just use it as a birdbath.
 
-Water is spilling over the sides in a turbulent flow.
+Water is streaming from the top of the vase and spilling over the sides of the
+basin in a turbulent flow.
 
 >get sea
 Taken.
@@ -1791,7 +1800,8 @@ noisily out of the portico, through the columns and away towards the west.
 Done.
 
 >x bath
-It is shallow but wide, and lined with tiles.  It used to be a fountain, but it
+It is shallow but wide, and lined with black tiles.  It grows gradually deeper
+towards a decorative vase in the center.  It used to be a fountain, but it
 stopped working after they installed the new sink.  Something to do with water
 pressure, no doubt.  Now you just use it as a birdbath.
 
@@ -1833,6 +1843,14 @@ and begins to fill the sink.
 >c 2X10001
 The calculator outputs 2 × 10001 = 20002.  Water flows from the faucet.  Some
 excess water trickles down the overflow hole.
+
+>chnedin
+Nothing happens.  (Aphrodite said you would need a mirror. You peer at the
+water in the sink, but you see no more than a vague and shadowy silhouette, not
+a true reflection.)
+
+>g
+Nothing happens.  (Aphrodite said you would need a mirror.)
 
 >pour sea in sink
 You empty the bottle of seawater into the sink.  Some excess water trickles
@@ -1889,7 +1907,8 @@ The ground is covered with water.
 The basin contains an idol.
 
 >x bath
-It is shallow but wide, and lined with tiles.  It used to be a fountain, but it
+It is shallow but wide, and lined with black tiles.  It grows gradually deeper
+towards a decorative vase in the center.  It used to be a fountain, but it
 stopped working after they installed the new sink.  Something to do with water
 pressure, no doubt.  Now you just use it as a birdbath.
 
@@ -1905,7 +1924,8 @@ Taken.
 Which water do you mean, the water on the ground, or the water in the basin?
 
 >bath
-It is shallow but wide, and lined with tiles.  It used to be a fountain, but it
+It is shallow but wide, and lined with black tiles.  It grows gradually deeper
+towards a decorative vase in the center.  It used to be a fountain, but it
 stopped working after they installed the new sink.  Something to do with water
 pressure, no doubt.  Now you just use it as a birdbath.
 
@@ -2434,7 +2454,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 254 moves, you have scored 15 of a possible 15 points.
+In 256 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2465,7 +2485,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 255 moves, you have scored 15 of a possible 15 points.
+In 257 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2496,13 +2516,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 256 moves, you have scored 15 of a possible 15 points.
+In 258 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 256 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 258 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]

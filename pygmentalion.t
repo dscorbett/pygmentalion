@@ -1833,11 +1833,13 @@ portico: OutdoorRoom 'Portico'
  */
 
 + basin: Fixture, WaterContainer
-    '(bird) mirror basin/bath/birdbath/fountain/mosaic/pool/tile/tiles' 'basin'
-    "It is shallow but wide, and lined with tiles. It used to be a fountain,
+    '(bird) mirror basin/bath/birdbath/fountain/pool/tile/tiles/vase' 'basin'
+    "It is shallow but wide, and lined with black tiles. It grows gradually
+    deeper towards a decorative vase in the center. It used to be a fountain,
     but it stopped working after they installed the new sink. Something to do
     with water pressure, no doubt. Now you just use it as a birdbath.
-    <.p><<if overflowing>>Water is spilling over the sides in a turbulent flow.
+    <.p><<if overflowing>>Water is streaming from the top of the vase and
+    spilling over the sides of the basin in a turbulent flow.
     <<else if level >= 19500>>It is full to the brim with water. You can see
     your reflection<<if obscuringItem == bird>>, though it is distorted by the
     ripples issuing from <<obscuringItem.theName>><<else if obscuringItem>>,
@@ -1852,7 +1854,7 @@ portico: OutdoorRoom 'Portico'
     <<else if level >= 10000>>It is half full. From the right angle, you can
     make out a shadowy reflection of the columns, but nothing more.
     <<else if level >= 1000>>There is some water in it, but you can still make
-    out the mosaic lining the basin.
+    out the tiles lining the basin.
     <<else if level > 0>>A small puddle has formed at the bottom of the basin.
     "
     level = 0
@@ -3419,7 +3421,10 @@ DefineLiteralAction(Say)
             }
             else
                 "Nothing happens. <<if keywordToken.scoreCount>>(Aphrodite said
-                you would need a mirror.) <<end>>";
+                {you/he} would need a mirror.<<if gActor.canSee(sinkWater) &&
+                sink.level >= 15000>><<first time>> {You/He} peer{s} at the
+                water in the sink, but {you/he} see{s} no more than a vague and
+                shadowy silhouette, not a true reflection.<<only>><<end>>) ";
         }
     }
 ;

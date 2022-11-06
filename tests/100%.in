@@ -303,6 +303,8 @@
 >ne
 >c 1/0
 >c 2X10001
+>chnedin
+>g
 >pour sea in sink
 >put needle,net in it
 >put floor water in it
