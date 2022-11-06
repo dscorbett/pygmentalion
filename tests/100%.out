@@ -98,15 +98,15 @@ A deity can only be interacted with through prayer.
 camp bed: It is a narrow portable camp bed.  You brought it into the studio so
 you would not have to leave the statue every night.
 
-end table: A small portable table.  On the end table are a bottle of wine, a
-plate of chopped liver, and a coin box.
+end table: It’s a small portable table.  On the end table are a bottle of wine,
+a plate of chopped liver, and a coin box.
 
-bottle of wine: A bottle of sea-dark wine.
+bottle of wine: It’s a bottle of sea-dark wine.
 
 plate of chopped liver: You have been living on chopped liver since you moved
 into the studio permanently.  It isn’t bad, but it does get monotonous.
 
-coin box: A small round box in which you keep your coins, when you have any.
+coin box: This small round box is where you keep your coins, when you have any.
 It’s closed.
 
 door: It is a simple wooden door.  It’s closed.
@@ -116,7 +116,8 @@ You eat all the liver.  The plate will be full again tomorrow morning though.
 Somehow, the liver always regenerates overnight.
 
 >x it
-It is empty for now.
+It is empty, for now.  Painted on the clay are images of a hepatos, a glaukos,
+and other fish.
 
 >give god it
 She isn’t here.  You’ll have to leave the plate somewhere she can find it.
@@ -129,9 +130,9 @@ You can only put coins in the coin box.
 The bottle is already full of wine.
 
 >x box
-A small round box in which you keep your coins, when you have any.  It’s open
-and empty.  Maybe next time you check, it will contain a coin.  You can only
-hope.
+This small round box is where you keep your coins, when you have any.  It’s
+open and empty.  Maybe next time you check, it will contain a coin.  You can
+only hope.
 
 >l in it
 It’s empty.  Maybe next time you check, it will contain a coin.  You can only
@@ -213,7 +214,7 @@ On the workbench are a gold nugget, a needle, and an idol.
 gold nugget: It is a large nugget of gold that sparkles in the light.  You
 haven’t decided what to make it into yet.
 
-idol: The idol is a small statuette of Aphrodite carved from meerschaum.
+idol: It’s a small statuette of Aphrodite carved from meerschaum.
 
 statue: This is a statue of a woman carved from ivory.
 
@@ -221,9 +222,9 @@ She is wearing a [[string]] of pearls.
 
 string of pearls: You put this pearl necklace on the statue yesterday.
 plinth: It’s a smoothed block of marble half a cubit high.
-stool: A portable folding stool, or diphros okladias.
-needle: A sharp tool used for sewing.  It is made of silver.
-chisel: A sharp tool used for carving.
+stool: It’s a portable folding stool, or diphros okladias.
+needle: This is a sharp tool used for sewing.  It is made of silver.
+chisel: This is a sharp tool used for carving.
 
 (Your score has just increased by one point.)
 
@@ -360,12 +361,12 @@ altar: A rough marble slab lies on a granite banker.  In your rush to construct
 an altar, you neglected the usual surface finish and friezes, but you pray at
 it anyway.  You are sure the gods will understand.
 
-wicker cage: A knee-high wicker cage with an iron padlock.  It’s closed.  It’s
-currently locked.
+wicker cage: It’s a knee-high wicker cage with an iron padlock.  It’s closed.
+It’s currently locked.
 
 A pole sticks out through the bars and leans ithyphallically against the wall.
 
-padlock: An unbreakable iron padlock.  It’s currently locked.
+padlock: It’s an unbreakable iron padlock.  It’s currently locked.
 
 window: It’s just a window above the altar.  The space under the window is
 blank; as an interior [[decorator]], you can’t help but think the wall would
@@ -721,13 +722,13 @@ calculator.  The rest of the studio is south and west.
 On the side table are a manual and a comb.
 
 >x it
-A bottle of wine-dark seawater.
+It’s a bottle of wine-dark seawater.
 
 >x addon,comb,iron,sink,table,table
 calculator: The calculator is [[built in]]to the wall beside the sink.  It has
 buttons for all the standard unary and binary operations.
 
-comb: A tool to keep your hair tidy.
+comb: It’s a tool to keep your hair tidy.
 
 iron key: It is an iron key.  It is covered in grime from the drain of the
 basin.
@@ -1211,8 +1212,9 @@ mallet: Taken.
 net: The net slips through the bars.
 
 >x hammers
-ball-peen hammer: A hammer used for hardening metal.
-mallet: A wooden hammer with a large head, used to strike a chisel.
+ball-peen hammer: It’s a hammer used for hardening metal.
+
+mallet: It’s a wooden hammer with a large head, used to strike a chisel.
 
 >put mallet in net
 Done.
@@ -1320,7 +1322,7 @@ the ripples issuing from the bird.
 
 A bottle is floating on the surface of the water.
 
-bottle: An empty bottle.
+bottle: It’s an empty bottle made of translucent amber glass.
 
 >undo
 Taking back one turn: “x bath, it”.
@@ -1674,7 +1676,7 @@ calculator: The calculator is built into the wall beside the sink.  It has
 buttons for all the standard unary and binary operations.  The screen reads 40
 × 400 = 16000.
 
-idol: The idol is a small statuette of Aphrodite carved from meerschaum.
+idol: It’s a small statuette of Aphrodite carved from meerschaum.
 
 bronze key: It is a bronze key.  On it is etched the word “chnedin”.
 
@@ -1848,7 +1850,7 @@ The water is too shallow for you to get any of it into the bottle.
 You fill the bottle with water.
 
 >x it
-A bottle of water.
+It’s a bottle of water.
 
 >drink
 (the bottle of water)

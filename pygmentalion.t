@@ -552,13 +552,13 @@ entrance: Room 'Studio Entrance'
 ;
 
 + endTable: Surface 'end table*tables' 'end table'
-    "A small portable table. "
+    "It&rsquo;s a small portable table. "
     bulk = 10
 ;
 
 ++ coinBox: OpenableContainer, RestrictedContainer
     '(coin) box/pyx/pyxis' 'coin box'
-    "A small round box in which you keep your coins, when you have any. "
+    "This small round box is where you keep your coins, when you have any. "
     bulk = 5
     iobjFor(PutIn) {
         check
@@ -576,7 +576,7 @@ entrance: Room 'Studio Entrance'
 ;
 
 ++ wineBottle: Thing 'dark sea sea-dark seadark bottle/wine' 'bottle of wine'
-    "A bottle of sea-dark wine. "
+    "It&rsquo;s a bottle of sea-dark wine. "
     aNameObjShort = (getFacets()[1].aNameObjShort)
     getFacets() { return [waterBottle]; }
     bulk = (getFacets()[1].bulk)
@@ -637,7 +637,7 @@ entrance: Room 'Studio Entrance'
 waterBottle: Thing
     'dark sea wine-dark winedark bottle/seawater/water'
     'bottle of <<if salty>>sea<<end>>water'
-    "A bottle of <<if salty>>wine-dark sea<<end>>water. "
+    "It&rsquo;s a bottle of <<if salty>>wine-dark sea<<end>>water. "
     aNameObjShort = (getFacets()[1].aNameObj)
     getFacets() { return [bottle]; }
     bulk = (getFacets()[1].bulk)
@@ -696,7 +696,7 @@ waterBottle: Thing
 ;
 
 bottle: RestrictedContainer 'bottle' 'bottle'
-    "An empty bottle. "
+    "It&rsquo;s an empty bottle made of translucent amber glass. "
     getFacets() { return [waterBottle]; }
     bulk = 5
     maxSingleBulk = 0
@@ -755,6 +755,7 @@ bottle: RestrictedContainer 'bottle' 'bottle'
 ++ plateOfLiver: Food 'chopped liver plate' 'plate of chopped liver'
     "You have been living on chopped liver since you moved into the studio
     permanently. It isn&rsquo;t bad, but it does get monotonous. "
+    materialWord = 'clay'
     getFacets() { return [plate]; }
     bulk = (getFacets()[1].bulk)
     dobjFor(Eat)
@@ -773,7 +774,9 @@ bottle: RestrictedContainer 'bottle' 'bottle'
 ;
 
 plate: Thing 'plate' 'plate'
-    "It is empty for now. "
+    "It is empty, for now. Painted on the clay are images of a hepatos, a
+    glaukos, and other fish. "
+    materialWord = 'clay'
     bulk = 5
 ;
 
@@ -821,7 +824,7 @@ workbenchRoom: Room 'At the Workbench'
 ;
 
 + chair: Chair 'diphros folding chair/okladias/stool' 'stool'
-    "A portable folding stool, or diphros okladias. "
+    "It&rsquo;s a portable folding stool, or diphros okladias. "
     bulk = 10
 ;
 
@@ -841,7 +844,7 @@ workbenchRoom: Room 'At the Workbench'
 ;
 
 ++ chisel: Thing 'chisel/tool*tools' 'chisel'
-    "A sharp tool used for carving. "
+    "This is a sharp tool used for carving. "
     dobjFor(Attack)
     {
         check
@@ -865,7 +868,7 @@ workbenchRoom: Room 'At the Workbench'
  */
 
 ++ needle: Thing 'needle/tool*tools' 'needle'
-    "A sharp tool used for sewing. It is made of silver. "
+    "This is a sharp tool used for sewing. It is made of silver. "
     materialWord = 'metal' 'silver'
     bulk = 0
 ;
@@ -882,7 +885,7 @@ workbenchRoom: Room 'At the Workbench'
 ;
 
 ++ idol: Thing '(aphrodite) (cytherea) (venus) idol/statuette' 'idol'
-    "The idol is a small statuette of Aphrodite carved from meerschaum. "
+    "It&rsquo;s a small statuette of Aphrodite carved from meerschaum. "
     materialWord = 'meerschaum' 'sepiolite'
     bulk = 5
     dobjFor(PrayTo) remapTo(PrayTo, aphrodite)
@@ -1117,7 +1120,7 @@ altarRoom: Room 'At the Altar'
  */
 
 + cage: KeyedContainer 'cage' 'wicker cage'
-    "A knee-high wicker cage with an iron padlock. "
+    "It&rsquo;s a knee-high wicker cage with an iron padlock. "
     materialWord = 'wicker'
     keyList = [cageKey]
     lockStatusObvious = true
@@ -1180,7 +1183,7 @@ altarRoom: Room 'At the Altar'
 ;
 
 ++ padlock: LockableWithKey, Component 'lock/padlock' 'padlock'
-    "An unbreakable iron padlock. "
+    "It&rsquo;s an unbreakable iron padlock. "
     materialWord = 'iron' 'metal'
     lockStatusObvious = true
     examineStatus { return delegated Lockable; }
@@ -1430,13 +1433,13 @@ class Hammer: Thing
 +++ ballPeenHammer: Hammer, Hidden
     'ball ball-peen ballpeen peen peening hammer/tool*hammers tools'
     'ball-peen hammer'
-    "A hammer used for hardening metal. "
+    "It&rsquo;s a hammer used for hardening metal. "
     materialWord = 'metal' 'steel'
     bulk = 5
 ;
 
 +++ mallet: Hammer, Hidden 'hammer/mallet/tool*hammers tools' 'mallet'
-    "A wooden hammer with a large head, used to strike a chisel. "
+    "It&rsquo;s a wooden hammer with a large head, used to strike a chisel. "
     materialWord = 'wood' 'wooden'
     bulk = 5
 ;
@@ -1709,7 +1712,7 @@ export level 'waterLevel';
 ;
 
 ++ comb: Thing 'comb/tool*tools' 'comb'
-    "A tool to keep your hair tidy. "
+    "It&rsquo;s a tool to keep your hair tidy. "
 ;
 
 ++ manual: Readable '"operator\'s" book/manual' 'manual'
