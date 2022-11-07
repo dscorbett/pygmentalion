@@ -1833,7 +1833,8 @@ portico: OutdoorRoom 'Portico'
  */
 
 + basin: Fixture, WaterContainer
-    '(bird) mirror basin/bath/birdbath/fountain/pool/tile/tiles/vase' 'basin'
+    '(bird) mirror reflection
+    basin/bath/birdbath/fountain/pool/tile/tiles/vase' 'basin'
     "It is shallow but wide, and lined with black tiles. It grows gradually
     deeper towards a decorative vase in the center. It used to be a fountain,
     but it stopped working after they installed the new sink. Something to do
@@ -1907,7 +1908,7 @@ portico: OutdoorRoom 'Portico'
 ;
 
 mirrorState: ThingState
-    stateTokens = ['mirror']
+    stateTokens = ['mirror', 'reflection']
 ;
 
 nonMirrorState: ThingState
