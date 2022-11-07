@@ -3706,6 +3706,13 @@ function randListItem(lst)
 }
 
 greekWordGenerator: PreinitObject
+    addWord(word, wordTable)
+    {
+        local key = word.substr(1, 3);
+        if (!wordTable.isKeyPresent(key))
+            wordTable[key] = new Vector();
+        wordTable[key] += word;
+    }
     arrheta
     {
         local wordTable = new LookupTable();
@@ -3721,10 +3728,7 @@ greekWordGenerator: PreinitObject
         while ((word = file.readFile()) != nil)
         {
             word = word.findReplace('\n', '', ReplaceOnce);
-            local key = word.substr(1, 3);
-            if (!wordTable.isKeyPresent(key))
-                wordTable[key] = new Vector();
-            wordTable[key] += word;
+            addWord(word, wordTable);
         }
         return arrheta = wordTable;
     }
@@ -3773,7 +3777,7 @@ greekWordGenerator: PreinitObject
             word = mutate(randomProtoWord);
         } while (retries-- && isBarelyAcceptable(word)
             || isUnacceptable(word));
-        cmdDict.addWord(self, word, &noun);
+        addWord(word, arrheta);
         return word;
     }
     getWord(choose, fromList)
