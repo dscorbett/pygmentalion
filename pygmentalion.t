@@ -781,14 +781,15 @@ plate: Thing 'plate' 'plate'
 ;
 
 key: PresentLater, Key
-    '(door) clean grime grimy key/tool*keys tools' 'bronze key' @altar
+    '(door) clean grime grimy inscription key/tool*keys tools' 'bronze key'
+    @altar
     "It is a <<unless clean>>grimy<<end>> bronze key. <<if clean>>On it is \
     etched the word <q><<keyword>></q>. "
     materialWord = 'bronze' 'metal'
     clean = nil
     keyword = (keyword = greekWordGenerator.generate(), targetprop)
-    getState = (clean ? cleanState : grimyState)
-    allStates = [cleanState, grimyState]
+    getState = (clean ? cleanInscriptionState : grimyState)
+    allStates = [cleanInscriptionState, grimyState]
     dobjFor(CleanWith)
     {
         action
@@ -805,6 +806,10 @@ grimyState: ThingState
 
 cleanState: ThingState
     stateTokens = ['clean']
+;
+
+cleanInscriptionState: cleanState
+    stateTokens = (inherited() + 'inscription')
 ;
 
 workbenchRoom: Room 'At the Workbench'
@@ -2965,9 +2970,10 @@ modify Thing
     {
         verify
         {
-            if (getState() == cleanState)
+            local state = getState();
+            if (state != nil && state.ofKind(cleanState))
                 illogicalAlready('{The dobj/He} {is} already clean. ');
-            else if (getState() == grimyState)
+            else if (state == grimyState)
                 logicalRank(150, 'grimy');
         }
         check
