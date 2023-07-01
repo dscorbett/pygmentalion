@@ -186,8 +186,7 @@ gameMain: GameMainDef
             'feeling sick of eating chopped liver every day.',
             'embarrassed about loving a statue.',
             'nervous about loving a living woman.',
-            'wondering where you can find a woman who looks exactly like your
-            statue.',
+            'musing upon your statue. Where can you find a woman like that?',
             'wondering how much longer you can buy such expensive gifts before
             your credit runs out.',
             'considering your plight with remote detachment.',
