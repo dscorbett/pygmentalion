@@ -2340,10 +2340,7 @@ transient iris: Deity
 #ifdef TADS_INCLUDE_NET
             true
 #else
-            systemInfo(SysInfoPng) && !(
-            // XTads claims to support PNG but does not.
-            systemInfo(SysInfoInterpClass) == SysInfoIClassHTML
-            && systemInfo(SysInfoOsName) == 'POSIX_UNIX_MSWINDOWS')
+            systemInfo(SysInfoPrefImages) && systemInfo(SysInfoPng)
 #endif
             ;
         local src = '.system/CoverArt.png';
