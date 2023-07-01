@@ -3273,7 +3273,9 @@ DefineSystemAction(Help)
     {
         return objectPlaceholder = outputManager.htmlMode
             ? '<var>object</var>'
-            : '[object]';
+            : systemInfo(SysInfoInterpClass) == SysInfoIClassText
+            ? '[object]'
+            : '<i>object</i>';
     }
     execSystemAction
     {
