@@ -1,4 +1,4 @@
-# Copyright 2022 David Corbett
+# Copyright 2022, 2023 David Corbett
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -60,7 +60,7 @@ play-xtads: pygmentalion.t3
 %.pygm: %
 	pygmentize -l tads3 $< -f html -O nobackground,nowrap \
 	| ./html2ascii.py \
-	| sed 's/<span class="\([^"]*\)">/<\1>/g; s:</span>:<>:g' \
+	| sed 's/<span class="\([^"]*\)">/<\1>/g; s:</span>:<>:g; s/<></</g; s/<>$$//' \
 	>$@
 
 .system/CoverArt.png.unopt: | .system

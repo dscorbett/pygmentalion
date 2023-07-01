@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0 OR BSD-2-Clause
 
 /*
-Copyright 2014, 2022 David Corbett
+Copyright 2014, 2022, 2023 David Corbett
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ limitations under the License.
 */
 
 /*
-Copyright 2014, 2022 David Corbett
+Copyright 2014, 2022, 2023 David Corbett
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -257,7 +257,7 @@ gameMain: GameMainDef
         <.p>You awake in your studio. Perhaps this is the day your prayers will
         be answered.\b
         <b><<versionInfo.name>></b>\n
-        Copyright 2014, 2022 <<versionInfo.byline>>\n
+        Copyright 2014, 2022, 2023 <<versionInfo.byline>>\n
         Version <<versionInfo.version>>\b
         <.notification>First-time players should type <<aHref('about',
         'ABOUT')>>. Those unfamiliar with interactive fiction in general should
@@ -269,7 +269,7 @@ gameMain: GameMainDef
         "<aboutbox><center>
         <b><<versionInfo.name.toUpper()>></b>\b
         Version <<versionInfo.version>>\b
-        Copyright 2014, 2022 <<versionInfo.byline>>
+        Copyright 2014, 2022, 2023 <<versionInfo.byline>>
         </center></aboutbox>";
     }
 ;
@@ -2510,7 +2510,7 @@ transient iris: Deity
                             * -> ['', '']
                         ];
                         line = rexReplace(
-                            R'<(.+?)>(.*?)<>',
+                            R'<(.+?)>(.*?)(<>|$|(?=<))',
                             line,
                             function() {
                                 local tags = tagStyles[rexGroup(1)[3]];
@@ -3176,7 +3176,7 @@ VerbRule(License)
 DefineSystemAction(License)
     execSystemAction
     {
-        "Copyright 2014, 2022 David Corbett
+        "Copyright 2014, 2022, 2023 David Corbett
         <.p>Licensed under the Apache License, Version 2.0 (the \"License\");
         you may not use this file except in compliance with the License. You
         may obtain a copy of the License at
