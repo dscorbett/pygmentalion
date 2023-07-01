@@ -60,7 +60,13 @@ play-xtads: pygmentalion.t3
 %.pygm: %
 	pygmentize -l tads3 $< -f html -O nobackground,nowrap \
 	| ./html2ascii.py \
-	| sed 's/<span class="\([^"]*\)">/<\1>/g; s:</span>:<>:g; s/<></</g; s/<>$$//' \
+	| perl -pe 's:<span class="('"$$( \
+		sed -n '/local tagStyles =/,/\];/p' pygmentalion.t \
+		| sed -n "s/.*'\\(.*\\)' ->.*/\\1/p" \
+		| sed 's/$$/\|/' \
+		| tr -d '\n' \
+		| sed 's/|$$//' \
+	)"')">([^<]*)</span>:<\1>\2<>:g; s:<span [^>]*>|</span>|<>$$::g; s/<></</g' \
 	>$@
 
 .system/CoverArt.png.unopt: | .system
