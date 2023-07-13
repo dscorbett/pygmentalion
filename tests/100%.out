@@ -1115,6 +1115,19 @@ affixed to the doorpost.
 
 A bird flies in through the columns and alights in the basin.
 
+>get bird
+The bird hops out of arm’s reach.
+
+>undo
+Taking back one turn: “get bird”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The bird flutters around the basin.
+
 >undo
 Taking back one turn: “s”.
 
@@ -1276,7 +1289,7 @@ Showing the bird to itself won’t accomplish anything.
 The bird ignores the gold nugget.
 
 >get bird
-The bird hops out of arm’s reach.
+The bird hops out of arm’s reach.  You won’t be able to catch it barehanded.
 
 >hit it
 The bird effortlessly dodges your attack.
@@ -1292,8 +1305,6 @@ water pressure, no doubt.  Now you just use it as a birdbath.
 
 It is full of water.  You can see your reflection, though it is distorted by
 the ripples issuing from the bird.
-
-The bird flutters around the basin.
 
 bird: It’s a turtle-dove: an auspicious omen!
 
@@ -1372,6 +1383,8 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
+The bird preens itself.
+
 >g
 Taking back one turn: “drink it”.
 
@@ -1380,7 +1393,7 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The bird preens itself.
+The bird ruffles its feathers in the basin.
 
 >g
 Taking back one turn: “pour sea in bath”.
@@ -1389,8 +1402,6 @@ Portico
 Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
-
-The bird ruffles its feathers in the basin.
 
 >n
 Studio Entrance
@@ -1687,7 +1698,7 @@ buttons for all the standard unary and binary operations.  The screen reads 40
 
 idol: It’s a small statuette of Aphrodite carved from meerschaum.
 
-bronze key: It is a bronze key.  On it is etched the word “chnedin”.
+bronze key: It is a bronze key.  On it is etched the word “pnouon”.
 
 iron key: It is an iron key.
 
@@ -1735,7 +1746,7 @@ The statue is as stiff and cold as a post.
 >say a
 Nothing happens.
 
->chnedin
+>pnouon
 Nothing happens.  (Aphrodite said you would need a mirror.)
 
 >s
@@ -1780,7 +1791,7 @@ The ground is covered with water.
 
 The bird is startled and hops to the far side of the basin.
 
->chnedin
+>pnouon
 The air above the basin shimmers, and the bird ruffles its feathers in the
 rippling water.  After a moment, the shimmering disappears.
 
@@ -1810,7 +1821,7 @@ by the idol.
 
 An idol is floating on the surface of the water.
 
->chnedin
+>pnouon
 The air above the basin shimmers, and the idol bobs on the rippling water.
 After a moment, the shimmering disappears.
 
@@ -1844,7 +1855,7 @@ and begins to fill the sink.
 The calculator outputs 2 × 10001 = 20002.  Water flows from the faucet.  Some
 excess water trickles down the overflow hole.
 
->chnedin
+>pnouon
 Nothing happens.  (Aphrodite said you would need a mirror. You peer at the
 water in the sink, but you see no more than a vague and shadowy silhouette, not
 a true reflection.)
@@ -2437,13 +2448,13 @@ for hints is the Usenet newsgroup rec.games.int-fiction.
 
 >x me
 Your calm exterior belies the tempestuous feelings within.  You are currently
-pleased with your progress so far.
+thinking about how much you love her.
 
 >s
 You begin moving away from the door, but then you remember the statue.  The
 gods won’t bring her to life if you give up this easily!
 
->chnedin
+>pnouon
 The air above the basin shimmers for a moment.  You hear footsteps behind you.
 Turning around, you see a woman who looks remarkably like your statue.
 
@@ -2460,7 +2471,7 @@ Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >u
-Taking back one turn: “say chnedin”.
+Taking back one turn: “say pnouon”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
@@ -2473,7 +2484,7 @@ The ground is covered with water.
 (the door)
 Closed.
 
->chnedin
+>pnouon
 The air above the basin shimmers for a moment.  You hear the door opening
 behind you.  Turning around, you see a woman who looks remarkably like your
 statue.
@@ -2491,7 +2502,7 @@ Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >u
-Taking back one turn: “say chnedin”.
+Taking back one turn: “say pnouon”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
@@ -2504,7 +2515,7 @@ The ground is covered with water.
 (the bronze key)
 Locked.
 
->chnedin
+>pnouon
 The air above the basin shimmers for a moment.  You hear the door being
 unlocked behind you.  Turning around, you see a woman who looks remarkably like
 your statue.

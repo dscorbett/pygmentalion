@@ -2013,7 +2013,9 @@ nonMirrorState: ThingState
     {
         action
         {
-            reportFailure('{The dobj/He} hop{s} out of arm&rsquo;s reach. ');
+            reportFailure('{The dobj/He} hop{s} out of arm&rsquo;s reach. <<if
+                net.isIn(gActor)>>{You/He} won&rsquo;t be able to catch {it
+                dobj/him} barehanded. ');
         }
     }
     dobjFor(PutIn)

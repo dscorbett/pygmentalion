@@ -1,4 +1,4 @@
-# Copyright 2022 David Corbett
+# Copyright 2022, 2023 David Corbett
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -180,6 +180,8 @@
 >c 1/0
 >sw
 >s
+>get bird
+>undo
 >undo
 >e
 >put iron in cage
@@ -283,7 +285,7 @@
 >hug it
 >g
 >say a
->chnedin
+>pnouon
 >s
 >u
 >put cage on bed
@@ -292,18 +294,18 @@
 >get net
 >x it
 >s
->chnedin
+>pnouon
 >show bird it
 >throw it at bird
 >put bird in it
 >put idol in bath
 >x bath
->chnedin
+>pnouon
 >n
 >ne
 >c 1/0
 >c 2X10001
->chnedin
+>pnouon
 >g
 >pour sea in sink
 >put needle,net in it
@@ -333,13 +335,13 @@
 >y
 >x me
 >s
->chnedin
+>pnouon
 >u
 >close
->chnedin
+>pnouon
 >u
 >lock door with clean
->chnedin
+>pnouon
 >f
 >q
 >y
