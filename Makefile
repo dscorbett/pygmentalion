@@ -27,6 +27,10 @@ play-curses: pygmentalion.t3
 play-emglken: pygmentalion.t3
 	emglken $<
 
+.PHONY: play-gargoyle
+play-gargoyle: pygmentalion.t3
+	open -a Gargoyle $<
+
 .PHONY: play-lectrote
 play-lectrote: pygmentalion.t3
 	open -a Lectrote $<
