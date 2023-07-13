@@ -23,6 +23,10 @@ all: pygmentalion.t3 pygmentalion-web.t3
 play-curses: pygmentalion.t3
 	frob -p -i curses $<
 
+.PHONY: play-emglken
+play-emglken: pygmentalion.t3
+	emglken $<
+
 .PHONY: play-lectrote
 play-lectrote: pygmentalion.t3
 	open -a Lectrote $<
