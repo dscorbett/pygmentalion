@@ -2011,11 +2011,15 @@ nonMirrorState: ThingState
     }
     dobjFor(Take)
     {
+        check
+        {
+            if (net.isIn(gActor))
+                failCheck('With what? Your bare hands? {You/He} won&rsquo;t be
+                    able to catch {it dobj/him} that way. ');
+        }
         action
         {
-            reportFailure('{The dobj/He} hop{s} out of arm&rsquo;s reach. <<if
-                net.isIn(gActor)>>{You/He} won&rsquo;t be able to catch {it
-                dobj/him} barehanded. ');
+            reportFailure('{The dobj/He} hop{s} out of arm&rsquo;s reach. ');
         }
     }
     dobjFor(PutIn)
