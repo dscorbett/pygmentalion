@@ -3392,10 +3392,11 @@ DefineLiteralAction(Say)
             {
                 local obscuringItem = basin.obscuringItem;
                 if (obscuringItem)
-                    "The air above the basin shimmers, and
-                    <<obscuringItem.theName>> <<obscuringItem == bird ?
-                    'ruffles its feathers in' : 'bobs on'>> the rippling water.
-                    After a moment, the shimmering disappears. ";
+                    "The air above the basin shimmers.
+                    \^<<obscuringItem.theName>> <<obscuringItem == bird ?
+                    'ruffles its feathers' : 'resonates in harmony'>>, making
+                    ripples in the water. After a moment, the shimmering
+                    dissipates. ";
                 else
                 {
                     /*
