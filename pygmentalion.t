@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0 OR BSD-2-Clause
 
 /*
-Copyright 2014, 2022, 2023 David Corbett
+Copyright 2014, 2022, 2023, 2024 David Corbett
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ limitations under the License.
 */
 
 /*
-Copyright 2014, 2022, 2023 David Corbett
+Copyright 2014, 2022, 2023, 2024 David Corbett
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -256,7 +256,7 @@ gameMain: GameMainDef
         <.p>You awake in your studio. Perhaps this is the day your prayers will
         be answered.\b
         <b><<versionInfo.name>></b>\n
-        Copyright 2014, 2022, 2023 <<versionInfo.byline>>\n
+        Copyright 2014, 2022, 2023, 2024 <<versionInfo.byline>>\n
         Version <<versionInfo.version>>\b
         <.notification>First-time players should type <<aHref('about',
         'ABOUT')>>. Those unfamiliar with interactive fiction in general should
@@ -268,7 +268,7 @@ gameMain: GameMainDef
         "<aboutbox><center>
         <b><<versionInfo.name.toUpper()>></b>\b
         Version <<versionInfo.version>>\b
-        Copyright 2014, 2022, 2023 <<versionInfo.byline>>
+        Copyright 2014, 2022, 2023, 2024 <<versionInfo.byline>>
         </center></aboutbox>";
     }
 ;
@@ -2326,8 +2326,11 @@ transient iris: Deity
     file = nil
     screenHeight()
     {
+#ifdef TADS_INCLUDE_NET
+        return 25;
+#else
         if (!systemInfo(SysInfoBanners))
-            return 25;
+            return 13;
         local probe = bannerCreate(nil, BannerAfter, statuslineBanner.handle_,
             BannerTypeText, BannerAlignTop, 100, BannerSizePercent, 0);
         local height = min(100, max(10, bannerGetInfo(probe)[3] - 12));
@@ -2339,6 +2342,7 @@ transient iris: Deity
             && systemInfo(SysInfoOsName) == 'POSIX_UNIX_MSWINDOWS')
             screenHeight = height;
         return height;
+#endif
     }
     coverArt
     {
@@ -3178,7 +3182,7 @@ VerbRule(License)
 DefineSystemAction(License)
     execSystemAction
     {
-        "Copyright 2014, 2022, 2023 David Corbett
+        "Copyright 2014, 2022, 2023, 2024 David Corbett
         <.p>Licensed under the Apache License, Version 2.0 (the \"License\");
         you may not use this file except in compliance with the License. You
         may obtain a copy of the License at
