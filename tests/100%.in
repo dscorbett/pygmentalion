@@ -280,7 +280,6 @@
 >put keys,iron in sink
 >x addon,idol,keys
 >get idol
->c 1/0
 >w
 >x her
 >hug it
@@ -288,6 +287,12 @@
 >say a
 >pnouon
 >s
+>s
+>pnouon
+>n
+>ne
+>c 1/0
+>sw
 >u
 >put cage on bed
 >put net in cage

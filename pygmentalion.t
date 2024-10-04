@@ -1838,30 +1838,34 @@ portico: OutdoorRoom 'Portico'
 
 + basin: Fixture, WaterContainer
     '(bird) mirror reflection
-    basin/bath/birdbath/fountain/pool/tile/tiles/vase' 'basin'
-    "It is shallow but wide, and lined with black tiles. It grows gradually
-    deeper towards a decorative vase in the center. It used to be a fountain,
-    but it stopped working after they installed the new sink. Something to do
-    with water pressure, no doubt. Now you just use it as a birdbath.
+    basin/bath/birdbath/fountain/pool/vase' 'basin'
+    "Light glints off the surface of the pure silver basin. It is shallow
+    around the edges but curves gradually down to a decorative vase in the
+    center. It used to be a fountain, but it stopped working after they
+    installed the new sink. Something to do with water pressure, no doubt. Now
+    you just use it as a birdbath.
     <.p><<if overflowing>>Water is streaming from the top of the vase and
     spilling over the sides of the basin in a turbulent flow.
-    <<else if level >= 19500>>It is full to the brim with water. You can see
-    your reflection<<if obscuringItem == bird>>, though it is distorted by the
-    ripples issuing from <<obscuringItem.theName>><<else if obscuringItem>>,
-    though it is partly obscured by <<obscuringItem.theName>><<else>> as
-    clearly as Narcissus saw his. At least you are not as foolish as he was:
-    you can physically touch the object of your affections, which is some
+    <<else if level >= 19500>>It is full to the brim. The water is level with
+    the top of the central vase. <<if obscuringItem == bird>>Your reflection is
+    distorted by the ripples issuing from <<obscuringItem.theName>><<else if
+    obscuringItem>>Your reflection is partly obscured by
+    <<obscuringItem.theName>><<else>>You can see your reflection as clearly as
+    Narcissus saw his. At least you are not as foolish as he was: you can
+    physically touch the object of your affections, which is some
     consolation<<end>>.
     <<else if level >= 15000>>It is full of water. You can see your
     reflection<<if obscuringItem == bird>>, though it is distorted by the
     ripples issuing from <<obscuringItem.theName>><<else if obscuringItem>>,
     though it is partly obscured by <<obscuringItem.theName>><<end>>.
-    <<else if level >= 10000>>It is half full. From the right angle, you can
-    make out a shadowy reflection of the columns, but nothing more.
-    <<else if level >= 1000>>There is some water in it, but you can still make
-    out the tiles lining the basin.
-    <<else if level > 0>>A small puddle has formed at the bottom of the basin.
+    <<else if level >= 10000>>The portico&rsquo;s columns appear inverted and
+    distorted within the half-filled basin, as if a new classical order of
+    architecture, the Atlantean.
+    <<else if level >= 1000>>There is some water at the bottom of the basin.
+    <<else if level > 0>>A small puddle has formed around the bottom of the
+    vase.
     "
+    materialWord = 'metal' 'silver'
     level = 0
     overflowing = nil
     isMirror = (level >= 15000)
@@ -3402,10 +3406,18 @@ DefineLiteralAction(Say)
             "Nothing happens. ";
         else if (literal not in ())
         {
-            if (gActor.location == portico && basin.isMirror)
+            if (gActor.location == portico && !basin.overflowing)
             {
                 local obscuringItem = basin.obscuringItem;
-                if (obscuringItem)
+                if (!basin.isMirror)
+                    "The air above the basin shimmers. The glow fades in and
+                    out, as if unable to find focus, before dissipating. <<if
+                    keywordToken.scoreCount>>(Aphrodite said {you/he} would
+                    need a mirror. A mirror, you remind yourself, is
+                    prototypically a flat reflective surface, whereas the basin
+                    curves continuously into a central depression featuring a
+                    decorative vase, all of which is very much not flat.) ";
+                else if (obscuringItem)
                     "The air above the basin shimmers.
                     \^<<obscuringItem.theName>> <<obscuringItem == bird ?
                     'ruffles its feathers' : 'resonates in harmony'>>, making

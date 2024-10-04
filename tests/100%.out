@@ -623,10 +623,11 @@ affixed to the doorpost.
 You see nothing suitable here.
 
 >x bath,column,door,label,label
-basin: It is shallow but wide, and lined with black tiles.  It grows gradually
-deeper towards a decorative vase in the center.  It used to be a fountain, but
-it stopped working after they installed the new sink.  Something to do with
-water pressure, no doubt.  Now you just use it as a birdbath.
+basin: Light glints off the surface of the pure silver basin.  It is shallow
+around the edges but curves gradually down to a decorative vase in the center.
+It used to be a fountain, but it stopped working after they installed the new
+sink.  Something to do with water pressure, no doubt.  Now you just use it as a
+birdbath.
 
 An iron key is lodged in the drain.
 
@@ -846,12 +847,13 @@ south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
 >x bath
-It is shallow but wide, and lined with black tiles.  It grows gradually deeper
-towards a decorative vase in the center.  It used to be a fountain, but it
-stopped working after they installed the new sink.  Something to do with water
-pressure, no doubt.  Now you just use it as a birdbath.
+Light glints off the surface of the pure silver basin.  It is shallow around
+the edges but curves gradually down to a decorative vase in the center.  It
+used to be a fountain, but it stopped working after they installed the new
+sink.  Something to do with water pressure, no doubt.  Now you just use it as a
+birdbath.
 
-A small puddle has formed at the bottom of the basin.
+A small puddle has formed around the bottom of the vase.
 
 >n
 Studio Entrance
@@ -947,13 +949,13 @@ south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
 >x bath
-It is shallow but wide, and lined with black tiles.  It grows gradually deeper
-towards a decorative vase in the center.  It used to be a fountain, but it
-stopped working after they installed the new sink.  Something to do with water
-pressure, no doubt.  Now you just use it as a birdbath.
+Light glints off the surface of the pure silver basin.  It is shallow around
+the edges but curves gradually down to a decorative vase in the center.  It
+used to be a fountain, but it stopped working after they installed the new
+sink.  Something to do with water pressure, no doubt.  Now you just use it as a
+birdbath.
 
-There is some water in it, but you can still make out the tiles lining the
-basin.
+There is some water at the bottom of the basin.
 
 >n
 Studio Entrance
@@ -1013,13 +1015,14 @@ south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
 >x bath
-It is shallow but wide, and lined with black tiles.  It grows gradually deeper
-towards a decorative vase in the center.  It used to be a fountain, but it
-stopped working after they installed the new sink.  Something to do with water
-pressure, no doubt.  Now you just use it as a birdbath.
+Light glints off the surface of the pure silver basin.  It is shallow around
+the edges but curves gradually down to a decorative vase in the center.  It
+used to be a fountain, but it stopped working after they installed the new
+sink.  Something to do with water pressure, no doubt.  Now you just use it as a
+birdbath.
 
-It is half full.  From the right angle, you can make out a shadowy reflection
-of the columns, but nothing more.
+The portico’s columns appear inverted and distorted within the half-filled
+basin, as if a new classical order of architecture, the Atlantean.
 
 >n
 Studio Entrance
@@ -1292,10 +1295,11 @@ The bird effortlessly dodges your attack.
 The bird does not need your help using the birdbath.
 
 >x bath,it
-basin: It is shallow but wide, and lined with black tiles.  It grows gradually
-deeper towards a decorative vase in the center.  It used to be a fountain, but
-it stopped working after they installed the new sink.  Something to do with
-water pressure, no doubt.  Now you just use it as a birdbath.
+basin: Light glints off the surface of the pure silver basin.  It is shallow
+around the edges but curves gradually down to a decorative vase in the center.
+It used to be a fountain, but it stopped working after they installed the new
+sink.  Something to do with water pressure, no doubt.  Now you just use it as a
+birdbath.
 
 It is full of water.  You can see your reflection, though it is distorted by
 the ripples issuing from the bird.
@@ -1323,10 +1327,11 @@ The bottle is empty.
 Done.
 
 >x bath,it
-basin: It is shallow but wide, and lined with black tiles.  It grows gradually
-deeper towards a decorative vase in the center.  It used to be a fountain, but
-it stopped working after they installed the new sink.  Something to do with
-water pressure, no doubt.  Now you just use it as a birdbath.
+basin: Light glints off the surface of the pure silver basin.  It is shallow
+around the edges but curves gradually down to a decorative vase in the center.
+It used to be a fountain, but it stopped working after they installed the new
+sink.  Something to do with water pressure, no doubt.  Now you just use it as a
+birdbath.
 
 It is full of water.  You can see your reflection, though it is distorted by
 the ripples issuing from the bird.
@@ -1453,13 +1458,14 @@ affixed to the doorpost.
 The bird is startled and hops to the far side of the basin.
 
 >x bath
-It is shallow but wide, and lined with black tiles.  It grows gradually deeper
-towards a decorative vase in the center.  It used to be a fountain, but it
-stopped working after they installed the new sink.  Something to do with water
-pressure, no doubt.  Now you just use it as a birdbath.
+Light glints off the surface of the pure silver basin.  It is shallow around
+the edges but curves gradually down to a decorative vase in the center.  It
+used to be a fountain, but it stopped working after they installed the new
+sink.  Something to do with water pressure, no doubt.  Now you just use it as a
+birdbath.
 
-It is full to the brim with water.  You can see your reflection, though it is
-distorted by the ripples issuing from the bird.
+It is full to the brim.  The water is level with the top of the central vase.
+Your reflection is distorted by the ripples issuing from the bird.
 
 >pour sea in it
 That would overflow the basin.
@@ -1595,10 +1601,11 @@ the water in the basin?
 The water on the ground is trickling down the stairs.
 
 >x bath
-It is shallow but wide, and lined with black tiles.  It grows gradually deeper
-towards a decorative vase in the center.  It used to be a fountain, but it
-stopped working after they installed the new sink.  Something to do with water
-pressure, no doubt.  Now you just use it as a birdbath.
+Light glints off the surface of the pure silver basin.  It is shallow around
+the edges but curves gradually down to a decorative vase in the center.  It
+used to be a fountain, but it stopped working after they installed the new
+sink.  Something to do with water pressure, no doubt.  Now you just use it as a
+birdbath.
 
 Water is streaming from the top of the vase and spilling over the sides of the
 basin in a turbulent flow.
@@ -1699,10 +1706,6 @@ iron key: It is an iron key.
 >get idol
 Taken.
 
->c 1/0
-The calculator outputs ERROR {division by zero}.  The water in the sink is
-sucked down the drain.
-
 >w
 At the Workbench
 This workbench, in the northwest part of the studio, was where you would create
@@ -1754,9 +1757,60 @@ The floor is covered with water.
 
 You see a camp bed and an end table (on which are a coin box and a plate) here.
 
+>s
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The ground is covered with water.
+
+>pnouon
+The air above the basin shimmers.  The glow fades in and out, as if unable to
+find focus, before dissipating.  (Aphrodite said you would need a mirror.  A
+mirror, you remind yourself, is prototypically a flat reflective surface,
+whereas the basin curves continuously into a central depression featuring a
+decorative vase, all of which is very much not flat.)
+
+>n
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+The floor is covered with water.
+
+You see a camp bed and an end table (on which are a coin box and a plate) here.
+
+>ne
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+The floor is covered with water.
+
+On the side table are a manual and a comb.
+
+>c 1/0
+The calculator outputs ERROR {division by zero}.  The water in the sink is
+sucked down the drain.
+
+>sw
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+The floor is covered with water.
+
+You see a camp bed and an end table (on which are a coin box and a plate) here.
+
 >u
-You can’t go that way.  Obvious exits lead north, back to the workbench; south,
-to the portico; east, to the altar; and northeast, to the washroom.
+You can’t go that way.  Obvious exits lead north, to the workbench; south, to
+the portico; east, to the altar; and northeast, back to the washroom.
 
 >put cage on bed
 Done.
@@ -1805,10 +1859,11 @@ noisily out of the portico, through the columns and away towards the west.
 Done.
 
 >x bath
-It is shallow but wide, and lined with black tiles.  It grows gradually deeper
-towards a decorative vase in the center.  It used to be a fountain, but it
-stopped working after they installed the new sink.  Something to do with water
-pressure, no doubt.  Now you just use it as a birdbath.
+Light glints off the surface of the pure silver basin.  It is shallow around
+the edges but curves gradually down to a decorative vase in the center.  It
+used to be a fountain, but it stopped working after they installed the new
+sink.  Something to do with water pressure, no doubt.  Now you just use it as a
+birdbath.
 
 It is full of water.  You can see your reflection, though it is partly obscured
 by the idol.
@@ -1912,13 +1967,14 @@ The ground is covered with water.
 The basin contains an idol.
 
 >x bath
-It is shallow but wide, and lined with black tiles.  It grows gradually deeper
-towards a decorative vase in the center.  It used to be a fountain, but it
-stopped working after they installed the new sink.  Something to do with water
-pressure, no doubt.  Now you just use it as a birdbath.
+Light glints off the surface of the pure silver basin.  It is shallow around
+the edges but curves gradually down to a decorative vase in the center.  It
+used to be a fountain, but it stopped working after they installed the new
+sink.  Something to do with water pressure, no doubt.  Now you just use it as a
+birdbath.
 
-It is full to the brim with water.  You can see your reflection, though it is
-partly obscured by the idol.
+It is full to the brim.  The water is level with the top of the central vase.
+Your reflection is partly obscured by the idol.
 
 An idol is floating on the surface of the water.
 
@@ -1929,14 +1985,16 @@ Taken.
 Which water do you mean, the water on the ground, or the water in the basin?
 
 >bath
-It is shallow but wide, and lined with black tiles.  It grows gradually deeper
-towards a decorative vase in the center.  It used to be a fountain, but it
-stopped working after they installed the new sink.  Something to do with water
-pressure, no doubt.  Now you just use it as a birdbath.
+Light glints off the surface of the pure silver basin.  It is shallow around
+the edges but curves gradually down to a decorative vase in the center.  It
+used to be a fountain, but it stopped working after they installed the new
+sink.  Something to do with water pressure, no doubt.  Now you just use it as a
+birdbath.
 
-It is full to the brim with water.  You can see your reflection as clearly as
-Narcissus saw his.  At least you are not as foolish as he was: you can
-physically touch the object of your affections, which is some consolation.
+It is full to the brim.  The water is level with the top of the central vase.
+You can see your reflection as clearly as Narcissus saw his.  At least you are
+not as foolish as he was: you can physically touch the object of your
+affections, which is some consolation.
 
 >drink it
 Drinking from a birdbath might not be the best idea.
@@ -2459,7 +2517,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 257 moves, you have scored 15 of a possible 15 points.
+In 262 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2490,7 +2548,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 258 moves, you have scored 15 of a possible 15 points.
+In 263 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2521,13 +2579,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 259 moves, you have scored 15 of a possible 15 points.
+In 264 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 259 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 264 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]
