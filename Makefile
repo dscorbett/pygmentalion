@@ -1,4 +1,4 @@
-# Copyright 2022, 2023 David Corbett
+# Copyright 2022, 2023, 2024 David Corbett
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -78,11 +78,11 @@ play-xtads: pygmentalion.t3
 	>$@
 
 .system/CoverArt.png.unopt: | .system
-	convert assets/CoverArt.png \
+	magick assets/CoverArt.png \
 		-define png:exclude-chunk=date,tIME \
-		-background '#ece4cd' -fill '#822329' -font @assets/UnifrakturMaguntia.ttf -pointsize 240 label:Pygmentalion \
+		-background '#ece4cd' -fill '#822329' -font assets/UnifrakturMaguntia.ttf -pointsize 240 label:Pygmentalion \
 		-gravity Center -smush 24 \
-		-fill '#346d9b' -font @assets/iosevka-bolditalic.ttf -pointsize 90 label:'/* David Corbett */ ' \
+		-fill '#346d9b' -font assets/iosevka-bolditalic.ttf -pointsize 90 label:'/* David Corbett */ ' \
 		-gravity East -smush -48 \
 		-resize $(COVER_ART_DIMENSIONS) -extent $(COVER_ART_DIMENSIONS) \
 		$@

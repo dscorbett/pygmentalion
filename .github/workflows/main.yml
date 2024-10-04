@@ -16,19 +16,29 @@ name: Main workflow
 on: push
 jobs:
   main:
-    runs-on: macos-12
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: 3.12
           cache: pip
       - name: Install Pygments
         run: pip install -r requirements.txt
       - name: Install build tools
         run: |
           brew update
-          brew install frobtads make pngcrush
+          brew install imagemagick make pngcrush
+      - name: Build FrobTads
+        run: |
+          wget https://github.com/realnc/frobtads/releases/download/v2.0/frobtads-2.0.tar.bz2
+          tar -xf frobtads-2.0.tar.bz2
+          cd frobtads-2.0
+          mkdir build
+          cd build
+          cmake ..
+          sudo cmake --build . --target install
+          sudo chown -R $(id -u):$(id -g) /usr/local/share/frobtads/tads3/lib/webuires
       - name: Build
         run: make -j
       - name: Test
