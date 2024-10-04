@@ -2182,8 +2182,18 @@ class WaterContainer: RestrictedContainer
     iobjFor(PutIn) {
         verify {
             if (validContents.indexOf(gDobj) == nil)
-                illogical('{The dobj/He} <<if overflowing || level !=
-                    0>>would<<otherwise>>might<<end>> get wet. ');
+            {
+                local wouldGetWet = overflowing || level != 0;
+                if (wouldGetWet && gDobj == goldNugget
+                    && keywordToken.scoreCount)
+                    illogical('Eureka! The solution to Aphrodite&rsquo;s puzzle
+                        is to submerge {the dobj/him} in water!\b
+                        Actually, no, that doesn&rsquo;t make sense. {The
+                        dobj/He} would just get wet. ');
+                else
+                    illogical('{The dobj/He} <<if wouldGetWet>>would<<otherwise
+                        >>might<<end>> get wet. ');
+            }
         }
         action {
             if (grimyObjects.indexOf(gDobj) != nil)

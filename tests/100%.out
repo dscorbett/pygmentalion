@@ -892,6 +892,12 @@ The calculator outputs 999 + 2 = 1001.  Water flows briefly from the faucet.
 The calculator outputs +1000 = 1000.  The water level in the sink goes down
 slightly.
 
+>put gold in sink
+Eureka!  The solution to Aphrodite’s puzzle is to submerge the gold nugget in
+water!
+
+Actually, no, that doesn’t make sense.  The gold nugget would just get wet.
+
 >put sea in sink
 The bottle of seawater would get wet.
 
@@ -2453,7 +2459,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 256 moves, you have scored 15 of a possible 15 points.
+In 257 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2484,7 +2490,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 257 moves, you have scored 15 of a possible 15 points.
+In 258 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2515,13 +2521,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 258 moves, you have scored 15 of a possible 15 points.
+In 259 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 258 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 259 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]
