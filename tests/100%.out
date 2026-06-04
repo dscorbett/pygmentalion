@@ -12,7 +12,7 @@ You awake in your studio.  Perhaps this is the day your prayers will be
 answered.
 
 Pygmentalion
-Copyright 2014, 2022, 2023, 2024 by David Corbett
+Copyright 2014, 2022, 2023, 2024, 2026 by David Corbett
 Version 2
 
 (First-time players should type ABOUT.  Those unfamiliar with interactive
@@ -34,7 +34,7 @@ was loosely inspired by a section of “Le Roman de la Rose”
 31ce76482afe/).  For license and copyright information, type LICENSE.
 
 >license
-Copyright 2014, 2022, 2023, 2024 David Corbett
+Copyright 2014, 2022, 2023, 2024, 2026 David Corbett
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this file except in compliance with the License.  You may obtain a copy of the
@@ -392,7 +392,7 @@ and coalesce, forming words.
 // SPDX-License-Identifier: Apache-2.0 OR BSD-2-Clause
 
 /*
-Copyright 2014, 2022, 2023, 2024 David Corbett
+Copyright 2014, 2022, 2023, 2024, 2026 David Corbett
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -1150,9 +1150,9 @@ you might not be able to get it back out again.
 
 >x net
 It is a [[long]] wooden pole with a bag attached to the end inside the wicker
-cage.  This versatile tool be used as a quarterstaff, butterfly net, pool net,
-or walking stick.  There is something bulky in the bag, but you can’t see what
-it is.
+cage.  This versatile tool can be used as a quarterstaff, butterfly net, pool
+net, or walking stick.  There is something bulky in the bag, but you can’t see
+what it is.
 
 (Your score has just increased by one point.)
 
@@ -1174,9 +1174,9 @@ The iron key fits through the bars.
 
 >x net
 It is a [[long]] wooden pole with a bag attached to the end inside the wicker
-cage.  This versatile tool be used as a quarterstaff, butterfly net, pool net,
-or walking stick.  There is something bulky in the bag, but you can’t see what
-it is because the wicker cage is closed.
+cage.  This versatile tool can be used as a quarterstaff, butterfly net, pool
+net, or walking stick.  There is something bulky in the bag, but you can’t see
+what it is because the wicker cage is closed.
 
 (Your score has just increased by one point.)
 
@@ -1210,8 +1210,8 @@ Opened.
 
 >x net
 It is a [[long]] wooden pole with a bag attached to the end inside the wicker
-cage.  This versatile tool be used as a quarterstaff, butterfly net, pool net,
-or walking stick.
+cage.  This versatile tool can be used as a quarterstaff, butterfly net, pool
+net, or walking stick.
 
 In the bag, you find a mallet and a ball-peen hammer.
 
@@ -1827,7 +1827,7 @@ The net slips through the bars.
 
 >x it
 It is a long wooden pole with a bag attached to one end.  This versatile tool
-be used as a quarterstaff, butterfly net, pool net, or walking stick.
+can be used as a quarterstaff, butterfly net, pool net, or walking stick.
 
 >s
 Portico

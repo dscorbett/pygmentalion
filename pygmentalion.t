@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0 OR BSD-2-Clause
 
 /*
-Copyright 2014, 2022, 2023, 2024 David Corbett
+Copyright 2014, 2022, 2023, 2024, 2026 David Corbett
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ limitations under the License.
 */
 
 /*
-Copyright 2014, 2022, 2023, 2024 David Corbett
+Copyright 2014, 2022, 2023, 2024, 2026 David Corbett
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -256,7 +256,7 @@ gameMain: GameMainDef
         <.p>You awake in your studio. Perhaps this is the day your prayers will
         be answered.\b
         <b><<versionInfo.name>></b>\n
-        Copyright 2014, 2022, 2023, 2024 <<versionInfo.byline>>\n
+        Copyright 2014, 2022, 2023, 2024, 2026 <<versionInfo.byline>>\n
         Version <<versionInfo.version>>\b
         <.notification>First-time players should type <<aHref('about',
         'ABOUT')>>. Those unfamiliar with interactive fiction in general should
@@ -268,7 +268,7 @@ gameMain: GameMainDef
         "<aboutbox><center>
         <b><<versionInfo.name.toUpper()>></b>\b
         Version <<versionInfo.version>>\b
-        Copyright 2014, 2022, 2023, 2024 <<versionInfo.byline>>
+        Copyright 2014, 2022, 2023, 2024, 2026 <<versionInfo.byline>>
         </center></aboutbox>";
     }
 ;
@@ -1225,8 +1225,8 @@ altarRoom: Room 'At the Altar'
     bag/pack/pole/net/quarterstaff/rod/sack/satchel/staff/stick/tool*tools'
     desc = "It is a <<highlight 'long'>> wooden pole with
     <<aNameFrom(bagName)>> attached to <<if location == cage>>the end inside
-    <<location.theName>><<else>>one end<<end>>. This versatile tool be used as
-    a quarterstaff, butterfly net, pool net, or walking stick. "
+    <<location.theName>><<else>>one end<<end>>. This versatile tool can be used
+    as a quarterstaff, butterfly net, pool net, or walking stick. "
     materialWord = 'wood' 'wooden'
     initSpecialDesc = "\^<<if bagMentioned>><<theNameFrom(poleName)>> of
     <<end>><<aName>> sticks out <<if gActionIs(Examine)>>through the
@@ -3196,7 +3196,7 @@ VerbRule(License)
 DefineSystemAction(License)
     execSystemAction
     {
-        "Copyright 2014, 2022, 2023, 2024 David Corbett
+        "Copyright 2014, 2022, 2023, 2024, 2026 David Corbett
         <.p>Licensed under the Apache License, Version 2.0 (the \"License\");
         you may not use this file except in compliance with the License. You
         may obtain a copy of the License at

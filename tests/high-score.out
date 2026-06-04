@@ -12,7 +12,7 @@ You awake in your studio.  Perhaps this is the day your prayers will be
 answered.
 
 Pygmentalion
-Copyright 2014, 2022, 2023, 2024 by David Corbett
+Copyright 2014, 2022, 2023, 2024, 2026 by David Corbett
 Version 2
 
 (First-time players should type ABOUT.  Those unfamiliar with interactive
@@ -93,7 +93,7 @@ It’s currently locked.
 A pole sticks out through the bars and leans ithyphallically against the wall.
 
 pole: It is a [[long]] wooden pole with a bag attached to the end inside the
-wicker cage.  This versatile tool be used as a quarterstaff, butterfly net,
+wicker cage.  This versatile tool can be used as a quarterstaff, butterfly net,
 pool net, or walking stick.  There is something bulky in the bag, but you can’t
 see what it is.
 
@@ -117,9 +117,9 @@ The pole of a net sticks out through the bars and leans ithyphallically against
 the wall.
 
 pole: It is a long wooden pole with a bag attached to the end inside the wicker
-cage.  This versatile tool be used as a quarterstaff, butterfly net, pool net,
-or walking stick.  There is something bulky in the bag, but you can’t see what
-it is.
+cage.  This versatile tool can be used as a quarterstaff, butterfly net, pool
+net, or walking stick.  There is something bulky in the bag, but you can’t see
+what it is.
 
 (Your score has just increased by three points.)
 
