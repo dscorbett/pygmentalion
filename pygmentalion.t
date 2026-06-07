@@ -3168,6 +3168,19 @@ modify playerActionMessages
 
 /* Sundry modifications */
 
+VerbRule(Diagnose)
+    'diagnose'
+    : DiagnoseAction
+    verbPhrase = 'diagnose/self-diagnosing'
+;
+
+DefineIAction(Diagnose)
+    execAction
+    {
+        replaceAction(Examine, gPlayerChar);
+    }
+;
+
 modify VerbRule(GiveTo)
     ('give' | 'offer') dobjList 'to' singleIobj
     | 'offer' dobjList ('at' | 'on') singleIobj
