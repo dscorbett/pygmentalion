@@ -1,4 +1,4 @@
-# Copyright 2022 David Corbett
+# Copyright 2022, 2026 David Corbett
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,17 +23,15 @@
 >c +20000
 >wash
 >c 1/0
->sw
->unlock
->s
->x all
+>x sink
 >get key
->n
->e
->unlock cage with iron
+>s
+>unlock cage with it
 >l in net
 >get tools,net
 >w
+>unlock door with bronze
+>x it
 >s
 >put bird in net
 >rhimon

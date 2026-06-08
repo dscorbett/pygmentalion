@@ -657,8 +657,6 @@ It used to be a fountain, but it stopped working after they installed the new
 sink.  Something to do with water pressure, no doubt.  Now you just use it as a
 birdbath.
 
-An iron key is lodged in the drain.
-
 columns: There are six tall columns with ornate capitals.  Above the architrave
 is a frieze depicting some of your wares.  The cornice overhangs the frieze a
 bit too much, you think; perhaps you should shorten it.  You try to concentrate
@@ -672,15 +670,6 @@ label: The label says “Pygmentalion” (which is your [[name]]).
 label: The label says “Pygmentalion”.
 
 (Your score has just increased by one point.)
-
->x iron
-It is a grimy iron key.
-
->get it
-Taken.
-
->wash it in bath
-Washing something in a birdbath is unlikely to get it clean.
 
 >n
 Studio Entrance
@@ -742,18 +731,17 @@ On the side table are a manual and a comb.
 >x it
 It’s a bottle of wine-dark seawater.
 
->x addon,comb,iron,sink,table,table
+>x addon,comb,sink,table,table
 calculator: The calculator is [[built in]]to the wall beside the sink.  It has
 buttons for all the standard unary and binary operations.
 
 comb: It’s a tool to keep your hair tidy.
 
-iron key: It is an iron key.  It is covered in grime from the drain of the
-basin.
-
 sink: This is a state-of-the-art mop sink with anti-miasmic coating and bronze
 backsplash.  It is so modern, there are no handles or other obvious ways to
 turn it on.
+
+An iron key is lodged in the drain.
 
 side table: Upon closer inspection, you see that the table is bracketed to the
 wall.  On the side table are a manual and a comb.
@@ -766,10 +754,16 @@ and a comb.
 >wash me
 You do not need cleaning.
 
->wash iron in sink
-There is no water in the sink.
+>x iron
+It is a grimy iron key.
 
->put iron,idol,needle,sea in sink
+>get it
+Taken.
+
+>x it
+It is an iron key.  It is covered in grime from the drain of the sink.
+
+>put it,idol,needle,sea in sink
 iron key: There is no water in the sink.
 
 idol: Done.
@@ -1874,6 +1868,9 @@ The bird is startled and hops to the far side of the basin.
 >pnitmi
 The air above the basin shimmers.  The bird ruffles its feathers, making
 ripples in the water.  After a moment, the shimmering dissipates.
+
+>wash it in bath
+Washing something in a birdbath is unlikely to get it clean.
 
 >show bird it
 The bird is startled and hops to the far side of the basin.

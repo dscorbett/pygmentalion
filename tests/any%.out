@@ -105,77 +105,17 @@ sucked down the drain.
 
 (Your score has just increased by one point.)
 
->sw
-Studio Entrance
-Your studio is where you create great works of art, though you have made
-nothing since you carved that statue.  This corner, which now serves as your
-bedroom and dining room, is the entrance to the building.  A door leads
-outside, and the studio itself is to the north and the east.
-
-You see a camp bed and an end table (on which are a bottle of wine, a plate of
-chopped liver, and a coin box) here.
-
->unlock
-(the door)
-(with the bronze key)
-Unlocked.
-
->s
-(first opening the door)
-
-Portico
-Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A [[label]] is
-affixed to the doorpost.
-
-A bird flies in through the columns and alights in the basin.
-
-(Your score has just increased by one point.)
-
->x all
-bronze key: It is a bronze key.  On it is etched the word “rhimon”.
-
-basin: Light glints off the surface of the pure silver basin.  It is shallow
-around the edges but curves gradually down to a decorative vase in the center.
-It used to be a fountain, but it stopped working after they installed the new
-sink.  Something to do with water pressure, no doubt.  Now you just use it as a
-birdbath.
-
-It is full to the brim.  The water is level with the top of the central vase.
-Your reflection is distorted by the ripples issuing from the bird.
+>x sink
+This is a state-of-the-art mop sink with anti-miasmic coating and bronze
+backsplash.  It is so modern, there are no handles or other obvious ways to
+turn it on.
 
 An iron key is lodged in the drain.
-
-The bird flutters around the basin.
-
-bird: It’s a turtle-dove: an auspicious omen!
-
-door: It is a simple wooden door.  It’s open.
-
-columns: There are six slender columns with scrollwork in the capitals.  Above
-the architrave is a frieze depicting some of your wares.  The cornice overhangs
-the frieze a bit too much, you think; perhaps you should shorten it.  You try
-to concentrate on the architecture of the portico, stoically ignoring what you
-cannot change, but it doesn’t work.  It never does.
-
-label: The label says “Pygmentalion” (which is your [[name]]).
-
-(Your score has just increased by one point.)
 
 >get key
 You take the iron key.
 
->n
-Studio Entrance
-Your studio is where you create great works of art, though you have made
-nothing since you carved that statue.  This corner, which now serves as your
-bedroom and dining room, is the entrance to the building.  A door leads
-outside, and the studio itself is to the north and the east.
-
-You see a camp bed and an end table (on which are a bottle of wine, a plate of
-chopped liver, and a coin box) here.
-
->e
+>s
 At the Altar
 Light from the window illuminates a crude altar.  Until recently, this area was
 the gallery where customers would buy your art; all that is gone now.  The rest
@@ -183,7 +123,7 @@ of the studio lies north and west.
 
 A pole sticks out of a wicker cage and leans ithyphallically against the wall.
 
->unlock cage with iron
+>unlock cage with it
 Unlocked.
 
 >l in net
@@ -208,13 +148,25 @@ outside, and the studio itself is to the north and the east.
 You see a camp bed and an end table (on which are a bottle of wine, a plate of
 chopped liver, and a coin box) here.
 
+>unlock door with bronze
+Unlocked.
+
+>x it
+(the bronze key)
+It is a bronze key.  On it is etched the word “rhimon”.
+
 >s
+(first opening the door)
+
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A [[label]] is
 affixed to the doorpost.
 
-The bird is startled and hops to the far side of the basin.
+A bird flies in through the columns.  It circles above the basin before
+alighting on the side of it opposite you.
+
+(Your score has just increased by one point.)
 
 >put bird in net
 You swipe at the bird with the net but it darts out of the way.  It flaps
@@ -231,7 +183,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 25 moves, you have scored 4 of a possible 15 points.
+In 23 moves, you have scored 3 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?

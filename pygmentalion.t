@@ -1753,6 +1753,17 @@ export level 'waterLevel';
             }
         }
     }
+    dobjFor(Examine)
+    {
+        action
+        {
+            if (canBeTouchedBy(gActor))
+                for (local item in contents)
+                    if (item.ofKind(Hidden) && !item.discovered)
+                        item.discover();
+            inherited();
+        }
+    }
     dobjFor(TurnOn) {
         verify {
             if (overflowing)
@@ -1969,17 +1980,6 @@ portico: OutdoorRoom 'Portico'
             .sort(SortAsc, {x, y: toInteger(y == bird) - toInteger(x == bird)})
             .valWhich({obj: !obj.ofKind(Fixture)});
     }
-    dobjFor(Examine)
-    {
-        action
-        {
-            if (canBeTouchedBy(gActor))
-                for (local item in contents)
-                    if (item.ofKind(Hidden) && !item.discovered)
-                        item.discover();
-            inherited();
-        }
-    }
 ;
 
 ++ basinWater: ContainedWater
@@ -2002,11 +2002,11 @@ mirrorState: ThingState
 nonMirrorState: ThingState
 ;
 
-++ cageKey: Hidden, Key
-    '(cage) clean grime grimy key/tool*keys tools' 'iron key'
+cageKey: Hidden, Key
+    '(cage) clean grime grimy key/tool*keys tools' 'iron key' @sink
     "It is <<aNameFrom('<<unless clean || moved>>grimy <<end>>iron')>> key.
     <<if moved && !clean>>It is covered in grime from the drain of
-    <<basin.theName>>. "
+    <<sink.theName>>. "
     materialWord = 'iron' 'metal'
     clean = nil
     getState = (clean ? cleanState : grimyState)
