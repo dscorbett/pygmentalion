@@ -216,23 +216,23 @@ You cannot sew anything with a statue.
 Where did that thought come from?  Even in the worst of your mood swings, you
 have never considered harming her.
 
->x bench,bolt,gold,idol,it,pearl,plinth,stool,tools
+>x bench,idol,it,materials,pearl,plinth,stool,tools
 workbench: Your workbench is usually scattered with tools and materials and
 half-finished projects.
 
 On the workbench are a gold nugget, a needle, and an idol.
-
-bolts of cloth: Bolts of rich cloth – silk, wool, and furs – are stacked in
-many colors.
-
-gold nugget: It is a large nugget of gold that sparkles in the light.  You
-haven’t decided what to make it into yet.
 
 idol: It’s a small statuette of Aphrodite carved from meerschaum.
 
 statue: This is a statue of a woman carved from ivory.
 
 She is wearing a [[string]] of pearls.
+
+gold nugget: It is a large nugget of gold that sparkles in the light.  You
+haven’t decided what to make it into yet.
+
+bolts of cloth: Bolts of rich cloth – silk, wool, and furs – are stacked in
+many colors.
 
 string of pearls: You put this pearl necklace on the statue yesterday.
 plinth: It’s a smoothed block of marble half a cubit high.
@@ -1246,7 +1246,7 @@ mallet: Taken.
 net: The net slips through the bars.
 
 >x hammers
-ball-peen hammer: It’s a hammer used for hardening metal.
+ball-peen hammer: It’s a hammer used for shaping and hardening metal.
 
 mallet: It’s a wooden hammer with a large head, used to strike a chisel.
 
@@ -1256,14 +1256,18 @@ Done.
 >put net in cage
 The bulky mallet in the bag prevents putting it in.
 
+>hit it with ball
+(the net)
+There is no reason to strike that.
+
+>hit ball with ball
+You can’t strike the ball-peen hammer with itself.
+
 >hit chisel
 You aren’t in the mood for carving anything.
 
->hit it with it
-You can’t strike the chisel with itself.
-
 >hit it with me
-You are not a suitable tool for striking a chisel with.
+You are not a suitable tool to strike anything with.
 
 >hit it with mallet
 (first taking the mallet from the net)
@@ -1765,6 +1769,17 @@ Oh.  That was just your own hand.  Never mind.
 
 >g
 The statue is as stiff and cold as a post.
+
+>hit gold with ball
+You beat the gold nugget into a ring.
+
+>x ring
+It is a finger ring, or daktylios, made of gold.
+
+>give her it
+As you place the gold ring on her finger, you tell yourself this counts as a
+wedding.  Do you really need a multi-day ceremony to certify your love?  Once
+Aphrodite blesses your union, no other gods or customs will matter.
 
 >say a
 Nothing happens.
@@ -2546,7 +2561,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 269 moves, you have scored 15 of a possible 15 points.
+In 273 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2577,7 +2592,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 270 moves, you have scored 15 of a possible 15 points.
+In 274 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2608,13 +2623,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 271 moves, you have scored 15 of a possible 15 points.
+In 275 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 271 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 275 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]

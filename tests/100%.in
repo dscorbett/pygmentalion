@@ -50,7 +50,7 @@
 >sew it
 >sew bolt with it
 >throw chisel at it
->x bench,bolt,gold,idol,it,pearl,plinth,stool,tools
+>x bench,idol,it,materials,pearl,plinth,stool,tools
 >sew bolt
 >sew robe
 >wear it
@@ -206,8 +206,9 @@
 >x hammers
 >put mallet in net
 >put net in cage
+>hit it with ball
+>hit ball with ball
 >hit chisel
->hit it with it
 >hit it with me
 >hit it with mallet
 >put net in cage
@@ -290,6 +291,9 @@
 >x her
 >hug it
 >g
+>hit gold with ball
+>x ring
+>give her it
 >say a
 >pnitmi
 >s

@@ -204,7 +204,7 @@ gameMain: GameMainDef
             'pleased with your progress so far.',
             'smiling, thinking of her pretty face.',
             'counting the ways you love her.',
-            'planning your wedding.',
+            'planning your wedding feast.',
             'thinking about your future children.',
             'grateful to the benevolent eudaemons.',
             'feeling happy.',
@@ -813,7 +813,7 @@ workbenchRoom: Room 'At the Workbench'
     bulk = 10
 ;
 
-+ workbench: Chair, Fixture
++ workbench: BasicChair, Fixture, Surface
     'bench/workbench' 'workbench'
     "Your workbench is usually scattered with tools and materials and
     half-finished projects. "
@@ -860,17 +860,6 @@ workbenchRoom: Room 'At the Workbench'
     {
         verify { nonObvious; }
     }
-;
-
-/*
- *   Anneletz ẟoꝛ es ẟoız lı boute.
- *      (MS. Douce 195, fol. 150v)
- */
-
-++ goldNugget: Thing '(large) nugget' 'gold nugget'
-    "It is a large nugget of gold that sparkles in the light. You haven&rsquo;t
-    decided what to make it into yet. "
-    materialWord = 'gold' 'golden' 'metal'
 ;
 
 ++ idol: Thing '(aphrodite) (cytherea) (venus) idol/statuette' 'idol'
@@ -1029,7 +1018,7 @@ replace grammar predicate(UnscrewWith): ' ': object;
                     state. ');
             if (gDobj not /**//**/ // /* \\
 #define Room Unthing
-                in (dress, __objref(necklace, warn)))
+                in (dress, __objref(necklace, warn), ring))
                 failCheck(
                     'What would {it iobj/she} want with {that dobj/him}? ');
             inherited();
@@ -1104,7 +1093,8 @@ replace grammar predicate(UnscrewWith): ' ': object;
  *      (MS. Douce 195, fol. 150r)
  */
 
-cloth: Thing '(diaphanous) (fine) bolt bolts clothes' 'bolts of cloth'
+cloth: Thing
+    '(diaphanous) (fine) bolt/material*bolts clothes materials' 'bolts of cloth'
     @workbench
     "Bolts of rich cloth &ndash; silk, wool, and furs &ndash; are stacked in
     many colors. "
@@ -1172,6 +1162,67 @@ dress: Wearable '(diaphanous) (fine) dress/chiton/clothes/robe' 'chiton'
             failCheck('{subj dobj}This <<name>> {was} made in a women&rsquo;s
                 style, for one woman in particular. Anyway, {it dobj/she}
                 probably wouldn&rsquo;t fit {you/him}. ');
+        }
+    }
+;
+
+/*
+ *   Anneletz ẟoꝛ es ẟoız lı boute.
+ *   Et ꝺıt com fin loyaulx eſpoux.
+ *   Belle ꝺoulce ıe vous eſpoux.
+ *   Et ꝺeuien vꝛ̄e et vous moye.
+ *   Ymoneus et ymonoye.
+ *   Sı veulent a noz nopces eſtre.
+ *   Ie ny qͥer plꝰ ne clerc ⁊ pꝛeſtre.
+ *   Ne pꝛelatz a mitreˢ ne croces.
+ *   Car ce ſōt lı vꝛay dieu ꝺeˢ nopceˢ.
+ *      (MS. Douce 195, fol. 150v)
+ */
+
+goldNugget: Thing '(large) material/nugget*materials' 'gold nugget' @workbench
+    "It is a large nugget of gold that sparkles in the light. You haven&rsquo;t
+    decided what to make it into yet. "
+    materialWord = 'gold' 'golden' 'metal'
+    dobjFor(Attack)
+    {
+        verify { }
+        action { askForIobj(AttackWith); }
+    }
+    dobjFor(AttackWith)
+    {
+        verify
+        {
+            if (gIobj != ballPeenHammer)
+                illogical('{A iobj/He} {is} not a suitable tool for striking
+                    {a dobj/him} with. ');
+            else
+                inherited();
+        }
+        action
+        {
+            ring.moveInto(location);
+            gActor.setHasSeen(ring);
+            moveInto(nil);
+            "{You/He} beat{s} {the dobj/him} into a ring. ";
+        }
+    }
+;
+
+ring: Wearable '(finger) daktylios/ring' 'gold ring'
+    "It is a finger ring, or daktylios, made of gold. "
+    materialWord = 'gold' 'golden' 'metal'
+    bulk = 0
+    dobjFor(PutOn)
+    {
+        action
+        {
+            if (gIobj == statue)
+                "<<first time>>As {you/he} place{s} {the dobj/him} on {its
+                iobj/her} finger, {you/he} tell{s} {yourself} this counts as a
+                wedding. Do you really need a multi-day ceremony to certify
+                your love? Once Aphrodite blesses {your/his} union, no other
+                gods or customs will matter. <<only>>";
+            inherited();
         }
     }
 ;
@@ -1517,7 +1568,7 @@ class Hammer: Thing
 +++ ballPeenHammer: Hammer, Hidden
     'ball ball-peen ballpeen peen peening hammer/tool*hammers tools'
     'ball-peen hammer'
-    "It&rsquo;s a hammer used for hardening metal. "
+    "It&rsquo;s a hammer used for shaping and hardening metal. "
     materialWord = 'metal' 'steel'
     bulk = 5
 ;
@@ -3098,23 +3149,6 @@ modify Thing
     {
         preCond = [touchObj]
     }
-    iobjFor(AttackWith)
-    {
-        verify
-        {
-            if (gDobj == chisel)
-            {
-                if (gIobj == chisel)
-                    illogicalSelf('{You/he} {can\'t} strike {the dobj/him} with
-                        {itself}. ');
-                else
-                    illogical('{The iobj/He} {is} not a suitable tool for
-                        striking {a dobj/him} with. ');
-            }
-            else
-                inherited();
-        }
-    }
 ;
 
 /* Prayer */
@@ -3247,6 +3281,34 @@ modify playerActionMessages
 ;
 
 /* Sundry modifications */
+
+modify VerbRule(Attack)
+    :
+    verbPhrase = 'strike/striking (what)'
+;
+
+modify VerbRule(AttackWith)
+    :
+    verbPhrase = 'strike/striking (what) (with what)'
+;
+
+modify Thing
+    dobjFor(AttackWith)
+    {
+        verify
+        {
+            if (self == gIobj)
+                illogicalSelf('{You/He} {can\'t} strike {the dobj/him} with
+                    {itself}. ');
+        }
+    }
+;
+
+modify playerActionMessages {
+    notAWeaponMsg = '{The iobj/He} {is} not a suitable tool to strike anything
+        with. '
+    uselessToAttackMsg = 'There {is|was} no reason to strike {that dobj/him}. '
+}
 
 VerbRule(Diagnose)
     'diagnose'
