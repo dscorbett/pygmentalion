@@ -146,8 +146,8 @@ dress her up, ply her with gifts, and lament your hopeless situation.
 
 The statue stands on a plinth beside the workbench.
 
-You see a stool here.  On the workbench are a gold nugget, a needle, a chisel,
-and an idol.
+You see a stool here.  On the workbench are a gold nugget, some bolts of cloth,
+a needle, a chisel, and an idol.
 
 >scream
 You scream as loud as you can.  The statue does not appear to hear you
@@ -174,8 +174,8 @@ dress her up, ply her with gifts, and lament your hopeless situation.
 
 The statue stands on a plinth beside the workbench.
 
-You see a stool here.  On the workbench are a gold nugget, a needle, a chisel,
-and an idol.
+You see a stool here.  On the workbench are a gold nugget, some bolts of cloth,
+a needle, a chisel, and an idol.
 
 >a it
 (asking the statue)
@@ -201,15 +201,29 @@ The statue stares straight ahead with a smile on her lips.
 Where did that thought come from?  Even in the worst of your mood swings, you
 have never considered harming her.
 
+>give it bolt
+(first taking the bolts of cloth)
+Though they are beautiful enough, she cannot wear them in their unfinished
+state.
+
+>sew it
+You cannot sew the statue with a needle.
+
+>sew bolt with it
+You cannot sew anything with a statue.
+
 >throw chisel at it
 Where did that thought come from?  Even in the worst of your mood swings, you
 have never considered harming her.
 
->x bench,gold,idol,it,pearl,plinth,stool,tools
+>x bench,bolt,gold,idol,it,pearl,plinth,stool,tools
 workbench: Your workbench is usually scattered with tools and materials and
 half-finished projects.
 
 On the workbench are a gold nugget, a needle, and an idol.
+
+bolts of cloth: Bolts of rich cloth – silk, wool, and furs – are stacked in
+many colors.
 
 gold nugget: It is a large nugget of gold that sparkles in the light.  You
 haven’t decided what to make it into yet.
@@ -231,6 +245,22 @@ chisel: This is a sharp tool used for carving.
 (If you’d prefer not to be notified about score changes in the future, type
 NOTIFY OFF.)
 
+>sew bolt
+(first taking the needle)
+You sew the bolts of cloth into a colorful chiton.
+
+>sew robe
+The chiton has already been sewn.
+
+>wear it
+This chiton was made in a women’s style, for one woman in particular.  Anyway,
+it probably wouldn’t fit you.
+
+>x it
+This is an ankle-length robe of diaphanous silk, fine wool, and furs.  Any
+woman wearing it would be the envy of the whole island.  The dress appears to
+be twill and green silk.
+
 >l
 At the Workbench
 This workbench, in the northwest part of the studio, was where you would create
@@ -239,19 +269,17 @@ dress her up, ply her with gifts, and lament your hopeless situation.
 
 The statue stands on a plinth beside the workbench, wearing a string of pearls.
 
-You see a stool here.  On the workbench are a gold nugget, a needle, and an
-idol.
+You see a stool here.  On the workbench are a gold nugget and an idol.
 
->get gold,idol,needle,pearl
+>get gold,idol,pearl
 gold nugget: Taken.
 idol: Taken.
-needle: Taken.
 string of pearls: Taken.
 
 >x pearl
 This necklace of countless fine seed pearls is the latest ornament with which
-you have adorned the statue, the latest attempt to express your feelings
-through gifts.
+you have adorned the statue, another attempt to express your feelings through
+gifts.
 
 >u
 You can’t go that way.  Obvious exits lead south, back to the studio entrance;
@@ -1123,8 +1151,6 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The bird flutters around the basin.
-
 >undo
 Taking back one turn: “s”.
 
@@ -1358,6 +1384,8 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
+The bird preens itself.
+
 >g
 Taking back one turn: “pour it on bath”.
 
@@ -1365,6 +1393,8 @@ Portico
 Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
+
+The bird ruffles its feathers in the basin.
 
 >g
 Taking back one turn: “pour it in bath water”.
@@ -1382,8 +1412,6 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The bird preens itself.
-
 >g
 Taking back one turn: “drink it”.
 
@@ -1392,7 +1420,7 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The bird ruffles its feathers in the basin.
+The bird preens itself.
 
 >g
 Taking back one turn: “pour sea in bath”.
@@ -1401,6 +1429,8 @@ Portico
 Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
+
+The bird coos.
 
 >n
 Studio Entrance
@@ -1466,6 +1496,8 @@ birdbath.
 
 It is full to the brim.  The water is level with the top of the central vase.
 Your reflection is distorted by the ripples issuing from the bird.
+
+The bird drinks from the basin.
 
 >pour sea in it
 That would overflow the basin.
@@ -1699,7 +1731,7 @@ buttons for all the standard unary and binary operations.  The screen reads 40
 
 idol: It’s a small statuette of Aphrodite carved from meerschaum.
 
-bronze key: It is a bronze key.  On it is etched the word “pnouon”.
+bronze key: It is a bronze key.  On it is etched the word “pnitmi”.
 
 iron key: It is an iron key.
 
@@ -1743,7 +1775,7 @@ The statue is as stiff and cold as a post.
 >say a
 Nothing happens.
 
->pnouon
+>pnitmi
 Nothing happens.  (Aphrodite said you would need a mirror.)
 
 >s
@@ -1765,7 +1797,7 @@ affixed to the doorpost.
 
 The ground is covered with water.
 
->pnouon
+>pnitmi
 The air above the basin shimmers.  The glow fades in and out, as if unable to
 find focus, before dissipating.  (Aphrodite said you would need a mirror.  A
 mirror, you remind yourself, is prototypically a flat reflective surface,
@@ -1839,7 +1871,7 @@ The ground is covered with water.
 
 The bird is startled and hops to the far side of the basin.
 
->pnouon
+>pnitmi
 The air above the basin shimmers.  The bird ruffles its feathers, making
 ripples in the water.  After a moment, the shimmering dissipates.
 
@@ -1870,7 +1902,7 @@ by the idol.
 
 An idol is floating on the surface of the water.
 
->pnouon
+>pnitmi
 The air above the basin shimmers.  The idol resonates in harmony, making
 ripples in the water.  After a moment, the shimmering dissipates.
 
@@ -1904,7 +1936,7 @@ and begins to fill the sink.
 The calculator outputs 2 × 10001 = 20002.  Water flows from the faucet.  Some
 excess water trickles down the overflow hole.
 
->pnouon
+>pnitmi
 Nothing happens.  (Aphrodite said you would need a mirror. You peer at the
 water in the sink, but you see no more than a vague and shadowy silhouette, not
 a true reflection.)
@@ -2506,7 +2538,7 @@ thinking about how much you love her.
 You begin moving away from the door, but then you remember the statue.  The
 gods won’t bring her to life if you give up this easily!
 
->pnouon
+>pnitmi
 The air above the basin shimmers for a moment.  You hear footsteps behind you.
 Turning around, you see a woman who looks remarkably like your statue.
 
@@ -2517,13 +2549,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 262 moves, you have scored 15 of a possible 15 points.
+In 269 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >u
-Taking back one turn: “say pnouon”.
+Taking back one turn: “say pnitmi”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
@@ -2536,7 +2568,7 @@ The ground is covered with water.
 (the door)
 Closed.
 
->pnouon
+>pnitmi
 The air above the basin shimmers for a moment.  You hear the door opening
 behind you.  Turning around, you see a woman who looks remarkably like your
 statue.
@@ -2548,13 +2580,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 263 moves, you have scored 15 of a possible 15 points.
+In 270 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >u
-Taking back one turn: “say pnouon”.
+Taking back one turn: “say pnitmi”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
@@ -2567,7 +2599,7 @@ The ground is covered with water.
 (the bronze key)
 Locked.
 
->pnouon
+>pnitmi
 The air above the basin shimmers for a moment.  You hear the door being
 unlocked behind you.  Turning around, you see a woman who looks remarkably like
 your statue.
@@ -2579,13 +2611,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 264 moves, you have scored 15 of a possible 15 points.
+In 271 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 264 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 271 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]

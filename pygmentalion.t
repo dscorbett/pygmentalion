@@ -371,26 +371,6 @@ ul(plain, [items])
 
 /* Tokens */
 
-/*
- *   Puiˢ li reueſt en maīteˢ guıſes.
- *   Robeˢ faıcteˢ ꝑ grāˢ maıſtrıſeˢ.
- *   De bıaulx ꝺꝛaps ẟe ſoye ⁊ ꝺe laīe.
- *   Deſcarlate ꝺe tıretaine.
- *   De vert ꝺe pers ⁊ ẟe bꝛunecte
- *   De couleᷣ freſche fine ⁊ necte.
- *   Ou moult a rıches paneˢ mıſes.
- *   Herminees vaıres et griſes
- *   Puis les lı roſte puis reſſaye.
- *   Cōmant lı ſıet robbe de ſaye
- *   Senꝺaulx meloguins galebꝛunˢ.
- *   Inꝺes vermeılz ıaunes ⁊ bꝛunˢ.
- *   [...]
- *   Aultre foız luy repꝛēẟ courage.
- *   De tout oſter ⁊ mectre guinꝺeˢ.
- *   Iaunes vermeılles vers ⁊ inꝺeˢ.
- *      (MS. Douce 195, fol. 150r)
- */
-
 class Token: Achievement, InitObject
 {
     points = 1;
@@ -818,8 +798,9 @@ workbenchRoom: Room 'At the Workbench'
     hopeless situation.\b
     <<if gActor.setHer(statue)>><<end>>
     The statue stands on a plinth beside the workbench<<if
-    !statue.contentsListedInExamine && statue.contents[1].seen>>, wearing
-    <<statue.contents[1].aName>><<end>>. "
+    statue.contents.valWhich({x: x.seen})>>, wearing
+    <<objectLister.showSimpleList(statue.contents.subset({x: x.seen}))>><<end
+    >>. "
     east = sinkRoom
     southeast = altarRoom
     south = entrance
@@ -875,6 +856,10 @@ workbenchRoom: Room 'At the Workbench'
     "This is a sharp tool used for sewing. It is made of silver. "
     materialWord = 'metal' 'silver'
     bulk = 0
+    iobjFor(SewWith)
+    {
+        verify { nonObvious; }
+    }
 ;
 
 /*
@@ -936,11 +921,10 @@ replace grammar predicate(UnscrewWith): ' ': object;
     that you don&rsquo;t know. <<else>>Who knows? You can only dream. <<end>>
     <<if commentToken.scoreCount>>If only Aphrodite would bring her to life
     without this silly puzzle about tokens and mirrors! <<end>>
-    <<end>><.p><<if !contentsListedInExamine>>She is wearing
-    <<buildSynthParam('a/him', contents[1])>>. "
+    <<end>><<if contents.length>><.p>She is wearing
+    <<objectLister.showSimpleList(contents)>>. "
     materialWord = 'ivory'
-    contentsListedInExamine =
-        (contents.length() != 1 || contents[1] != necklace)
+    contentsListedInExamine = nil
     propertyset 'is*'
     {
         propertyset 'H*'
@@ -1039,9 +1023,13 @@ replace grammar predicate(UnscrewWith): ' ': object;
     {
         check
         {
+            if (gDobj == cloth)
+                failCheck('Though {it dobj/she} {is} beautiful enough, {it
+                    iobj/she} {cannot} wear them in {its dobj/her} unfinished
+                    state. ');
             if (gDobj not /**//**/ // /* \\
 #define Room Unthing
-                in (necklace, __objref(necklace, warn)))
+                in (dress, __objref(necklace, warn)))
                 failCheck(
                     'What would {it iobj/she} want with {that dobj/him}? ');
             inherited();
@@ -1087,13 +1075,105 @@ replace grammar predicate(UnscrewWith): ' ': object;
     '(fine) (seed) pearl necklace/string pearls'
     '<<highlight 'string'>> of pearls<<gActor.setHasSeen(self)>>'
     "This necklace of countless fine seed pearls is the latest ornament with
-    which you have adorned the statue, the latest attempt to express your
-    feelings through gifts. "
+    which you have adorned the statue, another attempt to express your feelings
+    through gifts. "
     initDesc = "You put this pearl necklace on the statue yesterday. "
     canMatchThem = true
     hideFromAll(action) { return !seen; }
     hideFromDefault(action) { return !seen; }
     suppressAutoSeen = true
+;
+
+/*
+ *   Puiˢ li reueſt en maīteˢ guıſes.
+ *   Robeˢ faıcteˢ ꝑ grāˢ maıſtrıſeˢ.
+ *   De bıaulx ꝺꝛaps ẟe ſoye ⁊ ꝺe laīe.
+ *   Deſcarlate ꝺe tıretaine.
+ *   De vert ꝺe pers ⁊ ẟe bꝛunecte
+ *   De couleᷣ freſche fine ⁊ necte.
+ *   Ou moult a rıches paneˢ mıſes.
+ *   Herminees vaıres et griſes
+ *   Puis les lı roſte puis reſſaye.
+ *   Cōmant lı ſıet robbe de ſaye
+ *   Senꝺaulx meloguins galebꝛunˢ.
+ *   Inꝺes vermeılz ıaunes ⁊ bꝛunˢ.
+ *   [...]
+ *   Aultre foız luy repꝛēẟ courage.
+ *   De tout oſter ⁊ mectre guinꝺeˢ.
+ *   Iaunes vermeılles vers ⁊ inꝺeˢ.
+ *      (MS. Douce 195, fol. 150r)
+ */
+
+cloth: Thing '(diaphanous) (fine) bolt bolts clothes' 'bolts of cloth'
+    @workbench
+    "Bolts of rich cloth &ndash; silk, wool, and furs &ndash; are stacked in
+    many colors. "
+    materialWord = 'cloth' 'fur' 'furs' 'silk' 'wool'
+    bulk = 10
+    isPlural = true
+    dobjFor(SewWith)
+    {
+        verify { }
+        check
+        {
+            if (!meetsObjHeld(gActor))
+                tryHolding();
+        }
+        action
+        {
+            dress.moveInto(location);
+            gActor.setHasSeen(dress);
+            moveInto(nil);
+            "{You/He} sew{s} {the dobj/her} into a colorful <<dress.name>>. ";
+        }
+    }
+;
+
+dress: Wearable '(diaphanous) (fine) dress/chiton/clothes/robe' 'chiton'
+    "This is an ankle-length robe of diaphanous silk, fine wool, and furs. Any
+    woman wearing it would be the envy of the whole island. The dress appears
+    to be <<tinctures>>. "
+    materialWord = 'cloth' 'fur' 'furs' 'silk' 'wool'
+    tincture = '<<one of>>scarlet wool<<or>>twill<<or>>green silk<<or
+        >>perse<<or>>burnet<<or>>ermine<<or>>vair<<or>>miniver<<or>>indigo
+        silk<<or>>vermilion silk<<or>>yellow silk<<or>>brown silk<<purely at
+        random>>'
+    tinctures
+    {
+        local tincture1, tincture2;
+        do
+        {
+            tincture1 = tincture;
+            tincture2 = tincture;
+        } while (tincture1 == tincture2);
+        local words1 = tincture1.split(' ');
+        local words2 = tincture2.split(' ');
+        if (words1.length > 1 && words2.length > 1
+            && words1[words1.length] == 'silk'
+            && words1[words1.length] == words2[words2.length])
+        {
+            words1 = words1.removeElementAt(-1);
+            words2 = words2.removeElementAt(-1);
+        }
+        return '<<words1.join(' ')>> and <<words2.join(' ')>>';
+    }
+    bulk = cloth.bulk
+    dobjFor(SewWith)
+    {
+        verify
+        {
+            illogicalAlready('{The dobj/She} {has} already been sewn. ');
+        }
+    }
+    dobjFor(Wear)
+    {
+        check
+        {
+            failCheck('{subj dobj}This <<name>> {was} made in a women&rsquo;s
+                style, for one woman in particular. Anyway, {it dobj/she}
+                probably wouldn&rsquo;t fit {you/him}. ');
+        }
+    }
 ;
 
 altarRoom: Room 'At the Altar'
@@ -3262,6 +3342,59 @@ modify LockableWithKey
 
 modify NonPortable
     dobjFor(Examine) { verify { inherited Thing; } }
+;
+
+VerbRule(Sew)
+    ('sew' | 'stitch') dobjList
+    : SewAction
+    verbPhrase = 'sew/sewing (what)'
+;
+
+DefineTAction(Sew);
+
+VerbRule(SewWith)
+    ('sew' | 'stitch') dobjList 'with' singleIobj
+    : SewWithAction
+    verbPhrase = 'sew/sewing (what) (with what)'
+;
+
+DefineTIAction(SewWith);
+
+modify Actor
+    dobjFor(Sew)
+    {
+        verify { nonObvious; }
+    }
+;
+
+modify Thing
+    dobjFor(Sew)
+    {
+        preCond = (preCondDobjSewWith)
+        action {
+            if (self != needle && needle.canBeTouchedBy(gActor))
+                replaceAction(SewWith, gDobj, needle);
+            else
+                askForIobj(SewWith);
+        }
+    }
+    dobjFor(SewWith)
+    {
+        preCond = [touchObj]
+        verify
+        {
+            illogical('{You/He} {cannot} sew {the dobj/her} with {a iobj/her}.
+                ');
+        }
+    }
+    iobjFor(SewWith)
+    {
+        preCond = [objHeld, touchObj]
+        verify
+        {
+            illogical('{You/He} {cannot} sew anything with {a iobj/her}. ');
+        }
+    }
 ;
 
 modify Thing

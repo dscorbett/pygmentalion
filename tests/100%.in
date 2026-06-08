@@ -1,4 +1,4 @@
-# Copyright 2022, 2023, 2024 David Corbett
+# Copyright 2022, 2023, 2024, 2026 David Corbett
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -46,10 +46,17 @@
 >put chisel on it
 >show her it
 >hit her with it
+>give it bolt
+>sew it
+>sew bolt with it
 >throw chisel at it
->x bench,gold,idol,it,pearl,plinth,stool,tools
+>x bench,bolt,gold,idol,it,pearl,plinth,stool,tools
+>sew bolt
+>sew robe
+>wear it
+>x it
 >l
->get gold,idol,needle,pearl
+>get gold,idol,pearl
 >x pearl
 >u
 >e
@@ -285,10 +292,10 @@
 >hug it
 >g
 >say a
->pnouon
+>pnitmi
 >s
 >s
->pnouon
+>pnitmi
 >n
 >ne
 >c 1/0
@@ -300,18 +307,18 @@
 >get net
 >x it
 >s
->pnouon
+>pnitmi
 >show bird it
 >throw it at bird
 >put bird in it
 >put idol in bath
 >x bath
->pnouon
+>pnitmi
 >n
 >ne
 >c 1/0
 >c 2X10001
->pnouon
+>pnitmi
 >g
 >pour sea in sink
 >put needle,net in it
@@ -341,13 +348,13 @@
 >y
 >x me
 >s
->pnouon
+>pnitmi
 >u
 >close
->pnouon
+>pnitmi
 >u
 >lock door with clean
->pnouon
+>pnitmi
 >f
 >q
 >y
