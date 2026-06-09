@@ -21,7 +21,6 @@
 >c 4
 >c 5
 >c 6
->break me
 >pray
 >pray me
 >pray at god
@@ -60,10 +59,9 @@
 >x pearl
 >u
 >e
->x book
->w
->x her
->se
+>x book,sink
+>get key
+>s
 >break lock
 >break cage
 >get rod,rod
@@ -94,17 +92,56 @@
 >put pearl on it
 >pray
 >g
->get all
->x key
->wash it with me
->nw
+>give altar fur
+>pray
+>g
+>put iron in cage
+>x net
+>undo
+>unlock cage with iron
+>put iron in cage
+>x net
+>undo
+>l in net
+>undo
+>open cage
+>x net
+>get tools,it
+>x hammers
+>put mallet in net
+>put net in cage
+>hit it with ball
+>hit ball with ball
+>hit chisel
+>hit it with me
+>hit it with mallet
+>put net in cage
+>get it,cage
+>put net in cage
+>n
+>c not 0
+>put gold in sink
+>undo
+>undo
+>w
+>hit gold with ball
+>x ring
+>give her it
 >x her
->s
+>get ring
+>se
+>give altar it
+>pray
+>g
+>get all
+>x bronze
+>wash it with me
+>w
 >break door
 >open it
 >g
 >break it
->unlock
+>unlock it with bronze
 >s
 >get all
 >x bath,column,door,label,label
@@ -123,9 +160,7 @@
 >x it
 >x addon,comb,sink,table,table
 >wash me
->x iron
->get it
->x it
+>x iron key
 >put it,idol,needle,sea in sink
 >turn sink on
 >turn it off
@@ -156,7 +191,6 @@
 >c negate 0
 >c 999 plus 2
 >c positive 1000
->put gold in sink
 >put sea in sink
 >pour it on sink
 >undo
@@ -186,38 +220,15 @@
 >x sink
 >c 1/0
 >sw
+>drop net
 >s
 >get bird
 >undo
 >undo
->e
->put iron in cage
->x net
 >undo
->unlock cage with iron
->put iron in cage
->x net
->undo
->l in net
->undo
->open cage
->x net
->get tools,it
->x hammers
->put mallet in net
->put net in cage
->hit it with ball
->hit ball with ball
->hit chisel
->hit it with me
->hit it with mallet
->put net in cage
->get it,cage
->put net in cage
->w
 >s
 >show bird bird
->show it gold
+>show it sea
 >get bird
 >hit it
 >wash it
@@ -291,9 +302,6 @@
 >x her
 >hug it
 >g
->hit gold with ball
->x ring
->give her it
 >say a
 >pnitmi
 >s

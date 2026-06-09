@@ -14,26 +14,33 @@
 
 >about
 >n
->get idol,pearls
->se
+>get all,pearl
+>e
+>x sink
+>get key
+>s
 >x all,all
 >put idol on altar
 >pray
 >g
 >put pearls on altar
 >pray
->get all
+>sew bolt
+>give altar robe
+>pray
+>unlock
+>l in net
+>get tools,net
+>hit gold with ball
+>give altar ring
+>pray
+>get key
 >n
 >c +20000
 >put all in sink
 >x all
->get key
 >c 1/0
->s
->unlock cage with iron
->l in net
->get tools,net
->w
+>sw
 >s
 >unlock door with bronze
 >s

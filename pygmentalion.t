@@ -1016,9 +1016,7 @@ replace grammar predicate(UnscrewWith): ' ': object;
                 failCheck('Though {it dobj/she} {is} beautiful enough, {it
                     iobj/she} {cannot} wear them in {its dobj/her} unfinished
                     state. ');
-            if (gDobj not /**//**/ // /* \\
-#define Room Unthing
-                in (dress, __objref(necklace, warn), ring))
+            if (aphrodite.acceptableOfferings.indexOf(gDobj) == nil)
                 failCheck(
                     'What would {it iobj/she} want with {that dobj/him}? ');
             inherited();
@@ -1094,7 +1092,8 @@ replace grammar predicate(UnscrewWith): ' ': object;
  */
 
 cloth: Thing
-    '(diaphanous) (fine) bolt/material*bolts clothes materials' 'bolts of cloth'
+    '(diaphanous) (fine) bolt/material*bolts clothes materials'
+    'bolts of cloth'
     @workbench
     "Bolts of rich cloth &ndash; silk, wool, and furs &ndash; are stacked in
     many colors. "
@@ -1691,6 +1690,9 @@ aphrodite: Deity
             replaceAction(PrayAt, altar);
         }
     }
+    acceptableOfferings =
+        static new Vector([dress, __objref(necklace, warn), ring])
+    totalAcceptableOfferings = static acceptableOfferings.length
     dobjFor(PrayToAt)
     {
         action()
@@ -1716,10 +1718,11 @@ aphrodite: Deity
                 As {you/he} watch{es}, it takes the form of a callipygian
                 goddess.\b
                 <q>Mortal, I have heard your heart-felt and oft-repeated plea,
-                and I will take pity on you,</q> says {the dobj/she}. <q>If you
-                give me a token of your love as an offering, I will give you
-                the <<highlight 'keyword'>> of life. Speak this word in the
-                presence of a mirror, and I will grant your request.</q>\b
+                and I will take pity on you,</q> says {the dobj/she}. <q>Prove
+                your devotion by giving me three tokens of your love as
+                offerings, and I will give you the <<highlight 'keyword'>> of
+                life. Speak this word in the presence of a mirror and your wish
+                will be granted.</q>\b
                 {It dobj/She} fade{s} away, adding, <q>As for her colorful
                 personality, just look around you.</q> <<or>><<stopping>>";
             else if (key.location)
@@ -1729,13 +1732,21 @@ aphrodite: Deity
                 keyword, then?</q> <q>Gods help those who help themselves.
                 Figure it out yourself.</q><<or>><q>Why a mirror?</q> <q>I like
                 mirrors.</q><<purely at random>> ";
-            else if (offering == necklace)
+            else if (acceptableOfferings.indexOf(offering))
             {
-                "Aphrodite reappears. <q>A necklace! Perfect!</q> The necklace
-                disappears in a bright flash. When {your} eyes readjust,
-                {you/he} see{s} <<key.aNameObj>> lying in its place. ";
-                necklace.moveInto(nil);
-                key.makePresent();
+                "{The dobj/She} reappear{s/ed}. <q>\^<<one of>><<offering.aName
+                >> is a good start.<<or>>Passion imbues this <<offering.name>>.
+                I am almost convinced.<<or>><<offering.aName>>!
+                Perfect!<<stopping>></q> \^<<offering.theName>>
+                disappear<<offering.verbEndingSEd>> in a bright flash. ";
+                acceptableOfferings.removeElement(offering);
+                offering.moveInto(nil);
+                if (!acceptableOfferings.length)
+                {
+                    key.makePresent();
+                    "When {your} eyes readjust{|ed}, {you/he} {sees}
+                    <<key.aNameObj>> lying in <<offering.itPossAdj>> place. ";
+                }
             }
             else if (+offering)
                 "{The dobj/She} reappear{s}. {It dobj/She} eye{s}
@@ -1747,8 +1758,11 @@ aphrodite: Deity
                 not that difficult!<<then at random>></q> ";
             else
                 "<q>I heard you the first time,</q> {subj dobj}say{s} {the
-                dobj/she}. <q>Prove your devotion by offering a token of your
-                love at {the iobj/him}, or the deal&rsquo;s off.</q> ";
+                dobj/she}. <q>Prove your devotion by offering
+                <<spellInt(acceptableOfferings.length)>> <<if
+                acceptableOfferings.length != totalAcceptableOfferings>>more
+                <<end>>token<<if acceptableOfferings.length != 1>>s<<end>> of
+                your love at {the iobj/him}, or the deal&rsquo;s off.</q> ";
         }
     }
 ;
@@ -3612,7 +3626,9 @@ DefineLiteralAction(Say)
             tryImplicitActionMsg(&silentImplicitAction, Xyzzy);
         else if (literal != key.keyword)
             "Nothing happens. ";
-        else if (literal not in ())
+        else if (literal not /**//**/ // /* \\
+#define Room Unthing
+            in ())
         {
             if (gActor.location == portico && !basin.overflowing)
             {

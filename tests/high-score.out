@@ -57,13 +57,36 @@ The statue stands on a plinth beside the workbench.
 You see a stool here.  On the workbench are a gold nugget, some bolts of cloth,
 a needle, a chisel, and an idol.
 
->get idol,pearls
+>get all,pearl
+stool: Taken.
+gold nugget: Taken.
+bolts of cloth: Taken.
+needle: Taken.
+chisel: Taken.
 idol: Taken.
 [[string]] of pearls: Taken.
 
 (Your score has just increased by one point.)
 
->se
+>e
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+On the side table are a manual and a comb.
+
+>x sink
+This is a state-of-the-art mop sink with anti-miasmic coating and bronze
+backsplash.  It is so modern, there are no handles or other obvious ways to
+turn it on.
+
+An iron key is lodged in the drain.
+
+>get key
+Taken.
+
+>s
 At the Altar
 Light from the window illuminates a crude altar.  Until recently, this area was
 the gallery where customers would buy your art; all that is gone now.  The rest
@@ -72,11 +95,25 @@ of the studio lies north and west.
 A pole sticks out of a wicker cage and leans ithyphallically against the wall.
 
 >x all,all
+stool: It’s a portable folding stool, or diphros okladias.
+
+gold nugget: It is a large nugget of gold that sparkles in the light.  You
+haven’t decided what to make it into yet.
+
+bolts of cloth: Bolts of rich cloth – silk, wool, and furs – are stacked in
+many colors.
+
+needle: This is a sharp tool used for sewing.  It is made of silver.
+chisel: This is a sharp tool used for carving.
+
 idol: It’s a small statuette of Aphrodite carved from meerschaum.
 
 string of pearls: This necklace of countless fine seed pearls is the latest
 ornament with which you have adorned the statue, another attempt to express
 your feelings through gifts.
+
+iron key: It is an iron key.  It is covered in grime from the drain of the
+sink.
 
 altar: A rough marble slab lies on a granite banker.  In your rush to construct
 an altar, you neglected the usual surface finish and friezes, but you pray at
@@ -97,11 +134,25 @@ wicker cage.  This versatile tool can be used as a quarterstaff, butterfly net,
 pool net, or walking stick.  There is something bulky in the bag, but you can’t
 see what it is.
 
+stool: It’s a portable folding stool, or diphros okladias.
+
+gold nugget: It is a large nugget of gold that sparkles in the light.  You
+haven’t decided what to make it into yet.
+
+bolts of cloth: Bolts of rich cloth – silk, wool, and furs – are stacked in
+many colors.
+
+needle: This is a sharp tool used for sewing.  It is made of silver.
+chisel: This is a sharp tool used for carving.
+
 idol: It’s a small statuette of Aphrodite carved from meerschaum.
 
 string of pearls: This necklace of countless fine seed pearls is the latest
 ornament with which you have adorned the statue, another attempt to express
 your feelings through gifts.
+
+iron key: It is an iron key.  It is covered in grime from the drain of the
+sink.
 
 altar: A rough marble slab lies on a granite banker.  In your rush to construct
 an altar, you neglected the usual surface finish and friezes, but you pray at
@@ -136,9 +187,9 @@ You are interrupted by a shimmering about the altar.  As you watch, it takes
 the form of a callipygian goddess.
 
 “Mortal, I have heard your heart-felt and oft-repeated plea, and I will take
-pity on you,” says Aphrodite.  “If you give me a token of your love as an
-offering, I will give you the [[keyword]] of life.  Speak this word in the
-presence of a mirror, and I will grant your request.”
+pity on you,” says Aphrodite.  “Prove your devotion by giving me three tokens
+of your love as offerings, and I will give you the [[keyword]] of life.  Speak
+this word in the presence of a mirror and your wish will be granted.”
 
 She fades away, adding, “As for her colorful personality, just look around
 you.”
@@ -157,15 +208,50 @@ Done.
 
 >pray
 (at the altar)
-Aphrodite reappears.  “A necklace!  Perfect!”  The necklace disappears in a
+Aphrodite reappears.  “A string of pearls is a good start.” The string of
+pearls disappears in a bright flash.
+
+>sew bolt
+You sew the bolts of cloth into a colorful chiton.
+
+>give altar robe
+Done.
+
+>pray
+(at the altar)
+Aphrodite reappears.  “Passion imbues this chiton.  I am almost convinced.” The
+chiton disappears in a bright flash.
+
+>unlock
+(the wicker cage)
+(with the iron key)
+Unlocked.
+
+>l in net
+(first opening the wicker cage)
+The bag contains a mallet and a ball-peen hammer.
+
+>get tools,net
+net: The ball-peen hammer is too big for the bag to fit through the bars.
+
+ball-peen hammer: Taken.
+mallet: Taken.
+net: The net slips through the bars.
+
+>hit gold with ball
+You beat the gold nugget into a ring.
+
+>give altar ring
+Done.
+
+>pray
+(at the altar)
+Aphrodite reappears.  “A gold ring!  Perfect!” The gold ring disappears in a
 bright flash.  When your eyes readjust, you see a bronze key lying in its
 place.
 
->get all
-bronze key: Taken.
-
-wicker cage: The net is too unwieldy.  You’ll have to remove it from the wicker
-cage first.
+>get key
+You take the bronze key.
 
 >n
 Washroom
@@ -180,7 +266,21 @@ The calculator outputs +20000 = 20000.  Water flows from the faucet, filling
 the sink.
 
 >put all in sink
+stool: The stool would get wet.
+
+needle: Done.
+
+chisel: The chisel would get wet.
+
+iron key: You clean the iron key.
 idol: Done.
+
+ball-peen hammer: The ball-peen hammer would get wet.
+
+mallet: The mallet would get wet.
+
+net: The net would get wet.
+
 bronze key: You clean the bronze key, revealing an inscription.
 
 manual: The manual would get wet.
@@ -188,6 +288,18 @@ manual: The manual would get wet.
 comb: The comb would get wet.
 
 >x all
+stool: It’s a portable folding stool, or diphros okladias.
+chisel: This is a sharp tool used for carving.
+
+iron key: It is an iron key.
+
+ball-peen hammer: It’s a hammer used for shaping and hardening metal.
+
+mallet: It’s a wooden hammer with a large head, used to strike a chisel.
+
+net: It is a long wooden pole with a bag attached to one end.  This versatile
+tool can be used as a quarterstaff, butterfly net, pool net, or walking stick.
+
 bronze key: It is a bronze key.  On it is etched the word “rhimon”.
 
 calculator: The calculator is [[built in]]to the wall beside the sink.  It has
@@ -230,15 +342,13 @@ turn it on.
 
 It is full to the brim with water.
 
-An idol is [[float]]ing on the surface of the water.  An iron key is lodged in
-the drain.
+A needle and an idol are [[float]]ing on the surface of the water.
+
+needle: This is a sharp tool used for sewing.  It is made of silver.
 
 idol: It’s a small statuette of Aphrodite carved from meerschaum.
 
 (Your score has just increased by four points.)
-
->get key
-You take the iron key.
 
 >c 1/0
 The calculator outputs [[ERROR]] {division by zero}.  The water in the sink is
@@ -246,30 +356,7 @@ sucked down the drain.
 
 (Your score has just increased by one point.)
 
->s
-At the Altar
-Light from the window illuminates a crude altar.  Until recently, this area was
-the gallery where customers would buy your art; all that is gone now.  The rest
-of the studio lies north and west.
-
-The pole of a net sticks out of a wicker cage and leans ithyphallically against
-the wall.
-
->unlock cage with iron
-Unlocked.
-
->l in net
-(first opening the wicker cage)
-The bag contains a mallet and a ball-peen hammer.
-
->get tools,net
-net: The ball-peen hammer is too big for the bag to fit through the bars.
-
-ball-peen hammer: Taken.
-mallet: Taken.
-net: The net slips through the bars.
-
->w
+>sw
 Studio Entrance
 Your studio is where you create great works of art, though you have made
 nothing since you carved that statue.  This corner, which now serves as your
@@ -303,10 +390,10 @@ alighting on the side of it opposite you.
 (Your score has just increased by one point.)
 
 >x all
-bronze key: It is a bronze key.  On it is etched the word “rhimon”.
+stool: It’s a portable folding stool, or diphros okladias.
+chisel: This is a sharp tool used for carving.
 
-iron key: It is an iron key.  It is covered in grime from the drain of the
-sink.
+iron key: It is an iron key.
 
 ball-peen hammer: It’s a hammer used for shaping and hardening metal.
 
@@ -314,6 +401,8 @@ mallet: It’s a wooden hammer with a large head, used to strike a chisel.
 
 net: It is a long wooden pole with a bag attached to one end.  This versatile
 tool can be used as a quarterstaff, butterfly net, pool net, or walking stick.
+
+bronze key: It is a bronze key.  On it is etched the word “rhimon”.
 
 basin: Light glints off the surface of the pure silver basin.  It is shallow
 around the edges but curves gradually down to a decorative vase in the center.
@@ -355,7 +444,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 27 moves, you have scored 15 of a possible 15 points.
+In 34 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?

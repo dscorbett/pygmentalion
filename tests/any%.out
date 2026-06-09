@@ -38,10 +38,39 @@ The statue stands on a plinth beside the workbench.
 You see a stool here.  On the workbench are a gold nugget, some bolts of cloth,
 a needle, a chisel, and an idol.
 
->get pearls
+>get all,pearl
+stool: Taken.
+gold nugget: Taken.
+bolts of cloth: Taken.
+needle: Taken.
+chisel: Taken.
+idol: Taken.
+[[string]] of pearls: Taken.
+
+(Your score has just increased by one point.)
+
+(If you’d prefer not to be notified about score changes in the future, type
+NOTIFY OFF.)
+
+>e
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+On the side table are a manual and a comb.
+
+>x sink
+This is a state-of-the-art mop sink with anti-miasmic coating and bronze
+backsplash.  It is so modern, there are no handles or other obvious ways to
+turn it on.
+
+An iron key is lodged in the drain.
+
+>get key
 Taken.
 
->se
+>s
 At the Altar
 Light from the window illuminates a crude altar.  Until recently, this area was
 the gallery where customers would buy your art; all that is gone now.  The rest
@@ -49,7 +78,7 @@ of the studio lies north and west.
 
 A pole sticks out of a wicker cage and leans ithyphallically against the wall.
 
->put it on altar
+>give altar pearl
 Done.
 
 >pray
@@ -62,68 +91,34 @@ You are interrupted by a shimmering about the altar.  As you watch, it takes
 the form of a callipygian goddess.
 
 “Mortal, I have heard your heart-felt and oft-repeated plea, and I will take
-pity on you,” says Aphrodite.  “If you give me a token of your love as an
-offering, I will give you the [[keyword]] of life.  Speak this word in the
-presence of a mirror, and I will grant your request.”
+pity on you,” says Aphrodite.  “Prove your devotion by giving me three tokens
+of your love as offerings, and I will give you the [[keyword]] of life.  Speak
+this word in the presence of a mirror and your wish will be granted.”
 
 She fades away, adding, “As for her colorful personality, just look around
 you.”
 
 (Your score has just increased by one point.)
 
-(If you’d prefer not to be notified about score changes in the future, type
-NOTIFY OFF.)
-
 >g
 (at the altar)
-Aphrodite reappears.  “A necklace!  Perfect!”  The necklace disappears in a
-bright flash.  When your eyes readjust, you see a bronze key lying in its
-place.
+Aphrodite reappears.  “A string of pearls is a good start.” The string of
+pearls disappears in a bright flash.
 
->get key
-Taken.
+>sew bolt
+You sew the bolts of cloth into a colorful chiton.
 
->n
-Washroom
-Sculpting is a dusty business.  You use this sink to clean off after a hard
-day’s work.  Beside the sink is a small side table, and on the wall is a
-calculator.  The rest of the studio is south and west.
+>give altar robe
+Done.
 
-On the side table are a manual and a comb.
+>pray
+(at the altar)
+Aphrodite reappears.  “Passion imbues this chiton.  I am almost convinced.” The
+chiton disappears in a bright flash.
 
->c +20000
-The calculator outputs +20000 = 20000.  Water flows from the faucet, filling
-the sink.
-
->wash
-(the bronze key)
-You clean the bronze key, revealing an inscription.
-
->c 1/0
-The calculator outputs [[ERROR]] {division by zero}.  The water in the sink is
-sucked down the drain.
-
-(Your score has just increased by one point.)
-
->x sink
-This is a state-of-the-art mop sink with anti-miasmic coating and bronze
-backsplash.  It is so modern, there are no handles or other obvious ways to
-turn it on.
-
-An iron key is lodged in the drain.
-
->get key
-You take the iron key.
-
->s
-At the Altar
-Light from the window illuminates a crude altar.  Until recently, this area was
-the gallery where customers would buy your art; all that is gone now.  The rest
-of the studio lies north and west.
-
-A pole sticks out of a wicker cage and leans ithyphallically against the wall.
-
->unlock cage with it
+>unlock
+(the wicker cage)
+(with the iron key)
 Unlocked.
 
 >l in net
@@ -138,7 +133,43 @@ ball-peen hammer: Taken.
 mallet: Taken.
 net: The net slips through the bars.
 
->w
+>hit gold with ball
+You beat the gold nugget into a ring.
+
+>give altar ring
+Done.
+
+>pray
+(at the altar)
+Aphrodite reappears.  “A gold ring!  Perfect!” The gold ring disappears in a
+bright flash.  When your eyes readjust, you see a bronze key lying in its
+place.
+
+>get key
+You take the bronze key.
+
+>n
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+On the side table are a manual and a comb.
+
+>c +20000
+The calculator outputs +20000 = 20000.  Water flows from the faucet, filling
+the sink.
+
+>wash it
+You clean the bronze key, revealing an inscription.
+
+>c 1/0
+The calculator outputs [[ERROR]] {division by zero}.  The water in the sink is
+sucked down the drain.
+
+(Your score has just increased by one point.)
+
+>sw
 Studio Entrance
 Your studio is where you create great works of art, though you have made
 nothing since you carved that statue.  This corner, which now serves as your
@@ -183,7 +214,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 23 moves, you have scored 3 of a possible 15 points.
+In 29 moves, you have scored 4 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?

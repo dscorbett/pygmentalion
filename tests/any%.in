@@ -13,23 +13,29 @@
 # limitations under the License.
 
 >n
->get pearls
->se
->put it on altar
->pray
->g
->get key
->n
->c +20000
->wash
->c 1/0
+>get all,pearl
+>e
 >x sink
 >get key
 >s
->unlock cage with it
+>give altar pearl
+>pray
+>g
+>sew bolt
+>give altar robe
+>pray
+>unlock
 >l in net
 >get tools,net
->w
+>hit gold with ball
+>give altar ring
+>pray
+>get key
+>n
+>c +20000
+>wash it
+>c 1/0
+>sw
 >unlock door with bronze
 >x it
 >s

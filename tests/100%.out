@@ -76,9 +76,6 @@ You can’t do that kind of math in your head.  (Further attempts to calculate
 mentally won’t elicit any more references to famous mathematicians.  You have
 reached the end of your list: you’re not Zeno.)
 
->break me
-Breaking yourself would serve no purpose.
-
 >pray
 What/who do you want to pray at/to?
 
@@ -293,8 +290,8 @@ calculator.  The rest of the studio is south and west.
 
 On the side table are a manual and a comb.
 
->x book
-[[Operator]]’s Manual
+>x book,sink
+manual: [[Operator]]’s Manual
 
 To control the auto-sink, use the calculator add-on to enter the desired volume
 of water.  It supports the standard Thalassa++ unary and binary operations:
@@ -319,26 +316,18 @@ to fill the sink with 7,245 kochliaria.
 
 Warning: Do not use big [[number]]s or divide by zero!
 
+sink: This is a state-of-the-art mop sink with anti-miasmic coating and bronze
+backsplash.  It is so modern, there are no handles or other obvious ways to
+turn it on.
+
+An iron key is lodged in the drain.
+
 (Your score has just increased by two points.)
 
->w
-At the Workbench
-This workbench, in the northwest part of the studio, was where you would create
-works of art.  Now you just come here to contemplate your creation’s beauty,
-dress her up, ply her with gifts, and lament your hopeless situation.
+>get key
+Taken.
 
-The statue stands on a plinth beside the workbench.
-
-You see a stool here.
-
->x her
-This is a statue of a woman carved from ivory.
-
-You wonder what she would be like as a living woman.  Maybe she’d have a head
-for figures and would put the accounts in order.  Who knows?  You can only
-dream.
-
->se
+>s
 At the Altar
 Light from the window illuminates a crude altar.  Until recently, this area was
 the gallery where customers would buy your art; all that is gone now.  The rest
@@ -447,9 +436,9 @@ You are interrupted by a shimmering about the altar.  As you watch, it takes
 the form of a callipygian goddess.
 
 “Mortal, I have heard your heart-felt and oft-repeated plea, and I will take
-pity on you,” says Aphrodite.  “If you give me a token of your love as an
-offering, I will give you the [[keyword]] of life.  Speak this word in the
-presence of a mirror, and I will grant your request.”
+pity on you,” says Aphrodite.  “Prove your devotion by giving me three tokens
+of your love as offerings, and I will give you the [[keyword]] of life.  Speak
+this word in the presence of a mirror and your wish will be granted.”
 
 She fades away, adding, “As for her colorful personality, just look around
 you.”
@@ -459,7 +448,7 @@ you.”
 >g
 (at the altar)
 “I heard you the first time,” says Aphrodite.  “Prove your devotion by offering
-a token of your love at the altar, or the deal’s off.”
+three tokens of your love at the altar, or the deal’s off.”
 
 >put idol on it
 Done.
@@ -566,7 +555,231 @@ Done.
 
 >pray
 (at the altar)
-Aphrodite reappears.  “A necklace!  Perfect!”  The necklace disappears in a
+Aphrodite reappears.  “A string of pearls is a good start.” The string of
+pearls disappears in a bright flash.
+
+>g
+(at the altar)
+“I heard you the first time,” says Aphrodite.  “Prove your devotion by offering
+two more tokens of your love at the altar, or the deal’s off.”
+
+>give altar fur
+Done.
+
+>pray
+(at the altar)
+Aphrodite reappears.  “Passion imbues this chiton.  I am almost convinced.” The
+chiton disappears in a bright flash.
+
+>g
+(at the altar)
+“I heard you the first time,” says Aphrodite.  “Prove your devotion by offering
+one more token of your love at the altar, or the deal’s off.”
+
+>put iron in cage
+The wicker cage is locked.  You could slip the iron key through the bars, but
+you might not be able to get it back out again.
+
+>x net
+It is a [[long]] wooden pole with a bag attached to the end inside the wicker
+cage.  This versatile tool can be used as a quarterstaff, butterfly net, pool
+net, or walking stick.  There is something bulky in the bag, but you can’t see
+what it is.
+
+(Your score has just increased by one point.)
+
+>undo
+Taking back one turn: “x net”.
+
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+A pole sticks out of a wicker cage and leans ithyphallically against the wall.
+
+>unlock cage with iron
+Unlocked.
+
+>put iron in cage
+The iron key fits through the bars.
+
+>x net
+It is a [[long]] wooden pole with a bag attached to the end inside the wicker
+cage.  This versatile tool can be used as a quarterstaff, butterfly net, pool
+net, or walking stick.  There is something bulky in the bag, but you can’t see
+what it is because the wicker cage is closed.
+
+(Your score has just increased by one point.)
+
+>undo
+Taking back one turn: “x net”.
+
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+A pole sticks out of a wicker cage and leans ithyphallically against the wall.
+
+>l in net
+(first opening the wicker cage)
+At one end of the pole is a bag.  The bag contains a mallet and a ball-peen
+hammer.
+
+>undo
+Taking back one turn: “l in net”.
+
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+A pole sticks out of a wicker cage and leans ithyphallically against the wall.
+
+>open cage
+Opened.
+
+>x net
+It is a [[long]] wooden pole with a bag attached to the end inside the wicker
+cage.  This versatile tool can be used as a quarterstaff, butterfly net, pool
+net, or walking stick.
+
+In the bag, you find a mallet and a ball-peen hammer.
+
+(Your score has just increased by one point.)
+
+>get tools,it
+net: The ball-peen hammer is too big for the bag to fit through the bars.
+
+ball-peen hammer: Taken.
+iron key: Taken.
+mallet: Taken.
+net: The net slips through the bars.
+
+>x hammers
+ball-peen hammer: It’s a hammer used for shaping and hardening metal.
+
+mallet: It’s a wooden hammer with a large head, used to strike a chisel.
+
+>put mallet in net
+Done.
+
+>put net in cage
+The bulky mallet in the bag prevents putting it in.
+
+>hit it with ball
+(the net)
+There is no reason to strike that.
+
+>hit ball with ball
+You can’t strike the ball-peen hammer with itself.
+
+>hit chisel
+You aren’t in the mood for carving anything.
+
+>hit it with me
+You are not a suitable tool to strike anything with.
+
+>hit it with mallet
+(first taking the mallet from the net)
+You aren’t in the mood for carving anything.
+
+>put net in cage
+You slip the bag of the net between the bars.  The pole of the net is too long
+to fit inside the wicker cage, so it sticks out, touching the wall.
+
+>get it,cage
+net: The net slips through the bars.
+wicker cage: Taken.
+
+>put net in cage
+The net is too unwieldy.  You’ll have to put the wicker cage down first.
+
+>n
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+On the side table are a manual and a comb.
+
+>c not 0
+The calculator outputs !0 = 1.  Water dribbles from the faucet.
+
+>put gold in sink
+Eureka!  The solution to Aphrodite’s puzzle is to submerge the gold nugget in
+water!
+
+Actually, no, that doesn’t make sense.  The gold nugget would just get wet.
+
+>undo
+Taking back one turn: “put gold in sink”.
+
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+On the side table are a manual and a comb.
+
+>undo
+Taking back one turn: “c not 0”.
+
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+On the side table are a manual and a comb.
+
+>w
+At the Workbench
+This workbench, in the northwest part of the studio, was where you would create
+works of art.  Now you just come here to contemplate your creation’s beauty,
+dress her up, ply her with gifts, and lament your hopeless situation.
+
+The statue stands on a plinth beside the workbench.
+
+You see a stool here.
+
+>hit gold with ball
+You beat the gold nugget into a ring.
+
+>x ring
+It is a finger ring, or daktylios, made of gold.
+
+>give her it
+As you place the gold ring on her finger, you tell yourself this counts as a
+wedding.  Do you really need a multi-day ceremony to certify your love?  Once
+Aphrodite blesses your union, no other gods or customs will matter.
+
+>x her
+This is a statue of a woman carved from milk-white ivory.  Her long hair is
+done up in a chignon.
+
+You wonder what she will be like as a living woman.  Maybe she’ll be a painter
+and expand your business.  Maybe she’ll have a head for figures and will put
+the accounts in order.  Who knows?  You can only dream.  If only Aphrodite
+would bring her to life without this silly puzzle about tokens and mirrors!
+
+She is wearing a gold ring.
+
+>get ring
+Taken.
+
+>se
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+>give altar it
+Done.
+
+>pray
+(at the altar)
+Aphrodite reappears.  “A gold ring!  Perfect!” The gold ring disappears in a
 bright flash.  When your eyes readjust, you see a bronze key lying in its
 place.
 
@@ -580,34 +793,13 @@ The goddess reappears and reminds you to speak the keyword of life at a mirror.
 >get all
 bronze key: Taken.
 
-wicker cage: The pole is too unwieldy.  You’ll have to remove it from the
-wicker cage first.
-
->x key
+>x bronze
 It is a grimy bronze key.
 
 >wash it with me
 You can’t clean anything with yourself.
 
->nw
-At the Workbench
-This workbench, in the northwest part of the studio, was where you would create
-works of art.  Now you just come here to contemplate your creation’s beauty,
-dress her up, ply her with gifts, and lament your hopeless situation.
-
-The statue stands on a plinth beside the workbench.
-
-You see a stool here.
-
->x her
-This is a statue of a woman carved from milk-white ivory.
-
-You wonder what she will be like as a living woman.  Maybe she’ll be a painter
-and expand your business.  Maybe she’ll have a head for figures and will put
-the accounts in order.  Who knows?  You can only dream.  If only Aphrodite
-would bring her to life without this silly puzzle about tokens and mirrors!
-
->s
+>w
 Studio Entrance
 Your studio is where you create great works of art, though you have made
 nothing since you carved that statue.  This corner, which now serves as your
@@ -632,9 +824,7 @@ The door is locked.  You cannot escape!
 Rather than destroying your possessions, it would be better in the long run if
 you could just find the key.
 
->unlock
-(the door)
-(with the bronze key)
+>unlock it with bronze
 Unlocked.
 
 >s
@@ -741,8 +931,6 @@ sink: This is a state-of-the-art mop sink with anti-miasmic coating and bronze
 backsplash.  It is so modern, there are no handles or other obvious ways to
 turn it on.
 
-An iron key is lodged in the drain.
-
 side table: Upon closer inspection, you see that the table is bracketed to the
 wall.  On the side table are a manual and a comb.
 
@@ -754,13 +942,7 @@ and a comb.
 >wash me
 You do not need cleaning.
 
->x iron
-It is a grimy iron key.
-
->get it
-Taken.
-
->x it
+>x iron key
 It is an iron key.  It is covered in grime from the drain of the sink.
 
 >put it,idol,needle,sea in sink
@@ -814,6 +996,7 @@ On the side table are a manual and a comb.  The sink contains an idol and a
 needle.
 
 >wash iron in sink
+(the iron key)
 There is not enough water in the sink.
 
 >wash it
@@ -915,12 +1098,6 @@ The calculator outputs 999 + 2 = 1001.  Water flows briefly from the faucet.
 >c positive 1000
 The calculator outputs +1000 = 1000.  The water level in the sink goes down
 slightly.
-
->put gold in sink
-Eureka!  The solution to Aphrodite’s puzzle is to submerge the gold nugget in
-water!
-
-Actually, no, that doesn’t make sense.  The gold nugget would just get wet.
 
 >put sea in sink
 The bottle of seawater would get wet.
@@ -1126,6 +1303,9 @@ outside, and the studio itself is to the north and the east.
 
 You see a camp bed and an end table (on which are a coin box and a plate) here.
 
+>drop net
+Dropped.
+
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
@@ -1154,137 +1334,12 @@ nothing since you carved that statue.  This corner, which now serves as your
 bedroom and dining room, is the entrance to the building.  A door leads
 outside, and the studio itself is to the north and the east.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
-
->e
-At the Altar
-Light from the window illuminates a crude altar.  Until recently, this area was
-the gallery where customers would buy your art; all that is gone now.  The rest
-of the studio lies north and west.
-
-A pole sticks out of a wicker cage and leans ithyphallically against the wall.
-
->put iron in cage
-The wicker cage is locked.  You could slip the iron key through the bars, but
-you might not be able to get it back out again.
-
->x net
-It is a [[long]] wooden pole with a bag attached to the end inside the wicker
-cage.  This versatile tool can be used as a quarterstaff, butterfly net, pool
-net, or walking stick.  There is something bulky in the bag, but you can’t see
-what it is.
-
-(Your score has just increased by one point.)
+You see a camp bed, an end table (on which are a coin box and a plate), and a
+net here.
 
 >undo
-Taking back one turn: “x net”.
+Taking back one turn: “drop net”.
 
-At the Altar
-Light from the window illuminates a crude altar.  Until recently, this area was
-the gallery where customers would buy your art; all that is gone now.  The rest
-of the studio lies north and west.
-
-A pole sticks out of a wicker cage and leans ithyphallically against the wall.
-
->unlock cage with iron
-Unlocked.
-
->put iron in cage
-The iron key fits through the bars.
-
->x net
-It is a [[long]] wooden pole with a bag attached to the end inside the wicker
-cage.  This versatile tool can be used as a quarterstaff, butterfly net, pool
-net, or walking stick.  There is something bulky in the bag, but you can’t see
-what it is because the wicker cage is closed.
-
-(Your score has just increased by one point.)
-
->undo
-Taking back one turn: “x net”.
-
-At the Altar
-Light from the window illuminates a crude altar.  Until recently, this area was
-the gallery where customers would buy your art; all that is gone now.  The rest
-of the studio lies north and west.
-
-A pole sticks out of a wicker cage and leans ithyphallically against the wall.
-
->l in net
-(first opening the wicker cage)
-At one end of the pole is a bag.  The bag contains a mallet and a ball-peen
-hammer.
-
->undo
-Taking back one turn: “l in net”.
-
-At the Altar
-Light from the window illuminates a crude altar.  Until recently, this area was
-the gallery where customers would buy your art; all that is gone now.  The rest
-of the studio lies north and west.
-
-A pole sticks out of a wicker cage and leans ithyphallically against the wall.
-
->open cage
-Opened.
-
->x net
-It is a [[long]] wooden pole with a bag attached to the end inside the wicker
-cage.  This versatile tool can be used as a quarterstaff, butterfly net, pool
-net, or walking stick.
-
-In the bag, you find a mallet and a ball-peen hammer.
-
-(Your score has just increased by one point.)
-
->get tools,it
-net: The ball-peen hammer is too big for the bag to fit through the bars.
-
-ball-peen hammer: Taken.
-iron key: Taken.
-mallet: Taken.
-net: The net slips through the bars.
-
->x hammers
-ball-peen hammer: It’s a hammer used for shaping and hardening metal.
-
-mallet: It’s a wooden hammer with a large head, used to strike a chisel.
-
->put mallet in net
-Done.
-
->put net in cage
-The bulky mallet in the bag prevents putting it in.
-
->hit it with ball
-(the net)
-There is no reason to strike that.
-
->hit ball with ball
-You can’t strike the ball-peen hammer with itself.
-
->hit chisel
-You aren’t in the mood for carving anything.
-
->hit it with me
-You are not a suitable tool to strike anything with.
-
->hit it with mallet
-(first taking the mallet from the net)
-You aren’t in the mood for carving anything.
-
->put net in cage
-You slip the bag of the net between the bars.  The pole of the net is too long
-to fit inside the wicker cage, so it sticks out, touching the wall.
-
->get it,cage
-net: The net slips through the bars.
-wicker cage: Taken.
-
->put net in cage
-The net is too unwieldy.  You’ll have to put the wicker cage down first.
-
->w
 Studio Entrance
 Your studio is where you create great works of art, though you have made
 nothing since you carved that statue.  This corner, which now serves as your
@@ -1305,9 +1360,9 @@ alighting on the side of it opposite you.
 >show bird bird
 Showing the bird to itself won’t accomplish anything.
 
->show it gold
+>show it sea
 (the bird)
-The bird ignores the gold nugget.
+The bird ignores the bottle of seawater.
 
 >get bird
 With what?  Your bare hands?  You won’t be able to catch it that way.
@@ -1769,17 +1824,6 @@ Oh.  That was just your own hand.  Never mind.
 
 >g
 The statue is as stiff and cold as a post.
-
->hit gold with ball
-You beat the gold nugget into a ring.
-
->x ring
-It is a finger ring, or daktylios, made of gold.
-
->give her it
-As you place the gold ring on her finger, you tell yourself this counts as a
-wedding.  Do you really need a multi-day ceremony to certify your love?  Once
-Aphrodite blesses your union, no other gods or customs will matter.
 
 >say a
 Nothing happens.
@@ -2561,7 +2605,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 273 moves, you have scored 15 of a possible 15 points.
+In 275 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2592,7 +2636,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 274 moves, you have scored 15 of a possible 15 points.
+In 276 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2623,13 +2667,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 275 moves, you have scored 15 of a possible 15 points.
+In 277 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 275 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 277 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]
@@ -2638,13 +2682,13 @@ of:
    1 point for [[whitespace]]
    1 point for [[keyword]]
    1 point for [[comment]]
+   1 point for [[long]]
    1 point for [[escape]]
    1 point for [[label]]
    1 point for [[name]]
    1 point for [[builtin]]
    1 point for [[error]]
    1 point for [[float]]
-   1 point for [[long]]
    1 point for [[exception]]
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
