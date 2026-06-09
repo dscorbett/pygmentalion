@@ -1078,12 +1078,13 @@ replace grammar predicate(UnscrewWith): ' ': object;
  *   Deſcarlate ꝺe tıretaine.
  *   De vert ꝺe pers ⁊ ẟe bꝛunecte
  *   De couleᷣ freſche fine ⁊ necte.
- *   Ou moult a rıches paneˢ mıſes.
+ *   Ou moult a rıches paneˢ miſes.
  *   Herminees vaıres et griſes
  *   Puis les lı roſte puis reſſaye.
  *   Cōmant lı ſıet robbe de ſaye
  *   Senꝺaulx meloguins galebꝛunˢ.
  *   Inꝺes vermeılz ıaunes ⁊ bꝛunˢ.
+ *   Samitz ꝺyappꝛes camelotz.
  *   [...]
  *   Aultre foız luy repꝛēẟ courage.
  *   De tout oſter ⁊ mectre guinꝺeˢ.
@@ -1092,9 +1093,7 @@ replace grammar predicate(UnscrewWith): ' ': object;
  */
 
 cloth: Thing
-    '(diaphanous) (fine) bolt/material*bolts clothes materials'
-    'bolts of cloth'
-    @workbench
+    'bolt/material*bolts clothes materials' 'bolts of cloth' @workbench
     "Bolts of rich cloth &ndash; silk, wool, and furs &ndash; are stacked in
     many colors. "
     materialWord = 'cloth' 'fur' 'furs' 'silk' 'wool'
@@ -1118,33 +1117,47 @@ cloth: Thing
     }
 ;
 
-dress: Wearable '(diaphanous) (fine) dress/chiton/clothes/robe' 'chiton'
-    "This is an ankle-length robe of diaphanous silk, fine wool, and furs. Any
-    woman wearing it would be the envy of the whole island. The dress appears
-    to be <<tinctures>>. "
+dress: Wearable 'dress/chiton/clothes/robe' 'chiton'
+    "This is an ankle-length robe of silk, wool, and furs. Any woman wearing it
+    would be the envy of the whole island. The dress appears to be
+    <<appearance>>. "
     materialWord = 'cloth' 'fur' 'furs' 'silk' 'wool'
-    tincture = '<<one of>>scarlet wool<<or>>twill<<or>>green silk<<or
-        >>perse<<or>>burnet<<or>>ermine<<or>>vair<<or>>miniver<<or>>indigo
-        silk<<or>>vermilion silk<<or>>yellow silk<<or>>brown silk<<purely at
-        random>>'
-    tinctures
+    appearance
     {
-        local tincture1, tincture2;
+        local materials = [
+            ['scarlet wool', 'scarlet'],
+            ['woolsey', nil],
+            [nil, 'green'],
+            ['perse', 'perse'],
+            ['burnet', 'brown'],
+            ['ermine', '<<one of>>white<<or>>black<<purely at random>>'],
+            ['vair', 'glaucous'],
+            ['miniver', 'grey'],
+            ['diaphanous silk', nil],
+            ['sendal', nil],
+            ['molequin', 'mauve'],
+            ['galebrun', 'brown'],
+            [nil, 'indigo'],
+            [nil, 'vermilion'],
+            [nil, 'yellow'],
+            [nil, 'brown'],
+            ['diapered samite', nil],
+            ['camlet', nil],
+            [nil, 'yellow'],
+            [nil, 'vermilion'],
+            [nil, 'green'],
+            [nil, 'indigo']
+        ];
+        local mat1, mat2;
         do
         {
-            tincture1 = tincture;
-            tincture2 = tincture;
-        } while (tincture1 == tincture2);
-        local words1 = tincture1.split(' ');
-        local words2 = tincture2.split(' ');
-        if (words1.length > 1 && words2.length > 1
-            && words1[words1.length] == 'silk'
-            && words1[words1.length] == words2[words2.length])
-        {
-            words1 = words1.removeElementAt(-1);
-            words2 = words2.removeElementAt(-1);
-        }
-        return '<<words1.join(' ')>> and <<words2.join(' ')>>';
+            mat1 = rand(materials);
+            mat2 = rand(materials);
+        } while ((mat1[2] == mat2[2] || !mat1[2] || !mat2[2])
+            && (mat1[1] == mat2[1] || !mat1[1] || !mat2[1]));
+        if (mat1[2] == mat2[2] || !mat1[2] || !mat2[2])
+            return '<<mat1[1]>> and <<mat2[1]>>';
+        return '<<mat1[2]>> and <<mat2[2]>>';
     }
     bulk = cloth.bulk
     dobjFor(SewWith)

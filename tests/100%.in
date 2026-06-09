@@ -303,10 +303,10 @@
 >hug it
 >g
 >say a
->pnitmi
+>treuoi
 >s
 >s
->pnitmi
+>treuoi
 >n
 >ne
 >c 1/0
@@ -318,19 +318,19 @@
 >get net
 >x it
 >s
->pnitmi
+>treuoi
 >wash it in bath
 >show bird it
 >throw it at bird
 >put bird in it
 >put idol in bath
 >x bath
->pnitmi
+>treuoi
 >n
 >ne
 >c 1/0
 >c 2X10001
->pnitmi
+>treuoi
 >g
 >pour sea in sink
 >put needle,net in it
@@ -360,13 +360,13 @@
 >y
 >x me
 >s
->pnitmi
+>treuoi
 >u
 >close
->pnitmi
+>treuoi
 >u
 >lock door with clean
->pnitmi
+>treuoi
 >f
 >q
 >y

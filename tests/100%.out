@@ -254,9 +254,9 @@ This chiton was made in a women’s style, for one woman in particular.  Anyway,
 it probably wouldn’t fit you.
 
 >x it
-This is an ankle-length robe of diaphanous silk, fine wool, and furs.  Any
-woman wearing it would be the envy of the whole island.  The dress appears to
-be twill and green silk.
+This is an ankle-length robe of silk, wool, and furs.  Any woman wearing it
+would be the envy of the whole island.  The dress appears to be black and
+yellow.
 
 >l
 At the Workbench
@@ -847,11 +847,11 @@ It used to be a fountain, but it stopped working after they installed the new
 sink.  Something to do with water pressure, no doubt.  Now you just use it as a
 birdbath.
 
-columns: There are six tall columns with ornate capitals.  Above the architrave
-is a frieze depicting some of your wares.  The cornice overhangs the frieze a
-bit too much, you think; perhaps you should shorten it.  You try to concentrate
-on the architecture of the portico, stoically ignoring what you cannot change,
-but it doesn’t work.  It never does.
+columns: There are six slender columns with scrollwork in the capitals.  Above
+the architrave is a frieze depicting some of your wares.  The cornice overhangs
+the frieze a bit too much, you think; perhaps you should shorten it.  You try
+to concentrate on the architecture of the portico, stoically ignoring what you
+cannot change, but it doesn’t work.  It never does.
 
 door: It is a simple wooden door.  It’s open.
 
@@ -1427,6 +1427,8 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
+The bird preens itself.
+
 The basin contains a bottle.
 
 >g
@@ -1437,7 +1439,7 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The bird preens itself.
+The bird ruffles its feathers in the basin.
 
 >g
 Taking back one turn: “pour it on bath”.
@@ -1446,8 +1448,6 @@ Portico
 Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
-
-The bird ruffles its feathers in the basin.
 
 >g
 Taking back one turn: “pour it in bath water”.
@@ -1465,6 +1465,8 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
+The bird preens itself.
+
 >g
 Taking back one turn: “drink it”.
 
@@ -1473,7 +1475,7 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The bird preens itself.
+The bird coos.
 
 >g
 Taking back one turn: “pour sea in bath”.
@@ -1483,7 +1485,7 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The bird coos.
+The bird drinks from the basin.
 
 >n
 Studio Entrance
@@ -1549,8 +1551,6 @@ birdbath.
 
 It is full to the brim.  The water is level with the top of the central vase.
 Your reflection is distorted by the ripples issuing from the bird.
-
-The bird drinks from the basin.
 
 >pour sea in it
 That would overflow the basin.
@@ -1784,7 +1784,7 @@ buttons for all the standard unary and binary operations.  The screen reads 40
 
 idol: It’s a small statuette of Aphrodite carved from meerschaum.
 
-bronze key: It is a bronze key.  On it is etched the word “pnitmi”.
+bronze key: It is a bronze key.  On it is etched the word “treuoi”.
 
 iron key: It is an iron key.
 
@@ -1828,7 +1828,7 @@ The statue is as stiff and cold as a post.
 >say a
 Nothing happens.
 
->pnitmi
+>treuoi
 Nothing happens.  (Aphrodite said you would need a mirror.)
 
 >s
@@ -1850,7 +1850,7 @@ affixed to the doorpost.
 
 The ground is covered with water.
 
->pnitmi
+>treuoi
 The air above the basin shimmers.  The glow fades in and out, as if unable to
 find focus, before dissipating.  (Aphrodite said you would need a mirror.  A
 mirror, you remind yourself, is prototypically a flat reflective surface,
@@ -1924,7 +1924,7 @@ The ground is covered with water.
 
 The bird is startled and hops to the far side of the basin.
 
->pnitmi
+>treuoi
 The air above the basin shimmers.  The bird ruffles its feathers, making
 ripples in the water.  After a moment, the shimmering dissipates.
 
@@ -1958,7 +1958,7 @@ by the idol.
 
 An idol is floating on the surface of the water.
 
->pnitmi
+>treuoi
 The air above the basin shimmers.  The idol resonates in harmony, making
 ripples in the water.  After a moment, the shimmering dissipates.
 
@@ -1992,7 +1992,7 @@ and begins to fill the sink.
 The calculator outputs 2 × 10001 = 20002.  Water flows from the faucet.  Some
 excess water trickles down the overflow hole.
 
->pnitmi
+>treuoi
 Nothing happens.  (Aphrodite said you would need a mirror. You peer at the
 water in the sink, but you see no more than a vague and shadowy silhouette, not
 a true reflection.)
@@ -2594,7 +2594,7 @@ thinking about how much you love her.
 You begin moving away from the door, but then you remember the statue.  The
 gods won’t bring her to life if you give up this easily!
 
->pnitmi
+>treuoi
 The air above the basin shimmers for a moment.  You hear footsteps behind you.
 Turning around, you see a woman who looks remarkably like your statue.
 
@@ -2611,7 +2611,7 @@ Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >u
-Taking back one turn: “say pnitmi”.
+Taking back one turn: “say treuoi”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
@@ -2624,7 +2624,7 @@ The ground is covered with water.
 (the door)
 Closed.
 
->pnitmi
+>treuoi
 The air above the basin shimmers for a moment.  You hear the door opening
 behind you.  Turning around, you see a woman who looks remarkably like your
 statue.
@@ -2642,7 +2642,7 @@ Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >u
-Taking back one turn: “say pnitmi”.
+Taking back one turn: “say treuoi”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
@@ -2655,7 +2655,7 @@ The ground is covered with water.
 (the bronze key)
 Locked.
 
->pnitmi
+>treuoi
 The air above the basin shimmers for a moment.  You hear the door being
 unlocked behind you.  Turning around, you see a woman who looks remarkably like
 your statue.
