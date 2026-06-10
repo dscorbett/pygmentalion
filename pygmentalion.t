@@ -2006,30 +2006,21 @@ portico: OutdoorRoom 'Portico'
  */
 
 + basin: Fixture, WaterContainer
-    '(bird) mirror reflection
+    '(bird) mirror reflecting reflection
     basin/bath/birdbath/fountain/pool/vase' 'basin'
-    "Light glints off the surface of the pure silver basin. It is shallow
-    around the edges but curves gradually down to a decorative vase in the
-    center. It used to be a fountain, but it stopped working after they
-    installed the new sink. Something to do with water pressure, no doubt. Now
-    you just use it as a birdbath.
+    "The silver basin is shallow but wide. At the center is a decorative vase.
+    It used to be a fountain, but it stopped working after they installed the
+    new sink. Something to do with water pressure, no doubt. Now you just use
+    it as a birdbath.
     <.p><<if overflowing>>Water is streaming from the top of the vase and
     spilling over the sides of the basin in a turbulent flow.
-    <<else if level >= 19500>>It is full to the brim. The water is level with
-    the top of the central vase. <<if obscuringItem == bird>>Your reflection is
-    distorted by the ripples issuing from <<obscuringItem.theName>><<else if
-    obscuringItem>>Your reflection is partly obscured by
-    <<obscuringItem.theName>><<else>>You can see your reflection as clearly as
-    Narcissus saw his. At least you are not as foolish as he was: you can
-    physically touch the object of your affections, which is some
-    consolation<<end>>.
-    <<else if level >= 15000>>It is full of water. You can see your
-    reflection<<if obscuringItem == bird>>, though it is distorted by the
-    ripples issuing from <<obscuringItem.theName>><<else if obscuringItem>>,
-    though it is partly obscured by <<obscuringItem.theName>><<end>>.
-    <<else if level >= 10000>>The portico&rsquo;s columns appear inverted and
-    distorted within the half-filled basin, as if a new classical order of
-    architecture, the Atlantean.
+    <<else if isMirror>>It is full <<if level >= 19500>>to the brim with<<else
+    >>of<<end>> water. The portico is reflected clearly on the other side of
+    the basin. The inverted columns appear to belong to the Atlantean order.
+    <<if bird.isDirectlyIn(self)>>\^<<bird.theNamePossAdj>> reflection is
+    clearly visible too. <<end>>
+    <<else if level >= 10000>>A shadowy reflection of the portico is visible on
+    the other side of the half-filled basin.
     <<else if level >= 1000>>There is some water at the bottom of the basin.
     <<else if level > 0>>A small puddle has formed around the bottom of the
     vase.
@@ -2052,12 +2043,6 @@ portico: OutdoorRoom 'Portico'
                 clean. ');
         }
     }
-    obscuringItem
-    {
-        return contents
-            .sort(SortAsc, {x, y: toInteger(y == bird) - toInteger(x == bird)})
-            .valWhich({obj: !obj.ofKind(Fixture)});
-    }
 ;
 
 ++ basinWater: ContainedWater
@@ -2074,7 +2059,7 @@ portico: OutdoorRoom 'Portico'
 ;
 
 mirrorState: ThingState
-    stateTokens = ['mirror', 'reflection']
+    stateTokens = ['mirror', 'reflecting', 'reflection']
 ;
 
 nonMirrorState: ThingState
@@ -3650,21 +3635,19 @@ DefineLiteralAction(Say)
         {
             if (gActor.location == portico && !basin.overflowing)
             {
-                local obscuringItem = basin.obscuringItem;
                 if (!basin.isMirror)
                     "The air above the basin shimmers. The glow fades in and
                     out, as if unable to find focus, before dissipating. <<if
                     keywordToken.scoreCount>>(Aphrodite said {you/he} would
-                    need a mirror. A mirror, you remind yourself, is
-                    prototypically a flat reflective surface, whereas the basin
-                    curves continuously into a central depression featuring a
-                    decorative vase, all of which is very much not flat.) ";
-                else if (obscuringItem)
-                    "The air above the basin shimmers.
-                    \^<<obscuringItem.theName>> <<obscuringItem == bird ?
-                    'ruffles its feathers' : 'resonates in harmony'>>, making
-                    ripples in the water. After a moment, the shimmering
-                    dissipates. ";
+                    need a mirror, but the basin lacks sufficient water to
+                    reflect anything effectively.)<<end>> ";
+                else if (bird.isDirectlyIn(basin))
+                    "The air above the basin shimmers. A glow settles over
+                    <<bird.theName>>. \^<<bird.itPossAdj>> reflection rises out
+                    of the water, coos, and ruffles its feathers in the
+                    birdbath. As the glow dissipates, it flies out through the
+                    columns, and a new reflection fades in below the original
+                    <<bird.name>>. ";
                 else
                 {
                     /*
@@ -3702,9 +3685,9 @@ DefineLiteralAction(Say)
             else
                 "Nothing happens. <<if keywordToken.scoreCount>>(Aphrodite said
                 {you/he} would need a mirror.<<if gActor.canSee(sinkWater) &&
-                sink.level >= 15000>><<first time>> {You/He} peer{s} at the
-                water in the sink, but {you/he} see{s} no more than a vague and
-                shadowy silhouette, not a true reflection.<<only>><<end>>) ";
+                sink.level >= 15000>> {You/He} peer{s} at the water in the
+                sink, but {you/he} see{s} no more than a vague and shadowy
+                silhouette. The angle of incidence is too steep.<<end>>) ";
         }
     }
 ;

@@ -841,11 +841,10 @@ affixed to the doorpost.
 You see nothing suitable here.
 
 >x bath,column,door,label,label
-basin: Light glints off the surface of the pure silver basin.  It is shallow
-around the edges but curves gradually down to a decorative vase in the center.
-It used to be a fountain, but it stopped working after they installed the new
-sink.  Something to do with water pressure, no doubt.  Now you just use it as a
-birdbath.
+basin: The silver basin is shallow but wide.  At the center is a decorative
+vase.  It used to be a fountain, but it stopped working after they installed
+the new sink.  Something to do with water pressure, no doubt.  Now you just use
+it as a birdbath.
 
 columns: There are six slender columns with scrollwork in the capitals.  Above
 the architrave is a frieze depicting some of your wares.  The cornice overhangs
@@ -1052,8 +1051,7 @@ south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
 >x bath
-Light glints off the surface of the pure silver basin.  It is shallow around
-the edges but curves gradually down to a decorative vase in the center.  It
+The silver basin is shallow but wide.  At the center is a decorative vase.  It
 used to be a fountain, but it stopped working after they installed the new
 sink.  Something to do with water pressure, no doubt.  Now you just use it as a
 birdbath.
@@ -1148,8 +1146,7 @@ south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
 >x bath
-Light glints off the surface of the pure silver basin.  It is shallow around
-the edges but curves gradually down to a decorative vase in the center.  It
+The silver basin is shallow but wide.  At the center is a decorative vase.  It
 used to be a fountain, but it stopped working after they installed the new
 sink.  Something to do with water pressure, no doubt.  Now you just use it as a
 birdbath.
@@ -1214,14 +1211,13 @@ south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
 >x bath
-Light glints off the surface of the pure silver basin.  It is shallow around
-the edges but curves gradually down to a decorative vase in the center.  It
+The silver basin is shallow but wide.  At the center is a decorative vase.  It
 used to be a fountain, but it stopped working after they installed the new
 sink.  Something to do with water pressure, no doubt.  Now you just use it as a
 birdbath.
 
-The portico’s columns appear inverted and distorted within the half-filled
-basin, as if a new classical order of architecture, the Atlantean.
+A shadowy reflection of the portico is visible on the other side of the half-
+filled basin.
 
 >n
 Studio Entrance
@@ -1374,14 +1370,14 @@ The bird effortlessly dodges your attack.
 The bird does not need your help using the birdbath.
 
 >x bath,it
-basin: Light glints off the surface of the pure silver basin.  It is shallow
-around the edges but curves gradually down to a decorative vase in the center.
-It used to be a fountain, but it stopped working after they installed the new
-sink.  Something to do with water pressure, no doubt.  Now you just use it as a
-birdbath.
+basin: The silver basin is shallow but wide.  At the center is a decorative
+vase.  It used to be a fountain, but it stopped working after they installed
+the new sink.  Something to do with water pressure, no doubt.  Now you just use
+it as a birdbath.
 
-It is full of water.  You can see your reflection, though it is distorted by
-the ripples issuing from the bird.
+It is full of water.  The portico is reflected clearly on the other side of the
+basin.  The inverted columns appear to belong to the Atlantean order.  The
+bird’s reflection is clearly visible too.
 
 bird: It’s a turtle-dove: an auspicious omen!
 
@@ -1406,14 +1402,14 @@ The bottle is empty.
 Done.
 
 >x bath,it
-basin: Light glints off the surface of the pure silver basin.  It is shallow
-around the edges but curves gradually down to a decorative vase in the center.
-It used to be a fountain, but it stopped working after they installed the new
-sink.  Something to do with water pressure, no doubt.  Now you just use it as a
-birdbath.
+basin: The silver basin is shallow but wide.  At the center is a decorative
+vase.  It used to be a fountain, but it stopped working after they installed
+the new sink.  Something to do with water pressure, no doubt.  Now you just use
+it as a birdbath.
 
-It is full of water.  You can see your reflection, though it is distorted by
-the ripples issuing from the bird.
+It is full of water.  The portico is reflected clearly on the other side of the
+basin.  The inverted columns appear to belong to the Atlantean order.  The
+bird’s reflection is clearly visible too.
 
 A bottle is floating on the surface of the water.
 
@@ -1543,14 +1539,14 @@ affixed to the doorpost.
 The bird is startled and hops to the far side of the basin.
 
 >x bath
-Light glints off the surface of the pure silver basin.  It is shallow around
-the edges but curves gradually down to a decorative vase in the center.  It
+The silver basin is shallow but wide.  At the center is a decorative vase.  It
 used to be a fountain, but it stopped working after they installed the new
 sink.  Something to do with water pressure, no doubt.  Now you just use it as a
 birdbath.
 
-It is full to the brim.  The water is level with the top of the central vase.
-Your reflection is distorted by the ripples issuing from the bird.
+It is full to the brim with water.  The portico is reflected clearly on the
+other side of the basin.  The inverted columns appear to belong to the
+Atlantean order.  The bird’s reflection is clearly visible too.
 
 >pour sea in it
 That would overflow the basin.
@@ -1686,8 +1682,7 @@ the water in the basin?
 The water on the ground is trickling down the stairs.
 
 >x bath
-Light glints off the surface of the pure silver basin.  It is shallow around
-the edges but curves gradually down to a decorative vase in the center.  It
+The silver basin is shallow but wide.  At the center is a decorative vase.  It
 used to be a fountain, but it stopped working after they installed the new
 sink.  Something to do with water pressure, no doubt.  Now you just use it as a
 birdbath.
@@ -1852,10 +1847,8 @@ The ground is covered with water.
 
 >treuoi
 The air above the basin shimmers.  The glow fades in and out, as if unable to
-find focus, before dissipating.  (Aphrodite said you would need a mirror.  A
-mirror, you remind yourself, is prototypically a flat reflective surface,
-whereas the basin curves continuously into a central depression featuring a
-decorative vase, all of which is very much not flat.)
+find focus, before dissipating.  (Aphrodite said you would need a mirror, but
+the basin lacks sufficient water to reflect anything effectively.)
 
 >n
 Studio Entrance
@@ -1925,8 +1918,10 @@ The ground is covered with water.
 The bird is startled and hops to the far side of the basin.
 
 >treuoi
-The air above the basin shimmers.  The bird ruffles its feathers, making
-ripples in the water.  After a moment, the shimmering dissipates.
+The air above the basin shimmers.  A glow settles over the bird.  Its
+reflection rises out of the water, coos, and ruffles its feathers in the
+birdbath.  As the glow dissipates, it flies out through the columns, and a new
+reflection fades in below the original bird.
 
 >wash it in bath
 Washing something in a birdbath is unlikely to get it clean.
@@ -1947,20 +1942,15 @@ noisily out of the portico, through the columns and away towards the west.
 Done.
 
 >x bath
-Light glints off the surface of the pure silver basin.  It is shallow around
-the edges but curves gradually down to a decorative vase in the center.  It
+The silver basin is shallow but wide.  At the center is a decorative vase.  It
 used to be a fountain, but it stopped working after they installed the new
 sink.  Something to do with water pressure, no doubt.  Now you just use it as a
 birdbath.
 
-It is full of water.  You can see your reflection, though it is partly obscured
-by the idol.
+It is full of water.  The portico is reflected clearly on the other side of the
+basin.  The inverted columns appear to belong to the Atlantean order.
 
 An idol is floating on the surface of the water.
-
->treuoi
-The air above the basin shimmers.  The idol resonates in harmony, making
-ripples in the water.  After a moment, the shimmering dissipates.
 
 >n
 Studio Entrance
@@ -1994,11 +1984,8 @@ excess water trickles down the overflow hole.
 
 >treuoi
 Nothing happens.  (Aphrodite said you would need a mirror. You peer at the
-water in the sink, but you see no more than a vague and shadowy silhouette, not
-a true reflection.)
-
->g
-Nothing happens.  (Aphrodite said you would need a mirror.)
+water in the sink, but you see no more than a vague and shadowy silhouette.
+The angle of incidence is too steep.)
 
 >pour sea in sink
 You empty the bottle of seawater into the sink.  Some excess water trickles
@@ -2055,14 +2042,14 @@ The ground is covered with water.
 The basin contains an idol.
 
 >x bath
-Light glints off the surface of the pure silver basin.  It is shallow around
-the edges but curves gradually down to a decorative vase in the center.  It
+The silver basin is shallow but wide.  At the center is a decorative vase.  It
 used to be a fountain, but it stopped working after they installed the new
 sink.  Something to do with water pressure, no doubt.  Now you just use it as a
 birdbath.
 
-It is full to the brim.  The water is level with the top of the central vase.
-Your reflection is partly obscured by the idol.
+It is full to the brim with water.  The portico is reflected clearly on the
+other side of the basin.  The inverted columns appear to belong to the
+Atlantean order.
 
 An idol is floating on the surface of the water.
 
@@ -2073,16 +2060,14 @@ Taken.
 Which water do you mean, the water on the ground, or the water in the basin?
 
 >bath
-Light glints off the surface of the pure silver basin.  It is shallow around
-the edges but curves gradually down to a decorative vase in the center.  It
+The silver basin is shallow but wide.  At the center is a decorative vase.  It
 used to be a fountain, but it stopped working after they installed the new
 sink.  Something to do with water pressure, no doubt.  Now you just use it as a
 birdbath.
 
-It is full to the brim.  The water is level with the top of the central vase.
-You can see your reflection as clearly as Narcissus saw his.  At least you are
-not as foolish as he was: you can physically touch the object of your
-affections, which is some consolation.
+It is full to the brim with water.  The portico is reflected clearly on the
+other side of the basin.  The inverted columns appear to belong to the
+Atlantean order.
 
 >drink it
 Drinking from a birdbath might not be the best idea.
@@ -2605,7 +2590,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 275 moves, you have scored 15 of a possible 15 points.
+In 273 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2636,7 +2621,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 276 moves, you have scored 15 of a possible 15 points.
+In 274 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -2667,13 +2652,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 277 moves, you have scored 15 of a possible 15 points.
+In 275 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 277 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 275 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]
