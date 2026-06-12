@@ -26,7 +26,7 @@
 >pray
 >unlock
 >l in net
->get tools,net
+>get tools,net,cage
 >hit gold with ball
 >give altar ring
 >pray
@@ -40,6 +40,10 @@
 >x it
 >s
 >put bird in net
+>put it in cage
+>n
+>drop cage
+>s
 >rhimon
 >q
 >y

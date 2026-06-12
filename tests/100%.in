@@ -303,33 +303,75 @@
 >hug it
 >g
 >say a
->treuoi
->s
->s
->treuoi
->n
->ne
+>chnedin
+>e
 >c 1/0
 >sw
 >u
 >put cage on bed
 >put net in cage
->get bed
->get net
->x it
+>get bed,net,bed
+>x net
 >s
->treuoi
+>chnedin
 >wash it in bath
 >show bird it
 >throw it at bird
 >put bird in it
->put idol in bath
->x bath
+>drop it
+>undo
+>drop bird
+>undo
+>put bird on bed
+>drop bed
+>undo
+>undo
 >n
 >ne
 >c 1/0
+>sw
+>s
+>chnedin
+>drop bird
+>undo
+>drop net
+>undo
+>put bird on bed
+>drop bed
+>undo
+>undo
+>n
+>put bird on bed
+>drop bed
+>undo
+>undo
+>ne
+>c 1/0
+>sw
+>s
+>put idol in bath
+>x bath
+>n
+>e
+>drop bird
+>undo
+>drop net
+>undo
+>put bird on bed
+>drop bed
+>undo
+>undo
+>n
+>c 1/0
 >c 2X10001
->treuoi
+>wash bird
+>kill it
+>drop it
+>undo
+>show bird net
+>drop it
+>undo
+>chnedin
 >pour sea in sink
 >put needle,net in it
 >put floor water in it
@@ -357,14 +399,19 @@
 >instru
 >y
 >x me
+>chnedin
+>n
+>put bird in cage
+>drop cage
 >s
->treuoi
+>s
+>chnedin
 >u
 >close
->treuoi
+>chnedin
 >u
 >lock door with clean
->treuoi
+>chnedin
 >f
 >q
 >y

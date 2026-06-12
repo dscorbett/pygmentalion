@@ -1311,7 +1311,7 @@ affixed to the doorpost.
 A bird flies in through the columns and alights in the basin.
 
 >get bird
-The bird hops out of arm’s reach.
+With what?  Your bare hands?  You won’t be able to catch it that way.
 
 >undo
 Taking back one turn: “get bird”.
@@ -1320,6 +1320,8 @@ Portico
 Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
+
+A bird is using the basin as a birdbath.  The bird coos.
 
 >undo
 Taking back one turn: “s”.
@@ -1379,6 +1381,8 @@ It is full of water.  The portico is reflected clearly on the other side of the
 basin.  The inverted columns appear to belong to the Atlantean order.  The
 bird’s reflection is clearly visible too.
 
+A bird is using the basin as a birdbath.
+
 bird: It’s a turtle-dove: an auspicious omen!
 
 >pour sea in bath
@@ -1413,6 +1417,8 @@ bird’s reflection is clearly visible too.
 
 A bottle is floating on the surface of the water.
 
+A bird is using the basin as a birdbath.  The bird preens itself.
+
 bottle: It’s an empty bottle made of translucent amber glass.
 
 >undo
@@ -1423,9 +1429,9 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The bird preens itself.
-
 The basin contains a bottle.
+
+A bird is using the basin as a birdbath.
 
 >g
 Taking back one turn: “put it in bath”.
@@ -1435,7 +1441,7 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The bird ruffles its feathers in the basin.
+A bird is using the basin as a birdbath.
 
 >g
 Taking back one turn: “pour it on bath”.
@@ -1445,6 +1451,8 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
+A bird is using the basin as a birdbath.
+
 >g
 Taking back one turn: “pour it in bath water”.
 
@@ -1452,6 +1460,8 @@ Portico
 Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
+
+A bird is using the basin as a birdbath.
 
 >g
 Taking back one turn: “pour it”.
@@ -1461,7 +1471,7 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The bird preens itself.
+A bird is using the basin as a birdbath.
 
 >g
 Taking back one turn: “drink it”.
@@ -1471,7 +1481,7 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The bird coos.
+A bird is using the basin as a birdbath.
 
 >g
 Taking back one turn: “pour sea in bath”.
@@ -1481,7 +1491,7 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
-The bird drinks from the basin.
+A bird is using the basin as a birdbath.
 
 >n
 Studio Entrance
@@ -1536,6 +1546,8 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin.  A label is
 affixed to the doorpost.
 
+A bird is using the basin as a birdbath.
+
 The bird is startled and hops to the far side of the basin.
 
 >x bath
@@ -1547,6 +1559,8 @@ birdbath.
 It is full to the brim with water.  The portico is reflected clearly on the
 other side of the basin.  The inverted columns appear to belong to the
 Atlantean order.  The bird’s reflection is clearly visible too.
+
+A bird is using the basin as a birdbath.
 
 >pour sea in it
 That would overflow the basin.
@@ -1779,7 +1793,7 @@ buttons for all the standard unary and binary operations.  The screen reads 40
 
 idol: It’s a small statuette of Aphrodite carved from meerschaum.
 
-bronze key: It is a bronze key.  On it is etched the word “treuoi”.
+bronze key: It is a bronze key.  On it is etched the word “chnedin”.
 
 iron key: It is an iron key.
 
@@ -1823,45 +1837,10 @@ The statue is as stiff and cold as a post.
 >say a
 Nothing happens.
 
->treuoi
+>chnedin
 Nothing happens.  (Aphrodite said you would need a mirror.)
 
->s
-Studio Entrance
-Your studio is where you create great works of art, though you have made
-nothing since you carved that statue.  This corner, which now serves as your
-bedroom and dining room, is the entrance to the building.  A door leads
-outside, and the studio itself is to the north and the east.
-
-The floor is covered with water.
-
-You see a camp bed and an end table (on which are a coin box and a plate) here.
-
->s
-Portico
-Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
-affixed to the doorpost.
-
-The ground is covered with water.
-
->treuoi
-The air above the basin shimmers.  The glow fades in and out, as if unable to
-find focus, before dissipating.  (Aphrodite said you would need a mirror, but
-the basin lacks sufficient water to reflect anything effectively.)
-
->n
-Studio Entrance
-Your studio is where you create great works of art, though you have made
-nothing since you carved that statue.  This corner, which now serves as your
-bedroom and dining room, is the entrance to the building.  A door leads
-outside, and the studio itself is to the north and the east.
-
-The floor is covered with water.
-
-You see a camp bed and an end table (on which are a coin box and a plate) here.
-
->ne
+>e
 Washroom
 Sculpting is a dusty business.  You use this sink to clean off after a hard
 day’s work.  Beside the sink is a small side table, and on the wall is a
@@ -1897,13 +1876,14 @@ Done.
 You slip the bag of the net between the bars.  The pole of the net is too long
 to fit inside the wicker cage, so it sticks out.
 
->get bed
-The net is too unwieldy.  You’ll have to remove it from the wicker cage first.
+>get bed,net,bed
+camp bed: The net is too unwieldy.  You’ll have to remove it from the wicker
+cage first.
 
->get net
-The net slips through the bars.
+net: The net slips through the bars.
+camp bed: Taken.
 
->x it
+>x net
 It is a long wooden pole with a bag attached to one end.  This versatile tool
 can be used as a quarterstaff, butterfly net, pool net, or walking stick.
 
@@ -1915,9 +1895,11 @@ affixed to the doorpost.
 
 The ground is covered with water.
 
+A bird is using the basin as a birdbath.
+
 The bird is startled and hops to the far side of the basin.
 
->treuoi
+>chnedin
 The air above the basin shimmers.  A glow settles over the bird.  Its
 reflection rises out of the water, coos, and ruffles its feathers in the
 birdbath.  As the glow dissipates, it flies out through the columns, and a new
@@ -1935,8 +1917,246 @@ effect, and falls to the ground.
 
 >put bird in it
 (first taking the net)
-You swipe at the bird with the net but it darts out of the way.  It flaps
-noisily out of the portico, through the columns and away towards the west.
+You swipe at the bird and catch it in the net.
+
+>drop it
+Dropped.
+
+The bird hops out of the net and flies over to the basin.
+
+>undo
+Taking back one turn: “drop it”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The ground is covered with water.
+
+>drop bird
+The bird flies over to the basin.
+
+>undo
+Taking back one turn: “drop bird”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The ground is covered with water.
+
+>put bird on bed
+Done.
+
+>drop bed
+Dropped.
+
+The bird flies over to the basin.
+
+>undo
+Taking back one turn: “drop bed”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The ground is covered with water.
+
+>undo
+Taking back one turn: “put bird on bed”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The ground is covered with water.
+
+>n
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+The floor is covered with water.
+
+You see an end table (on which are a coin box and a plate) here.
+
+>ne
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+The floor is covered with water.
+
+On the side table are a manual and a comb.
+
+>c 1/0
+The calculator outputs ERROR {division by zero}.  Water comes up from the drain
+and begins to fill the sink.
+
+>sw
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+The floor is covered with water.
+
+You see an end table (on which are a coin box and a plate) here.
+
+>s
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The ground is covered with water.
+
+>chnedin
+The air above the basin shimmers.  The glow fades in and out, as if unable to
+find focus, before dissipating.  (Aphrodite said you would need a mirror, but
+the basin lacks sufficient water to reflect anything effectively.)
+
+>drop bird
+The bird flies out through the columns.
+
+>undo
+Taking back one turn: “drop bird”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The ground is covered with water.
+
+>drop net
+Dropped.
+
+The bird hops out of the net and flies out through the columns.
+
+>undo
+Taking back one turn: “drop net”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The ground is covered with water.
+
+>put bird on bed
+Done.
+
+>drop bed
+Dropped.
+
+The bird flies out through the columns.
+
+>undo
+Taking back one turn: “drop bed”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The ground is covered with water.
+
+>undo
+Taking back one turn: “put bird on bed”.
+
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The ground is covered with water.
+
+>n
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+The floor is covered with water.
+
+You see an end table (on which are a coin box and a plate) here.
+
+>put bird on bed
+Done.
+
+>drop bed
+Dropped.
+
+The bird flies across the studio and out the window.
+
+>undo
+Taking back one turn: “drop bed”.
+
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+The floor is covered with water.
+
+You see an end table (on which are a coin box and a plate) here.
+
+>undo
+Taking back one turn: “put bird on bed”.
+
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+The floor is covered with water.
+
+You see an end table (on which are a coin box and a plate) here.
+
+>ne
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+The floor is covered with water.
+
+On the side table are a manual and a comb.
+
+>c 1/0
+The calculator outputs ERROR {division by zero}.  The water in the sink is
+sucked down the drain.
+
+>sw
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+The floor is covered with water.
+
+You see an end table (on which are a coin box and a plate) here.
+
+>s
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The ground is covered with water.
 
 >put idol in bath
 Done.
@@ -1961,10 +2181,73 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate) and a camp bed (on
-which is a wicker cage) here.
+You see an end table (on which are a coin box and a plate) here.
 
->ne
+>e
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+The floor is covered with water.
+
+>drop bird
+The bird flies out the window.
+
+>undo
+Taking back one turn: “drop bird”.
+
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+The floor is covered with water.
+
+>drop net
+Dropped.
+
+The bird hops out of the net and flies out the window.
+
+>undo
+Taking back one turn: “drop net”.
+
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+The floor is covered with water.
+
+>put bird on bed
+Done.
+
+>drop bed
+Dropped.
+
+The bird flies out the window.
+
+>undo
+Taking back one turn: “drop bed”.
+
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+The floor is covered with water.
+
+>undo
+Taking back one turn: “put bird on bed”.
+
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+The floor is covered with water.
+
+>n
 Washroom
 Sculpting is a dusty business.  You use this sink to clean off after a hard
 day’s work.  Beside the sink is a small side table, and on the wall is a
@@ -1982,7 +2265,51 @@ and begins to fill the sink.
 The calculator outputs 2 × 10001 = 20002.  Water flows from the faucet.  Some
 excess water trickles down the overflow hole.
 
->treuoi
+>wash bird
+The bird is already clean enough from using the birdbath.
+
+>kill it
+Killing a dove, the bird sacred to Aphrodite, risks divine retribution.
+
+>drop it
+The bird flies across the studio and out the window.
+
+>undo
+Taking back one turn: “drop it”.
+
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+The floor is covered with water.
+
+On the side table are a manual and a comb.
+
+>show bird net
+The bird goes very still.
+
+>drop it
+(the net)
+Dropped.
+
+The bird coos.
+
+The bird hops out of the net.  It flies across the studio and out the window.
+
+>undo
+Taking back one turn: “drop it”.
+
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+The floor is covered with water.
+
+On the side table are a manual and a comb.
+
+>chnedin
 Nothing happens.  (Aphrodite said you would need a mirror. You peer at the
 water in the sink, but you see no more than a vague and shadowy silhouette.
 The angle of incidence is too steep.)
@@ -1990,6 +2317,8 @@ The angle of incidence is too steep.)
 >pour sea in sink
 You empty the bottle of seawater into the sink.  Some excess water trickles
 down the overflow hole.
+
+The bird coos.
 
 >put needle,net in it
 needle: The bottle is for liquids only.
@@ -2002,6 +2331,8 @@ The water is too shallow for you to get any of it into the bottle.
 >put sink water in it
 You fill the bottle with water.
 
+The bird coos.
+
 >x it
 It’s a bottle of water.
 
@@ -2011,6 +2342,8 @@ You’re not thirsty.
 
 >taste it
 It tastes much as you would expect.
+
+The bird coos.
 
 >c 1/0
 The calculator outputs ERROR {division by zero}.  The water in the sink is
@@ -2025,11 +2358,12 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate) and a camp bed (on
-which is a wicker cage) here.
+You see an end table (on which are a coin box and a plate) here.
 
 >drop sea
 Dropped.
+
+The bird coos.
 
 >s
 Portico
@@ -2081,8 +2415,8 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate), a camp bed (on
-which is a wicker cage), and a bottle of water here.
+You see an end table (on which are a coin box and a plate) and a bottle of
+water here.
 
 >get sea
 Taken.
@@ -2573,13 +2907,48 @@ for hints is the Usenet newsgroup rec.games.int-fiction.
 
 >x me
 Your calm exterior belies the tempestuous feelings within.  You are currently
-thinking about how much you love her.
+feeling happy.
+
+>chnedin
+The air above the basin shimmers.  The bird coos repeatedly.  The shimmering
+glow fades in and out, synchronized with the coos, until another bird
+materializes above the basin.  As the glow dissipates, the new bird flies out
+through the columns.
+
+>n
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+The floor is covered with water.
+
+You see an end table (on which are a coin box and a plate) here.
+
+>put bird in cage
+You put the bird in the wicker cage, closing the lid quickly so it can’t
+escape.
+
+>drop cage
+(first taking the wicker cage from the camp bed)
+Dropped.
+
+The bird coos.
+
+>s
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
+
+The ground is covered with water.
 
 >s
 You begin moving away from the door, but then you remember the statue.  The
 gods won’t bring her to life if you give up this easily!
 
->treuoi
+>chnedin
 The air above the basin shimmers for a moment.  You hear footsteps behind you.
 Turning around, you see a woman who looks remarkably like your statue.
 
@@ -2590,13 +2959,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 273 moves, you have scored 15 of a possible 15 points.
+In 288 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >u
-Taking back one turn: “say treuoi”.
+Taking back one turn: “say chnedin”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
@@ -2609,7 +2978,7 @@ The ground is covered with water.
 (the door)
 Closed.
 
->treuoi
+>chnedin
 The air above the basin shimmers for a moment.  You hear the door opening
 behind you.  Turning around, you see a woman who looks remarkably like your
 statue.
@@ -2621,13 +2990,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 274 moves, you have scored 15 of a possible 15 points.
+In 289 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >u
-Taking back one turn: “say treuoi”.
+Taking back one turn: “say chnedin”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
@@ -2640,7 +3009,7 @@ The ground is covered with water.
 (the bronze key)
 Locked.
 
->treuoi
+>chnedin
 The air above the basin shimmers for a moment.  You hear the door being
 unlocked behind you.  Turning around, you see a woman who looks remarkably like
 your statue.
@@ -2652,13 +3021,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 275 moves, you have scored 15 of a possible 15 points.
+In 290 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 275 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 290 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]

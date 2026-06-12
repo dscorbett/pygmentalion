@@ -1323,6 +1323,12 @@ altarRoom: Room 'At the Altar'
                 {the dobj/him} is too long to fit inside {the iobj/him}, so it
                 sticks out<<if net.isInInitState>>, touching the wall<<end>>.
                 ";
+            else if (gDobj == bird)
+            {
+                "{You/He} put{s} {the dobj/him} in {the iobj/him}, closing the
+                lid quickly so {it iobj/he} {can't} escape. ";
+                tryImplicitActionMsg(&silentImplicitAction, Close, self);
+            }
             else if (!isOpen)
                 "{The dobj/He} fit{s} through the bars. ";
         }
@@ -2091,40 +2097,69 @@ cageKey: Hidden, Key
  *      (MS. Douce 195, fol. 151v)
  */
 
-++ bird: PresentLater, Thing
+++ bird: PresentLater, Thing, InitObject
     'bird/dove/pigeon/turtle/turtle-dove/turtledove' 'bird'
     "It&rsquo;s a turtle-dove: an auspicious omen! "
     showAfterTravelMessage(traveler)
     {
-        return canBeSeenBy(gPlayerChar) && canSee(net) && net.isIn(traveler);
+        return canBeSeenBy(gPlayerChar) && canSee(net) && net.isIn(traveler)
+            && isDirectlyIn(basin);
     }
     afterTravel(traveler, connector)
     {
         if (showAfterTravelMessage(traveler))
         {
+            specialDescUnnecessary = true;
             "<.p>";
             tryImplicitActionMsg(&silentImplicitAction, ShowTo, net, self);
         }
         inherited(traveler, connector);
     }
+    gActionBlocksSpecialDesc = gAction.actionTime == 0
+        || gActionIn(Inventory, InventoryTall, InventoryWide, Say, Travel,
+            TravelVia, VagueTravel, Xyzzy)
+        || gAction.isConversational(gIssuingActor)
+    specialDescUnnecessary = nil
+    specialDesc_ = '\^<<theName>> <<if isDirectlyIn(basin)>><<one of>>preens
+        itself<<or>>flutters around <<location.theName>><<or>>drinks from
+        <<location.theName>><<or>>ruffles its feathers<<or>>coos<<at random
+        >><<else>>coos<<end>>. '
+    beforeAction
+    {
+        specialDescUnnecessary = nil;
+    }
     afterAction()
     {
-        if (gActionIs(Wait))
+        if (!specialDescUnnecessary
+            && !gActionBlocksSpecialDesc
+            && !gActionIn(Examine, Look)
+            && (gActionIs(Wait) || rand(4) == 0))
             extraReport('<.p><<specialDesc_>>');
     }
-    specialDesc_ = '<<if gActionIn(Travel, TravelVia) ?
-        !showAfterTravelMessage(gActor) : rand(2) == 0>>\^<<theName>> <<one
-        of>>preens itself<<or>>flutters around <<location.theName>><<or>>drinks
-        from <<location.theName>><<or>>ruffles its feathers in
-        <<location.theName>><<or>>coos<<at random>>. '
-    specialDesc = "<<specialDesc_>>"
-    specialDescBeforeContents = true
+    useSpecialDesc = isDirectlyIn(basin)
+    specialDesc
+    {
+        "\^<<aName>> is using <<location.theName>> as a birdbath. ";
+        if (gActionBlocksSpecialDesc
+            ? !showAfterTravelMessage(gActor)
+            : gActionIs(Wait) || rand(2) == 0)
+            "<<specialDesc_>>";
+    }
+    specialDescBeforeContents = nil
     bulk = 5
+    meetsObjHeld(actor) { return isIn(actor); }
     dobjFor(Attack)
     {
         preCond = (inherited() - touchObj)
+        check
+        {
+            if (!isDirectlyIn(basin))
+                failCheck('Killing a dove, the bird sacred to Aphrodite, risks
+                    divine retribution. ');
+        }
         action
         {
+            specialDescUnnecessary = true;
             reportFailure('{The dobj/He} effortlessly dodge{s} {your/his}
                 attack. ');
         }
@@ -2135,10 +2170,14 @@ cageKey: Hidden, Key
             ? [PutInAction, DirectObject, IndirectObject]
             : [AttackAction, DirectObject])
     }
+    dobjFor(Throw) remapTo(Drop, DirectObject)
+    dobjFor(ThrowAt) remapTo(Drop, DirectObject)
+    dobjFor(ThrowTo) remapTo(Drop, DirectObject)
     iobjFor(ThrowAt)
     {
         action
         {
+            specialDescUnnecessary = true;
             reportFailure('{The iobj/He} dart{s} out of the way. ');
             if (location && !location.ofKind(BasicLocation))
                 replaceAction(ThrowAt, gDobj, location);
@@ -2146,50 +2185,127 @@ cageKey: Hidden, Key
     }
     dobjFor(Clean)
     {
-        preCond = (inherited() - (bird.canSee(basin) ? touchObj: []))
-        check
+        preCond = inherited - touchObj
+        verify
         {
-            if (bird.canSee(basin))
-                failCheck('{The dobj/He} {does} not need {your} help using the
+            if (gActor.canSee(basin))
+                illogical('{The dobj/He} {does} not need {your} help using the
                     birdbath. ');
             else
-                inherited();
+                illogicalAlready('{The dobj/He} {is} already clean enough from
+                    using the birdbath. ');
         }
     }
+    dobjFor(CleanWith) asDobjFor(Clean)
     dobjFor(Take)
     {
         check
         {
-            if (net.isIn(gActor))
+            if (!isIn(gActor) && net.bagMentioned)
                 failCheck('With what? Your bare hands? {You/He} won&rsquo;t be
                     able to catch {it dobj/him} that way. ');
         }
         action
         {
-            reportFailure('{The dobj/He} hop{s} out of arm&rsquo;s reach. ');
+            if (isDirectlyIn(basin))
+            {
+                specialDescUnnecessary = true;
+                reportFailure('{The dobj/He} hop{s} out of arm&rsquo;s reach.
+                    ');
+            }
+            inherited;
         }
     }
     dobjFor(PutIn)
     {
+        remap
+        {
+            local iobj = gIobj ?? gTentativeIobj;
+            return iobj != nil && iobj.ofKind(WaterContainer)
+                ? [CleanAction, DirectObject]
+                : inherited;
+        }
         preCond = inherited() - (gIobj == net ? objHeld : [])
         action
         {
-            reportFailure('{You/He} swipe{s} at {the dobj/him} with {the
-                iobj/him} but {it dobj/he} dart{s} out of the way. {It dobj/He}
-                flap{s} noisily out of the portico, through the columns and
-                away towards the west. ');
-            moveInto(nil);
-            eventualLocation = nil;
+            if (gIobj == net)
+            {
+                specialDescUnnecessary = true;
+                gIobj.bagName;
+                "{You/He} swipe{s} at {the dobj/him} and catch {it dobj/he} in
+                {the iobj/him}. ";
+            }
+            inherited;
         }
+    }
+    dobjFor(Drop)
+    {
+        action
+        {
+            if (!gActor.canSee(basin))
+                "{The dobj/He} fl{ies} <<if !gActor.canSee(window)>>across the
+                studio and <<end>>out <<window.theName>>. ";
+            else if (basin.isMirror)
+                "{The dobj/He} fl{ies} over to <<basin.theName>>. ";
+            else
+                "{The dobj/He} fl{ies} out through the columns. ";
+            bird.makePresentIf(basin.isMirror);
+        }
+    }
+    execute { new Daemon(self, &tryToFlyAway, 1); }
+    tryToFlyAway
+    {
+        if (location is in (nil, basin) || isIn(gPlayerChar)
+            || isIn(net) && !isDirectlyIn(net)
+            || (isDirectlyIn(cage) ? !cage.isOpen : isIn(cage)))
+            return;
+        if (canBeSeenBy(gPlayerChar) || gPlayerChar.canSee(location))
+            if (isDirectlyIn(cage) || isDirectlyIn(net))
+            {
+                if (!gActor.canSee(basin))
+                    extraReport('<.p>\^<<theName>> hop<<verbEndingS>> out of
+                        <<location.theName>><<if gActor.canSee(window)>> and
+                        fl<<verbEndingIes>><<else>>. \^<<itNom>>
+                        fl<<verbEndingIes>> across the studio and<<end>> out
+                        <<window.theName>>. ');
+                else if (basin.isMirror)
+                    extraReport('<.p>\^<<theName>> hop<<verbEndingS>> out of
+                        <<location.theName>> and fl<<verbEndingIes>> over to
+                        <<basin.theName>>. ');
+                else
+                    extraReport('<.p>\^<<theName>> hop<<verbEndingS>> out of
+                        <<location.theName>> and fl<<verbEndingIes>> out
+                        through the columns. ');
+            }
+            else
+            {
+                if (!gActor.canSee(basin))
+                    extraReport('<.p>\^<<theName>> fl<<verbEndingIes>> <<if
+                        !gActor.canSee(window)>>across the studio and
+                        <<end>>out <<window.theName>>. ');
+                else if (basin.isMirror)
+                    extraReport('<.p>\^<<theName>> fl<<verbEndingIes>> over to
+                        <<basin.theName>>. ');
+                else
+                    extraReport('<.p>\^<<theName>> fl<<verbEndingIes>> out
+                        through the columns. ');
+            }
+        bird.makePresentIf(basin.isMirror);
     }
     iobjFor(ShowTo)
     {
         verify { inherited Actor.verifyIobjShowTo(); }
         action
         {
+            specialDescUnnecessary = true;
             if (gDobj == net)
-                "\^<<nameIs>> startled and hop<<verbEndingS>> to the far side
-                of <<location.theName>>. ";
+            {
+                if (isDirectlyIn(basin))
+                    "{The iobj/He} {is} startled and hop{s} to the far side of
+                    <<location.theName>>. ";
+                else
+                    "{The iobj/He} {goes} very still. ";
+            }
             else
                 "{The iobj/He} ignore{s} {the dobj/him}. ";
         }
@@ -2200,7 +2316,7 @@ modify touchObj
     checkPreCondition(obj, allowImplicit)
     {
         local ret = inherited(obj, allowImplicit);
-        if (allowImplicit && obj == bird && !gActionIs(Take))
+        if (allowImplicit && obj == bird && !gActionIn(Remove, Take, TakeFrom))
         {
             tryImplicitAction(Take, obj);
             exit;
@@ -2290,7 +2406,7 @@ class WaterContainerDescContentsLister: thingDescContentsLister
 class WaterContainer: RestrictedContainer
     grimyObjects = [key, cageKey]
     floatingObjects = [bottle, idol, needle]
-    validContents = (grimyObjects + floatingObjects)
+    validContents = (grimyObjects + floatingObjects + bird)
     contentsListedSeparately = true
     descContentsLister = new WaterContainerDescContentsLister(self)
     iobjFor(PourInto)
@@ -3053,7 +3169,7 @@ DefineLiteralAction(Calculate)
                 throw e;
             }
         }
-        if (bird.seen)
+        if (bird.seen && bird.location is in (nil, basin))
             bird.makePresentIf(basin.isMirror);
         ebbAndFlow();
     }
@@ -3648,6 +3764,13 @@ DefineLiteralAction(Say)
                     birdbath. As the glow dissipates, it flies out through the
                     columns, and a new reflection fades in below the original
                     <<bird.name>>. ";
+                else if (gActor.canHear(bird))
+                    "The air above <<basin.theName>> shimmers.
+                    \^<<bird.theName>> coo<<bird.verbEndingS>> repeatedly. The
+                    shimmering glow fades in and out, synchronized with the
+                    coos, until another <<bird.name>> materializes above
+                    <<basin.theName>>. As the glow dissipates, the new
+                    <<bird.name>> flies out through the columns. ";
                 else
                 {
                     /*
@@ -3905,7 +4028,7 @@ VerbRule(ReciteLexicon)
     verbPhrase = 'recite/reciting the lexicon'
 ;
 
-DefineIAction(ReciteLexicon)
+DefineSystemAction(ReciteLexicon)
     protoWordPieceLists
     {
         local protoWordPieceLists = new Vector;
@@ -3920,7 +4043,7 @@ DefineIAction(ReciteLexicon)
             });
         return self.protoWordPieceLists = protoWordPieceLists.toList();
     }
-    execAction
+    execSystemAction
     {
         local indices = Vector.generate({i: 1}, protoWordPieceLists.length);
         gTranscript.deactivate();

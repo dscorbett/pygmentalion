@@ -126,12 +126,13 @@ Unlocked.
 At one end of the pole is a bag.  The bag contains a mallet and a ball-peen
 hammer.
 
->get tools,net
+>get tools,net,cage
 net: The ball-peen hammer is too big for the bag to fit through the bars.
 
 ball-peen hammer: Taken.
 mallet: Taken.
 net: The net slips through the bars.
+wicker cage: Taken.
 
 >hit gold with ball
 You beat the gold nugget into a ring.
@@ -200,8 +201,31 @@ alighting on the side of it opposite you.
 (Your score has just increased by one point.)
 
 >put bird in net
-You swipe at the bird with the net but it darts out of the way.  It flaps
-noisily out of the portico, through the columns and away towards the west.
+You swipe at the bird and catch it in the net.
+
+>put it in cage
+(the bird)
+You put the bird in the wicker cage, closing the lid quickly so it can’t
+escape.
+
+>n
+Studio Entrance
+Your studio is where you create great works of art, though you have made
+nothing since you carved that statue.  This corner, which now serves as your
+bedroom and dining room, is the entrance to the building.  A door leads
+outside, and the studio itself is to the north and the east.
+
+You see a camp bed and an end table (on which are a bottle of wine, a plate of
+chopped liver, and a coin box) here.
+
+>drop cage
+Dropped.
+
+>s
+Portico
+Columns line the portico stretching east and west, and steps lead down to the
+south.  The door leads back in, and beside the door is a basin.  A label is
+affixed to the doorpost.
 
 >rhimon
 The air above the basin shimmers for a moment.  You hear footsteps behind you.
@@ -214,7 +238,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 29 moves, you have scored 4 of a possible 15 points.
+In 33 moves, you have scored 4 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
