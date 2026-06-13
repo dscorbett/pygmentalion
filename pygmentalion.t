@@ -4130,7 +4130,7 @@ greekWordGenerator: PreinitObject
     consonants = prefixes - '' + ['l', 'n', 'r']
     onsets = ['bl', 'br', 'kl', 'kn', 'kr', 'pl', 'pn', 'pr', 'tm', 'tr']
     codas = consonants - ['b', 'g', 'd']
-    suffixes = ['', 's']
+    suffixes = ['', 's', '', 's', 's']
     retries = nil
     execute
     {
@@ -4210,9 +4210,10 @@ greekWordGenerator: PreinitObject
         word = rexReplace(R'ds|sd', word, 'z');
         word = rexReplace(R'gs', word, 'ks');
         word = rexReplace(R'ts', word, 'ss');
-        word = rexReplace(R'[^pkaeioyusnr]+(s?)$', word, '%1');
+        word = rexReplace(R'[^pkaeioyusmnr]+(s?)$', word, '%1');
         word = rexReplace(R'[pk]+$', word, '');
-        word = rexReplace(R'(n|r)s+$', word, '%1');
+        word = rexReplace(R'[mn]s*$', word, 'n');
+        word = rexReplace(R'rs+$', word, 'r');
         word = rexReplace(R'(.h?)%1{2,}', word, '%1%1');
         word = rexReplace(R'^(.h?)%1', word, '%1');
         word = rexReplace(R'(.h?)%1$', word, '%1');
