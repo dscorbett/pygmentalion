@@ -112,7 +112,7 @@
 >undo
 >l in net
 >undo
->open cage
+>open
 >x net
 >get tools,it
 >x hammers

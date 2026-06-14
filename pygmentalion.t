@@ -1754,7 +1754,11 @@ altarRoom: Room 'At the Altar'
     {
         preCond = (inherited() + touchObj)
     }
-    dobjFor(Open) remapTo(Search, DirectObject)
+    dobjFor(Open)
+    {
+        verify { if (!bagMentioned) nonObvious; }
+        action { tryImplicitActionMsg(&silentImplicitAction, Search, self); }
+    }
 ;
 
 modify Thing
