@@ -1508,11 +1508,11 @@ it as a birdbath.
 
 It is full of water.  The portico is reflected clearly on the other side of the
 basin.  The inverted columns appear to belong to the Atlantean order.  The
-bird’s reflection is clearly visible too.
+dove’s reflection is clearly visible too.
 
 A bottle is floating on the surface of the water.
 
-A bird is using the basin as a birdbath.  The bird coos.
+A dove is using the basin as a birdbath.  The dove coos.
 
 bottle: It’s an empty bottle made of translucent amber glass.
 
@@ -1526,7 +1526,7 @@ A nameplate is affixed to the doorpost.
 
 You see a plate here.  The basin contains a bottle.
 
-A bird is using the basin as a birdbath.
+A dove is using the basin as a birdbath.
 
 >g
 Taking back one turn: “put it in bath”.
@@ -1538,7 +1538,7 @@ A nameplate is affixed to the doorpost.
 
 You see a plate here.
 
-A bird is using the basin as a birdbath.
+A dove is using the basin as a birdbath.
 
 >g
 Taking back one turn: “pour it on bath”.
@@ -1550,7 +1550,7 @@ A nameplate is affixed to the doorpost.
 
 You see a plate here.
 
-A bird is using the basin as a birdbath.
+A dove is using the basin as a birdbath.
 
 >g
 Taking back one turn: “pour it in bath water”.
@@ -1562,7 +1562,7 @@ A nameplate is affixed to the doorpost.
 
 You see a plate here.
 
-A bird is using the basin as a birdbath.
+A dove is using the basin as a birdbath.
 
 >g
 Taking back one turn: “pour it”.
@@ -1574,7 +1574,7 @@ A nameplate is affixed to the doorpost.
 
 You see a plate here.
 
-A bird is using the basin as a birdbath.
+A dove is using the basin as a birdbath.
 
 >g
 Taking back one turn: “drink it”.
@@ -1586,7 +1586,7 @@ A nameplate is affixed to the doorpost.
 
 You see a plate here.
 
-A bird is using the basin as a birdbath.
+A dove is using the basin as a birdbath.
 
 >g
 Taking back one turn: “pour sea in bath”.
@@ -1598,7 +1598,7 @@ A nameplate is affixed to the doorpost.
 
 You see a plate here.
 
-A bird is using the basin as a birdbath.
+A dove is using the basin as a birdbath.
 
 >n
 Studio Entrance
@@ -1655,9 +1655,9 @@ A nameplate is affixed to the doorpost.
 
 You see a plate here.
 
-A bird is using the basin as a birdbath.
+A dove is using the basin as a birdbath.
 
-The bird is startled and hops to the far side of the basin.
+The dove is startled and hops to the far side of the basin.
 
 >x bath
 The silver basin is shallow but wide.  At the center is a decorative vase.  It
@@ -1667,9 +1667,9 @@ birdbath.
 
 It is full to the brim with water.  The portico is reflected clearly on the
 other side of the basin.  The inverted columns appear to belong to the
-Atlantean order.  The bird’s reflection is clearly visible too.
+Atlantean order.  The dove’s reflection is clearly visible too.
 
-A bird is using the basin as a birdbath.  The bird preens itself.
+A dove is using the basin as a birdbath.  The dove preens itself.
 
 >pour sea in it
 That would overflow the basin.
@@ -2009,37 +2009,37 @@ The ground is covered with water.
 
 You see a plate here.
 
-A bird is using the basin as a birdbath.
+A dove is using the basin as a birdbath.
 
-The bird is startled and hops to the far side of the basin.
+The dove is startled and hops to the far side of the basin.
 
 >blephthe
-The air above the basin shimmers.  A glow settles over the bird.  Its
+The air above the basin shimmers.  A glow settles over the dove.  Its
 reflection rises out of the water, coos, and ruffles its feathers in the
 birdbath.  As the glow dissipates, it flies out through the columns, and a new
-reflection fades in below the original bird.
+reflection fades in below the original dove.
 
 >wash it in bath
 Washing something in a birdbath is unlikely to get it clean.
 
 >show bird it
-The bird is startled and hops to the far side of the basin.
+The dove is startled and hops to the far side of the basin.
 
 >throw it at bird
-The bird darts out of the way.  The net hits the basin without any obvious
+The dove darts out of the way.  The net hits the basin without any obvious
 effect, and falls to the ground.
 
 >put bird in it
 (first taking the net)
 
-The bird coos.
+The dove coos.
 
-You swipe at the bird and catch it in the net.
+You swipe at the dove and catch it in the net.
 
 >drop it
 Dropped.
 
-The bird hops out of the net and flies over to the basin.
+The dove hops out of the net and flies over to the basin.
 
 >undo
 Taking back one turn: “drop it”.
@@ -2054,9 +2054,9 @@ The ground is covered with water.
 You see a plate here.
 
 >drop bird
-The bird flies over to the basin.
+The dove flies over to the basin.
 
-The bird ruffles its feathers.
+The dove ruffles its feathers.
 
 >undo
 Taking back one turn: “drop bird”.
@@ -2076,7 +2076,7 @@ Done.
 >drop bed
 Dropped.
 
-The bird flies over to the basin.
+The dove flies over to the basin.
 
 >undo
 Taking back one turn: “drop bed”.
@@ -2154,7 +2154,7 @@ find focus, before dissipating.  (Aphrodite said you would need a mirror, but
 the basin lacks sufficient water to reflect anything effectively.)
 
 >drop bird
-The bird flies out through the columns.
+The dove flies out through the columns.
 
 >undo
 Taking back one turn: “drop bird”.
@@ -2171,7 +2171,7 @@ You see a plate here.
 >drop net
 Dropped.
 
-The bird hops out of the net and flies out through the columns.
+The dove hops out of the net and flies out through the columns.
 
 >undo
 Taking back one turn: “drop net”.
@@ -2191,7 +2191,7 @@ Done.
 >drop bed
 Dropped.
 
-The bird flies out through the columns.
+The dove flies out through the columns.
 
 >undo
 Taking back one turn: “drop bed”.
@@ -2234,9 +2234,9 @@ Done.
 >drop bed
 Dropped.
 
-The bird coos.
+The dove coos.
 
-The bird flies across the studio and out the window.
+The dove flies across the studio and out the window.
 
 >undo
 Taking back one turn: “drop bed”.
@@ -2333,7 +2333,7 @@ of the studio lies north and west.
 The floor is covered with water.
 
 >drop bird
-The bird flies out the window.
+The dove flies out the window.
 
 >undo
 Taking back one turn: “drop bird”.
@@ -2348,7 +2348,7 @@ The floor is covered with water.
 >drop net
 Dropped.
 
-The bird hops out of the net and flies out the window.
+The dove hops out of the net and flies out the window.
 
 >undo
 Taking back one turn: “drop net”.
@@ -2366,9 +2366,9 @@ Done.
 >drop bed
 Dropped.
 
-The bird coos.
+The dove coos.
 
-The bird flies out the window.
+The dove flies out the window.
 
 >undo
 Taking back one turn: “drop bed”.
@@ -2409,13 +2409,13 @@ The calculator outputs 2 × 10001 = 20002.  Water flows from the faucet.  Some
 excess water trickles down the overflow hole.
 
 >wash bird
-The bird is already clean enough from using the birdbath.
+The dove is already clean enough from using the birdbath.
 
 >kill it
 Killing a dove, the bird sacred to Aphrodite, risks divine retribution.
 
 >drop it
-The bird flies across the studio and out the window.
+The dove flies across the studio and out the window.
 
 >undo
 Taking back one turn: “drop it”.
@@ -2430,15 +2430,15 @@ The floor is covered with water.
 On the side table are a manual and a comb.
 
 >show bird net
-The bird goes very still.
+The dove goes very still.
 
 >drop it
 (the net)
 Dropped.
 
-The bird coos.
+The dove coos.
 
-The bird hops out of the net.  It flies across the studio and out the window.
+The dove hops out of the net.  It flies across the studio and out the window.
 
 >undo
 Taking back one turn: “drop it”.
@@ -2525,7 +2525,7 @@ An idol is floating on the surface of the water.
 >get idol
 Taken.
 
-The bird coos.
+The dove coos.
 
 >x water
 Which water do you mean, the water on the ground, or the water in the basin?
@@ -3050,9 +3050,9 @@ Your calm exterior belies the tempestuous feelings within.  You are currently
 thinking about how much you love her.
 
 >blephthe
-The air above the basin shimmers.  The bird coos repeatedly.  The shimmering
-glow fades in and out, synchronized with the cooing, until another bird
-materializes above the basin.  As the glow dissipates, the new bird flies out
+The air above the basin shimmers.  The dove coos repeatedly.  The shimmering
+glow fades in and out, synchronized with the cooing, until another dove
+materializes above the basin.  As the glow dissipates, the new dove flies out
 through the columns.
 
 >n
@@ -3067,7 +3067,7 @@ The floor is covered with water.
 You see an end table (on which is a coin box) here.
 
 >put bird in cage
-You put the bird in the wicker cage, closing the lid quickly so it can’t
+You put the dove in the wicker cage, closing the lid quickly so it can’t
 escape.
 
 >drop cage
@@ -3102,7 +3102,7 @@ outside, and the studio itself is to the north and the east.
 The floor is covered with water.
 
 You see an end table (on which is a coin box) and a wicker cage (which contains
-a bird) here.
+a dove) here.
 
 >drop mallet
 Dropped.
@@ -3132,12 +3132,12 @@ outside, and the studio itself is to the north and the east.
 The floor is covered with water.
 
 You see an end table (on which is a coin box), a wicker cage (which contains a
-bird), and a mallet here.
+dove), and a mallet here.
 
 >get mallet
 Taken.
 
-The bird coos.
+The dove coos.
 
 >n
 At the Workbench
@@ -3451,7 +3451,7 @@ outside, and the studio itself is to the north and the east.
 The floor is covered with water.
 
 You see an end table (on which is a coin box) and a wicker cage (which contains
-a bird) here.
+a dove) here.
 
 >s
 Portico

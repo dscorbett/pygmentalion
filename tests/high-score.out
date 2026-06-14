@@ -439,54 +439,12 @@ alighting on the side of it opposite you.
 
 (Your score has just increased by one point.)
 
->x all
-stool: It’s a portable folding stool, or diphros okladias.
-chisel: This is a sharp tool used for carving.
-
-iron key: It is an iron key.
-
-ball-peen hammer: It’s a hammer used for shaping and hardening metal.
-
-mallet: It’s a wooden hammer with a large head, used to strike a chisel.
-
-net: It is a long wooden pole with a bag attached to one end.  This versatile
-tool can be used as a quarterstaff, butterfly net, pool net, or walking stick.
-
-wicker cage: It’s a knee-high wicker cage with an iron padlock.  It’s open.
-
-bronze key: It is a bronze key.  On it is etched the word “rhimon”.
-
-basin: The silver basin is shallow but wide.  At the center is a decorative
-vase.  It used to be a fountain, but it stopped working after they installed
-the new sink.  Something to do with water pressure, no doubt.  Now you just use
-it as a birdbath.
-
-It is full to the brim with water.  The portico is reflected clearly on the
-other side of the basin.  The inverted columns appear to belong to the
-Atlantean order.  The bird’s reflection is clearly visible too.
-
-A bird is using the basin as a birdbath.
-
-bird: It’s a turtle-dove: an auspicious omen!
-
-door: It is a simple wooden door.  It’s open.
-
-columns: There are six tall columns with ornate capitals.  Above the architrave
-is a frieze depicting some of your wares.  The cornice overhangs the frieze a
-bit too much, you think; perhaps you should shorten it.  You try to concentrate
-on the architecture of the portico, stoically ignoring what you cannot change,
-but it doesn’t work.  It never does.
-
-nameplate: It says “Pygmentalion”.
-
 >put bird in net
 You swipe at the bird and catch it in the net.
 
 >put bird in cage
 You put the bird in the wicker cage, closing the lid quickly so it can’t
 escape.
-
-The bird coos.
 
 >n
 Studio Entrance
@@ -518,7 +476,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 40 moves, you have scored 15 of a possible 15 points.
+In 39 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?

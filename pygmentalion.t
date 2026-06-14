@@ -2358,7 +2358,8 @@ cageKey: Hidden, Key
 
 ++ bird: PresentLater, Thing, InitObject
     'bird/dove/pigeon/turtle/turtle-dove/turtledove' 'bird'
-    "It&rsquo;s a turtle-dove: an auspicious omen! "
+    "It&rsquo;s a turtle-<<dove>>: an auspicious omen! "
+    dove = name = 'dove', dove = name
     showAfterTravelMessage(traveler)
     {
         return canBeSeenBy(gPlayerChar) && canSee(net) && net.isIn(traveler)
@@ -2413,8 +2414,8 @@ cageKey: Hidden, Key
         check
         {
             if (!isDirectlyIn(basin))
-                failCheck('Killing a dove, the bird sacred to Aphrodite, risks
-                    divine retribution. ');
+                failCheck('Killing a <<dove>>, the bird sacred to Aphrodite,
+                    risks divine retribution. ');
         }
         action
         {
