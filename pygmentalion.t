@@ -2194,8 +2194,8 @@ method wrongContextMsg()
 
 portico: OutdoorRoom 'Portico'
     "Columns line the portico stretching east and west, and steps lead down to
-    the south. The door leads back in, and beside the door is a basin. A
-    <<highlight 'name'>>plate is affixed to the doorpost. "
+    the south. The door leads back in, and beside the door is <<basin.anAdjName
+    >>. A <<highlight 'name'>>plate is affixed to the doorpost. "
     north = (__objref(error, error))
     in asExit(north)
     south: FakeConnector
@@ -2287,6 +2287,9 @@ portico: OutdoorRoom 'Portico'
     <<else if level > 0>>A small puddle has formed around the bottom of the
     vase.
     "
+    anAdjName = aNameFrom('<<if overflowing>>overflowing <<name>><<else
+        >><<name>><<if level >= 10000>> <<if level >= 15000>>full <<end>>of
+        <<basinWater.name>>')
     materialWord = 'metal' 'silver'
     level = 0
     overflowing = nil
