@@ -4101,8 +4101,7 @@ modify Thing
         preCond = [touchObj]
         verify
         {
-            illogical('{You/He} {cannot} sew {the dobj/her} with {a iobj/her}.
-                ');
+            illogical('{You/He} {cannot} sew {that dobj/her}. ');
         }
     }
     iobjFor(SewWith)
