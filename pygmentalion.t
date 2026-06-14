@@ -1816,6 +1816,7 @@ class Hammer: Thing
     "It&rsquo;s a hammer used for shaping and hardening metal. "
     materialWord = 'metal' 'steel'
     bulk = 5
+    iobjFor(Peen) { verify { logicalRank(150, 'obvious'); } }
 ;
 
 +++ mallet: Hammer, Hidden 'hammer/mallet/tool*hammers tools' 'mallet'
@@ -3919,7 +3920,8 @@ modify Thing
 modify playerActionMessages {
     notAWeaponMsg = '{The iobj/He} {is} not a suitable tool to strike anything
         with. '
-    uselessToAttackMsg = 'There {is|was} no reason to strike {that dobj/him}. '
+    uselessToAttackMsg = '{subj actor}There {is|was} no reason to strike {that
+        dobj/him}. '
 }
 
 VerbRule(Diagnose)
@@ -3987,6 +3989,27 @@ DefineSystemAction(License)
         Creative Commons Attribution-NonCommercial 4.0 International Public
         License')>>. ";
     }
+;
+
+#define PeenVerbList ('harden' | 'peen' | 'shape')
+
+VerbRule(Peen)
+    PeenVerbList singleDobj
+    : PeenAction
+    verbPhrase = 'peen/peening (what) (with what)'
+    construct { iobjMatch = new EmptyNounPhraseProd; }
+;
+
+VerbRule(PeenWith)
+    PeenVerbList singleDobj 'with' singleIobj
+    : PeenAction
+    verbPhrase = 'peen/peening (what) (with what)'
+;
+
+DefineTIAction(Peen);
+
+modify Thing
+    dobjFor(Peen) remapTo(AttackWith, DirectObject, IndirectObject)
 ;
 
 modify VerbRule(PutIn)
