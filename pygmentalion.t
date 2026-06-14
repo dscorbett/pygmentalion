@@ -756,11 +756,13 @@ plate: Thing 'plate' 'plate'
     "It is empty, for now. Painted on the clay are images of a hepatos, a
     glaukos, and other fish. "
     materialWord = 'clay'
+    disambigName = 'clay plate'
     bulk = 5
 ;
 
 key: PresentLater, Key
-    '(door) clean grime grimy inscription key/tool*keys tools' 'bronze key'
+    '(door) clean grime grimy inscription label key/tool*keys tools'
+    'bronze key'
     @altar
     "It is a <<unless clean>>grimy<<end>> bronze key. <<if clean>>On it is \
     etched the word <q><<keyword>></q>. "
@@ -774,7 +776,8 @@ key: PresentLater, Key
         action
         {
             clean = true;
-            "{You/He} clean{s} {the dobj/him}, revealing an inscription. ";
+            "{You/He} clean{s} {the dobj/him}, revealing a <<highlight
+            'label'>>. ";
         }
     }
 ;
@@ -788,7 +791,7 @@ cleanState: ThingState
 ;
 
 cleanInscriptionState: cleanState
-    stateTokens = (inherited() + 'inscription')
+    stateTokens = (inherited() + ['inscription', 'label'])
 ;
 
 workbenchRoom: Room 'At the Workbench'
@@ -2192,7 +2195,7 @@ method wrongContextMsg()
 portico: OutdoorRoom 'Portico'
     "Columns line the portico stretching east and west, and steps lead down to
     the south. The door leads back in, and beside the door is a basin. A
-    <<highlight 'label'>> is affixed to the doorpost. "
+    <<highlight 'name'>>plate is affixed to the doorpost. "
     north = (__objref(error, error))
     in asExit(north)
     south: FakeConnector
@@ -2244,9 +2247,8 @@ portico: OutdoorRoom 'Portico'
  *      (MS. Douce 195, fol. 149v)
  */
 
-+ Fixture, Readable 'label/doorpost' '<<highlight 'label'>>'
-    "The <<highlight 'label'>> says <q>Pygmentalion</q><<first time>> (which is
-    your <<highlight 'name'>>)<<only>>. "
++ Fixture, Readable 'nameplate/doorpost/plate' '<<highlight 'name'>>plate'
+    "It says <q>Pygmentalion</q>. "
 ;
 
 /*

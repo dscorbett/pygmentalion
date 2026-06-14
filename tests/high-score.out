@@ -290,11 +290,13 @@ net: The net would get wet.
 
 wicker cage: The wicker cage would get wet.
 
-bronze key: You clean the bronze key, revealing an inscription.
+bronze key: You clean the bronze key, revealing a [[label]].
 
 manual: The manual would get wet.
 
 comb: The comb would get wet.
+
+(Your score has just increased by one point.)
 
 >x all
 stool: It’s a portable folding stool, or diphros okladias.
@@ -429,8 +431,8 @@ Unlocked.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A [[label]] is
-affixed to the doorpost.
+south.  The door leads back in, and beside the door is a basin.  A
+[[name]]plate is affixed to the doorpost.
 
 A bird flies in through the columns.  It circles above the basin before
 alighting on the side of it opposite you.
@@ -475,9 +477,7 @@ bit too much, you think; perhaps you should shorten it.  You try to concentrate
 on the architecture of the portico, stoically ignoring what you cannot change,
 but it doesn’t work.  It never does.
 
-label: The label says “Pygmentalion” (which is your [[name]]).
-
-(Your score has just increased by one point.)
+nameplate: It says “Pygmentalion”.
 
 >put bird in net
 You swipe at the bird and catch it in the net.
@@ -504,7 +504,7 @@ Dropped.
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 >rhimon

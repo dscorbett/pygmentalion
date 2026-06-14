@@ -906,20 +906,23 @@ you could just find the key.
 >unlock it with bronze
 Unlocked.
 
+>get plate
+Taken.
+
 >s
 (first opening the door)
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A [[label]] is
-affixed to the doorpost.
+south.  The door leads back in, and beside the door is a basin.  A
+[[name]]plate is affixed to the doorpost.
 
 (Your score has just increased by one point.)
 
 >get all
 You see nothing suitable here.
 
->x bath,column,door,label,label
+>x bath,column,door,doorpost
 basin: The silver basin is shallow but wide.  At the center is a decorative
 vase.  It used to be a fountain, but it stopped working after they installed
 the new sink.  Something to do with water pressure, no doubt.  Now you just use
@@ -933,11 +936,13 @@ cannot change, but it doesn’t work.  It never does.
 
 door: It is a simple wooden door.  It’s open.
 
-label: The label says “Pygmentalion” (which is your [[name]]).
+nameplate: It says “Pygmentalion”.
 
-label: The label says “Pygmentalion”.
+>drop plate
+You drop the plate.
 
-(Your score has just increased by one point.)
+>x plate
+Which plate do you mean, the nameplate, or the clay plate?
 
 >n
 Studio Entrance
@@ -946,7 +951,7 @@ nothing since you carved that statue.  This corner, which now serves as your
 bedroom and dining room, is the entrance to the building.  A door leads
 outside, and the studio itself is to the north and the east.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >ne
 Washroom
@@ -1121,13 +1126,15 @@ nothing since you carved that statue.  This corner, which now serves as your
 bedroom and dining room, is the entrance to the building.  A door leads
 outside, and the studio itself is to the north and the east.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
+
+You see a plate here.
 
 >x bath
 The silver basin is shallow but wide.  At the center is a decorative vase.  It
@@ -1144,7 +1151,7 @@ nothing since you carved that statue.  This corner, which now serves as your
 bedroom and dining room, is the entrance to the building.  A door leads
 outside, and the studio itself is to the north and the east.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >ne
 Washroom
@@ -1216,13 +1223,15 @@ nothing since you carved that statue.  This corner, which now serves as your
 bedroom and dining room, is the entrance to the building.  A door leads
 outside, and the studio itself is to the north and the east.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
+
+You see a plate here.
 
 >x bath
 The silver basin is shallow but wide.  At the center is a decorative vase.  It
@@ -1239,7 +1248,7 @@ nothing since you carved that statue.  This corner, which now serves as your
 bedroom and dining room, is the entrance to the building.  A door leads
 outside, and the studio itself is to the north and the east.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >ne
 Washroom
@@ -1281,13 +1290,15 @@ nothing since you carved that statue.  This corner, which now serves as your
 bedroom and dining room, is the entrance to the building.  A door leads
 outside, and the studio itself is to the north and the east.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
+
+You see a plate here.
 
 >x bath
 The silver basin is shallow but wide.  At the center is a decorative vase.  It
@@ -1305,7 +1316,7 @@ nothing since you carved that statue.  This corner, which now serves as your
 bedroom and dining room, is the entrance to the building.  A door leads
 outside, and the studio itself is to the north and the east.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >ne
 Washroom
@@ -1376,7 +1387,7 @@ nothing since you carved that statue.  This corner, which now serves as your
 bedroom and dining room, is the entrance to the building.  A door leads
 outside, and the studio itself is to the north and the east.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >drop net
 Dropped.
@@ -1384,8 +1395,10 @@ Dropped.
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
+
+You see a plate here.
 
 A bird flies in through the columns and alights in the basin.
 
@@ -1397,8 +1410,10 @@ Taking back one turn: “get bird”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
+
+You see a plate here.
 
 A bird is using the basin as a birdbath.  The bird preens itself.
 
@@ -1411,8 +1426,7 @@ nothing since you carved that statue.  This corner, which now serves as your
 bedroom and dining room, is the entrance to the building.  A door leads
 outside, and the studio itself is to the north and the east.
 
-You see a camp bed, an end table (on which are a coin box and a plate), and a
-net here.
+You see a camp bed, an end table (on which is a coin box), and a net here.
 
 >undo
 Taking back one turn: “drop net”.
@@ -1423,13 +1437,15 @@ nothing since you carved that statue.  This corner, which now serves as your
 bedroom and dining room, is the entrance to the building.  A door leads
 outside, and the studio itself is to the north and the east.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
+
+You see a plate here.
 
 A bird flies in through the columns.  It circles above the basin before
 alighting on the side of it opposite you.
@@ -1505,10 +1521,10 @@ Taking back one turn: “x bath, it”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
-The basin contains a bottle.
+You see a plate here.  The basin contains a bottle.
 
 A bird is using the basin as a birdbath.
 
@@ -1517,8 +1533,10 @@ Taking back one turn: “put it in bath”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
+
+You see a plate here.
 
 A bird is using the basin as a birdbath.
 
@@ -1527,8 +1545,10 @@ Taking back one turn: “pour it on bath”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
+
+You see a plate here.
 
 A bird is using the basin as a birdbath.
 
@@ -1537,8 +1557,10 @@ Taking back one turn: “pour it in bath water”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
+
+You see a plate here.
 
 A bird is using the basin as a birdbath.
 
@@ -1547,8 +1569,10 @@ Taking back one turn: “pour it”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
+
+You see a plate here.
 
 A bird is using the basin as a birdbath.
 
@@ -1557,8 +1581,10 @@ Taking back one turn: “drink it”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
+
+You see a plate here.
 
 A bird is using the basin as a birdbath.
 
@@ -1567,8 +1593,10 @@ Taking back one turn: “pour sea in bath”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
+
+You see a plate here.
 
 A bird is using the basin as a birdbath.
 
@@ -1579,7 +1607,7 @@ nothing since you carved that statue.  This corner, which now serves as your
 bedroom and dining room, is the entrance to the building.  A door leads
 outside, and the studio itself is to the north and the east.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >ne
 Washroom
@@ -1617,13 +1645,15 @@ nothing since you carved that statue.  This corner, which now serves as your
 bedroom and dining room, is the entrance to the building.  A door leads
 outside, and the studio itself is to the north and the east.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
+
+You see a plate here.
 
 A bird is using the basin as a birdbath.
 
@@ -1654,7 +1684,7 @@ nothing since you carved that statue.  This corner, which now serves as your
 bedroom and dining room, is the entrance to the building.  A door leads
 outside, and the studio itself is to the north and the east.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >ne
 Washroom
@@ -1723,7 +1753,7 @@ outside, and the studio itself is to the north and the east.
 At your feet, all the water from the sink flows into a 2-dactyl slit in the
 baseboard.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >x water
 The water on the floor is trickling into the wall.
@@ -1755,17 +1785,17 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
 
-You see a bottle of seawater here.
+You see a plate and a bottle of seawater here.
 
 >x water
 Which water do you mean, the bottle of seawater, the water on the ground, or
@@ -1795,7 +1825,7 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >ne
 Washroom
@@ -1860,10 +1890,13 @@ The water on the floor is a stagnant puddle.
 That would be disgusting.
 
 >put keys,iron in sink
-bronze key: You clean the bronze key, revealing an inscription.
+bronze key: You clean the bronze key, revealing a [[label]].
+
 iron key: You clean the iron key.
 
 iron key: The iron key is already clean.
+
+(Your score has just increased by one point.)
 
 >x addon,idol,keys
 calculator: The calculator is built into the wall beside the sink.  It has
@@ -1942,7 +1975,7 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see a camp bed and an end table (on which are a coin box and a plate) here.
+You see a camp bed and an end table (on which is a coin box) here.
 
 >u
 You can’t go that way.  Obvious exits lead north, to the workbench; south, to
@@ -1969,10 +2002,12 @@ can be used as a quarterstaff, butterfly net, pool net, or walking stick.
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 A bird is using the basin as a birdbath.
 
@@ -2011,10 +2046,12 @@ Taking back one turn: “drop it”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >drop bird
 The bird flies over to the basin.
@@ -2026,10 +2063,12 @@ Taking back one turn: “drop bird”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >put bird on bed
 Done.
@@ -2044,20 +2083,24 @@ Taking back one turn: “drop bed”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >undo
 Taking back one turn: “put bird on bed”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >n
 Studio Entrance
@@ -2068,7 +2111,7 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate) here.
+You see an end table (on which is a coin box) here.
 
 >ne
 Washroom
@@ -2093,15 +2136,17 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate) here.
+You see an end table (on which is a coin box) here.
 
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >blephthe
 The air above the basin shimmers.  The glow fades in and out, as if unable to
@@ -2116,10 +2161,12 @@ Taking back one turn: “drop bird”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >drop net
 Dropped.
@@ -2131,10 +2178,12 @@ Taking back one turn: “drop net”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >put bird on bed
 Done.
@@ -2149,20 +2198,24 @@ Taking back one turn: “drop bed”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >undo
 Taking back one turn: “put bird on bed”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >n
 Studio Entrance
@@ -2173,7 +2226,7 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate) here.
+You see an end table (on which is a coin box) here.
 
 >put bird on bed
 Done.
@@ -2196,7 +2249,7 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate) here.
+You see an end table (on which is a coin box) here.
 
 >undo
 Taking back one turn: “put bird on bed”.
@@ -2209,7 +2262,7 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate) here.
+You see an end table (on which is a coin box) here.
 
 >ne
 Washroom
@@ -2234,15 +2287,17 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate) here.
+You see an end table (on which is a coin box) here.
 
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >put idol in bath
 Done.
@@ -2267,7 +2322,7 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate) here.
+You see an end table (on which is a coin box) here.
 
 >e
 At the Altar
@@ -2440,7 +2495,7 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate) here.
+You see an end table (on which is a coin box) here.
 
 >drop sea
 Dropped.
@@ -2448,12 +2503,12 @@ Dropped.
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
 
-The basin contains an idol.
+You see a plate here.  The basin contains an idol.
 
 >x bath
 The silver basin is shallow but wide.  At the center is a decorative vase.  It
@@ -2497,8 +2552,7 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate) and a bottle of
-water here.
+You see an end table (on which is a coin box) and a bottle of water here.
 
 >get sea
 Taken.
@@ -2509,10 +2563,12 @@ The bottle is already full of water.
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >pour it on bath water
 You empty the bottle of water into the basin.  The water level rises
@@ -2523,10 +2579,12 @@ Taking back one turn: “pour it on bath water”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >about
 This is a short game originally designed to provide an example file for the
@@ -3006,7 +3064,7 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate) here.
+You see an end table (on which is a coin box) here.
 
 >put bird in cage
 You put the bird in the wicker cage, closing the lid quickly so it can’t
@@ -3019,10 +3077,12 @@ Dropped.
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >s
 You begin moving away from the door, but then you remember the statue.  The
@@ -3041,8 +3101,8 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate) and a wicker cage
-(which contains a bird) here.
+You see an end table (on which is a coin box) and a wicker cage (which contains
+a bird) here.
 
 >drop mallet
 Dropped.
@@ -3071,8 +3131,8 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate), a wicker cage
-(which contains a bird), and a mallet here.
+You see an end table (on which is a coin box), a wicker cage (which contains a
+bird), and a mallet here.
 
 >get mallet
 Taken.
@@ -3390,16 +3450,18 @@ outside, and the studio itself is to the north and the east.
 
 The floor is covered with water.
 
-You see an end table (on which are a coin box and a plate) and a wicker cage
-(which contains a bird) here.
+You see an end table (on which is a coin box) and a wicker cage (which contains
+a bird) here.
 
 >s
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >blephthe
 The air above the basin shimmers for a moment.  You hear footsteps behind you.
@@ -3412,7 +3474,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 328 moves, you have scored 15 of a possible 15 points.
+In 330 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -3422,10 +3484,12 @@ Taking back one turn: “say blephthe”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >close
 (the door)
@@ -3443,7 +3507,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 329 moves, you have scored 15 of a possible 15 points.
+In 331 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -3453,10 +3517,12 @@ Taking back one turn: “say blephthe”.
 
 Portico
 Columns line the portico stretching east and west, and steps lead down to the
-south.  The door leads back in, and beside the door is a basin.  A label is
+south.  The door leads back in, and beside the door is a basin.  A nameplate is
 affixed to the doorpost.
 
 The ground is covered with water.
+
+You see a plate here.
 
 >lock door with clean
 (the bronze key)
@@ -3474,13 +3540,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 330 moves, you have scored 15 of a possible 15 points.
+In 332 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 330 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 332 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]
@@ -3491,11 +3557,11 @@ of:
    1 point for [[comment]]
    1 point for [[long]]
    1 point for [[escape]]
-   1 point for [[label]]
    1 point for [[name]]
    1 point for [[builtin]]
    1 point for [[error]]
    1 point for [[float]]
+   1 point for [[label]]
    1 point for [[exception]]
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last

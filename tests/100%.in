@@ -154,9 +154,12 @@
 >g
 >break it
 >unlock it with bronze
+>get plate
 >s
 >get all
->x bath,column,door,label,label
+>x bath,column,door,doorpost
+>drop plate
+>x plate
 >n
 >ne
 >pour sea
