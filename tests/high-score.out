@@ -221,14 +221,12 @@ Done.
 Aphrodite reappears.  “Passion imbues this chiton.  I am almost convinced.”
 The chiton disappears in a bright flash.
 
->unlock
-(the wicker cage)
-(with the iron key)
-Unlocked.
+>open cage,net
+wicker cage:
+(first unlocking the wicker cage)
+Opened.
 
->l in net
-(first opening the wicker cage)
-The bag contains a mallet and a ball-peen hammer.
+net: The net contains a mallet and a ball-peen hammer.
 
 >get tools,net,cage
 net: The ball-peen hammer is too big for the bag to fit through the bars.
@@ -520,7 +518,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 41 moves, you have scored 15 of a possible 15 points.
+In 40 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?

@@ -1637,7 +1637,7 @@ altarRoom: Room 'At the Altar'
     bagMentioned = nil
     poleName = 'pole'
     bagName = (bagMentioned = true, bagName = 'bag')
-    name = (gActionIn(LookIn, Search) && gDobj == self
+    name = (gActionIn(LookIn, Search) && gDobj == self && !gAction.parentAction
         ? bagName
         : bagMentioned
         ? 'net'
