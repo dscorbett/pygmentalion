@@ -42,6 +42,8 @@
 >a it
 >kiss it
 >hit it
+>carve it
+>g
 >put chisel on it
 >show her it
 >hit her with it
@@ -54,6 +56,11 @@
 >sew robe
 >wear it
 >x it
+>carve x
+>it
+>carve plinth with it
+>carve plinth
+>carve chisel
 >l
 >get gold,idol,pearl
 >x pearl
@@ -303,7 +310,7 @@
 >hug it
 >g
 >say a
->chnedin
+>blephthe
 >e
 >c 1/0
 >sw
@@ -313,7 +320,7 @@
 >get bed,net,bed
 >x net
 >s
->chnedin
+>blephthe
 >wash it in bath
 >show bird it
 >throw it at bird
@@ -331,7 +338,7 @@
 >c 1/0
 >sw
 >s
->chnedin
+>blephthe
 >drop bird
 >undo
 >drop net
@@ -371,7 +378,7 @@
 >show bird net
 >drop it
 >undo
->chnedin
+>blephthe
 >pour sea in sink
 >put needle,net in it
 >put floor water in it
@@ -399,19 +406,55 @@
 >instru
 >y
 >x me
->chnedin
+>blephthe
 >n
 >put bird in cage
 >drop cage
 >s
 >s
->chnedin
+>blephthe
+>n
+>drop mallet
+>n
+>carve x in plinth
+>s
+>get mallet
+>n
+>carve plinth
+>x
+>undo
+>x plinth
+>g
+>carve 1234567890123456
+>carve 123456789012345
+>carve à
+>carve ''
+>carve
+>'
+>g
+>g
+>g
+>g
+>g
+>g
+>g
+>g
+>g
+>g
+>g
+>x plinth
+>carve chnieus peumox
+>se
+>pray
+>w
+>s
+>blephthe
 >u
 >close
->chnedin
+>blephthe
 >u
 >lock door with clean
->chnedin
+>blephthe
 >f
 >q
 >y

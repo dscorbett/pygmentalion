@@ -40,7 +40,10 @@
 >put all in sink
 >x all
 >c 1/0
->sw
+>w
+>x plinth
+>carve pnoichli deios
+>s
 >s
 >unlock door with bronze
 >s

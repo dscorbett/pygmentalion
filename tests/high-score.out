@@ -121,8 +121,7 @@ it anyway.  You are sure the gods will understand.
 
 window: It’s just a window above the altar.  The space under the window is
 blank; as an interior [[decorator]], you can’t help but think the wall would
-benefit from a bas-relief, but – sigh – you are too lovelorn to wield the
-chisel.
+benefit from a fresco, but – sigh – you are too lovelorn to wield the brush.
 
 wicker cage: It’s a knee-high wicker cage with an iron padlock.  It’s closed.
 It’s currently locked.
@@ -208,7 +207,7 @@ Done.
 
 >pray
 (at the altar)
-Aphrodite reappears.  “A string of pearls is a good start.” The string of
+Aphrodite reappears.  “A string of pearls is a good start.”  The string of
 pearls disappears in a bright flash.
 
 >sew bolt
@@ -219,8 +218,8 @@ Done.
 
 >pray
 (at the altar)
-Aphrodite reappears.  “Passion imbues this chiton.  I am almost convinced.” The
-chiton disappears in a bright flash.
+Aphrodite reappears.  “Passion imbues this chiton.  I am almost convinced.”
+The chiton disappears in a bright flash.
 
 >unlock
 (the wicker cage)
@@ -247,9 +246,14 @@ Done.
 
 >pray
 (at the altar)
-Aphrodite reappears.  “A gold ring!  Perfect!” The gold ring disappears in a
-bright flash.  When your eyes readjust, you see a bronze key lying in its
-place.
+Aphrodite reappears.
+
+“A gold ring!  Perfect!  With tokens like these, this must be true love.  Oh,
+yes, the keyword: you’ll probably need to give it a focus.  Try carving the
+catchphrase of fate somewhere near the object of your affections.”
+
+The gold ring disappears in a bright flash.  When your eyes readjust, you see a
+bronze key lying in its place.
 
 >get key
 You take the bronze key.
@@ -361,7 +365,44 @@ sucked down the drain.
 
 (Your score has just increased by one point.)
 
->sw
+>w
+At the Workbench
+This workbench, in the northwest part of the studio, was where you would create
+works of art.  Now you just come here to contemplate your creation’s beauty,
+dress her up, ply her with gifts, and lament your hopeless situation.
+
+The statue stands on a plinth beside the workbench.
+
+>x plinth
+It’s a smoothed block of marble.  An inscription has been carved into it.  As
+you look more closely, you notice that some of the letters catch the light
+differently.  Depending on their shapes and positions, some are highlighted in
+a golden glow, some are shrouded in a leaden gloom, and the rest aren’t lit in
+any particularly notable way.  The inscription reads:
+
+       | UNTITLED STATUE |
+       | #^#^#   ^ ####  |
+       | PYGMENTALION    |
+       | ^###  ##      ^ |
+
+(“^” indicates a golden glow on the space above it.  “ ” indicates ambient
+lighting.  “#” indicates a leaden gloom.)
+
+There is room to engrave thirteen more rows of text.
+
+>carve pnoichli deios
+You carve “PNOICHLI DEIOS” into the plinth.  The whole line is highlighted in
+gold.  How lovely!
+
+       | PNOICHLI DEIOS  |
+       | ^^^^^^^^^^^^^^^ |
+
+(“^” indicates a golden glow on the space above it.  “ ” indicates ambient
+lighting.  “#” indicates a leaden gloom.)
+
+There is room to engrave twelve more rows of text.
+
+>s
 Studio Entrance
 Your studio is where you create great works of art, though you have made
 nothing since you carved that statue.  This corner, which now serves as your
@@ -420,17 +461,17 @@ It is full to the brim with water.  The portico is reflected clearly on the
 other side of the basin.  The inverted columns appear to belong to the
 Atlantean order.  The bird’s reflection is clearly visible too.
 
-A bird is using the basin as a birdbath.  The bird flutters around the basin.
+A bird is using the basin as a birdbath.
 
 bird: It’s a turtle-dove: an auspicious omen!
 
 door: It is a simple wooden door.  It’s open.
 
-columns: There are six slender columns with scrollwork in the capitals.  Above
-the architrave is a frieze depicting some of your wares.  The cornice overhangs
-the frieze a bit too much, you think; perhaps you should shorten it.  You try
-to concentrate on the architecture of the portico, stoically ignoring what you
-cannot change, but it doesn’t work.  It never does.
+columns: There are six tall columns with ornate capitals.  Above the architrave
+is a frieze depicting some of your wares.  The cornice overhangs the frieze a
+bit too much, you think; perhaps you should shorten it.  You try to concentrate
+on the architecture of the portico, stoically ignoring what you cannot change,
+but it doesn’t work.  It never does.
 
 label: The label says “Pygmentalion” (which is your [[name]]).
 
@@ -442,6 +483,8 @@ You swipe at the bird and catch it in the net.
 >put bird in cage
 You put the bird in the wicker cage, closing the lid quickly so it can’t
 escape.
+
+The bird coos.
 
 >n
 Studio Entrance
@@ -473,7 +516,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 38 moves, you have scored 15 of a possible 15 points.
+In 41 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?

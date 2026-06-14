@@ -842,6 +842,29 @@ workbenchRoom: Room 'At the Workbench'
     {
         action { replaceAction(Attack, gDobj); }
     }
+    dobjFor(Carve)
+    {
+        verify
+        {
+            illogical('{You/He} {cannot} carve {that dobj/him}. (Carving
+                <em>with</em> {the dobj/him} would be fine.) ');
+        }
+    }
+    iobjFor(Carve)
+    {
+        preCond = [objHeld]
+        verify { logicalRank(150, 'obvious'); }
+        check
+        {
+            if (!mallet.isDirectlyIn(gActor))
+            {
+                tryImplicitAction(Take, mallet);
+                if (!mallet.isDirectlyIn(gActor))
+                    failCheck('{You/He} need{s/ed} to be holding something to
+                        hit {the iobj/him} with. ');
+            }
+        }
+    }
 ;
 
 /*
@@ -869,10 +892,202 @@ workbenchRoom: Room 'At the Workbench'
     dobjFor(PrayTo) remapTo(PrayTo, aphrodite)
 ;
 
-+ plinth: Fixture, Thing 'plinth/pedestal' 'plinth'
-    "It&rsquo;s a smoothed block of marble half a cubit high. "
++ plinth: Fixture, Thing 'plinth/plaque/pedestal' 'plinth'
+    "It&rsquo;s a smoothed block of marble.
+    <<inscriptionDescPreamble>><<grid>><<inscriptionDescFooter>> "
     materialWord = 'marble'
     contentsListedInExamine = nil
+    initInscription = ['UNTITLED STATUE', 'PYGMENTALION']
+    stoich = static initInscription.mapAll({stoichos: stoichos.length}).maxVal
+    pad(s) { return s + makeString(' ', max(0, stoich - s.length)); }
+    inscription = static new Vector(initInscription.mapAll({s: pad(s)}))
+    readyToCarve = nil
+    propertyset '*Before'
+    {
+        gold = '<FONT color=black bgcolor=#ffd700
+            style="background-color: #ffd700">'
+        blank = '<Font color=black bgcolor=white
+            style="background-color: white">'
+        lead = '<font color=white bgcolor=#696969
+            style="background-color: #696969">'
+    }
+    propertyset '*After'
+    {
+        gold = '</FONT>'
+        blank = '</Font>'
+        lead = '</font>'
+    }
+    propertyset '*Indicator'
+    {
+        gold = '<<goldBefore>>^<<goldAfter>>'
+        blank = '<<blankBefore>>&nbsp;<<blankAfter>>'
+        lead = '<<leadBefore>>#<<leadAfter>>'
+    }
+    grid
+    {
+        local tagPat = R'<NoCase><langle>/(font)<rangle><langle>%1
+            <^rangle>*<rangle>';
+        return inscription.mapAll({stoichos:
+            '<div></div>\t\t| <<if readyToCarve>><<
+            stoichos.findReplace(R'.', function(match, index) {
+                if (match == catchphrase.substr(index, 1))
+                    return '<<goldBefore>><<match>></goldAfter>';
+                else if (catchphrase.find(match))
+                    return '<<blankBefore>><<match>></blankAfter>';
+                else return '<<leadBefore>><<match>></leadAfter>';
+            }).findReplace(tagPat, '')>><<else>><<stoichos>><<end>>
+            |<<if readyToCarve>>\n<<
+            >>\t\t| <<stoichos.findReplace(R'.', function(match, index) {
+                if (match == catchphrase.substr(index,1)) return goldIndicator;
+                else if (catchphrase.find(match)) return blankIndicator;
+                else return leadIndicator;
+            }).findReplace(tagPat, '')>> |'
+        }).join('\n');
+    }
+    propertyset 'inscriptionDesc*'
+    {
+        Preamble
+        {
+            local preamble;
+            if (!readyToCarve && key.location)
+            {
+                preamble = 'An inscription has been carved into it. As
+                    <<gActor.theName>> look<<gActor.verbEndingSEd>> more
+                    closely, <<gActor.itNom>> notice<<gActor.verbEndingSD>>
+                    that some of the letters catch the light differently.
+                    Depending on their shapes and positions, some are
+                    highlighted in a golden glow, some are shrouded in a leaden
+                    gloom, and the rest aren’t lit in any particularly
+                    notable way. The inscription reads:<pre>';
+                readyToCarve = true;
+            }
+            else
+                preamble = 'On <<itObj>> is inscribed:<pre>';
+            return preamble;
+        }
+        Footer = '</pre><<inscriptionFooter>>'
+    }
+    inscriptionFooter =
+        '<<if readyToCarve>><.notification><q><tt><<goldIndicator>></tt></q>
+            indicates a golden glow on the space above it.
+            <q><tt><<blankIndicator>></tt></q> indicates ambient lighting.
+            <q><tt><<leadIndicator>></tt></q> indicates a leaden
+            gloom.<./notification><<
+            if inscription.length < stoich
+                >><.p>There is room to engrave <<countNameFrom(stoich -
+                inscription.length, 'more row', 'more rows')>> of text. '
+    isVowel(u) { return u is in (0x41, 0x45, 0x49, 0x4F, 0x55, 0x59); }
+    catchphrase = (catchphrase = generateCatchphrase)
+    hasCatchphrase = inscription.indexWhich({s: s == catchphrase}) != nil
+    generateCatchphrase
+    {
+        local catchphrase;
+        local isBarelyAcceptable;
+        local retries = 1000;
+        do {
+            isBarelyAcceptable = nil;
+            catchphrase = '<<greekWordGenerator.generate>>
+                <<greekWordGenerator.generate>>'.toUpper;
+            local catchphraseU = catchphrase.toUnicode;
+            local gold = 0, blank = 0, lead = 0, vowels = 0;
+            for (local stoichos in inscription)
+            {
+                local blankS = 0;
+                local stoichosU = stoichos.toUnicode;
+                for (local i in 1 .. stoichos.length)
+                {
+                    if (i <= catchphrase.length
+                        && stoichosU[i] == catchphraseU[i])
+                    {
+                        if (stoichosU[i] != 0x20)
+                        {
+                            gold++;
+                            if (isVowel(stoichosU[i]))
+                                vowels++;
+                        }
+                    }
+                    else if (catchphraseU.indexOf(stoichosU[i]))
+                    {
+                        blank++; blankS++;
+                        if (isVowel(stoichosU[i]))
+                            vowels++;
+                    }
+                    else
+                        lead++;
+                }
+                if (blankS == stoichos.length)
+                    isBarelyAcceptable = true;
+            }
+            local consonants = 0;
+            for (local i in 1 .. catchphrase.length)
+            {
+                if (catchphraseU[i] != 0x20 && !isVowel(catchphraseU[i]))
+                    consonants++;
+            }
+            if (gold<2 || blank<7 || lead<2 || vowels<2 || consonants<4)
+                isBarelyAcceptable = true;
+            for (local i in 1 .. catchphrase.length - 1)
+            {
+                if (isVowel(catchphraseU[i])) continue;
+                local n = !isVowel(catchphraseU[i]) ? i
+                    : catchphrase.find(catchphrase.substr(i, 1), i + 1);
+                if (n && catchphrase.find(catchphrase.substr(i, 1), n + 1))
+                    isBarelyAcceptable = true;
+            }
+        } while (retries-- && isBarelyAcceptable
+            || catchphrase.length > stoich);
+        return pad(catchphrase);
+    }
+    dobjFor(Carve)
+    {
+        verify
+        {
+            if (readyToCarve)
+                logicalRank(150, 'known target');
+        }
+        check
+        {
+            if ((!readyToCarve && !key.location) || !gLiteral)
+                delegated altar.checkDobjCarve;
+            if (gLiteral != '' && !gLiteral.match(R'< -~>*$'))
+                gActor.failCheck('{You/He} {do}n&rsquo;t know how to carve such
+                    esoteric characters. ');
+            if (gLiteral.length > stoich)
+                gActor.failCheck('That won&rsquo;t all fit on one row. ');
+        }
+        action
+        {
+            if (gLiteral.length == 0)
+            {
+                "Nothing happens. ";
+                return;
+            }
+            local firstTime = key.location && !readyToCarve;
+            if (firstTime)
+                "Before {you/he} beg{in[s]|an} to carve {the dobj/him},
+                {you/he} remind{s/ed} {yourself} what {it dobj/him} look{s/ed}
+                like.
+                <<inscriptionDescPreamble>><<grid>><<inscriptionDescFooter>>\b
+                ";
+            if (inscription.length >= stoich)
+            {
+                inscription.setLength(0);
+                "There {is|was} no more space on {the dobj/him}, so {you/he}
+                erase{s/d} everything first. ";
+            }
+            local stoichos = gLiteral.toUpper;
+            local padded = pad(stoichos);
+            inscription.append(padded);
+            "{You/He} carve{s/d} <q><<stoichos>></q> into {the dobj/him}. \^";
+            local stoichoi = grid.split('\n');
+            if (padded == catchphrase)
+                "The whole line {is|was} highlighted in gold. How lovely! ";
+            else if (!stoichoi[stoichoi.length].find(blankBefore))
+                "The whole line {is|was} shrouded in gloom. How odious. ";
+            "<pre><<stoichoi[stoichoi.length-1]>>\n<<stoichoi[stoichoi.length]
+            >></pre><<unless firstTime>><<inscriptionFooter>>";
+        }
+    }
 ;
 
 replace grammar predicate(Screw): ' ': object;
@@ -1050,6 +1265,18 @@ replace grammar predicate(UnscrewWith): ' ': object;
     dobjFor(Break) remapTo(Attack, DirectObject)
     dobjFor(Taste) remapTo(Eat, DirectObject)
     iobjFor(ThrowAt) remapTo(Attack, IndirectObject)
+    dobjFor(Carve)
+    {
+        verify { }
+        check
+        {
+            failCheck('<<first time>><q>I must,</q> {you/he} mutter{s} to
+                {yourself}, <q>I must decrease her bust.</q> But no &ndash;
+                \v<<only>>{You/He} {has} already created the ideal feminine
+                form. There {is|was} nothing to gain from tinkering with
+                perfection. ');
+        }
+    }
 ;
 
 /*
@@ -1253,9 +1480,9 @@ altarRoom: Room 'At the Altar'
 + window: Fixture 'window' 'window'
     "It&rsquo;s just a window above the altar. <<one of>>The space under the
     window is blank; as an interior <<highlight 'decorator'>>, you can&rsquo;t
-    help but think the wall would benefit from a bas-relief, but &ndash;
-    <i>sigh</i> &ndash; you are too lovelorn to wield the chisel. <<||>>The
-    wall right below it is a boring <<highlight 'white space'>>. <<stopping>>"
+    help but think the wall would benefit from a fresco, but &ndash;
+    <i>sigh</i> &ndash; you are too lovelorn to wield the brush. <<||>>The wall
+    right below it is a boring <<highlight 'white space'>>. <<stopping>>"
 ;
 
 /*
@@ -1320,9 +1547,9 @@ altarRoom: Room 'At the Altar'
             if (gDobj == net)
                 "{You/He} slip{s} <<theNameFrom(net.bagName)>> of {the
                 dobj/him} between the bars. \^<<theNameFrom(net.poleName)>> of
-                {the dobj/him} is too long to fit inside {the iobj/him}, so it
-                sticks out<<if net.isInInitState>>, touching the wall<<end>>.
-                ";
+                {the dobj/him} is too <<highlight 'long'>> to fit inside {the
+                iobj/him}, so it sticks out<<if net.isInInitState>>, touching
+                the wall<<end>>. ";
             else if (gDobj == bird)
             {
                 "{You/He} put{s} {the dobj/him} in {the iobj/him}, closing the
@@ -1636,6 +1863,15 @@ class Hammer: Thing
     {
         preCond = inherited() + objEmpty
     }
+    dobjFor(Carve)
+    {
+        verify { }
+        check
+        {
+            gActor.failCheck('Carving anything more would just make {you/him}
+                depressed. ');
+        }
+    }
 ;
 
 actorNotInObj: PreCondition
@@ -1746,17 +1982,24 @@ aphrodite: Deity
                 personality, just look around you.</q> <<or>><<stopping>>";
             else if (key.location)
                 "<q>O Aphrodite,</q> {you/he} say{s}, <q>what am I supposed to
-                do again?</q>\bThe goddess reappears and reminds you to speak
-                the keyword of life at a mirror. <<one of>><q>What&rsquo;s the
-                keyword, then?</q> <q>Gods help those who help themselves.
-                Figure it out yourself.</q><<or>><q>Why a mirror?</q> <q>I like
-                mirrors.</q><<purely at random>> ";
+                do again?</q>\bThe goddess reappears and reminds you to
+                <<unless plinth.hasCatchphrase>>carve the catchphrase of fate
+                near the statue, then <<end>>speak the keyword of life at a
+                mirror. <<one of>><q>Why a mirror?</q> <q>I like mirrors.</q><<
+                or>><q>What&rsquo;s the <<one of>>catchphrase<<||>>keyword<<
+                purely at random>>, then?</q> <q>Gods help those who help
+                themselves. Figure it out yourself.</q><<as decreasingly likely
+                outcomes>> ";
             else if (acceptableOfferings.indexOf(offering))
             {
-                "{The dobj/She} reappear{s/ed}. <q>\^<<one of>><<offering.aName
-                >> is a good start.<<or>>Passion imbues this <<offering.name>>.
-                I am almost convinced.<<or>><<offering.aName>>!
-                Perfect!<<stopping>></q> \^<<offering.theName>>
+                "{The dobj/She} reappear{s/ed}<<one of>>. <q>\^<<offering.aName
+                >> is a good start.</q> <<or>>. <q>Passion imbues this
+                <<offering.name>>. I am almost convinced.</q> <<or>>.\b
+                <q>\^<<offering.aName>>! Perfect! With tokens like these, this
+                <i>must</i> be true love. Oh, yes, the keyword: you&rsquo;ll
+                probably need to give it a focus. Try carving the catchphrase
+                of fate somewhere near the object of your affections.</q>\b
+                <<stopping>>\^<<offering.theName>>
                 disappear<<offering.verbEndingSEd>> in a bright flash. ";
                 acceptableOfferings.removeElement(offering);
                 offering.moveInto(nil);
@@ -2588,7 +2831,10 @@ modify typographicalOutputFilter
     isActive = true
     activate { isActive = true; }
     deactivate { isActive = nil; }
-    filterText(ostr, val) { return isActive ? inherited(ostr, val) : val; }
+    filterText(ostr, val)
+    {
+        return isActive && val.length < 0x4000 ? inherited(ostr, val) : val;
+    }
 ;
 
 transient iris: Deity
@@ -3228,6 +3474,226 @@ VerbRule(CalculateNothing)
     verbPhrase = 'calculate/calculating'
 ;
 
+/* Carving */
+
+#define CarveVerbList ('carve' | 'chisel' | 'engrave' | 'incise' | 'inscribe')
+#define CarvePrepList ('in' | 'into' | 'on' | 'onto')
+
+VerbRule(CarveLiteralIntoWith)
+    CarveVerbList singleLiteral CarvePrepList singleDobj 'with' singleIobj
+    : CarveAction
+    verbPhrase = 'carve/carving (what) (into what) (with what)'
+;
+
+VerbRule(CarveLiteralWithInto)
+    CarveVerbList singleLiteral 'with' singleIobj CarvePrepList singleDobj
+    : CarveAction
+    verbPhrase = 'carve/carving (what) (into what) (with what)'
+;
+
+VerbRule(CarveLiteralInto)
+    CarveVerbList singleLiteral CarvePrepList singleDobj
+    : CarveAction
+    verbPhrase = 'carve/carving (what) (into what) (with what)'
+    construct
+    {
+        iobjMatch = new EmptyNounPhraseProd;
+    }
+;
+
+VerbRule(CarveLiteralWith)
+    CarveVerbList singleLiteral 'with' singleIobj
+    : CarveAction
+    verbPhrase = 'carve/carving (what) (with what)'
+    construct
+    {
+        dobjMatch = new EmptyNounPhraseProd;
+    }
+;
+
+VerbRule(CarveLiteral)
+    CarveVerbList singleLiteral
+    : CarveAction
+    verbPhrase = 'carve/carving (what) (with what)'
+    construct
+    {
+        dobjMatch = new EmptyNounPhraseProd;
+        iobjMatch = new EmptyNounPhraseProd;
+    }
+;
+
+VerbRule(CarveIntoWith)
+    CarveVerbList CarvePrepList singleDobj 'with' singleIobj
+    : CarveAction
+    verbPhrase = 'carve/carving (what) (into what) (with what)'
+    construct
+    {
+        literalMatch = new EmptyLiteralPhraseProd;
+    }
+;
+
+VerbRule(CarveWithInto)
+    CarveVerbList 'with' singleIobj CarvePrepList singleDobj
+    : CarveAction
+    verbPhrase = 'carve/carving (what) (into what) (with what)'
+    construct
+    {
+        literalMatch = new EmptyLiteralPhraseProd;
+    }
+;
+
+VerbRule(CarveInto)
+    CarveVerbList CarvePrepList singleDobj
+    : CarveAction
+    verbPhrase = 'carve/carving (into what) (with what)'
+    construct
+    {
+        literalMatch = new EmptyLiteralPhraseProd;
+        iobjMatch = new EmptyNounPhraseProd;
+    }
+;
+
+VerbRule(CarveWith)
+    CarveVerbList 'with' singleIobj
+    : CarveAction
+    verbPhrase = 'carve/carving (what) (with what)'
+    construct
+    {
+        literalMatch = new EmptyLiteralPhraseProd;
+        dobjMatch = new EmptyNounPhraseProd;
+    }
+;
+
+VerbRule(CarveObjectWith)
+    CarveVerbList singleDobj 'with' singleIobj
+    : CarveAction
+    verbPhrase = 'carve/carving (what) (with what)'
+    construct
+    {
+        literalMatch = new EmptyLiteralPhraseProd;
+    }
+;
+
+VerbRule(CarveObject)
+    CarveVerbList singleDobj
+    : CarveAction
+    verbPhrase = 'carve/carving (what) (with what)'
+    construct
+    {
+        literalMatch = new EmptyLiteralPhraseProd;
+        iobjMatch = new EmptyNounPhraseProd;
+    }
+;
+
+class LiteralTIAction: LiteralActionBase, TIAction
+    resolveNouns(issuingActor, targetActor, results)
+    {
+        results.noteNounSlots(3);
+        text_ = literalMatch.getTentativeLiteralText;
+        inherited TIAction(issuingActor, targetActor, results);
+        if (!literalMatch.isEmptyPhrase || canResolveLiteral)
+        {
+            literalMatch.resolveLiteral(results);
+            text_ = literalMatch.getLiteralText(results, self, DirectObject);
+        }
+    }
+    canResolveLiteral = nil
+    predicateNounPhrases = [&dobjMatch, &iobjMatch, &literalMatch]
+    setResolvedObjects(dobj, iobj, txt)
+    {
+        inherited TIAction(dobj, iobj);
+        inherited LiteralActionBase(txt);
+    }
+    setObjectMatches(dobj, iobj, lit)
+    {
+        inherited TIAction(dobj, iobj);
+        inherited LiteralActionBase(lit);
+    }
+    retryWithMissingLiteral(orig)
+    {
+        delegated LiteralTAction(orig);
+    }
+    initForMissingLiteral(orig)
+    {
+        local origDobj = orig.getDobj;
+        dobjMatch = new PreResolvedProd(
+        origDobj != nil ? origDobj : orig.dobjList_);
+        if (orig.ofKind(TIAction))
+        {
+            local origIobj = orig.getIobj;
+            iobjMatch = new PreResolvedProd(
+            origIobj != nil ? origIobj : orig.iobjList_);
+        }
+    }
+    initForMissingDobj(orig)
+    {
+        if (orig.ofKind(LiteralActionBase))
+            literalMatch = new PreResolvedLiteralProd(orig.getLiteral);
+        if (orig.ofKind(TIAction))
+        {
+            local origIobj = orig.getIobj;
+            iobjMatch = new PreResolvedProd(
+                origIobj != nil ? origIobj : orig.iobjList_);
+        }
+    }
+    initForMissingIobj(orig)
+    {
+        inherited TIAction(orig);
+        if (orig.ofKind(LiteralActionBase))
+            literalMatch = new PreResolvedLiteralProd(orig.getLiteral);
+    }
+;
+
+#define DefineLiteralTIAction(name, which) \
+    DefineAction(name, LiteralTIAction) \
+    verDobjProp = &verifyDobj##name \
+    verIobjProp = &verifyIobj##name \
+    remapDobjProp = &remapDobj##name \
+    remapIobjProp = &remapIobj##name \
+    preCondDobjProp = &preCondDobj##name \
+    preCondIobjProp = &preCondIobj##name \
+    checkDobjProp = &checkDobj##name \
+    checkIobjProp = &checkIobj##name \
+    actionDobjProp = &actionDobj##name \
+    actionIobjProp = &actionIobj##name \
+    whichMessageLiteral = which
+
+DefineLiteralTIAction(Carve, DirectObject)
+    omitIobjInDobjQuery = true
+    canResolveLiteral
+    {
+        return dobjList_ != nil
+            && dobjList_.length > 0
+            && dobjList_[1].obj_ == plinth
+            && (plinth.readyToCarve || key.location);
+    }
+    announceActionObject(info, numberInList, whichObj)
+    {
+        if ((info.flags_ & DefaultObject) != 0)
+            info.flags_ |= AnnouncedDefaultObject;
+        inherited(info, numberInList, whichObj);
+    }
+    whatObj(which)
+    {
+        if (which == DirectObject)
+            return dobjList_ != nil && dobjList_.length > 0
+                ? 'what text'
+                : 'what object';
+        return inherited(which);
+    }
+;
+
+modify Thing
+    dobjFor(Carve)
+    {
+        verify { illogical('{You/He} {cannot} carve {the dobj/him}. '); }
+    }
+    iobjFor(Carve)
+    {
+        verify { illogical('{You/He} {cannot} carve with {that dobj/him}. '); }
+    }
+;
+
 /* Cleaning */
 
 modify VerbRule(Clean)
@@ -3400,6 +3866,24 @@ modify Actor
 modify TryAsActorResolveResults
     unknownNounPhrase(match, resolver) { return []; }
 ;
+
+modify cmdTokenizer
+    patsStripQuotesFrom = static [
+      new RexPattern('^\'(?=.)(.*?)\'?$'),
+      new RexPattern('^"(?=.)(.*?)"?$'),
+      new RexPattern('^`(?=.)(.*?)[`\']?$'),
+      new RexPattern('^\u2018(?=.)(.*?)\u2019?$'),
+      new RexPattern('^\u201C(?=.)(.*?)\u201D?$')
+  ]
+;
+
+replace stripQuotesFrom(str)
+{
+  for (local pat in cmdTokenizer.patsStripQuotesFrom)
+      if (rexMatch(pat, str) != nil)
+          return rexGroup(1)[3];
+  return str;
+}
 
 modify playerActionMessages
     moveNoEffectMsg = '{subj actor}<<inherited>>'
@@ -3768,9 +4252,13 @@ DefineLiteralAction(Say)
                     "The air above <<basin.theName>> shimmers.
                     \^<<bird.theName>> coo<<bird.verbEndingS>> repeatedly. The
                     shimmering glow fades in and out, synchronized with the
-                    coos, until another <<bird.name>> materializes above
+                    cooing, until another <<bird.name>> materializes above
                     <<basin.theName>>. As the glow dissipates, the new
                     <<bird.name>> flies out through the columns. ";
+                else if (!plinth.hasCatchphrase)
+                    "The air above <<basin.theName>> shimmers. The glow fades
+                    in and out, as if unable to find focus, before dissipating.
+                    ";
                 else
                 {
                     /*

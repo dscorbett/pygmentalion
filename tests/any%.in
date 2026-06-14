@@ -35,7 +35,10 @@
 >c +20000
 >wash it
 >c 1/0
->sw
+>w
+>x plinth
+>carve bleuoi griknys
+>s
 >unlock door with bronze
 >x it
 >s
@@ -44,6 +47,6 @@
 >n
 >drop cage
 >s
->rhimon
+>kloudix
 >q
 >y
