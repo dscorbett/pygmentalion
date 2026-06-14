@@ -1439,10 +1439,16 @@ goldNugget: Thing '(large) material/nugget*materials' 'gold nugget' @workbench
         }
         action
         {
-            ring.moveInto(location);
+            ring.moveInto(gActor);
             gActor.setHasSeen(ring);
             moveInto(nil);
-            "{You/He} beat{s} {the dobj/him} into a ring. ";
+            "What should {you/he} make it into? {You/He} {can't} quite put
+            {your} finger on it... that&rsquo;s it! {You/He} beat{s} {the
+            dobj/him} with {the iobj/him} and {subj actor} shape{s/d} {it
+            dobj/him} into a finger ring. {You/He} {hold[s]|held} <<ring.itObj
+            >> up and through <<ring.itObj>> {see} {your} <<statue.name>>
+            inaureoled<<if !gActor.canSee(statue)>> across the studio<<end>>.
+            ";
         }
     }
 ;

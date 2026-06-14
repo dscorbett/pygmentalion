@@ -778,7 +778,46 @@ You see a stool here.
 
 >peen gold
 (with the ball-peen hammer)
-You beat the gold nugget into a ring.
+What should you make it into?  You can’t quite put your finger on it... that’s
+it!  You beat the gold nugget with the ball-peen hammer and shape it into a
+finger ring.  You hold it up and through it see your statue inaureoled.
+
+>undo
+Taking back one turn: “peen gold”.
+
+At the Workbench
+This workbench, in the northwest part of the studio, was where you would create
+works of art.  Now you just come here to contemplate your creation’s beauty,
+dress her up, ply her with gifts, and lament your hopeless situation.
+
+The statue stands on a plinth beside the workbench.
+
+You see a stool here.
+
+>e
+Washroom
+Sculpting is a dusty business.  You use this sink to clean off after a hard
+day’s work.  Beside the sink is a small side table, and on the wall is a
+calculator.  The rest of the studio is south and west.
+
+On the side table are a manual and a comb.
+
+>peen gold
+(with the ball-peen hammer)
+What should you make it into?  You can’t quite put your finger on it... that’s
+it!  You beat the gold nugget with the ball-peen hammer and shape it into a
+finger ring.  You hold it up and through it see your statue inaureoled across
+the studio.
+
+>w
+At the Workbench
+This workbench, in the northwest part of the studio, was where you would create
+works of art.  Now you just come here to contemplate your creation’s beauty,
+dress her up, ply her with gifts, and lament your hopeless situation.
+
+The statue stands on a plinth beside the workbench.
+
+You see a stool here.
 
 >x ring
 It is a finger ring, or daktylios, made of gold.
@@ -3373,7 +3412,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 326 moves, you have scored 15 of a possible 15 points.
+In 328 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -3404,7 +3443,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 327 moves, you have scored 15 of a possible 15 points.
+In 329 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -3435,13 +3474,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 328 moves, you have scored 15 of a possible 15 points.
+In 330 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 328 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 330 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]
