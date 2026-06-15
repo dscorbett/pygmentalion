@@ -427,6 +427,31 @@ boring [[white space]].
 
 (Your score has just increased by two points.)
 
+>nw
+At the Workbench
+This workbench, in the northwest part of the studio, was where you would create
+works of art.  Now you just come here to contemplate your creation’s beauty,
+dress her up, ply her with gifts, and lament your hopeless situation.
+
+The statue stands on a plinth beside the workbench.
+
+You see a stool here.
+
+>x her
+This is a statue of a woman carved from milk-white ivory.
+
+You wonder what she would be like as a living woman.  Maybe she’d be a painter
+and expand your business.  Maybe she’d have a head for figures and would put
+the accounts in order.  Who knows?  You can only dream.
+
+>se
+At the Altar
+Light from the window illuminates a crude altar.  Until recently, this area was
+the gallery where customers would buy your art; all that is gone now.  The rest
+of the studio lies north and west.
+
+A pole sticks out of a wicker cage and leans ithyphallically against the wall.
+
 >put gold in cage
 The wicker cage is locked.  You could slip the gold nugget through the bars,
 but you might not be able to get it back out again.
@@ -833,8 +858,9 @@ done up in a chignon.
 
 You wonder what she will be like as a living woman.  Maybe she’ll be a painter
 and expand your business.  Maybe she’ll have a head for figures and will put
-the accounts in order.  Who knows?  You can only dream.  If only Aphrodite
-would bring her to life without this silly puzzle about tokens and mirrors!
+the accounts in order.  Who knows?  You can only trust in divine providence.
+If only Aphrodite would bring her to life without this silly puzzle about
+tokens and mirrors!
 
 She is wearing a gold ring.
 
@@ -1004,10 +1030,7 @@ On the side table are a manual and a comb.
 >x it
 It’s a bottle of wine-dark seawater.
 
->x addon,comb,sink,table,table
-calculator: The calculator is [[built in]]to the wall beside the sink.  It has
-buttons for all the standard unary and binary operations.
-
+>x comb,sink,table,table
 comb: It’s a tool to keep your hair tidy.
 
 sink: This is a state-of-the-art mop sink with anti-miasmic coating and bronze
@@ -1019,8 +1042,6 @@ wall.  On the side table are a manual and a comb.
 
 side table: The table is bracketed to the wall.  On the side table are a manual
 and a comb.
-
-(Your score has just increased by one point.)
 
 >wash me
 You do not need cleaning.
@@ -1119,7 +1140,28 @@ calculator.  The rest of the studio is south and west.
 On the side table are a manual and a comb.  The sink contains an idol and a
 needle.
 
->sw
+>w
+At the Workbench
+This workbench, in the northwest part of the studio, was where you would create
+works of art.  Now you just come here to contemplate your creation’s beauty,
+dress her up, ply her with gifts, and lament your hopeless situation.
+
+The statue stands on a plinth beside the workbench.
+
+You see a stool here.
+
+>x her
+This is an untitled statue of a woman carved from flawless milk-white ivory.
+Her long hair is done up in a chignon, with a few strands falling down her
+neck.
+
+You wonder what she will be like as a living woman.  Maybe she’ll be a painter
+and expand your business.  Maybe she’ll have a head for figures and will put
+the accounts in order.  Who knows?  You can only trust in divine providence.
+If only Aphrodite would bring her to life without this silly puzzle about
+tokens and mirrors!
+
+>s
 Studio Entrance
 Your studio is where you create great works of art, though you have made
 nothing since you carved that statue.  This corner, which now serves as your
@@ -1899,7 +1941,7 @@ iron key: The iron key is already clean.
 (Your score has just increased by one point.)
 
 >x addon,idol,keys
-calculator: The calculator is built into the wall beside the sink.  It has
+calculator: The calculator is [[built in]]to the wall beside the sink.  It has
 buttons for all the standard unary and binary operations.  The screen reads 40
 × 400 = 16000.
 
@@ -1908,6 +1950,8 @@ idol: It’s a small statuette of Aphrodite carved from meerschaum.
 bronze key: It is a bronze key.  On it is etched the word “blephthe”.
 
 iron key: It is an iron key.
+
+(Your score has just increased by one point.)
 
 >get idol
 Taken.
@@ -3478,7 +3522,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 330 moves, you have scored 15 of a possible 15 points.
+In 335 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -3514,7 +3558,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 331 moves, you have scored 15 of a possible 15 points.
+In 336 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
@@ -3550,13 +3594,13 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 332 moves, you have scored 15 of a possible 15 points.
+In 337 moves, you have scored 15 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?
 
 >f
-In 332 moves, you have scored 15 of a possible 15 points.  Your score consists
+In 337 moves, you have scored 15 of a possible 15 points.  Your score consists
 of:
    1 point for [[string]]
    1 point for [[operator]]
@@ -3568,10 +3612,10 @@ of:
    1 point for [[long]]
    1 point for [[escape]]
    1 point for [[name]]
-   1 point for [[builtin]]
    1 point for [[error]]
    1 point for [[float]]
    1 point for [[label]]
+   1 point for [[builtin]]
    1 point for [[exception]]
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last

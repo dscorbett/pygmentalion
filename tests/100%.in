@@ -77,6 +77,9 @@
 >undo
 >g
 >x altar,cage,lock,window,window
+>nw
+>x her
+>se
 >put gold in cage
 >pray iris
 >pray to altar
@@ -173,7 +176,7 @@
 >pour it in sink
 >undo
 >x it
->x addon,comb,sink,table,table
+>x comb,sink,table,table
 >wash me
 >x iron key
 >put it,idol,needle,sea in sink
@@ -195,7 +198,9 @@
 >c 1/0
 >pour sea in sink
 >undo
->sw
+>w
+>x her
+>s
 >s
 >x bath
 >n

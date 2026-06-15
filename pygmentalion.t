@@ -1125,7 +1125,9 @@ replace grammar predicate(UnscrewWith): ' ': object;
     order. <<end>>
     <<if builtinToken.scoreCount>>She&rsquo;<<if
     keywordToken.scoreCount>>ll<<else>>d<<end>> love you, obviously, but beyond
-    that you don&rsquo;t know. <<else>>Who knows? You can only dream. <<end>>
+    that you don&rsquo;t know. <<else>>Who knows? You can only <<if
+    keywordToken.scoreCount>>trust in divine providence<<else>>dream<<end>>.
+    <<end>>
     <<if commentToken.scoreCount>>If only Aphrodite would bring her to life
     without this silly puzzle about tokens and mirrors! <<end>>
     <<end>><<if contents.length>><.p>She is wearing
