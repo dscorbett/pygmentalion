@@ -19,12 +19,16 @@ limitations under the License.
 An interactive fiction game originally designed to provide an example file for
 the syntax highlighter [Pygments](https://pygments.org/).
 
-To play the game, download an image from [the latest release](
-https://github.com/dscorbett/pygmentalion/releases/latest), or build it from
-source. For build instructions, consult .github/workflows/main.yml and Makefile.
-There are two images: pygmentalion.t3 (used by most interpreters) and
-pygmentalion-web.t3 (used by the Web UI). The best interpreter for
-_Pygmentalion_ is [QTads](https://realnc.github.io/qtads/#downloads).
+To play the game, download pygmentalion.t3 from [the latest release](
+https://github.com/dscorbett/pygmentalion/releases/latest) and run it in
+[QTads](https://realnc.github.io/qtads/#downloads). _Pygmentalion_ makes
+extensive use of colors and formatting, which don’t work as well in other
+TADS interpreters.
+
+The game includes fallbacks for other interpreters but they don’t provide the
+full experience. You can also download pygmentalion-web.t3 and run it in the
+Web UI, or build the game from source. For build instructions, consult
+.github/workflows/main.yml and Makefile.
 
 Warning: as it is inspired by a medieval French allegory, the game contains some
 light nudity and sexual innuendo.
