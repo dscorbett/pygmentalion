@@ -2497,7 +2497,7 @@ The floor is covered with water.
 On the side table are a manual and a comb.
 
 >blephthe
-Nothing happens.  (Aphrodite said you would need a mirror. You peer at the
+Nothing happens.  (Aphrodite said you would need a mirror.  You peer at the
 water in the sink, but you see no more than a vague and shadowy silhouette.
 The angle of incidence is too steep.)
 
@@ -3296,7 +3296,7 @@ You carve “'” into the plinth.
        | '               |
        | #      ^      ^ |
 
-(“^” Indicates a golden glow on the space above it.  “ ” indicates ambient
+(“^” indicates a golden glow on the space above it.  “ ” indicates ambient
 lighting.  “#” indicates a leaden gloom.)
 
 There is room to engrave eleven more rows of text.
@@ -3307,7 +3307,7 @@ You carve “'” into the plinth.
        | '               |
        | #      ^      ^ |
 
-(“^” Indicates a golden glow on the space above it.  “ ” indicates ambient
+(“^” indicates a golden glow on the space above it.  “ ” indicates ambient
 lighting.  “#” indicates a leaden gloom.)
 
 There is room to engrave ten more rows of text.
@@ -3318,7 +3318,7 @@ You carve “'” into the plinth.
        | '               |
        | #      ^      ^ |
 
-(“^” Indicates a golden glow on the space above it.  “ ” indicates ambient
+(“^” indicates a golden glow on the space above it.  “ ” indicates ambient
 lighting.  “#” indicates a leaden gloom.)
 
 There is room to engrave nine more rows of text.
@@ -3329,7 +3329,7 @@ You carve “'” into the plinth.
        | '               |
        | #      ^      ^ |
 
-(“^” Indicates a golden glow on the space above it.  “ ” indicates ambient
+(“^” indicates a golden glow on the space above it.  “ ” indicates ambient
 lighting.  “#” indicates a leaden gloom.)
 
 There is room to engrave eight more rows of text.
@@ -3340,7 +3340,7 @@ You carve “'” into the plinth.
        | '               |
        | #      ^      ^ |
 
-(“^” Indicates a golden glow on the space above it.  “ ” indicates ambient
+(“^” indicates a golden glow on the space above it.  “ ” indicates ambient
 lighting.  “#” indicates a leaden gloom.)
 
 There is room to engrave seven more rows of text.
@@ -3351,7 +3351,7 @@ You carve “'” into the plinth.
        | '               |
        | #      ^      ^ |
 
-(“^” Indicates a golden glow on the space above it.  “ ” indicates ambient
+(“^” indicates a golden glow on the space above it.  “ ” indicates ambient
 lighting.  “#” indicates a leaden gloom.)
 
 There is room to engrave six more rows of text.
@@ -3362,7 +3362,7 @@ You carve “'” into the plinth.
        | '               |
        | #      ^      ^ |
 
-(“^” Indicates a golden glow on the space above it.  “ ” indicates ambient
+(“^” indicates a golden glow on the space above it.  “ ” indicates ambient
 lighting.  “#” indicates a leaden gloom.)
 
 There is room to engrave five more rows of text.
@@ -3373,7 +3373,7 @@ You carve “'” into the plinth.
        | '               |
        | #      ^      ^ |
 
-(“^” Indicates a golden glow on the space above it.  “ ” indicates ambient
+(“^” indicates a golden glow on the space above it.  “ ” indicates ambient
 lighting.  “#” indicates a leaden gloom.)
 
 There is room to engrave four more rows of text.
@@ -3384,7 +3384,7 @@ You carve “'” into the plinth.
        | '               |
        | #      ^      ^ |
 
-(“^” Indicates a golden glow on the space above it.  “ ” indicates ambient
+(“^” indicates a golden glow on the space above it.  “ ” indicates ambient
 lighting.  “#” indicates a leaden gloom.)
 
 There is room to engrave three more rows of text.
@@ -3395,7 +3395,7 @@ You carve “'” into the plinth.
        | '               |
        | #      ^      ^ |
 
-(“^” Indicates a golden glow on the space above it.  “ ” indicates ambient
+(“^” indicates a golden glow on the space above it.  “ ” indicates ambient
 lighting.  “#” indicates a leaden gloom.)
 
 There is room to engrave two more rows of text.
@@ -3406,7 +3406,7 @@ You carve “'” into the plinth.
        | '               |
        | #      ^      ^ |
 
-(“^” Indicates a golden glow on the space above it.  “ ” indicates ambient
+(“^” indicates a golden glow on the space above it.  “ ” indicates ambient
 lighting.  “#” indicates a leaden gloom.)
 
 There is room to engrave one more row of text.
@@ -3417,7 +3417,7 @@ You carve “'” into the plinth.
        | '               |
        | #      ^      ^ |
 
-(“^” Indicates a golden glow on the space above it.  “ ” indicates ambient
+(“^” indicates a golden glow on the space above it.  “ ” indicates ambient
 lighting.  “#” indicates a leaden gloom.)
 
 >x plinth
@@ -3511,9 +3511,9 @@ You see a plate here.
 The air above the basin shimmers for a moment, then rises and drifts through
 the window.  All is quiet.  You wait with bated breath.
 
-You hear footsteps behind you.  Turning around, you see a woman exiting the
-studio.  She is wearing a colorful chiton, a pearl necklace, and a gold ring.
-She looks remarkably like your statue.
+You hear footsteps behind you.  Turning around, you see a woman emerging from
+the studio.  She is wearing a colorful chiton, a pearl necklace, and a gold
+ring.  She looks remarkably like your statue.
 
 “Hello, world,” she says.  “It’s nice to be alive at last!  Hello, dearest
 Pygmentalion.”
@@ -3547,9 +3547,9 @@ Closed.
 The air above the basin shimmers for a moment, then rises and drifts through
 the window.  All is quiet.  You wait with bated breath.
 
-You hear the door opening behind you.  Turning around, you see a woman exiting
-the studio.  She is wearing a colorful chiton, a pearl necklace, and a gold
-ring.  She looks remarkably like your statue.
+You hear the door opening behind you.  Turning around, you see a woman emerging
+from the studio.  She is wearing a colorful chiton, a pearl necklace, and a
+gold ring.  She looks remarkably like your statue.
 
 “Hello, world,” she says.  “It’s nice to be alive at last!  Hello, dearest
 Pygmentalion.”
@@ -3584,8 +3584,8 @@ The air above the basin shimmers for a moment, then rises and drifts through
 the window.  All is quiet.  You wait with bated breath.
 
 You hear the door being unlocked behind you.  Turning around, you see a woman
-exiting the studio.  She is wearing a colorful chiton, a pearl necklace, and a
-gold ring.  She looks remarkably like your statue.
+emerging from the studio.  She is wearing a colorful chiton, a pearl necklace,
+and a gold ring.  She looks remarkably like your statue.
 
 “Hello, world,” she says.  “It’s nice to be alive at last!  Hello, dearest
 Pygmentalion.”

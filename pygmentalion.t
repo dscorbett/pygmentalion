@@ -822,6 +822,7 @@ workbenchRoom: Room 'At the Workbench'
     'bench/workbench' 'workbench'
     "Your workbench is usually scattered with tools and materials and
     half-finished projects. "
+    bulkCapacity = 30
     descContentsLister: surfaceDescContentsLister
     {
         showListPrefixWide(itemCount, pov, parent)
@@ -977,7 +978,7 @@ workbenchRoom: Room 'At the Workbench'
         Footer = '</pre><<inscriptionFooter>>'
     }
     inscriptionFooter =
-        '<<if readyToCarve>><.notification><<unless
+        '<<if readyToCarve>><.notification>\v<<unless
             gridIsStoichedon>><q><<blankChar>></q> in a text row represents a
             space left intentionally blank. <<end
             >><q><tt><<goldIndicator>></tt></q> indicates a golden glow on the
@@ -1042,12 +1043,10 @@ workbenchRoom: Room 'At the Workbench'
             for (local i in 1 .. catchphrase.length - 1)
             {
                 if (isVowel(catchphraseU[i])) continue;
-                local n = !isVowel(catchphraseU[i]) ? i
-                    : catchphrase.find(catchphrase.substr(i, 1), i + 1);
-                if (n && catchphrase.find(catchphrase.substr(i, 1), n + 1))
+                if (catchphrase.find(catchphrase.substr(i, 1), i + 1))
                     isBarelyAcceptable = true;
             }
-        } while (retries-- && isBarelyAcceptable
+        } while (retries-- > 0 && isBarelyAcceptable
             || catchphrase.length > stoich);
         return pad(catchphrase);
     }
@@ -1471,7 +1470,7 @@ goldNugget: Thing '(large) material/nugget*materials' 'gold nugget' @workbench
 ring: Wearable '(finger) daktylios/ring' 'gold ring'
     "It is a finger ring, or daktylios, made of gold. "
     materialWord = 'gold' 'golden' 'metal'
-    bulk = 0
+    bulk = goldNugget.bulk
     dobjFor(PutOn)
     {
         action
@@ -4359,9 +4358,10 @@ DefineLiteralAction(Say)
                     bated breath.\b
                     You hear <<if door.isOpen()>>footsteps<<else>>the door <<if
                     door.isLocked>>being unlocked<<else>>opening<<end>><<end>>
-                    behind you. Turning around, you see a woman exiting the
-                    studio. She is wearing a colorful chiton, a pearl necklace,
-                    and a gold ring. She looks remarkably like your statue.\b
+                    behind you. Turning around, you see a woman emerging from
+                    the studio. She is wearing a colorful chiton, a pearl
+                    necklace, and a gold ring. She looks remarkably like your
+                    statue.\b
                     <q>Hello, world,</q> she says. <q>It&rsquo;s nice to be
                     alive at last! Hello, dearest Pygmentalion.</q>\b
                     Ah, what beauty! What mastery of syntax! Praise be to
@@ -4372,22 +4372,24 @@ DefineLiteralAction(Say)
             }
             else
                 "Nothing happens. <<if keywordToken.scoreCount>>(Aphrodite said
-                {you/he} would need a mirror.<<if gActor.canSee(sinkWater) &&
-                sink.level >= 15000>> {You/He} peer{s} at the water in the
+                {you/he} would need a mirror<<if gActor.canSee(sinkWater) &&
+                sink.level >= 15000>>. {You/He} peer{s} at the water in the
                 sink, but {you/he} see{s} no more than a vague and shadowy
-                silhouette. The angle of incidence is too steep.<<end>>) ";
+                silhouette. The angle of incidence is too steep<<end>>.) ";
         }
     }
 ;
 
+#define SayVerbList ('say' | 'shout' | 'speak')
+
 VerbRule(Say)
-    ('say' | 'shout') singleLiteral
+    SayVerbList singleLiteral
     : SayAction
     verbPhrase = 'say/saying (what)'
 ;
 
 VerbRule(SayTo)
-    ('say' | 'shout') singleLiteral ('at' | 'to') singleIobj
+    SayVerbList singleLiteral ('at' | 'to') singleIobj
     : SayAction
     verbPhrase = 'say/saying (what) (to what)'
 ;
@@ -4726,7 +4728,7 @@ greekWordGenerator: PreinitObject
         do
         {
             word = mutate(randomProtoWord);
-        } while (retries-- && isBarelyAcceptable(word)
+        } while (retries-- > 0 && isBarelyAcceptable(word)
             || isUnacceptable(word));
         addWord(word, arrheta);
         return word;

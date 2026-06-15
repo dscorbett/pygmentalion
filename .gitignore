@@ -16,6 +16,7 @@
 /.system/
 /logs/
 /obj-*/
+*.glksave
 *.html
 *.pygm
 *.t3
