@@ -4318,11 +4318,14 @@ DefineLiteralAction(Say)
                      *   Qui leᷣ ot ayꝺıe mieulx q̄ nulz.
                      *      (MS. Douce 195, fol. 151v–152r)
                      */
-                    "The air above the basin shimmers for a moment. You hear
-                    <<if door.isOpen()>>footsteps<<else>>the door <<if
+                    "The air above the basin shimmers for a moment, then rises
+                    and drifts through the window. All is quiet. You wait with
+                    bated breath.\b
+                    You hear <<if door.isOpen()>>footsteps<<else>>the door <<if
                     door.isLocked>>being unlocked<<else>>opening<<end>><<end>>
-                    behind you. Turning around, you see a
-                    woman who looks remarkably like your statue.\b
+                    behind you. Turning around, you see a woman exiting the
+                    studio. She is wearing a colorful chiton, a pearl necklace,
+                    and a gold ring. She looks remarkably like your statue.\b
                     <q>Hello, world,</q> she says. <q>It&rsquo;s nice to be
                     alive at last! Hello, dearest Pygmentalion.</q>\b
                     Ah, what beauty! What mastery of syntax! Praise be to
