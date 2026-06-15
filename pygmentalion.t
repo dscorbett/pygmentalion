@@ -2877,8 +2877,17 @@ transient iris: Deity
 #ifdef TADS_INCLUDE_NET
         return 25;
 #else
+        // An interpreter that does not support banners is probably FrobTADS
+        // with the plain screen interface, which sets `G_os_pagelength = 24`.
+        // Up to 11 of those lines are taken by surrounding prose and input
+        // prompts.
         if (!systemInfo(SysInfoBanners))
             return 13;
+        // Messing with banners makes Gargoyle (new versions of which use
+        // GlkTADS) lose track of the correct scroll position. 25 is the
+        // default `rows` value in garglk.ini.
+        if (systemInfo(SysInfoOsName) == 'GlkTADS')
+            return 25;
         local probe = bannerCreate(nil, BannerAfter, statuslineBanner.handle_,
             BannerTypeText, BannerAlignTop, 100, BannerSizePercent, 0);
         local height = min(100, max(10, bannerGetInfo(probe)[3] - 12));
