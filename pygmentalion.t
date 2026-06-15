@@ -333,7 +333,9 @@ externalLink(href, txt)
 
 iOrQ(txt)
 {
-    local element = outputManager.htmlMode ? 'i' : 'q';
+    local element = outputManager.htmlMode || systemInfo(SysInfoInterpClass)
+        is in (SysInfoIClassTextGUI, SysInfoIClassHTML)
+        ? 'i' : 'q';
     return '\x3C<<element>>><<txt>></<<element>>>';
 }
 
