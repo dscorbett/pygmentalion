@@ -923,9 +923,21 @@ workbenchRoom: Room 'At the Workbench'
     propertyset '*Indicator'
     {
         gold = '<<goldBefore>>^<<goldAfter>>'
-        blank = '<<blankBefore>>&nbsp;<<blankAfter>>'
+        blank = '<<blankBefore>><<blankChar>><<blankAfter>>'
         lead = '<<leadBefore>>#<<leadAfter>>'
     }
+    blankChar = (blankChar = gridIsStoichedon ? '\u00A0' : '<b>v.\uFEFF</b>')
+    gridIsStoichedon =
+#ifdef TADS_INCLUDE_NET
+        true
+#else
+        // Spatterlight and XTads do not support monospaced text.
+        (gridIsStoichedon = !(
+            systemInfo(SysInfoOsName) == 'Spatterlight'
+            || systemInfo(SysInfoInterpClass) == SysInfoIClassHTML
+            && systemInfo(SysInfoOsName) == 'POSIX_UNIX_MSWINDOWS'
+        ))
+#endif
     grid
     {
         local tagPat = R'<NoCase><langle>/(font)<rangle><langle>%1
@@ -933,7 +945,7 @@ workbenchRoom: Room 'At the Workbench'
         return inscription.mapAll({stoichos:
             '<div></div>\t\t| <<if readyToCarve>><<
             stoichos.findReplace(R'.', function(match, index) {
-                local c = match == ' ' ? '\u00A0' :
+                local c = match == ' ' ? blankChar :
                     match == '-' ? '\uFEFF-' : match;
                 if (match == catchphrase.substr(index, 1))
                     return '<<goldBefore>><<c>><<goldAfter>>';
@@ -973,9 +985,13 @@ workbenchRoom: Room 'At the Workbench'
         Footer = '</pre><<inscriptionFooter>>'
     }
     inscriptionFooter =
-        '<<if readyToCarve>><.notification><q><tt><<goldIndicator>></tt></q>
-            indicates a golden glow on the space above it.
-            <q><tt><<blankIndicator>></tt></q> indicates ambient lighting.
+        '<<if readyToCarve>><.notification><<unless
+            gridIsStoichedon>><q><<blankChar>></q> in a text row represents a
+            space left intentionally blank. <<end
+            >><q><tt><<goldIndicator>></tt></q> indicates a golden glow on the
+            space above it.
+            <q><tt><<blankIndicator>></tt></q> <<unless gridIsStoichedon>>in a
+            light row <<end>>indicates ambient lighting.
             <q><tt><<leadIndicator>></tt></q> indicates a leaden
             gloom.<./notification><<
             if inscription.length < stoich
