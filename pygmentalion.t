@@ -933,11 +933,13 @@ workbenchRoom: Room 'At the Workbench'
         return inscription.mapAll({stoichos:
             '<div></div>\t\t| <<if readyToCarve>><<
             stoichos.findReplace(R'.', function(match, index) {
+                local c = match == ' ' ? '\u00A0' :
+                    match == '-' ? '\uFEFF-' : match;
                 if (match == catchphrase.substr(index, 1))
-                    return '<<goldBefore>><<match>></goldAfter>';
+                    return '<<goldBefore>><<c>><<goldAfter>>';
                 else if (catchphrase.find(match))
-                    return '<<blankBefore>><<match>></blankAfter>';
-                else return '<<leadBefore>><<match>></leadAfter>';
+                    return '<<blankBefore>><<c>><<blankAfter>>';
+                else return '<<leadBefore>><<c>><<leadAfter>>';
             }).findReplace(tagPat, '')>><<else>><<stoichos>><<end>>
             |<<if readyToCarve>>\n<<
             >>\t\t| <<stoichos.findReplace(R'.', function(match, index) {
