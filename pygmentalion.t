@@ -928,18 +928,8 @@ workbenchRoom: Room 'At the Workbench'
         blank = '<<blankBefore>><<blankChar>><<blankAfter>>'
         lead = '<<leadBefore>>#<<leadAfter>>'
     }
-    blankChar = (blankChar = gridIsStoichedon ? '\u00A0' : '<b>v.\uFEFF</b>')
-    gridIsStoichedon =
-#ifdef TADS_INCLUDE_NET
-        true
-#else
-        // Spatterlight and XTads do not support monospaced text.
-        (gridIsStoichedon = !(
-            systemInfo(SysInfoOsName) == 'Spatterlight'
-            || systemInfo(SysInfoInterpClass) == SysInfoIClassHTML
-            && systemInfo(SysInfoOsName) == 'POSIX_UNIX_MSWINDOWS'
-        ))
-#endif
+    blankChar = gridInfo.blankChar
+    gridIsStoichedon = gridInfo.isStoichedon
     grid
     {
         local tagPat = R'<NoCase><langle>/(font)<rangle><langle>%1
@@ -3731,6 +3721,21 @@ modify Thing
     {
         verify { illogical('{You/He} {cannot} carve with {that dobj/him}. '); }
     }
+;
+
+transient gridInfo: object
+    blankChar = (self.blankChar = isStoichedon ? '\u00A0' : '<b>v.\uFEFF</b>')
+    isStoichedon =
+#ifdef TADS_INCLUDE_NET
+        true
+#else
+        // Spatterlight and XTads do not support monospaced text.
+        (self.isStoichedon = !(
+            systemInfo(SysInfoOsName) == 'Spatterlight'
+            || systemInfo(SysInfoInterpClass) == SysInfoIClassHTML
+            && systemInfo(SysInfoOsName) == 'POSIX_UNIX_MSWINDOWS'
+        ))
+#endif
 ;
 
 /* Cleaning */
