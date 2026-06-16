@@ -13,20 +13,19 @@
 # limitations under the License.
 
 >credit
->license
+>licens
 >xyzzy
->c 1
->c 2
->c 3
->c 4
->c 5
->c 6
+>c 0
+>g
+>g
+>g
+>g
+>g
 >pray
->pray me
+>me
 >pray at god
->pray to god at god
->x god
->x all
+>laud god at god
+>x all,god
 >eat liver
 >x it
 >give god it
@@ -35,26 +34,24 @@
 >x box
 >l in it
 >n
->scream
->give me to her
+>yell
+>give her fur,gold,idol,me,tools
 >hug it
 >undo
->a it
+>ask it to z
 >kiss it
 >hit it
 >carve it
 >g
->put chisel on it
 >show her it
 >hit her with it
->give it bolt
 >peen it
 >sew it
->sew bolt with it
->throw chisel at it
+>sew fur with it
+>toss it at it
 >x bench,idol,it,materials,pearl,plinth,stool,tools
->sew bolt
->sew robe
+>sew fur
+>g
 >wear it
 >x it
 >carve x
@@ -62,13 +59,11 @@
 >carve plinth with it
 >carve plinth
 >carve chisel
->l
->get gold,idol,pearl
->x pearl
+>get pearl,stool
 >u
 >e
->x book,sink
->get key
+>x book,pearl,sink
+>get key,book,comb
 >s
 >break lock
 >break cage
@@ -76,77 +71,77 @@
 >break cage
 >undo
 >g
->x altar,cage,lock,window,window
+>x cage,lock,slab,window,window
 >nw
->x her
+>x her,me
 >se
 >put gold in cage
 >pray iris
->pray to altar
->pray
+>laud slab
+>pray it
 >g
 >put idol on it
->pray
+>pray it
 >g
->drink
->put it on altar
->pray
+>drink sea
+>put it on slab
+>pray slab
 >undo
 >g
 >g
->put sea on it
->pray
+>give it sea
+>pray it
 >undo
->put gold on it
->pray
->pray
->put pearl on it
->pray
+>give it gold
+>pray it
 >g
->give altar fur
->pray
+>give it pearl
+>pray it
+>g
+>give it fur
+>pray it
 >g
 >put iron in cage
 >x net
 >undo
->unlock cage with iron
->put iron in cage
+>unlock it with iron
+>put iron in it
 >x net
 >undo
 >l in net
 >undo
->open
+>open cage
 >x net
 >get tools,it
 >x hammers
 >put mallet in net
 >put net in cage
->hit it with ball
->hit ball with ball
+>hit net with peen
+>hit mallet with wood
 >hit chisel
 >hit it with me
->hit it with mallet
+>hit it with wood
 >put net in cage
 >get it,cage
 >put net in cage
 >n
->c not 0
+>c!0
 >put gold in sink
 >undo
->undo
+>g
 >w
->peen gold
+>hit gold with peen
 >undo
 >e
->peen gold
+>hit gold with peen
 >w
->x ring
->give her it
->x her
+>give her ring
+>x her,it
+>l
 >get ring
 >se
->give altar it
->pray
+>give slab it
+>pray slab
 >g
 >get all
 >x bronze
@@ -157,44 +152,42 @@
 >g
 >break it
 >unlock it with bronze
->get plate
+>get clay
 >s
->get all
->x bath,column,door,doorpost
->drop plate
+>x bath,column,door,namepl
+>drop clay
 >x plate
 >n
 >ne
 >pour sea
 >pour it in it
 >pour it in sink
->drink
+>drink sea
 >g
 >taste it
 >pour it
 >pour it in it
 >pour it in sink
 >undo
->x it
->x comb,sink,table,table
+>x comb,it,side,side,sink
 >wash me
 >x iron key
 >put it,idol,needle,sea in sink
->turn sink on
->turn it off
+>activa sink
+>deacti it
 >turn water on
 >c
->c inverse 0
+>c~0
 >drink water
 >drink sink water
->c 3 and 6
+>c 3&6
 >drink sink water
->pour water in it
+>pour sea in it
 >undo
->wash iron in sink
->wash it
+>wash iron key in sink
+>wash iron key
 >x sink
->c /
+>c/
 >c 1/0
 >pour sea in sink
 >undo
@@ -222,8 +215,8 @@
 >n
 >ne
 >c 1/0
->c 1000 minus 1
->c 10000 lshr 0
+>c 1 minus 0
+>c 10000>>>0
 >x sink
 >c 1/0
 >sw
@@ -244,17 +237,17 @@
 >s
 >get bird
 >undo
->undo
->undo
+>g
+>g
 >s
 >show bird bird
->show it sea
 >get bird
+>show it sea
 >hit it
 >wash it
 >x bath,it
 >pour sea in bath
->drink it
+>drink bottle
 >pour it
 >pour it in bath water
 >pour it on bath
@@ -270,7 +263,7 @@
 >n
 >ne
 >c 1/0
->c 10000 shl 1
+>c 9999 shl 1
 >x sink
 >c 1/0
 >sw
@@ -281,20 +274,20 @@
 >n
 >ne
 >c 1/0
->c 20000 or 20
+>c 20020|0
 >c 42880/2
 >c 37280 shr 0
->get needle
+>get tools
 >c 999999999*9
 >x sink
->turn it on
->turn it off
->turn water off
+>activa it
+>deacti it
+>deacti water
 >x water
 >floor
 >sw
 >x water
->wash iron with it
+>wash iron key with it
 >ne
 >c 1/0
 >sw
@@ -302,7 +295,7 @@
 >x water
 >floor
 >x bath
->get sea
+>get plate,sea
 >n
 >ne
 >c 1/0
@@ -310,7 +303,9 @@
 >pour sea in sink
 >undo
 >g
->c 555620000 xor 0
+>c +20000
+>c -0
+>c 556200000^0
 >c 40*400
 >drink floor water
 >x it
@@ -323,20 +318,20 @@
 >hug it
 >g
 >say a
->blephthe
+>teios
 >e
 >c 1/0
 >sw
 >u
 >put cage on bed
 >put net in cage
->get bed,net,bed
+>get bed,net,all
 >x net
 >s
->blephthe
+>teios
 >wash it in bath
 >show bird it
->throw it at bird
+>toss it at bird
 >put bird in it
 >drop it
 >undo
@@ -345,13 +340,13 @@
 >put bird on bed
 >drop bed
 >undo
->undo
+>g
 >n
 >ne
 >c 1/0
 >sw
 >s
->blephthe
+>teios
 >drop bird
 >undo
 >drop net
@@ -359,12 +354,12 @@
 >put bird on bed
 >drop bed
 >undo
->undo
+>g
 >n
 >put bird on bed
 >drop bed
 >undo
->undo
+>g
 >ne
 >c 1/0
 >sw
@@ -380,7 +375,7 @@
 >put bird on bed
 >drop bed
 >undo
->undo
+>g
 >n
 >c 1/0
 >c 2X10001
@@ -389,15 +384,15 @@
 >drop it
 >undo
 >show bird net
->drop it
+>drop net
 >undo
->blephthe
+>teios
 >pour sea in sink
 >put needle,net in it
 >put floor water in it
 >put sink water in it
 >x it
->drink
+>drink sea
 >taste it
 >c 1/0
 >sw
@@ -418,14 +413,13 @@
 >help
 >instru
 >y
->x me
->blephthe
+>teios
 >n
 >put bird in cage
 >drop cage
 >s
 >s
->blephthe
+>teios
 >n
 >drop mallet
 >n
@@ -442,8 +436,7 @@
 >carve 123456789012345
 >carve à
 >carve ''
->carve
->'
+>carve '
 >g
 >g
 >g
@@ -456,18 +449,18 @@
 >g
 >g
 >x plinth
->carve chnieus peumox
+>carve gnoio kybrys
 >se
->pray
+>pray slab
 >w
 >s
->blephthe
+>teios
 >u
->close
->blephthe
+>shut door
+>teios
 >u
->lock door with clean
->blephthe
+>lock door with bronze
+>teios
 >f
 >q
 >y

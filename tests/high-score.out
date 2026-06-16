@@ -94,90 +94,25 @@ of the studio lies north and west.
 
 A pole sticks out of a wicker cage and leans ithyphallically against the wall.
 
->x all,all
-stool: It’s a portable folding stool, or diphros okladias.
-
-gold nugget: It is a large nugget of gold that sparkles in the light.  You
-haven’t decided what to make it into yet.
-
-bolts of cloth: Bolts of rich cloth – silk, wool, and furs – are stacked in
-many colors.
-
-needle: This is a sharp tool used for sewing.  It is made of silver.
-chisel: This is a sharp tool used for carving.
-
-idol: It’s a small statuette of Aphrodite carved from meerschaum.
-
-string of pearls: This necklace of countless fine seed pearls is the latest
-ornament with which you have adorned the statue, another attempt to express
-your feelings through gifts.
-
-iron key: It is an iron key.  It is covered in grime from the drain of the
-sink.
-
-altar: A rough marble slab lies on a granite banker.  In your rush to construct
-an altar, you neglected the usual surface finish and friezes, but you pray at
-it anyway.  You are sure the gods will understand.
-
+>x window,net,window
 window: It’s just a window above the altar.  The space under the window is
 blank; as an interior [[decorator]], you can’t help but think the wall would
 benefit from a fresco, but – sigh – you are too lovelorn to wield the brush.
-
-wicker cage: It’s a knee-high wicker cage with an iron padlock.  It’s closed.
-It’s currently locked.
-
-A pole sticks out through the bars and leans ithyphallically against the wall.
 
 pole: It is a [[long]] wooden pole with a bag attached to the end inside the
 wicker cage.  This versatile tool can be used as a quarterstaff, butterfly net,
 pool net, or walking stick.  There is something bulky in the bag, but you can’t
 see what it is.
 
-stool: It’s a portable folding stool, or diphros okladias.
-
-gold nugget: It is a large nugget of gold that sparkles in the light.  You
-haven’t decided what to make it into yet.
-
-bolts of cloth: Bolts of rich cloth – silk, wool, and furs – are stacked in
-many colors.
-
-needle: This is a sharp tool used for sewing.  It is made of silver.
-chisel: This is a sharp tool used for carving.
-
-idol: It’s a small statuette of Aphrodite carved from meerschaum.
-
-string of pearls: This necklace of countless fine seed pearls is the latest
-ornament with which you have adorned the statue, another attempt to express
-your feelings through gifts.
-
-iron key: It is an iron key.  It is covered in grime from the drain of the
-sink.
-
-altar: A rough marble slab lies on a granite banker.  In your rush to construct
-an altar, you neglected the usual surface finish and friezes, but you pray at
-it anyway.  You are sure the gods will understand.
-
 window: It’s just a window above the altar.  The wall right below it is a
 boring [[white space]].
 
-wicker cage: It’s a knee-high wicker cage with an iron padlock.  It’s closed.
-It’s currently locked.
-
-The pole of a net sticks out through the bars and leans ithyphallically against
-the wall.
-
-pole: It is a long wooden pole with a bag attached to the end inside the wicker
-cage.  This versatile tool can be used as a quarterstaff, butterfly net, pool
-net, or walking stick.  There is something bulky in the bag, but you can’t see
-what it is.
-
 (Your score has just increased by three points.)
 
->put idol on altar
+>give slab idol
 Done.
 
->pray
-(at the altar)
+>pray it
 “O Aphrodite,” you say, “comforter of hopeless lovers, hear my prayer!  May she
 to whom I have given my heart be given body, soul, and life.  And a colorful
 personality.  And—”
@@ -196,28 +131,25 @@ you.”
 (Your score has just increased by one point.)
 
 >g
-(at the altar)
 Aphrodite reappears.  She eyes the idol skeptically.  “No [[comment]].”
 
 (Your score has just increased by one point.)
 
->put pearls on altar
+>give slab pearl
 (first taking the idol from the altar)
 Done.
 
->pray
-(at the altar)
+>pray it
 Aphrodite reappears.  “A string of pearls is a good start.”  The string of
 pearls disappears in a bright flash.
 
->sew bolt
+>sew fur
 You sew the bolts of cloth into a colorful chiton.
 
->give altar robe
+>give slab fur
 Done.
 
->pray
-(at the altar)
+>pray it
 Aphrodite reappears.  “Passion imbues this chiton.  I am almost convinced.”
 The chiton disappears in a bright flash.
 
@@ -228,26 +160,22 @@ Opened.
 
 net: The net contains a mallet and a ball-peen hammer.
 
->get tools,net,cage
-net: The ball-peen hammer is too big for the bag to fit through the bars.
-
+>get hammers,net,cage
 ball-peen hammer: Taken.
 mallet: Taken.
 net: The net slips through the bars.
 wicker cage: Taken.
 
->peen gold
-(with the ball-peen hammer)
+>hit gold with peen
 What should you make it into?  You can’t quite put your finger on it... that’s
 it!  You beat the gold nugget with the ball-peen hammer and shape it into a
 finger ring.  You hold it up and through it see your statue inaureoled across
 the studio.
 
->give altar ring
+>give slab ring
 Done.
 
->pray
-(at the altar)
+>pray it
 Aphrodite reappears.
 
 “A gold ring!  Perfect!  With tokens like these, this must be true love.  Oh,
@@ -272,55 +200,17 @@ On the side table are a manual and a comb.
 The calculator outputs +20000 = 20000.  Water flows from the faucet, filling
 the sink.
 
->put all in sink
-stool: The stool would get wet.
-
-needle: Done.
-
-chisel: The chisel would get wet.
-
-iron key: You clean the iron key.
-idol: Done.
-
-ball-peen hammer: The ball-peen hammer would get wet.
-
-mallet: The mallet would get wet.
-
-net: The net would get wet.
-
-wicker cage: The wicker cage would get wet.
-
+>put bronze,idol in sink
 bronze key: You clean the bronze key, revealing a [[label]].
 
-manual: The manual would get wet.
-
-comb: The comb would get wet.
+idol: Done.
 
 (Your score has just increased by one point.)
 
->x all
-stool: It’s a portable folding stool, or diphros okladias.
-chisel: This is a sharp tool used for carving.
-
-iron key: It is an iron key.
-
-ball-peen hammer: It’s a hammer used for shaping and hardening metal.
-
-mallet: It’s a wooden hammer with a large head, used to strike a chisel.
-
-net: It is a long wooden pole with a bag attached to one end.  This versatile
-tool can be used as a quarterstaff, butterfly net, pool net, or walking stick.
-
-wicker cage: It’s a knee-high wicker cage with an iron padlock.  It’s open.
-
-bronze key: It is a bronze key.  On it is etched the word “rhimon”.
-
+>x addon,book,clean,sink
 calculator: The calculator is [[built in]]to the wall beside the sink.  It has
 buttons for all the standard unary and binary operations.  The screen reads
 +20000 = 20000.
-
-side table: Upon closer inspection, you see that the table is bracketed to the
-wall.  On the side table are a manual and a comb.
 
 manual: [[Operator]]’s Manual
 
@@ -347,7 +237,7 @@ to fill the sink with 7,245 kochliaria.
 
 Warning: Do not use big [[number]]s or divide by zero!
 
-comb: It’s a tool to keep your hair tidy.
+bronze key: It is a bronze key.  On it is etched the word “rhimon”.
 
 sink: This is a state-of-the-art mop sink with anti-miasmic coating and bronze
 backsplash.  It is so modern, there are no handles or other obvious ways to
@@ -355,11 +245,7 @@ turn it on.
 
 It is full to the brim with water.
 
-A needle and an idol are [[float]]ing on the surface of the water.
-
-needle: This is a sharp tool used for sewing.  It is made of silver.
-
-idol: It’s a small statuette of Aphrodite carved from meerschaum.
+An idol is [[float]]ing on the surface of the water.
 
 (Your score has just increased by four points.)
 
@@ -416,14 +302,13 @@ outside, and the studio itself is to the north and the east.
 You see a camp bed and an end table (on which are a bottle of wine, a plate of
 chopped liver, and a coin box) here.
 
->s
-(first trying to open the door)
+>open door
 The door is locked.  In your distracted state, you must have misplaced the key.
 You cannot [[escape]]!
 
 (Your score has just increased by one point.)
 
->unlock door with bronze
+>unlock door with clean
 Unlocked.
 
 >s

@@ -18,34 +18,33 @@
 >x sink
 >get key
 >s
->give altar pearl
->pray
+>give slab pearl
+>pray it
 >g
->sew bolt
->give altar robe
->pray
+>sew fur
+>give slab robe
+>pray it
 >open cage,net
->get tools,net,cage
->peen gold
->give altar ring
->pray
+>get hammers,net,cage
+>hit gold with peen
+>give slab ring
+>pray it
 >get key
 >n
 >c +20000
 >wash it
 >c 1/0
 >w
->x plinth
->carve bleuoi griknys
+>x it,plinth
+>carve pnoichli deios
 >s
->unlock door with bronze
->x it
+>unlock door with clean
 >s
 >put bird in net
->put it in cage
+>put bird in cage
 >n
 >drop cage
 >s
->kloudix
+>rhimon
 >q
 >y

@@ -78,11 +78,10 @@ of the studio lies north and west.
 
 A pole sticks out of a wicker cage and leans ithyphallically against the wall.
 
->give altar pearl
+>give slab pearl
 Done.
 
->pray
-(at the altar)
+>pray it
 “O Aphrodite,” you say, “comforter of hopeless lovers, hear my prayer!  May she
 to whom I have given my heart be given body, soul, and life.  And a colorful
 personality.  And—”
@@ -101,18 +100,16 @@ you.”
 (Your score has just increased by one point.)
 
 >g
-(at the altar)
 Aphrodite reappears.  “A string of pearls is a good start.”  The string of
 pearls disappears in a bright flash.
 
->sew bolt
+>sew fur
 You sew the bolts of cloth into a colorful chiton.
 
->give altar robe
+>give slab robe
 Done.
 
->pray
-(at the altar)
+>pray it
 Aphrodite reappears.  “Passion imbues this chiton.  I am almost convinced.”
 The chiton disappears in a bright flash.
 
@@ -124,26 +121,22 @@ Opened.
 pole: At one end of the pole is a bag.  The net contains a mallet and a ball-
 peen hammer.
 
->get tools,net,cage
-net: The ball-peen hammer is too big for the bag to fit through the bars.
-
+>get hammers,net,cage
 ball-peen hammer: Taken.
 mallet: Taken.
 net: The net slips through the bars.
 wicker cage: Taken.
 
->peen gold
-(with the ball-peen hammer)
+>hit gold with peen
 What should you make it into?  You can’t quite put your finger on it... that’s
 it!  You beat the gold nugget with the ball-peen hammer and shape it into a
 finger ring.  You hold it up and through it see your statue inaureoled across
 the studio.
 
->give altar ring
+>give slab ring
 Done.
 
->pray
-(at the altar)
+>pray it
 Aphrodite reappears.
 
 “A gold ring!  Perfect!  With tokens like these, this must be true love.  Oh,
@@ -187,28 +180,30 @@ dress her up, ply her with gifts, and lament your hopeless situation.
 
 The statue stands on a plinth beside the workbench.
 
->x plinth
-It’s a smoothed block of marble.  An inscription has been carved into it.  As
-you look more closely, you notice that some of the letters catch the light
-differently.  Depending on their shapes and positions, some are highlighted in
-a golden glow, some are shrouded in a leaden gloom, and the rest aren’t lit in
-any particularly notable way.  The inscription reads:
+>x it,plinth
+bronze key: It is a bronze key.  On it is etched the word “rhimon”.
+
+plinth: It’s a smoothed block of marble.  An inscription has been carved into
+it.  As you look more closely, you notice that some of the letters catch the
+light differently.  Depending on their shapes and positions, some are
+highlighted in a golden glow, some are shrouded in a leaden gloom, and the rest
+aren’t lit in any particularly notable way.  The inscription reads:
 
        | UNTITLED STATUE |
-       |   # #  #  ###   |
+       | #^#^#   ^ ####  |
        | PYGMENTALION    |
-       | #  #  ## ^ ^  ^ |
+       | ^###  ##      ^ |
 
 (“^” indicates a golden glow on the space above it.  “ ” indicates ambient
 lighting.  “#” indicates a leaden gloom.)
 
 There is room to engrave thirteen more rows of text.
 
->carve bleuoi griknys
-You carve “BLEUOI GRIKNYS” into the plinth.  The whole line is highlighted in
+>carve pnoichli deios
+You carve “PNOICHLI DEIOS” into the plinth.  The whole line is highlighted in
 gold.  How lovely!
 
-       | BLEUOI GRIKNYS  |
+       | PNOICHLI DEIOS  |
        | ^^^^^^^^^^^^^^^ |
 
 (“^” indicates a golden glow on the space above it.  “ ” indicates ambient
@@ -226,12 +221,8 @@ outside, and the studio itself is to the north and the east.
 You see a camp bed and an end table (on which are a bottle of wine, a plate of
 chopped liver, and a coin box) here.
 
->unlock door with bronze
+>unlock door with clean
 Unlocked.
-
->x it
-(the bronze key)
-It is a bronze key.  On it is etched the word “kloudix”.
 
 >s
 (first opening the door)
@@ -249,8 +240,7 @@ alighting on the side of it opposite you.
 >put bird in net
 You swipe at the bird and catch it in the net.
 
->put it in cage
-(the bird)
+>put bird in cage
 You put the bird in the wicker cage, closing the lid quickly so it can’t
 escape.
 
@@ -273,7 +263,7 @@ Columns line the portico stretching east and west, and steps lead down to the
 south.  The door leads back in, and beside the door is a basin full of water.
 A nameplate is affixed to the doorpost.
 
->kloudix
+>rhimon
 The air above the basin shimmers for a moment, then rises and drifts through
 the window.  All is quiet.  You wait with bated breath.
 
@@ -288,7 +278,7 @@ Ah, what beauty!  What mastery of syntax!  Praise be to Aphrodite!
 
 *** YOU HAVE WON ***
 
-In 35 moves, you have scored 5 of a possible 15 points.
+In 34 moves, you have scored 5 of a possible 15 points.
 
 Would you like to RESTORE a saved position, RESTART the story, UNDO the last
 move, see your FULL SCORE, or QUIT?

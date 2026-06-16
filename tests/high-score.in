@@ -19,32 +19,32 @@
 >x sink
 >get key
 >s
->x all,all
->put idol on altar
->pray
+>x window,net,window
+>give slab idol
+>pray it
 >g
->put pearls on altar
->pray
->sew bolt
->give altar robe
->pray
+>give slab pearl
+>pray it
+>sew fur
+>give slab fur
+>pray it
 >open cage,net
->get tools,net,cage
->peen gold
->give altar ring
->pray
+>get hammers,net,cage
+>hit gold with peen
+>give slab ring
+>pray it
 >get key
 >n
 >c +20000
->put all in sink
->x all
+>put bronze,idol in sink
+>x addon,book,clean,sink
 >c 1/0
 >w
 >x plinth
 >carve pnoichli deios
 >s
->s
->unlock door with bronze
+>open door
+>unlock door with clean
 >s
 >put bird in net
 >put bird in cage
