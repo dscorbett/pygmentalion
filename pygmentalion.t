@@ -3541,7 +3541,7 @@ VerbRule(CarveLiteralInto)
 VerbRule(CarveLiteralWith)
     CarveVerbList singleLiteral 'with' singleIobj
     : CarveAction
-    verbPhrase = 'carve/carving (what) (with what)'
+    verbPhrase = 'carve/carving (what) (into what) (with what)'
     construct
     {
         dobjMatch = new EmptyNounPhraseProd;
@@ -3551,7 +3551,7 @@ VerbRule(CarveLiteralWith)
 VerbRule(CarveLiteral)
     CarveVerbList singleLiteral
     : CarveAction
-    verbPhrase = 'carve/carving (what) (with what)'
+    verbPhrase = 'carve/carving (what) (into what) (with what)'
     construct
     {
         dobjMatch = new EmptyNounPhraseProd;
@@ -3582,7 +3582,7 @@ VerbRule(CarveWithInto)
 VerbRule(CarveInto)
     CarveVerbList CarvePrepList singleDobj
     : CarveAction
-    verbPhrase = 'carve/carving (into what) (with what)'
+    verbPhrase = 'carve/carving (what) (into what) (with what)'
     construct
     {
         literalMatch = new EmptyLiteralPhraseProd;
@@ -3593,7 +3593,7 @@ VerbRule(CarveInto)
 VerbRule(CarveWith)
     CarveVerbList 'with' singleIobj
     : CarveAction
-    verbPhrase = 'carve/carving (what) (with what)'
+    verbPhrase = 'carve/carving (what) (into what) (with what)'
     construct
     {
         literalMatch = new EmptyLiteralPhraseProd;
@@ -3604,7 +3604,7 @@ VerbRule(CarveWith)
 VerbRule(CarveObjectWith)
     CarveVerbList singleDobj 'with' singleIobj
     : CarveAction
-    verbPhrase = 'carve/carving (what) (with what)'
+    verbPhrase = 'carve/carving (what) (into what) (with what)'
     construct
     {
         literalMatch = new EmptyLiteralPhraseProd;
@@ -3614,7 +3614,7 @@ VerbRule(CarveObjectWith)
 VerbRule(CarveObject)
     CarveVerbList singleDobj
     : CarveAction
-    verbPhrase = 'carve/carving (what) (with what)'
+    verbPhrase = 'carve/carving (what) (into what) (with what)'
     construct
     {
         literalMatch = new EmptyLiteralPhraseProd;
@@ -3712,7 +3712,7 @@ DefineLiteralTIAction(Carve, DirectObject)
     }
     whatObj(which)
     {
-        if (which == DirectObject)
+        if (which == whichMessageLiteral)
             return dobjList_ != nil && dobjList_.length > 0
                 ? 'what text'
                 : 'what object';
