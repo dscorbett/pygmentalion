@@ -85,6 +85,9 @@ Praying to yourself would make the gods jealous.
 >pray at god
 You need an altar to interact with a deity.
 
+>laud
+Who do you want to pray to?
+
 >laud god at god
 Aphrodite would not like to be prayed at as if she were an altar.
 
@@ -111,11 +114,17 @@ Aphrodite: A deity can only be interacted with through prayer.
 You eat all the liver.  The plate will be full again tomorrow morning though.
 Somehow, the liver always regenerates overnight.
 
+>carve x in it
+What do you want to carve it into?
+
 >x it
 It is empty, for now.  Painted on the clay are images of a hepatos, a glaukos,
 and other fish.
 
->give god it
+>give it
+What do you want to offer it to?
+
+>god
 She isn’t here.  You’ll have to leave the plate somewhere she can find it.
 
 >put sea in box
@@ -174,7 +183,10 @@ needle:
 (first taking the needle)
 What would she want with that?
 
->hug it
+>hug
+What do you want to hug?
+
+>it
 You hold the statue in your arms.  The ivory is cold, but as you linger in a
 loving embrace, you notice her hand feels different: it has the warmth and
 softness of real flesh.  The statue is finally coming to life!
@@ -182,7 +194,7 @@ softness of real flesh.  The statue is finally coming to life!
 Oh.  That was just your own hand.  Never mind.
 
 >undo
-Taking back one turn: “hug it”.
+Taking back one turn: “hug”.
 
 At the Workbench
 This workbench, in the northwest part of the studio, was where you would create
@@ -201,7 +213,10 @@ expecting; she never answers you.
 The statue is as stiff and cold as a post, you know from experience.  It would
 be more satisfying if she were alive.  Sorry, but it’s true.
 
->hit it
+>hit
+What do you want to strike?
+
+>it
 Where did that thought come from?  Even in the worst of your mood swings, you
 have never considered harming her.
 
@@ -216,6 +231,9 @@ from tinkering with perfection.
 
 >show her it
 The statue stares straight ahead with a smile on her lips.
+
+>carve x with chisel
+What object do you want to carve?
 
 >hit her with it
 Where did that thought come from?  Even in the worst of your mood swings, you
@@ -872,7 +890,10 @@ bronze key: Taken.
 >x bronze
 It is a grimy bronze key.
 
->wash it with me
+>wash with me
+What do you want to clean?
+
+>it
 You can’t clean anything with yourself.
 
 >w
@@ -1946,7 +1967,10 @@ Oh.  That was just your own hand.  Never mind.
 >g
 The statue is as stiff and cold as a post.
 
->say a
+>say
+What do you want to say?
+
+>a
 Nothing happens.
 
 >teios
@@ -3151,10 +3175,16 @@ lighting.  “#” indicates a leaden gloom.)
 
 There is room to engrave thirteen more rows of text.
 
->carve 1234567890123456
+>carve it with chisel
+What text do you want to carve?
+
+>1234567890123456
 That won’t all fit on one row.
 
->carve 123456789012345
+>carve in it
+What text do you want to carve into?
+
+>123456789012345
 You carve “123456789012345” into the plinth.  The whole line is shrouded in
 gloom.  How odious.
 
@@ -3166,13 +3196,22 @@ lighting.  “#” indicates a leaden gloom.)
 
 There is room to engrave twelve more rows of text.
 
->carve à
+>carve in it with chisel
+What text do you want to carve?
+
+>à
 You don’t know how to carve such esoteric characters.
 
->carve ''
+>carve with chisel in it
+What text do you want to carve?
+
+>''
 Nothing happens.
 
->carve '
+>carve with chisel
+What text do you want to carve?
+
+>'
 You carve “'” into the plinth.
 
        | '               |
