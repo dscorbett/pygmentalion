@@ -3486,7 +3486,8 @@ grammar miscTokenList:
     : EmptyLiteralPhraseProd
 ;
 
-#define CalculateVerbList ('c' | 'calculate' | 'enter' | 'eval' | 'evaluate')
+#define CalculateVerbList \
+    ('c' | 'calc' | 'calculate' | 'enter' | 'eval' | 'evaluate')
 VerbRule(Calculate)
     CalculateVerbList (()|(singleNumber|))
     (tokOp->literalMatch | '!'->literalMatch | 'x'->literalMatch)
