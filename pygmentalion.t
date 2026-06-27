@@ -1094,7 +1094,8 @@ workbenchRoom: Room 'At the Workbench'
             local stoichoi = grid.split('\n');
             if (padded == catchphrase)
                 "The whole line {is|was} highlighted in gold. How lovely! ";
-            else if (!stoichoi[stoichoi.length].find(blankBefore))
+            else if (!stoichoi[stoichoi.length].find(blankBefore)
+                && !stoichoi[stoichoi.length].find(goldBefore))
                 "The whole line {is|was} shrouded in gloom. How odious. ";
             "<pre><<stoichoi[stoichoi.length-1]>>\n<<stoichoi[stoichoi.length]
             >></pre><<unless firstTime>><<inscriptionFooter>>";
