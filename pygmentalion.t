@@ -936,7 +936,8 @@ workbenchRoom: Room 'At the Workbench'
         local tagPat = R'<NoCase><langle>/(font)<rangle><langle>%1
             <^rangle>*<rangle>';
         return inscription.mapAll({stoichos:
-            '<div></div>\t\t| <<if readyToCarve>><<
+            '<<if systemInfo(SysInfoOsName) != 'Spatterlight'>><div></div><<end
+            >>\t\t| <<if readyToCarve>><<
             stoichos.findReplace(R'.', function(match, index) {
                 local c = match == ' ' ? blankChar :
                     match == '-' ? '\uFEFF-' : match;
@@ -3739,11 +3740,11 @@ transient gridInfo: object
 #ifdef TADS_INCLUDE_NET
         true
 #else
-        // Spatterlight and XTads do not support monospaced text.
-        (self.isStoichedon = !(
-            systemInfo(SysInfoOsName) == 'Spatterlight'
-            || systemInfo(SysInfoInterpClass) == SysInfoIClassHTML
-            && systemInfo(SysInfoOsName) == 'POSIX_UNIX_MSWINDOWS'
+        // XTads and old Spatterlight versions do not support monospaced text.
+        (self.isStoichedon = systemInfo(SysInfoOsName) != (
+                systemInfo(SysInfoInterpClass) == SysInfoIClassHTML
+                ? 'POSIX_UNIX_MSWINDOWS'
+                : 'Spatterlight'
         ))
 #endif
 ;
